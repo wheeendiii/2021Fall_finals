@@ -2,6 +2,7 @@
 IS597 Spring 2021 Final Project
 Group members: Kangyang Wang, Wendy Zhu, and Kay Avila
 """
+import numpy as np
 import pandas as pd
 from typing import Union
 
@@ -25,8 +26,16 @@ def read_worlddb_gdp(filename: str, years: Union[list, None] = None, countries: 
     0     Afghanistan          AFG  ...  19291104007.6135  19807067268.1084
     1         Albania          ALB  ...  15286612572.6895  14799615097.1008
     2         Algeria          DZA  ...  171157803367.473  145163902228.168
-    3  American Samoa          ASM  ...         638000000                ..
-    4         Andorra          AND  ...  3155065487.51819                ..
+    3  American Samoa          ASM  ...         638000000               NaN
+    4         Andorra          AND  ...  3155065487.51819               NaN
+    [5 rows x 52 columns]
+    >>> df.tail()  # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
+                                       Country Name  ...              2020
+    261                          Sub-Saharan Africa  ...  1687597704644.75
+    262  Sub-Saharan Africa (excluding high income)  ...  1686475026320.97
+    263   Sub-Saharan Africa (IDA & IBRD countries)  ...  1687597704644.75
+    264                         Upper middle income  ...  23104877770162.5
+    265                                       World  ...  84577962952008.3
     [5 rows x 52 columns]
     """
 
@@ -45,9 +54,16 @@ def read_worlddb_gdp(filename: str, years: Union[list, None] = None, countries: 
     df.columns = col_names
     df = df.astype(year_type_dict)
 
+    df = df[df['Country Code'].notna()]   # Drop rows without country codes
+    df = df.replace('..', np.nan)         # Convert the '..'s to NaNs
+
     # TODO: Filter down to the provided countries if relevant
+    if countries:
+        countries = ['USA', 'GBR']
 
     # TODO: Filter by years
+    if years:
+        pass
 
     return df
 
