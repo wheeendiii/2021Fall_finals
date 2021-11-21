@@ -10,10 +10,10 @@ def read_worlddb_gdp(filename: str, years: Union[list, None] = None, countries: 
         pd.DataFrame:
     """
 
-    :param countries:
-    :param years:
-    :param filename:
-    :return:
+    :param countries: A list of countries to include, using their country codes
+    :param years: A list of years to include
+    :param filename: The World Data Bank csv file of GDP data
+    :return: A pandas dataframe containing the GDP data for the countries and years specified
 
     >>> read_worlddb_gdp('test.txt')  # doctest: +ELLIPSIS
     Traceback (most recent call last):
@@ -35,18 +35,22 @@ def read_worlddb_gdp(filename: str, years: Union[list, None] = None, countries: 
                      dtype={'Country Name': 'string', 'Country Code': 'string'})
     df.drop(columns=['Series Name', 'Series Code'], inplace=True)
 
-    # Trim off the excess year header data (e.g. [YR1971])
+    # Trim off the excess year header data (e.g. [YR1971]), and set correct type for the years
     col_names = list(df.columns)
+    year_type_dict = {}
     for i, name in enumerate(col_names):
         if name.endswith(']'):
             col_names[i] = col_names[i].split(' ')[0]
+            year_type_dict[col_names[i]]: 'int16'
     df.columns = col_names
+    df = df.astype(year_type_dict)
 
-    # TODO: Filter by country
+    # TODO: Filter down to the provided countries if relevant
 
     # TODO: Filter by years
 
     return df
+
 
 def main():
     read_worlddb_gdp('data/WorldDataBank-GDP.csv')
