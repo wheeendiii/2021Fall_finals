@@ -67,6 +67,10 @@ def read_worlddb_gdp(filename: str, min_year: Union[int, str, None] = None, max_
     2         Algeria          DZA  53698278905.9678  57937868670.1937
     3  American Samoa          ASM               NaN               NaN
     4         Andorra          AND  330070689.298282  346737964.774951
+    >>> df = read_worlddb_gdp('data/WorldDataBank-GDP.csv', min_year=1975, max_year=1975, countries=['USA'])
+    >>> print(df)
+          Country Name Country Code           1975
+    206  United States          USA  1684904000000
     """
 
     if min_year:
