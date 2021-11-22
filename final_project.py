@@ -37,6 +37,13 @@ def read_worlddb_gdp(filename: str, years: Union[list, None] = None, countries: 
     264                         Upper middle income  ...  23104877770162.5
     265                                       World  ...  84577962952008.3
     [5 rows x 52 columns]
+    >>> df = read_worlddb_gdp('data/WorldDataBank-GDP.csv', countries=['IRL', 'IMN', 'GBR'])
+    >>> df.head()  # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
+           Country Name Country Code  ...              2019              2020
+    93          Ireland          IRL  ...  399122063504.148  425888950992.003
+    94      Isle of Man          IMN  ...               NaN               NaN
+    205  United Kingdom          GBR  ...  2830813507746.87  2707743777173.91
+    [3 rows x 52 columns]
     """
 
     # Rather than specifying all the years, be more usable for the future by dropping unneeded columns
@@ -57,13 +64,14 @@ def read_worlddb_gdp(filename: str, years: Union[list, None] = None, countries: 
     df = df[df['Country Code'].notna()]   # Drop rows without country codes
     df = df.replace('..', np.nan)         # Convert the '..'s to NaNs
 
-    # TODO: Filter down to the provided countries if relevant
     if countries:
-        countries = ['USA', 'GBR']
+        countries = [c.upper() for c in countries]               # Make sure all country codes are uppercase
+        relevant_countries = df['Country Code'].isin(countries)  # Filter down to the ones we want
+        df = df[relevant_countries]
 
     # TODO: Filter by years
     if years:
-        pass
+        years = [str(y) for y in years]    # Make sure all years are given in strings
 
     return df
 
