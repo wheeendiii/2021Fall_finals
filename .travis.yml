@@ -1,0 +1,14 @@
+# Travis CI configuration file
+# See https://docs.travis-ci.com/user/tutorial/
+language: python
+
+matrix:
+  include:
+    - python: 3.8
+    - python: 3.9
+
+install:
+  - pip install -r requirements.txt
+
+# command to run tests
+script: pytest --doctest-modules
