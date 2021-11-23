@@ -30,7 +30,7 @@ def read_worlddb_gdp(filename: str, min_year: Union[int, str, None] = None, max_
     >>> read_worlddb_gdp('data/WorldDataBank-GDP.csv', min_year=1910)   # doctest: +ELLIPSIS
     Traceback (most recent call last):
     ...
-    ValueError: Invalid minimum year: Minimum year cannot be less than 1971.  No data available.
+    ValueError: Invalid minimum year: Minimum year cannot be less than 1960.  No data available.
     >>> read_worlddb_gdp('data/WorldDataBank-GDP.csv', max_year=3000)   # doctest: +ELLIPSIS
     Traceback (most recent call last):
     ...
@@ -79,7 +79,7 @@ def read_worlddb_gdp(filename: str, min_year: Union[int, str, None] = None, max_
     if min_year:
         min_year = int(min_year)
         if min_year < 1960:
-            raise ValueError('Invalid minimum year: Minimum year cannot be less than 1971.  No data available.')
+            raise ValueError('Invalid minimum year: Minimum year cannot be less than 1960.  No data available.')
     if max_year:
         max_year = int(max_year)
         if max_year > (date.today().year - 1):
