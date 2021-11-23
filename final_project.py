@@ -43,7 +43,8 @@ def read_worlddb_gdp(filename: str, min_year: Union[int, str, None] = None, max_
     2         Algeria          DZA  ...  171157803367.473  145163902228.168
     3  American Samoa          ASM  ...         638000000               NaN
     4         Andorra          AND  ...  3155065487.51819               NaN
-    [5 rows x 52 columns]
+    <BLANKLINE>
+    [5 rows x 63 columns]
     >>> df.tail()  # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
                                        Country Name  ...              2020
     261                          Sub-Saharan Africa  ...  1687597704644.75
@@ -51,14 +52,16 @@ def read_worlddb_gdp(filename: str, min_year: Union[int, str, None] = None, max_
     263   Sub-Saharan Africa (IDA & IBRD countries)  ...  1687597704644.75
     264                         Upper middle income  ...  23104877770162.5
     265                                       World  ...  84577962952008.3
-    [5 rows x 52 columns]
+    <BLANKLINE>
+    [5 rows x 63 columns]
     >>> df = read_worlddb_gdp('data/WorldDataBank-GDP.csv', countries=['IRL', 'IMN', 'GBR'])
     >>> df.head()  # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
            Country Name Country Code  ...              2019              2020
     93          Ireland          IRL  ...  399122063504.148  425888950992.003
     94      Isle of Man          IMN  ...               NaN               NaN
     205  United Kingdom          GBR  ...  2830813507746.87  2707743777173.91
-    [3 rows x 52 columns]
+    <BLANKLINE>
+    [3 rows x 63 columns]
     >>> df = read_worlddb_gdp('data/WorldDataBank-GDP.csv', min_year=1984, max_year=1985)
     >>> df.head()
          Country Name Country Code              1984              1985
@@ -75,7 +78,7 @@ def read_worlddb_gdp(filename: str, min_year: Union[int, str, None] = None, max_
 
     if min_year:
         min_year = int(min_year)
-        if min_year < 1971:
+        if min_year < 1960:
             raise ValueError('Invalid minimum year: Minimum year cannot be less than 1971.  No data available.')
     if max_year:
         max_year = int(max_year)
