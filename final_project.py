@@ -132,6 +132,11 @@ def read_worlddb_gdp(filename: str, min_year: Union[int, str, None] = None, max_
 
 def main():
     read_worlddb_gdp('data/WorldDataBank-GDP.csv')
+    event_df = pd.read_csv("data/event_facts.csv")
+    sp500_df = pd.read_csv("data/sp_500_index_daily.csv")
+    dj_df = pd.read_csv("data/dow_jones_industrial_average_daily.csv")
+    sp_dj = pd.merge(sp500_df, dj_df, on='Date')
+    sp_dj = sp_dj.rename(columns={"Closing Value_x": "SP_500", "Closing Value_y": "Dow_Jones"})
 
 
 if __name__ == '__main__':
