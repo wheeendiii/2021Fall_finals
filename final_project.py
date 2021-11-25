@@ -158,10 +158,9 @@ def add_time_range(e_df: pd.DataFrame, t0: str, length: int) -> pd.DataFrame:
 def main():
     read_worlddb_gdp('data/WorldDataBank-GDP.csv')
     event_df = pd.read_csv("data/event_facts.csv")
-    sp500_df = pd.read_csv("data/sp_500_index_daily.csv")
-    dj_df = pd.read_csv("data/dow_jones_industrial_average_daily.csv")
-    sp_dj = pd.merge(sp500_df, dj_df, on='Date')
-    sp_dj = sp_dj.rename(columns={"Closing Value_x": "SP_500", "Closing Value_y": "Dow_Jones"})
+    sp500_df = pd.read_csv("data/sp500_monthly.csv").rename(columns={"real": "real_sp500", "nominal": "nominal_sp500"})
+    dj_df = pd.read_csv("data/dow_jone_monthly.csv").rename(columns={"real": "real_dj", "nominal": "nominal_dj"})
+    sp_dj = pd.merge(sp500_df, dj_df, on='date')
 
 
 if __name__ == '__main__':
