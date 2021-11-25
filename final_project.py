@@ -208,9 +208,13 @@ def plot_sp_dj(df_plot: pd.DataFrame, year_num: int):
 def output_sp_dj(df_e: pd.DataFrame, df_market: pd.DataFrame, zero_point: str, year_l: int, d_type: str):
     df_e = add_time_range(df_e, zero_point, year_l)
     print("The evolution of {} SP500 and Dow Jones {} years before and after all the Pandemics:".format(d_type, year_l))
-    selected = df_e.loc[df_e["Type"] == "Pandemics"]
-    p_df = get_sp_dj(selected, df_market, d_type)
+    selected_p = df_e.loc[df_e["Type"] == "Pandemics"]
+    p_df = get_sp_dj(selected_p, df_market, d_type)
     plot_sp_dj(p_df, year_l)
+    print("The evolution of {} SP500 and Dow Jones {} years before and after all the Wars:".format(d_type, year_l))
+    selected_w = df_e.loc[df_e["Type"] == "War"]
+    w_df = get_sp_dj(selected_w, df_market, d_type)
+    plot_sp_dj(w_df, year_l)
 
 
 
@@ -225,7 +229,6 @@ def main():
     sp_dj["date"] = pd.to_datetime(sp_dj["date"], format='%Y-%m-%d')
     sp_dj["year"] = sp_dj["date"].dt.year
     return output_sp_dj(event_df, sp_dj, "year_before_end_year", 10, "real")
-
 
 
 if __name__ == '__main__':
