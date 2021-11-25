@@ -155,12 +155,47 @@ def add_time_range(e_df: pd.DataFrame, t0: str, length: int) -> pd.DataFrame:
     return e_df
 
 
+def get_sp_dj(df_selected: pd.DataFrame, data_type) -> pd.DataFrame:
+    """
+    Get the selected type ("nominal" or "real") of sp_500 and dow_jones monthly data for the selected events.
+    :param df_selected: the selected events dataframe
+    :param type: could be "nominal" or "real"("real" is inflation adjusted "nominal" index data)
+    :return: the dataframe of sp_500 and dow_jones data from y_start year to y_end year for each selected events
+    """
+    sp_dj_dict = {}
+    df_selected = df_selected.loc[df_selected["y_start"] >= 1928]  # the earliest data for sp_dj is in year 1928
+    df_selected = df_selected.loc[df_selected["y_end"] < 2021]
+    event_list = df_selected["Event_Name"].tolist()
+    print(event_list)
+    for event in event_list:
+        row = df_selected[df_selected["Event_Name"] == event]
+        start = row["y_start"].values[0]
+        end = row["y_end"].values[0]
+        sp_dj["year"] = sp_dj["year"].astype(int)
+        sp_dj_selected = sp_dj.loc[sp_dj["year"] >= start]
+        sp_dj_selected = sp_dj_selected[sp_dj_selected["year"] <= end]
+        if data_type == "nominal":
+            sp_change = sp_dj_selected["nominal_sp500"].pct_change().tolist()
+            dj_change = sp_dj_selected["nominal_dj"].pct_change().tolist()
+        else:
+            sp_change = sp_dj_selected["real_sp500"].pct_change().tolist()
+            dj_change = sp_dj_selected["real_dj"].pct_change().tolist()
+        sp_dj_dict[event_name + "_sp500"] = sp_change
+        sp_dj_dict[event_name + "_dj"] = dj_change
+    final_df = pd.DataFrame.from_dict(sp_dj_dict)
+    final_df = final_df.iloc[1: , :] # drop first row in the dataframe since the values are NA
+    return final_df
+
+
 def main():
     read_worlddb_gdp('data/WorldDataBank-GDP.csv')
     event_df = pd.read_csv("data/event_facts.csv")
+    event_df["duration"] = event_df["End_Year"] - event_df["Start_Year"]
     sp500_df = pd.read_csv("data/sp500_monthly.csv").rename(columns={"real": "real_sp500", "nominal": "nominal_sp500"})
     dj_df = pd.read_csv("data/dow_jone_monthly.csv").rename(columns={"real": "real_dj", "nominal": "nominal_dj"})
     sp_dj = pd.merge(sp500_df, dj_df, on='date')
+    sp_dj["date"] = pd.to_datetime(sp_dj["date"], format='%Y-%m-%d')
+    sp_dj["year"] = sp_dj["date"].dt.year
 
 
 if __name__ == '__main__':
