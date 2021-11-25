@@ -215,6 +215,19 @@ def output_sp_dj(df_e: pd.DataFrame, df_market: pd.DataFrame, zero_point: str, y
     selected_w = df_e.loc[df_e["Type"] == "War"]
     w_df = get_sp_dj(selected_w, df_market, d_type)
     plot_sp_dj(w_df, year_l)
+    print("The evolution of {} SP500 and Dow Jones {} years before and after Pandemics with over 1m fatalities:"
+          .format(d_type, year_l))
+    selected_1m = df_e.loc[df_e.Fatalities.isin(["1-10m", "10-100m",">100m"])]
+    selected_1m_p = selected_1m.loc[selected_1m["Type"] == "Pandemics"]
+    p_df_1 = get_sp_dj(selected_1m_p, df_market, d_type)
+    plot_sp_dj(p_df_1, year_l)
+    print("The evolution of {} SP500 and Dow Jones {} years before and after Wars with over 1m fatalities:"
+          .format(d_type, year_l))
+    selected_1m_w = selected_1m.loc[selected_1m["Type"] == "War"]
+    w_df_1 = get_sp_dj(selected_1m_w, df_market, d_type)
+    plot_sp_dj(w_df_1, year_l)
+
+
 
 
 
@@ -228,7 +241,9 @@ def main():
     sp_dj = pd.merge(sp500_df, dj_df, on='date')
     sp_dj["date"] = pd.to_datetime(sp_dj["date"], format='%Y-%m-%d')
     sp_dj["year"] = sp_dj["date"].dt.year
-    return output_sp_dj(event_df, sp_dj, "year_before_end_year", 10, "real")
+    print("1. If we use the year before the event end year as zero point, and select the inflation adjusted SP500 and "
+          "Dow Jones historical data 10 years before and after the zero point year, plots would be")
+    output_sp_dj(event_df, sp_dj, "year_before_end_year", 10, "real")
 
 
 if __name__ == '__main__':
