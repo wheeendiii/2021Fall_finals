@@ -6,6 +6,8 @@ import numpy as np
 import pandas as pd
 from datetime import date
 from typing import Union
+import matplotlib
+import matplotlib.pyplot as plt
 
 
 def read_worlddb_gdp(filename: str, min_year: Union[int, str, None] = None, max_year: Union[int, str, None] = None,
@@ -105,11 +107,11 @@ def read_worlddb_gdp(filename: str, min_year: Union[int, str, None] = None, max_
     df.columns = col_names
     df = df.astype(year_type_dict)
 
-    df = df[df['Country Code'].notna()]   # Drop rows without country codes
-    df = df.replace('..', np.nan)         # Convert the '..'s to NaNs
+    df = df[df['Country Code'].notna()]  # Drop rows without country codes
+    df = df.replace('..', np.nan)  # Convert the '..'s to NaNs
 
     if countries:
-        countries = [c.upper() for c in countries]               # Make sure all country codes are uppercase
+        countries = [c.upper() for c in countries]  # Make sure all country codes are uppercase
         relevant_countries = df['Country Code'].isin(countries)  # Filter down to the ones we want
         df = df[relevant_countries]
 
@@ -120,8 +122,8 @@ def read_worlddb_gdp(filename: str, min_year: Union[int, str, None] = None, max_
     # Minimum year is trickier because we need to keep country info in the first two cols
     if min_year:
         min_year_pos = df.columns.get_loc(int(min_year))
-        df_right = df.iloc[:, min_year_pos:]    # Grab the year columns
-        df_left = df.iloc[:, 0:2]               # These are the country name and country code
+        df_right = df.iloc[:, min_year_pos:]  # Grab the year columns
+        df_left = df.iloc[:, 0:2]  # These are the country name and country code
 
         # Append the year columns on the right to the country name/codes on the left
         df_left[df_right.columns] = df_right.values
@@ -151,7 +153,7 @@ def add_time_range(e_df: pd.DataFrame, t0: str, length: int) -> pd.DataFrame:
         else:
             y0 = e_df["Start_Year"] + 1
         e_df["y_start"] = y0 - length
-        e_df["y_end"] = y0 + length
+        e_df["y_end"] = y0 + length - 1
     return e_df
 
 
@@ -163,8 +165,8 @@ def get_sp_dj(df_selected: pd.DataFrame, data_type) -> pd.DataFrame:
     :return: the dataframe of sp_500 and dow_jones data from y_start year to y_end year for each selected events
     """
     sp_dj_dict = {}
-    df_selected = df_selected.loc[df_selected["y_start"] >= 1928]  # the earliest data for sp_dj is in year 1928
-    df_selected = df_selected.loc[df_selected["y_end"] < 2021]
+    df_selected = df_selected.loc[df_selected["y_start"] >= 1928]  # the earliest data for sp_dj is in 1927/12
+    df_selected = df_selected.loc[df_selected["y_end"] < 2021]  # the latest data for sp_dj is in 2021/11
     event_list = df_selected["Event_Name"].tolist()
     print(event_list)
     for event in event_list:
@@ -183,8 +185,23 @@ def get_sp_dj(df_selected: pd.DataFrame, data_type) -> pd.DataFrame:
         sp_dj_dict[event_name + "_sp500"] = sp_change
         sp_dj_dict[event_name + "_dj"] = dj_change
     final_df = pd.DataFrame.from_dict(sp_dj_dict)
-    final_df = final_df.iloc[1: , :] # drop first row in the dataframe since the values are NA
+    final_df = final_df.iloc[1:, :]  # drop first row in the dataframe since the values are NA
     return final_df
+
+def plot_sp_dj(df_plot: pd.DataFrame, year_num: int):
+    """
+    Plot the given sp500 and dow jones for selected events dataframe.
+    :param df_plot: the dataframe with sp500 and dow jones data for selected events
+    :param year_num: the years before and after the selected zero point
+    :return: plot of the given dataframe
+    """
+    df_plot.index = df_plot.index - (12 * year_num)
+    fig, ax = plt.subplots(figsize=(15, 10))
+    ax.plot(df_plot)
+    ax.set_xlim(-12 * year_num + 1, 12 * year_num)
+    ax.set_xlabel(str(year_num) + " Year Before and After Events")
+    ax.set_ylabel("Change of Stock Market Index")
+    plt.show()
 
 
 def main():
@@ -196,6 +213,7 @@ def main():
     sp_dj = pd.merge(sp500_df, dj_df, on='date')
     sp_dj["date"] = pd.to_datetime(sp_dj["date"], format='%Y-%m-%d')
     sp_dj["year"] = sp_dj["date"].dt.year
+
 
 
 if __name__ == '__main__':
