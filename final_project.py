@@ -130,6 +130,31 @@ def read_worlddb_gdp(filename: str, min_year: Union[int, str, None] = None, max_
     return df
 
 
+def add_time_range(e_df: pd.DataFrame, t0: str, length: int) -> pd.DataFrame:
+    """
+    This function is used to add two columns ("y_start", "y_end") into the event_fact dataframe based on the selection
+    of year t0 and the number of years before and after year t0 for further plotting and study.
+    :param e_df: the pd.DataFrame storing the event facts
+    :param t0: the specific year used as the zero point in selecting the time range, the value of t0 could be one of
+    ["start year", "end year", "the year before end year", "the year after start year"]
+    :param length: the number of years to study before and after t0
+    :return: the event facts dataframe with two extra columns storing the start year and end year for further study
+    """
+    zero_points = ["start_year", "end_year", "year_before_end_year", "year_after_start_year"]
+    for t0 in zero_points:
+        if t0 == zero_points[0]:
+            y0 = e_df["Start_Year"]
+        elif t0 == zero_points[1]:
+            y0 = e_df["End_Year"]
+        elif t0 == zero_points[2]:
+            y0 = e_df["End_Year"] - 1
+        else:
+            y0 = e_df["Start_Year"] + 1
+        e_df["y_start"] = y0 - length
+        e_df["y_end"] = y0 + length
+    return e_df
+
+
 def main():
     read_worlddb_gdp('data/WorldDataBank-GDP.csv')
     event_df = pd.read_csv("data/event_facts.csv")
