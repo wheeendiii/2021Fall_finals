@@ -40,7 +40,7 @@ def min_max_year_checking(min_year: int = None, min_year_possible: int = None, m
     >>> min_max_year_checking(min_year=1950, max_year=1930)   # doctest: +ELLIPSIS
     Traceback (most recent call last):
     ...
-    Invalid years: Minimum year must be less than maximum year.
+    ValueError: Invalid years: Minimum year must be less than maximum year.
     """
     curr_year = date.today().year
 
