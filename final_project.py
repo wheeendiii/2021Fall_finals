@@ -222,7 +222,7 @@ def read_us_cpi(filename: str, min_year: Union[int, None] = None, max_year: Unio
     return df
 
 
-def read_event_facts(filename: str, type: Union[str, list] = None, range: Union[str, list] = None,
+def read_event_facts(filename: str, types: Union[str, list] = None, ranges: Union[str, list] = None,
                      min_start_year: Union[int, None] = None, max_start_year: Union[int, None] = None,
                      min_end_year: Union[int, None] = None, max_end_year: Union[int, None] = None) -> pd.DataFrame:
     """
@@ -246,6 +246,14 @@ def read_event_facts(filename: str, type: Union[str, list] = None, range: Union[
     Traceback (most recent call last):
     ...
     ValueError: Invalid end year value(s):  Invalid years: Minimum year must be less than maximum year.
+    >>> read_event_facts('data/event_facts.csv', types='Historical Events')
+    Traceback (most recent call last):
+    ...
+    ValueError: Invalid type(s) given: Historical Events. Valid type(s): Pandemics, War
+    >>> read_event_facts('data/event_facts.csv', ranges='South America')
+    Traceback (most recent call last):
+    ...
+    ValueError: Invalid range(s) given: South America. Valid ranges(s): Worldwide, Include United States
     """
 
     # Raise an error if one of the optional year parameters given is invalid
@@ -259,8 +267,38 @@ def read_event_facts(filename: str, type: Union[str, list] = None, range: Union[
         raise ValueError('Invalid end year value(s):  {}'.format(str(e)))
 
     df = pd.read_csv(filename, header=0, usecols=['Event_Name', 'Type', 'Range', 'Start_Year', 'End_Year'],
-                     dtype={'Event_Name': 'str', 'Type': 'str', 'Range': 'str', 'Start_Year': 'int16',
+                     dtype={'Event_Name': 'string', 'Type': 'string', 'Range': 'string', 'Start_Year': 'int16',
                             'End_Year': 'int16'})
+
+    # If types were given, convert to a list and error if invalid ones are given
+    if types:
+        if isinstance(types, str):
+            types = [types]
+
+        # Find any given types that are not actually present in the dataset
+        valid_types = list(df['Type'].unique())
+        invalid_types = np.setdiff1d(types, valid_types)
+        if len(invalid_types) > 0:
+            raise ValueError('Invalid type(s) given: ' + ', '.join(invalid_types) + '. Valid type(s): ' +
+                             ', '.join(valid_types))
+
+        # Todo - Filter by types
+
+    # If ranges are given, convert to a list and error if invalid ones are given
+    if ranges:
+        if isinstance(ranges, str):
+            ranges = [ranges]
+
+        # Find any given types that are not actually present in the dataset
+        valid_ranges = list(df['Range'].unique())
+        invalid_ranges = np.setdiff1d(ranges, valid_ranges)
+        if len(invalid_ranges) > 0:
+            raise ValueError('Invalid range(s) given: ' + ', '.join(invalid_ranges) + '. Valid ranges(s): ' +
+                             ', '.join(valid_ranges))
+
+        # Todo - filter by ranges
+
+
 
     return df
 
