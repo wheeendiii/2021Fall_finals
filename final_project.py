@@ -10,7 +10,46 @@ import matplotlib
 import matplotlib.pyplot as plt
 
 
-def read_worlddb_gdp(filename: str, min_year: Union[int, str, None] = None, max_year: Union[int, str, None] = None,
+def min_max_year_checking(min_year: int = None, min_year_possible: int = None, max_year: Union[int, None] = None,
+                          max_year_possible: int = None) -> None:
+    """
+
+    :param min_year:
+    :param min_year_possible:
+    :param max_year:
+    :param max_year_possible:
+    :return:
+
+    >>> min_max_year_checking(min_year=2000, max_year=1980)   # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: Invalid years: Minimum year must be less than maximum year.
+    >>> min_max_year_checking(min_year=1910, min_year_possible=1960)   # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: Invalid minimum year: Minimum year cannot be less than 1960.
+    >>> min_max_year_checking(max_year=3000)   # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: Invalid maximum year: Maximum year cannot be greater than 2021.
+    """
+
+    if min_year and min_year_possible:
+        if min_year < min_year_possible:
+            raise ValueError('Invalid minimum year: Minimum year cannot be less than {}.'.format(min_year_possible))
+    if max_year:
+        # Set maximum year to the current year if none given
+        if not max_year_possible:
+            max_year_possible = date.today().year
+        if max_year > max_year_possible:
+            raise ValueError('Invalid maximum year: Maximum year cannot be greater than {}.'.format(max_year_possible))
+
+    # Double-check we haven't been given something invalid for years
+    if (min_year and max_year) and (min_year > max_year):
+        raise ValueError('Invalid years: Minimum year must be less than maximum year.')
+
+
+def read_worlddb_gdp(filename: str, min_year: Union[int, None] = None, max_year: Union[int, None] = None,
                      countries: Union[list, None] = None) -> pd.DataFrame:
     """ Takes a csv file from the World Data Bank containing GDP information from various countries.  Original data
     can be obtained from https://databank.worldbank.org/reports.aspx?source=2&type=metadata&series=NY.GDP.MKTP.CD#
@@ -25,18 +64,6 @@ def read_worlddb_gdp(filename: str, min_year: Union[int, str, None] = None, max_
     Traceback (most recent call last):
     ...
     FileNotFoundError: [Errno 2] No such file or directory: 'test.txt'
-    >>> read_worlddb_gdp('data/WorldDataBank-GDP.csv', min_year=2000, max_year=1980)   # doctest: +ELLIPSIS
-    Traceback (most recent call last):
-    ...
-    ValueError: Invalid years: Minimum year must be less than maximum year.
-    >>> read_worlddb_gdp('data/WorldDataBank-GDP.csv', min_year=1910)   # doctest: +ELLIPSIS
-    Traceback (most recent call last):
-    ...
-    ValueError: Invalid minimum year: Minimum year cannot be less than 1960.  No data available.
-    >>> read_worlddb_gdp('data/WorldDataBank-GDP.csv', max_year=3000)   # doctest: +ELLIPSIS
-    Traceback (most recent call last):
-    ...
-    ValueError: Invalid maximum year: Maximum year cannot be greater than the year before the current one.
     >>> df = read_worlddb_gdp('data/WorldDataBank-GDP.csv')
     >>> df.head()  # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
          Country Name Country Code  ...              2019              2020
@@ -78,19 +105,9 @@ def read_worlddb_gdp(filename: str, min_year: Union[int, str, None] = None, max_
     206  United States          USA  1684904000000
     """
 
-    if min_year:
-        min_year = int(min_year)
-        if min_year < 1960:
-            raise ValueError('Invalid minimum year: Minimum year cannot be less than 1960.  No data available.')
-    if max_year:
-        max_year = int(max_year)
-        if max_year > (date.today().year - 1):
-            raise ValueError('Invalid maximum year: Maximum year cannot be greater than the year before the'
-                             ' current one.')
-
-    # Double-check we haven't been given something invalid for years
-    if (min_year and max_year) and (min_year > int(max_year)):
-        raise ValueError('Invalid years: Minimum year must be less than maximum year.')
+    # Raise an error if the years requested are outside of the year bounds
+    min_max_year_checking(min_year=min_year, min_year_possible=1960, max_year=max_year,
+                          max_year_possible=(date.today().year - 1))
 
     # Rather than specifying by year, be more usable for the future by dropping unneeded columns
     df = pd.read_csv(filename, header=0,
