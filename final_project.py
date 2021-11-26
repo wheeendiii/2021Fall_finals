@@ -268,6 +268,7 @@ def get_sp_dj(df_selected: pd.DataFrame, df_sp_dj: pd.DataFrame, data_type: str)
     final_df = final_df.iloc[1:, :]  # drop first row in the dataframe since the values are NA
     return final_df
 
+
 def plot_sp_dj(df_plot: pd.DataFrame, year_num: int):
     """
     Plot the given sp500 and dow jones for selected events dataframe.
@@ -305,10 +306,6 @@ def output_sp_dj(df_e: pd.DataFrame, df_market: pd.DataFrame, zero_point: str, y
     selected_1m_w = selected_1m.loc[selected_1m["Type"] == "War"]
     w_df_1 = get_sp_dj(selected_1m_w, df_market, d_type)
     plot_sp_dj(w_df_1, year_l)
-
-
-
-
 
 
 def main():
