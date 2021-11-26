@@ -263,10 +263,21 @@ def read_event_facts(filename: str, types: Union[str, list] = None, ranges: Unio
     ...
     ValueError: Invalid range(s) given: South America. Valid ranges(s): Worldwide, Include United States
     >>> df = read_event_facts('data/event_facts.csv', ranges='Worldwide', types=['War'])
-    >>> print(df)
+    >>> df
           Event_Name Type      Range  Start_Year  End_Year Fatalities  Duration
     12   World War I  War  Worldwide        1914      1918    10-100m         4
     15  World War II  War  Worldwide        1939      1945      >100m         6
+    >>> df = read_event_facts('data/event_facts.csv', min_start_year=1900, max_end_year=1930)
+    >>> df[['Event_Name', 'Start_Year', 'End_Year']]
+                             Event_Name  Start_Year  End_Year
+    0   Encephalitis Lethargic Pandemic        1915      1926
+    1                       Spanish Flu        1918      1920
+    12                      World War I        1914      1918
+    >>> df = read_event_facts('data/event_facts.csv', max_start_year=1990, min_end_year=1991)
+    >>> df[['Event_Name', 'Start_Year', 'End_Year']]
+               Event_Name  Start_Year  End_Year
+    6   HIV/AIDS pandemic        1981      2021
+    16           Gulf War        1990      1991
     """
 
     # Raise an error if one of the optional year parameters given is invalid
