@@ -266,9 +266,9 @@ def read_event_facts(filename: str, types: Union[str, list] = None, ranges: Unio
     except ValueError as e:
         raise ValueError('Invalid end year value(s):  {}'.format(str(e)))
 
-    df = pd.read_csv(filename, header=0, usecols=['Event_Name', 'Type', 'Range', 'Start_Year', 'End_Year'],
+    df = pd.read_csv(filename, header=0, usecols=['Event_Name', 'Type', 'Range', 'Start_Year', 'End_Year', 'Fatalities'],
                      dtype={'Event_Name': 'string', 'Type': 'string', 'Range': 'string', 'Start_Year': 'int16',
-                            'End_Year': 'int16'})
+                            'End_Year': 'int16', 'Fatalities': 'string'})
 
     # If types were given, convert to a list and error if invalid ones are given
     if types:
