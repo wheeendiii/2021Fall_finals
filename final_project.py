@@ -6,7 +6,6 @@ import numpy as np
 import pandas as pd
 from datetime import date
 from typing import Union
-import matplotlib
 import matplotlib.pyplot as plt
 
 
@@ -225,14 +224,23 @@ def read_us_cpi(filename: str, min_year: Union[int, None] = None, max_year: Unio
 def read_event_facts(filename: str, types: Union[str, list] = None, ranges: Union[str, list] = None,
                      min_start_year: Union[int, None] = None, max_start_year: Union[int, None] = None,
                      min_end_year: Union[int, None] = None, max_end_year: Union[int, None] = None) -> pd.DataFrame:
-    """
+    """ Reads in a csv file of events with the below format and optionally filters it by years, types, and ranges.
+    Converts it into a Pandas dataframe and returns it
 
-    :param filename:
-    :param type:
-    :param range:
-    :param min_year:
-    :param max_year:
-    :return:
+    Event_Name	  Type	    Range	                Start_Year	End_Year	Fatalities
+    Spanish Flu	  Pandemics	Worldwide	            1918	    1920	    >100m
+    Asian Flu	  Pandemics	Worldwide	            1957	    1958	    1-10m
+    Hong Kong Flu Pandemics	Worldwide	            1968	    1970	    1-10m
+    London flu	  Pandemics	Include United States	1972	    1973	    <10,000
+
+    :param filename: The csv file to read in
+    :param type: The types of events
+    :param range: The geographical range impacted
+    :param min_start_year: Minimum start year to filter by
+    :param max_start_year: Maximum start year to filter by
+    :param min_end_year: Minimum end year to filter by
+    :param max_end_year: Maximum end year to filter by
+    :return: A pandas dataframe from the events file
 
     >>> read_event_facts('test.txt')  # doctest: +ELLIPSIS
     Traceback (most recent call last):
@@ -254,6 +262,11 @@ def read_event_facts(filename: str, types: Union[str, list] = None, ranges: Unio
     Traceback (most recent call last):
     ...
     ValueError: Invalid range(s) given: South America. Valid ranges(s): Worldwide, Include United States
+    >>> df = read_event_facts('data/event_facts.csv', ranges='Worldwide', types=['War'])
+    >>> print(df)
+          Event_Name Type      Range  Start_Year  End_Year Fatalities
+    12   World War I  War  Worldwide        1914      1918    10-100m
+    15  World War II  War  Worldwide        1939      1945      >100m
     """
 
     # Raise an error if one of the optional year parameters given is invalid
@@ -282,7 +295,8 @@ def read_event_facts(filename: str, types: Union[str, list] = None, ranges: Unio
             raise ValueError('Invalid type(s) given: ' + ', '.join(invalid_types) + '. Valid type(s): ' +
                              ', '.join(valid_types))
 
-        # Todo - Filter by types
+        relevant_types = df['Type'].isin(types)  # Filter down to the ones we want
+        df = df[relevant_types]
 
     # If ranges are given, convert to a list and error if invalid ones are given
     if ranges:
@@ -296,12 +310,12 @@ def read_event_facts(filename: str, types: Union[str, list] = None, ranges: Unio
             raise ValueError('Invalid range(s) given: ' + ', '.join(invalid_ranges) + '. Valid ranges(s): ' +
                              ', '.join(valid_ranges))
 
-        # Todo - filter by ranges
+        relevant_ranges = df['Range'].isin(ranges)  # Filter down to the ones we want
+        df = df[relevant_ranges]
 
-
+    # Todo - filter by years
 
     return df
-
 
 
 def add_time_range(e_df: pd.DataFrame, t0: str, length: int) -> pd.DataFrame:
