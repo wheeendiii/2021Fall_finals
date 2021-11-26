@@ -264,9 +264,9 @@ def read_event_facts(filename: str, types: Union[str, list] = None, ranges: Unio
     ValueError: Invalid range(s) given: South America. Valid ranges(s): Worldwide, Include United States
     >>> df = read_event_facts('data/event_facts.csv', ranges='Worldwide', types=['War'])
     >>> print(df)
-          Event_Name Type      Range  Start_Year  End_Year Fatalities
-    12   World War I  War  Worldwide        1914      1918    10-100m
-    15  World War II  War  Worldwide        1939      1945      >100m
+          Event_Name Type      Range  Start_Year  End_Year Fatalities  Duration
+    12   World War I  War  Worldwide        1914      1918    10-100m         4
+    15  World War II  War  Worldwide        1939      1945      >100m         6
     """
 
     # Raise an error if one of the optional year parameters given is invalid
@@ -313,7 +313,27 @@ def read_event_facts(filename: str, types: Union[str, list] = None, ranges: Unio
         relevant_ranges = df['Range'].isin(ranges)  # Filter down to the ones we want
         df = df[relevant_ranges]
 
-    # Todo - filter by years
+    # Filter by starting year if applicable
+    if min_start_year or max_start_year:
+        # Find the minimum and maximum years if one of these wasn't given as a parameter
+        if not min_start_year:
+            min_start_year = int(df['Start_Year'].min())
+        elif not max_start_year:
+            max_start_year = int(df['Start_Year'].max())
+
+        df = df[df['Start_Year'] >= min_start_year]
+        df = df[df['Start_Year'] <= max_start_year]
+
+    # Filter by ending year if applicable
+    if min_end_year or max_end_year:
+        # Find the minimum and maximum years if one of these wasn't given as a parameter
+        if not min_end_year:
+            min_end_year = int(df['End_Year'].min())
+        elif not max_end_year:
+            max_end_year = int(df['End_Year'].max())
+
+        df = df[df['End_Year'] >= min_end_year]
+        df = df[df['End_Year'] <= max_end_year]
 
     # Add duration column
     df["Duration"] = df["End_Year"] - df["Start_Year"]
@@ -424,7 +444,7 @@ def main():
     event_df = read_event_facts("data/event_facts.csv")
     sp500_df = pd.read_csv("data/sp500_monthly.csv").rename(columns={"real": "real_sp500", "nominal": "nominal_sp500"})
     dj_df = pd.read_csv("data/dow_jone_monthly.csv").rename(columns={"real": "real_dj", "nominal": "nominal_dj"})
-    
+
     sp_dj = pd.merge(sp500_df, dj_df, on='date')
     sp_dj["date"] = pd.to_datetime(sp_dj["date"], format='%Y-%m-%d')
     sp_dj["year"] = sp_dj["date"].dt.year
