@@ -29,19 +29,30 @@ def min_max_year_checking(min_year: int = None, min_year_possible: int = None, m
     Traceback (most recent call last):
     ...
     ValueError: Invalid minimum year: Minimum year cannot be less than 1960.
+    >>> min_max_year_checking(min_year=3000)   # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: Invalid minimum year: Minimum year cannot be greater than 2021.
     >>> min_max_year_checking(max_year=3000)   # doctest: +ELLIPSIS
     Traceback (most recent call last):
     ...
     ValueError: Invalid maximum year: Maximum year cannot be greater than 2021.
+    >>> min_max_year_checking(min_year=1950, max_year=1930)   # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    Invalid years: Minimum year must be less than maximum year.
     """
+    curr_year = date.today().year
 
-    if min_year and min_year_possible:
-        if min_year < min_year_possible:
+    if min_year:
+        if min_year_possible and min_year < min_year_possible:
             raise ValueError('Invalid minimum year: Minimum year cannot be less than {}.'.format(min_year_possible))
+        elif min_year > curr_year:
+            raise ValueError('Invalid minimum year: Minimum year cannot be greater than {}.'.format(curr_year))
     if max_year:
         # Set maximum year to the current year if none given
         if not max_year_possible:
-            max_year_possible = date.today().year
+            max_year_possible = curr_year
         if max_year > max_year_possible:
             raise ValueError('Invalid maximum year: Maximum year cannot be greater than {}.'.format(max_year_possible))
 
@@ -209,6 +220,50 @@ def read_us_cpi(filename: str, min_year: Union[int, None] = None, max_year: Unio
         df = df[df['Year'] <= max_year]
 
     return df
+
+
+def read_event_facts(filename: str, type: Union[str, list] = None, range: Union[str, list] = None,
+                     min_start_year: Union[int, None] = None, max_start_year: Union[int, None] = None,
+                     min_end_year: Union[int, None] = None, max_end_year: Union[int, None] = None) -> pd.DataFrame:
+    """
+
+    :param filename:
+    :param type:
+    :param range:
+    :param min_year:
+    :param max_year:
+    :return:
+
+    >>> read_event_facts('test.txt')  # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    FileNotFoundError: [Errno 2] No such file or directory: 'test.txt'
+    >>> read_event_facts('data/event_facts.csv', min_start_year=2022)  # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: Invalid start year value(s):  Invalid minimum year: Minimum year cannot be greater than 2021.
+    >>> read_event_facts('data/event_facts.csv', min_end_year=1950, max_end_year=1930)  # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: Invalid end year value(s):  Invalid years: Minimum year must be less than maximum year.
+    """
+
+    # Raise an error if one of the optional year parameters given is invalid
+    try:
+        min_max_year_checking(min_year=min_start_year, max_year=max_start_year)
+    except ValueError as e:
+        raise ValueError('Invalid start year value(s):  {}'.format(str(e)))
+    try:
+        min_max_year_checking(min_year=min_end_year, max_year=max_end_year)
+    except ValueError as e:
+        raise ValueError('Invalid end year value(s):  {}'.format(str(e)))
+
+    df = pd.read_csv(filename, header=0, usecols=['Event_Name', 'Type', 'Range', 'Start_Year', 'End_Year'],
+                     dtype={'Event_Name': 'str', 'Type': 'str', 'Range': 'str', 'Start_Year': 'int16',
+                            'End_Year': 'int16'})
+
+    return df
+
 
 
 def add_time_range(e_df: pd.DataFrame, t0: str, length: int) -> pd.DataFrame:
