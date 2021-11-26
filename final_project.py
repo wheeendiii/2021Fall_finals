@@ -12,13 +12,14 @@ import matplotlib.pyplot as plt
 
 def min_max_year_checking(min_year: int = None, min_year_possible: int = None, max_year: Union[int, None] = None,
                           max_year_possible: int = None) -> None:
-    """
+    """ Throws an error if a given minimum year is less than a minimum year possible, maxinum year is greater than a
+    maximum year possible (or the current year, if none given), or if the minimum year is greater than the maximum year.
 
-    :param min_year:
-    :param min_year_possible:
-    :param max_year:
-    :param max_year_possible:
-    :return:
+    :param min_year: The minimum year value to check
+    :param min_year_possible: The lowest possible year
+    :param max_year: The maximum year value to check
+    :param max_year_possible: The maximum possible year
+    :return: None but raises a ValueError if one of the criteria isn't met
 
     >>> min_max_year_checking(min_year=2000, max_year=1980)   # doctest: +ELLIPSIS
     Traceback (most recent call last):
@@ -110,8 +111,7 @@ def read_worlddb_gdp(filename: str, min_year: Union[int, None] = None, max_year:
                           max_year_possible=(date.today().year - 1))
 
     # Rather than specifying by year, be more usable for the future by dropping unneeded columns
-    df = pd.read_csv(filename, header=0,
-                     dtype={'Country Name': 'string', 'Country Code': 'string'})
+    df = pd.read_csv(filename, header=0, dtype={'Country Name': 'string', 'Country Code': 'string'})
     df.drop(columns=['Series Name', 'Series Code'], inplace=True)
 
     # Trim off the excess year header data (e.g. [YR1971]), and set correct type for the years
@@ -145,6 +145,68 @@ def read_worlddb_gdp(filename: str, min_year: Union[int, None] = None, max_year:
         # Append the year columns on the right to the country name/codes on the left
         df_left[df_right.columns] = df_right.values
         df = df_left
+
+    return df
+
+
+def read_us_cpi(filename: str, min_year: Union[int, None] = None, max_year: Union[int, None] = None) -> pd.DataFrame:
+    """ Loads a CVS file with CPI information from the US Bureau of Labor Statistics into a Pandas dataframe.  Also
+    averages all the month values for each year in order to only return one value for each year.
+    Data sets available at https://beta.bls.gov/dataViewer/view/timeseries/CUUR0000SA0
+
+    :param filename:
+    :param min_year:
+    :param max_year:
+    :return:
+
+    >>> read_us_cpi('test.txt')  # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    FileNotFoundError: [Errno 2] No such file or directory: 'test.txt'
+    >>> df = read_us_cpi('data/bls_us_cpi.csv', min_year=2015)
+    >>> df.head()
+         Year    Value
+    102  2015  237.000
+    103  2016  240.000
+    104  2017  245.125
+    105  2018  251.125
+    106  2019  255.625
+    >>> df = read_us_cpi('data/bls_us_cpi.csv', max_year=1950)
+    >>> df.tail()
+        Year      Value
+    33  1946  19.515625
+    34  1947  22.328125
+    35  1948  24.046875
+    36  1949  23.812500
+    37  1950  24.062500
+    >>> df = read_us_cpi('data/bls_us_cpi.csv', min_year=1990, max_year=1993)
+    >>> print(df)
+        Year    Value
+    77  1990  130.625
+    78  1991  136.250
+    79  1992  140.250
+    80  1993  144.500
+    """
+
+    # Raise an error if the years requested are outside of the year bounds
+    min_max_year_checking()
+
+    df = pd.read_csv(filename, header=0, usecols=['Year', 'Value'], dtype={'Year': 'int16', 'Value': 'float16'})
+
+    # Calculate the averages for each year, and keep year as a column, not an index
+    df = df.groupby('Year').mean()
+    df.reset_index(inplace=True)
+
+    # If either minimum or maximum year was specified, filter down on these
+    if min_year or max_year:
+        # Find the minimum and maximum years if one of these wasn't given as a parameter
+        if not min_year:
+            min_year = int(df['Year'].min())
+        elif not max_year:
+            max_year = int(df['Year'].max())
+
+        df = df[df['Year'] >= min_year]
+        df = df[df['Year'] <= max_year]
 
     return df
 
