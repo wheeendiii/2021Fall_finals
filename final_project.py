@@ -492,19 +492,24 @@ def analyze_stockmarket(sp500_file: str, dowjones_file: str, events_file: str):
 
 def analyze_gdp(gdp_file: str, events_file: str) -> None:
     """
-    
+
 
     :param gdp_file: gdp data file name
     :param events_file: events file name
     :return:
     """
 
-    us_gdp_df = read_worlddb_gdp('data/WorldDataBank-GDP.csv', countries= 'USA')
+    us_gdp_df = read_worlddb_gdp(gdp_file, countries= 'USA')
 
     pandemics_gdp = read_event_facts(events_file, types='Pandemics')
     wars_gdp = read_event_facts(events_file, types='Wars')
 
-    #
+    # TODO: go through event file and get start_year, end_year
+
+    # TODO: get df for each event
+
+    # TODO: call plot_gdp for each event
+
 
 
 def main():
@@ -512,9 +517,11 @@ def main():
     events_data = 'data/event_facts.csv'
     sp500_data = 'data/sp500_monthly.csv'
     dowjones_data = 'data/dow_jone_monthly.csv'
+    us_gdp_data = 'data/WorldDataBank-GDP.csv'
 
     analyze_stockmarket(sp500_data, dowjones_data, events_data)
     analyze_cpi(us_cpi_data, events_data)
+    analyze_gdp(us_gdp_data, events_data)
 
 
 if __name__ == '__main__':
