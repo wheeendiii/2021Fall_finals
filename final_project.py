@@ -482,8 +482,8 @@ def analyze_stockmarket(sp500_file: str, dowjones_file: str, events_file: str):
     :return:
     """
     event_df = read_event_facts(events_file)
-    sp500_df = pd.read_csv("data/sp500_monthly.csv").rename(columns={"real": "real_sp500", "nominal": "nominal_sp500"})
-    dj_df = pd.read_csv("data/dow_jone_monthly.csv").rename(columns={"real": "real_dj", "nominal": "nominal_dj"})
+    sp500_df = pd.read_csv(sp500_file).rename(columns={"real": "real_sp500", "nominal": "nominal_sp500"})
+    dj_df = pd.read_csv(dowjones_file).rename(columns={"real": "real_dj", "nominal": "nominal_dj"})
 
     sp_dj = pd.merge(sp500_df, dj_df, on='date')
     sp_dj["date"] = pd.to_datetime(sp_dj["date"], format='%Y-%m-%d')
