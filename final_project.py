@@ -199,7 +199,7 @@ def read_us_cpi(filename: str, min_year: Union[int, None] = None, max_year: Unio
     """
 
     # Raise an error if the years requested are outside of the year bounds
-    min_max_year_checking()
+    min_max_year_checking(min_year, max_year)
 
     df = pd.read_csv(filename, header=0, usecols=['Year', 'Value'], dtype={'Year': 'int16', 'Value': 'float16'})
 
@@ -225,7 +225,7 @@ def read_event_facts(filename: str, types: Union[str, list] = None, ranges: Unio
                      min_start_year: Union[int, None] = None, max_start_year: Union[int, None] = None,
                      min_end_year: Union[int, None] = None, max_end_year: Union[int, None] = None) -> pd.DataFrame:
     """ Reads in a csv file of events with the below format and optionally filters it by years, types, and ranges.
-    Converts it into a Pandas dataframe and returns it
+    Converts it into a Pandas dataframe and returns it after calculating a Duration column
 
     Event_Name	  Type	    Range	                Start_Year	End_Year	Fatalities
     Spanish Flu	  Pandemics	Worldwide	            1918	    1920	    >100m
@@ -449,20 +449,58 @@ def output_sp_dj(df_e: pd.DataFrame, df_market: pd.DataFrame, zero_point: str, y
     plot_sp_dj(w_df_1, year_l)
 
 
-def main():
-    read_worlddb_gdp('data/WorldDataBank-GDP.csv')
-    read_us_cpi('data/bls_us_cpi.csv')
-    event_df = read_event_facts("data/event_facts.csv")
+def analyze_cpi(us_cpi_file: str, events_file: str, verbose: Union[bool, None] = False) -> None:
+    """
+    # TODO
+
+    :param us_cpi_file:
+    :param events_file:
+    :param verbose: Indicates whether to print debugging information
+    :return:
+    """
+
+    us_cpi_df = read_us_cpi(us_cpi_file)
+    min_cpi_year = us_cpi_df['Year'].min()
+
+    pandemics_df = read_event_facts(events_file, types='Pandemics', min_start_year=min_cpi_year,
+                                    min_end_year=min_cpi_year)
+    wars_df = read_event_facts(events_file, types='War', min_start_year=min_cpi_year, min_end_year=min_cpi_year)
+
+    # TODO Analyze wars
+
+
+    # TODO Analyze pandemics
+
+
+def analyze_stockmarket(sp500_file: str, dowjones_file: str, events_file: str):
+    """
+
+    :param sp500_file:
+    :param dowjones_file:
+    :param events_file:
+    :return:
+    """
+    event_df = read_event_facts(events_file)
     sp500_df = pd.read_csv("data/sp500_monthly.csv").rename(columns={"real": "real_sp500", "nominal": "nominal_sp500"})
     dj_df = pd.read_csv("data/dow_jone_monthly.csv").rename(columns={"real": "real_dj", "nominal": "nominal_dj"})
 
     sp_dj = pd.merge(sp500_df, dj_df, on='date')
     sp_dj["date"] = pd.to_datetime(sp_dj["date"], format='%Y-%m-%d')
     sp_dj["year"] = sp_dj["date"].dt.year
+
     print("1. If we use the year before the event end year as zero point, and select the inflation adjusted SP500 and "
           "Dow Jones historical data 10 years before and after the zero point year, plots would be")
     output_sp_dj(event_df, sp_dj, "year_before_end_year", 10, "real")
 
+
+def main():
+    us_cpi_data = 'data/bls_us_cpi.csv'
+    events_data = 'data/event_facts.csv'
+    sp500_data = 'data/sp500_monthly.csv'
+    dowjones_data = 'data/dow_jone_monthly.csv'
+
+    analyze_stockmarket(sp500_data, dowjones_data, events_data)
+    analyze_cpi(us_cpi_data, events_data)
 
 if __name__ == '__main__':
     main()
