@@ -439,7 +439,7 @@ def output_sp_dj(df_e: pd.DataFrame, df_market: pd.DataFrame, zero_point: str, y
     plot_sp_dj(w_df, year_l)
     print("The evolution of {} SP500 and Dow Jones {} years before and after Pandemics with over 1m fatalities:"
           .format(d_type, year_l))
-    selected_1m = df_e.loc[df_e.Fatalities.isin(["1-10m", "10-100m",">100m"])]
+    selected_1m = df_e.loc[df_e.Fatalities.isin(["1-10m", "10-100m", ">100m"])]
     selected_1m_p = selected_1m.loc[selected_1m["Type"] == "Pandemics"]
     p_df_1 = get_sp_dj(selected_1m_p, df_market, d_type)
     plot_sp_dj(p_df_1, year_l)
@@ -467,10 +467,6 @@ def analyze_cpi(us_cpi_file: str, events_file: str, verbose: Union[bool, None] =
                                     min_end_year=min_cpi_year)
     wars_df = read_event_facts(events_file, types='War', min_start_year=min_cpi_year, min_end_year=min_cpi_year)
 
-    # TODO Analyze wars
-
-
-    # TODO Analyze pandemics
 
 
 def analyze_stockmarket(sp500_file: str, dowjones_file: str, events_file: str):
@@ -492,6 +488,23 @@ def analyze_stockmarket(sp500_file: str, dowjones_file: str, events_file: str):
     print("1. If we use the year before the event end year as zero point, and select the inflation adjusted SP500 and "
           "Dow Jones historical data 10 years before and after the zero point year, plots would be")
     output_sp_dj(event_df, sp_dj, "year_before_end_year", 10, "real")
+
+
+def analyze_gdp(gdp_file: str, events_file: str) -> None:
+    """
+    
+
+    :param gdp_file: gdp data file name
+    :param events_file: events file name
+    :return:
+    """
+
+    us_gdp_df = read_worlddb_gdp('data/WorldDataBank-GDP.csv', countries= 'USA')
+
+    pandemics_gdp = read_event_facts(events_file, types='Pandemics')
+    wars_gdp = read_event_facts(events_file, types='Wars')
+
+    #
 
 
 def main():
