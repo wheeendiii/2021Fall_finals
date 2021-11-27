@@ -199,7 +199,8 @@ def read_us_cpi(filename: str, min_year: Union[int, None] = None, max_year: Unio
     """
 
     # Raise an error if the years requested are outside of the year bounds
-    min_max_year_checking(min_year, max_year)
+    if min_year or max_year:
+        min_max_year_checking(min_year=min_year, max_year=max_year)
 
     df = pd.read_csv(filename, header=0, usecols=['Year', 'Value'], dtype={'Year': 'int16', 'Value': 'float16'})
 
@@ -501,6 +502,7 @@ def main():
 
     analyze_stockmarket(sp500_data, dowjones_data, events_data)
     analyze_cpi(us_cpi_data, events_data)
+
 
 if __name__ == '__main__':
     main()
