@@ -502,7 +502,7 @@ def analyze_gdp(gdp_file: str, events_file: str) -> None:
     us_gdp_df = read_worlddb_gdp(gdp_file, countries= 'USA')
 
     pandemics_gdp = read_event_facts(events_file, types='Pandemics')
-    wars_gdp = read_event_facts(events_file, types='Wars')
+    wars_gdp = read_event_facts(events_file, types='War')
 
     # TODO: go through event file and get start_year, end_year
 
