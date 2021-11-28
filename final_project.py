@@ -492,8 +492,7 @@ def analyze_stockmarket(sp500_file: str, dowjones_file: str, events_file: str):
 
 def analyze_gdp(gdp_file: str, events_file: str) -> None:
     """
-
-
+    # TODO: add description
     :param gdp_file: gdp data file name
     :param events_file: events file name
     :return:
@@ -511,6 +510,14 @@ def analyze_gdp(gdp_file: str, events_file: str) -> None:
     # TODO: call plot_gdp for each event
 
 
+def plot_gdp(gdp_df:pd.DataFrame):
+    """
+    Plot gdp trend for given events.
+    :param gdp_df: the gdp dataframe for selected events
+    :return: plot of the given dataframe
+    """
+    # TODO: plot gdp
+    
 
 def main():
     us_cpi_data = 'data/bls_us_cpi.csv'
