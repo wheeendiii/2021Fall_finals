@@ -496,18 +496,25 @@ def analyze_gdp(gdp_file: str, events_file: str) -> None:
     :param gdp_file: gdp data file name
     :param events_file: events file name
     :return:
-    """
+    >>> analyze_gdp('data/WorldDataBank-GDP.csv', 'data/event_facts.csv')
 
+    """
+    # read in us gdp file
     us_gdp_df = read_worlddb_gdp(gdp_file, countries= 'USA')
 
+    # separate pandemics and wars gdp dataframe
     pandemics_gdp = read_event_facts(events_file, types='Pandemics')
     wars_gdp = read_event_facts(events_file, types='War')
 
-    # TODO: go through event file and get start_year, end_year
+    # go through event file and get start_year, end_year
+    for index, row in pandemics_gdp.iterrows():
+        event_name = row['Event_Name']
+        start_year = row['Start_Year']
+        end_year = row['End_Year']
 
-    # TODO: get df for each event
+        # TODO: get df for each event
 
-    # TODO: call plot_gdp for each event
+        # TODO: call plot_gdp for each event
 
 
 def plot_gdp(gdp_df:pd.DataFrame):
