@@ -515,17 +515,20 @@ def get_gdp_info(us_gdp: pd.DataFrame, df: pd.DataFrame):
     :param us_gdp: US GDP data
     :param df: the gdp dataframe for selected events
     :return:
+    >>> pandemics_gdp = read_event_facts('data/event_facts.csv', types='Pandemics')
+    >>> us_gdp = pd.read_csv('data/gdp_usafacts.csv', header=0)
+    >>> get_gdp_info(us_gdp, pandemics_gdp)
     """
     # go through event file and get start_year, end_year
     for index, row in df.iterrows():
         event_name = row['Event_Name']
-        start_year = row['Start_Year']
+        start_year = int(row['Start_Year'])
         before_event = start_year - 10
-        end_year = row['End_Year']
+        end_year = int(row['End_Year'])
         after_event = end_year + 10
 
         # If start year less than min_year, start from 1929
-        if int(start_year) >= 1929:
+        if start_year >= 1929:
             if end_year > 2020:
                 end_year = 2020
             if after_event > 2020:
@@ -552,7 +555,7 @@ def plot_gdp(gdp_df: pd.DataFrame, event_name: str):
     ax.set_xlabel("GDP fluctuations for " + event_name)
     # TODO: set x lim ticks 45 degree
     # TODO: label start year
-    # TODO: fixed number display and type error while ploting
+    # TODO: fixed number display and type error while plotting
     ax.set_ylabel("GDP")
     plt.show()
 
@@ -564,9 +567,9 @@ def main():
     dowjones_data = 'data/dow_jone_monthly.csv'
     us_gdp_data = 'data/gdp_usafacts.csv'
 
-    analyze_stockmarket(sp500_data, dowjones_data, events_data)
-    analyze_cpi(us_cpi_data, events_data)
-    #analyze_gdp(us_gdp_data, events_data)
+    # analyze_stockmarket(sp500_data, dowjones_data, events_data)
+    # analyze_cpi(us_cpi_data, events_data)
+    analyze_gdp(us_gdp_data, events_data)
 
 
 if __name__ == '__main__':
