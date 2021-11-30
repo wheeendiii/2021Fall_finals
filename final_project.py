@@ -492,15 +492,13 @@ def analyze_stockmarket(sp500_file: str, dowjones_file: str, events_file: str):
 
 def analyze_gdp(gdp_file: str, events_file: str) -> None:
     """
-    # TODO: add description
+    For each event, select gdp data 10 year before and after, and pass the df to plot_gdp()
     :param gdp_file: gdp data file name
     :param events_file: events file name
     :return:
-    >>> analyze_gdp('data/WorldDataBank-GDP.csv', 'data/event_facts.csv')
-
     """
     # read in us gdp file
-    us_gdp_df = read_worlddb_gdp(gdp_file, countries= 'USA')
+    us_gdp_df = pd.read_csv(gdp_file, header=0)
 
     # separate pandemics and wars gdp dataframe
     pandemics_gdp = read_event_facts(events_file, types='Pandemics')
@@ -510,11 +508,24 @@ def analyze_gdp(gdp_file: str, events_file: str) -> None:
     for index, row in pandemics_gdp.iterrows():
         event_name = row['Event_Name']
         start_year = row['Start_Year']
+        before_event = start_year - 10
         end_year = row['End_Year']
+        after_event = end_year + 10
 
-        # TODO: get df for each event
+        # If start year less than min_year, start from 1929
+        if int(start_year) >= 1929:
+            if end_year > 2020:
+                end_year = 2020
+            if after_event > 2020:
+                after_event = 2020
+            if before_event < 1929:
+                before_event = 1929
 
-        # TODO: call plot_gdp for each event
+            # Slice GDP df according to event
+            event_gdp = us_gdp_df.loc[0, str(before_event): str(after_event)]
+
+            # call plot_gdp for each event
+            plot_gdp(event_gdp)
 
 
 def plot_gdp(gdp_df:pd.DataFrame):
@@ -531,7 +542,7 @@ def main():
     events_data = 'data/event_facts.csv'
     sp500_data = 'data/sp500_monthly.csv'
     dowjones_data = 'data/dow_jone_monthly.csv'
-    us_gdp_data = 'data/WorldDataBank-GDP.csv'
+    us_gdp_data = 'data/gdp_usafacts.csv'
 
     analyze_stockmarket(sp500_data, dowjones_data, events_data)
     analyze_cpi(us_cpi_data, events_data)
