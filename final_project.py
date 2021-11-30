@@ -516,8 +516,8 @@ def get_gdp_info(us_gdp: pd.DataFrame, df: pd.DataFrame):
     :param df: the gdp dataframe for selected events
     :return:
     >>> pandemics_gdp = read_event_facts('data/event_facts.csv', types='Pandemics')
-    >>> us_gdp = pd.read_csv('data/gdp_usafacts.csv', header=0)
-    >>> get_gdp_info(us_gdp, pandemics_gdp)
+    >>> us_gdp_test = pd.read_csv('data/gdp_usafacts.csv', header=0)
+    >>> get_gdp_info(us_gdp_test, pandemics_gdp)
     """
     # go through event file and get start_year, end_year
     for index, row in df.iterrows():
@@ -553,9 +553,8 @@ def plot_gdp(gdp_df: pd.DataFrame, event_name: str):
     fig, ax = plt.subplots(figsize=(15, 10))
     ax.plot(gdp_df)
     ax.set_xlabel("GDP fluctuations for " + event_name)
-    # TODO: set x lim ticks 45 degree
     # TODO: label start year
-    # TODO: fixed number display and type error while plotting
+    plt.xticks(rotation=45)  # Rotates X-Axis Ticks by 45-degrees
     ax.set_ylabel("GDP")
     plt.show()
 
