@@ -504,7 +504,7 @@ def analyze_gdp(gdp_file: str, events_file: str) -> None:
     pandemics_gdp = read_event_facts(events_file, types='Pandemics')
     wars_gdp = read_event_facts(events_file, types='War')
 
-    # get gdo_info for each pandemic/war events
+    # get gdp_info for each pandemic/war events
     get_gdp_info(us_gdp_df, pandemics_gdp)
     get_gdp_info(us_gdp_df, wars_gdp)
 
