@@ -1,5 +1,5 @@
 [![Build Status](https://app.travis-ci.com/wheeendiii/2021Fall_finals.svg?branch=main)](https://app.travis-ci.com/wheeendiii/2021Fall_finals)
-# Inflation In The Aftermath Of Wars And Pandemics (Type I)
+# Evolution of Inflation/GDP/Stock Market before and after Wars And Pandemics (Type I)
 
 Group members: Kangyang Wang (*kangyangwang*), Wendy Zhu (*wheeendiii*), and Kay Avila (*kayavila*)
 
