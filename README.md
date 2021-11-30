@@ -49,11 +49,11 @@ The US CPI data set comes from the United States Bureau of Labor Statistics webs
 
 ## Conclusions
 
-**Consumer Price Index (CPI)** (Kay)
+**Consumer Price Index (CPI) before and after Wars and Pandemics** (Kay)
 
-**Gross Domestic Product (GDP)** (Wendy)
+**Gross Domestic Product (GDP) before and after Wars and Pandemics** (Wendy)
 
-**S&P500 and Dow Jones** (Kangyang)
+**S&P500 and Dow Jones before and after Wars and Pandemics** (Kangyang)
 
 If we use the year before the event end year as zero point, and select the inflation adjusted SP500 and Dow Jones historical data 10 years before and after the zero point year, plots would be:
 
