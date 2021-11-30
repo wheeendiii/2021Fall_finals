@@ -13,6 +13,7 @@ Group members: Kangyang Wang (*kangyangwang*), Wendy Zhu (*wheeendiii*), and Kay
 
 ## Data Sources
 **Event Data** (Kangyang)
+This data file is compiled from the wars and pandemics chart in the reference article "Inflation in the aftermath of wars and pandemics" (https://voxeu.org/article/inflation-aftermath-wars-and-pandemics) and the Wiki pages for wars and pandemics("List of epidemics" - https://en.wikipedia.org/wiki/List_of_epidemics, "Timeline of wars" - https://en.wikipedia.org/wiki/Timeline_of_wars).
 
 **Consumer Price Index (CPI)** (Kay)
 * CPI for US from 1913-present - https://beta.bls.gov/dataViewer/view/timeseries/CUUR0000SA0
