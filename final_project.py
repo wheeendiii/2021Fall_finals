@@ -550,8 +550,9 @@ def plot_gdp(gdp_df: pd.DataFrame, event_name: str):
     fig, ax = plt.subplots(figsize=(15, 10))
     ax.plot(gdp_df)
     ax.set_xlabel("GDP fluctuations for " + event_name)
-    # set x lim ticks 45 degree
-    # label start year
+    # TODO: set x lim ticks 45 degree
+    # TODO: label start year
+    # TODO: fixed number display and type error while ploting
     ax.set_ylabel("GDP")
     plt.show()
 
@@ -563,9 +564,9 @@ def main():
     dowjones_data = 'data/dow_jone_monthly.csv'
     us_gdp_data = 'data/gdp_usafacts.csv'
 
-    # analyze_stockmarket(sp500_data, dowjones_data, events_data)
-    # analyze_cpi(us_cpi_data, events_data)
-    analyze_gdp(us_gdp_data, events_data)
+    analyze_stockmarket(sp500_data, dowjones_data, events_data)
+    analyze_cpi(us_cpi_data, events_data)
+    #analyze_gdp(us_gdp_data, events_data)
 
 
 if __name__ == '__main__':
