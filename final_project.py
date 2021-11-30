@@ -492,7 +492,7 @@ def analyze_stockmarket(sp500_file: str, dowjones_file: str, events_file: str):
 
 def analyze_gdp(gdp_file: str, events_file: str) -> None:
     """
-    For each event, select gdp data 10 year before and after, and pass the df to plot_gdp()
+    For each event, select gdp data 10 year before and after, and pass the df to plot_gdp().
     :param gdp_file: gdp data file name
     :param events_file: events file name
     :return:
@@ -504,8 +504,20 @@ def analyze_gdp(gdp_file: str, events_file: str) -> None:
     pandemics_gdp = read_event_facts(events_file, types='Pandemics')
     wars_gdp = read_event_facts(events_file, types='War')
 
+    # get gdo_info for each pandemic/war events
+    get_gdp_info(us_gdp_df, pandemics_gdp)
+    get_gdp_info(us_gdp_df, wars_gdp)
+
+
+def get_gdp_info(us_gdp: pd.DataFrame, df: pd.DataFrame):
+    """
+    Get GDP info from US GDP data for each event in df.
+    :param us_gdp: US GDP data
+    :param df: the gdp dataframe for selected events
+    :return:
+    """
     # go through event file and get start_year, end_year
-    for index, row in pandemics_gdp.iterrows():
+    for index, row in df.iterrows():
         event_name = row['Event_Name']
         start_year = row['Start_Year']
         before_event = start_year - 10
@@ -522,20 +534,27 @@ def analyze_gdp(gdp_file: str, events_file: str) -> None:
                 before_event = 1929
 
             # Slice GDP df according to event
-            event_gdp = us_gdp_df.loc[0, str(before_event): str(after_event)]
+            event_gdp = us_gdp.loc[0, str(before_event): str(after_event)]
 
             # call plot_gdp for each event
-            plot_gdp(event_gdp)
+            plot_gdp(event_gdp, event_name)
 
 
-def plot_gdp(gdp_df:pd.DataFrame):
+def plot_gdp(gdp_df: pd.DataFrame, event_name: str):
     """
     Plot gdp trend for given events.
     :param gdp_df: the gdp dataframe for selected events
+    :param event_name: event name for plotting
     :return: plot of the given dataframe
     """
-    # TODO: plot gdp
-    
+    fig, ax = plt.subplots(figsize=(15, 10))
+    ax.plot(gdp_df)
+    ax.set_xlabel("GDP fluctuations for " + event_name)
+    # set x lim ticks 45 degree
+    # label start year
+    ax.set_ylabel("GDP")
+    plt.show()
+
 
 def main():
     us_cpi_data = 'data/bls_us_cpi.csv'
@@ -544,8 +563,8 @@ def main():
     dowjones_data = 'data/dow_jone_monthly.csv'
     us_gdp_data = 'data/gdp_usafacts.csv'
 
-    analyze_stockmarket(sp500_data, dowjones_data, events_data)
-    analyze_cpi(us_cpi_data, events_data)
+    # analyze_stockmarket(sp500_data, dowjones_data, events_data)
+    # analyze_cpi(us_cpi_data, events_data)
     analyze_gdp(us_gdp_data, events_data)
 
 
