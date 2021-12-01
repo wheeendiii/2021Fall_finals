@@ -556,12 +556,11 @@ def plot_gdp(gdp_df: pd.DataFrame, event_name: str):
     """
 
     fig, ax = plt.subplots(figsize=(15, 10))
-    #gdp_df = gdp_df.values.astype(int)
     ax.plot(gdp_df)
 
     ax.set_xlabel("Years before and after event end year")
     ax.set_ylabel("Gross domestic product ($)")
-    #ax.ticklabel_format(style='plain')
+    ax.ticklabel_format(style='plain', axis='y')
     plt.title("GDP fluctuations for " + event_name)
 
     plt.xticks(rotation=45)  # Rotates X-Axis Ticks by 45-degrees
