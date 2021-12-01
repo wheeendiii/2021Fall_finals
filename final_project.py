@@ -548,14 +548,24 @@ def plot_gdp(gdp_df: pd.DataFrame, event_name: str):
     Plot gdp trend for given events.
     :param gdp_df: the gdp dataframe for selected events
     :param event_name: event name for plotting
+    :param end_year: end year of an event
     :return: plot of the given dataframe
+    >>> us_gdp_df = pd.read_csv('data/gdp_usafacts.csv', header=0)
+    >>> event_gdp = us_gdp_df.loc[0, '1947': '1968']
+    >>> plot_gdp(event_gdp, "Asian Flu")
     """
+
     fig, ax = plt.subplots(figsize=(15, 10))
+    #gdp_df = gdp_df.values.astype(int)
     ax.plot(gdp_df)
-    ax.set_xlabel("GDP fluctuations for " + event_name)
-    # TODO: label start year
+
+    ax.set_xlabel("Years before and after event end year")
+    ax.set_ylabel("Gross domestic product ($)")
+    #ax.ticklabel_format(style='plain')
+    plt.title("GDP fluctuations for " + event_name)
+
     plt.xticks(rotation=45)  # Rotates X-Axis Ticks by 45-degrees
-    ax.set_ylabel("GDP")
+    plt.savefig('Plots/'+event_name+'.png')
     plt.show()
 
 
