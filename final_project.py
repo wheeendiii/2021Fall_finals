@@ -362,19 +362,30 @@ def add_time_range(e_df: pd.DataFrame, t0: str, length: int) -> pd.DataFrame:
     ["start year", "end year", "the year before end year", "the year after start year"]
     :param length: the number of years to study before and after t0
     :return: the event facts dataframe with two extra columns storing the start year and end year for further study
+    >>> df = pd.DataFrame({'Events': ['Event A', 'Event B', 'Event C'], 'Start_Year': [1950, 1999, 2001], \
+                           'End_Year': [1950, 2000, 2010]})
+    >>> result = add_time_range(df, 'start_year', 5)
+    >>> result.head()
+        Events  Start_Year  End_Year  y_start  y_end
+    0  Event A        1950      1950     1945   1955
+    1  Event B        1999      2000     1994   2004
+    2  Event C        2001      2010     1996   2006
     """
     zero_points = ["start_year", "end_year", "year_before_end_year", "year_after_start_year"]
-    for t0 in zero_points:
-        if t0 == zero_points[0]:
-            y0 = e_df["Start_Year"]
-        elif t0 == zero_points[1]:
-            y0 = e_df["End_Year"]
-        elif t0 == zero_points[2]:
-            y0 = e_df["End_Year"] - 1
-        else:
-            y0 = e_df["Start_Year"] + 1
-        e_df["y_start"] = y0 - length
-        e_df["y_end"] = y0 + length - 1
+
+    # Select starting year (y0) based on the t0 parameter
+    if t0 == zero_points[0]:
+        y0 = e_df["Start_Year"]
+    elif t0 == zero_points[1]:
+        y0 = e_df["End_Year"]
+    elif t0 == zero_points[2]:
+        y0 = e_df["End_Year"] - 1
+    elif t0 == zero_points[3]:
+        y0 = e_df["Start_Year"] + 1
+    else:
+        raise ValueError('y0 must be one of  ' + ', '.join(zero_points))
+    e_df["y_start"] = y0 - length
+    e_df["y_end"] = y0 + length
     return e_df
 
 
@@ -481,6 +492,7 @@ def analyze_stockmarket(sp500_file: str, dowjones_file: str, events_file: str):
     sp500_df = pd.read_csv(sp500_file).rename(columns={"real": "real_sp500", "nominal": "nominal_sp500"})
     dj_df = pd.read_csv(dowjones_file).rename(columns={"real": "real_dj", "nominal": "nominal_dj"})
 
+    # Create a dataframe with information on both Dow Jones and SP500 by year
     sp_dj = pd.merge(sp500_df, dj_df, on='date')
     sp_dj["date"] = pd.to_datetime(sp_dj["date"], format='%Y-%m-%d')
     sp_dj["year"] = sp_dj["date"].dt.year
