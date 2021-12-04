@@ -277,7 +277,7 @@ def read_event_facts(filename: str, types: Union[str, list] = None, ranges: Unio
     >>> df = read_event_facts('data/event_facts.csv', max_start_year=1990, min_end_year=1991)
     >>> df[['Event_Name', 'Start_Year', 'End_Year']]
                Event_Name  Start_Year  End_Year
-    6   HIV/AIDS pandemic        1981      2021
+    6   HIV AIDS pandemic        1981      2021
     16           Gulf War        1990      1991
     """
 
