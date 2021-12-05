@@ -364,12 +364,34 @@ def add_time_range(e_df: pd.DataFrame, t0: str, length: int) -> pd.DataFrame:
     :return: the event facts dataframe with two extra columns storing the start year and end year for further study
     >>> df = pd.DataFrame({'Events': ['Event A', 'Event B', 'Event C'], 'Start_Year': [1950, 1999, 2001], \
                            'End_Year': [1950, 2000, 2010]})
+    >>> add_time_range(df, 'invalid_input', 5)  # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: y0 must be one of start_year, end_year, year_before_end_year, year_after_start_year
     >>> result = add_time_range(df, 'start_year', 5)
     >>> result.head()
         Events  Start_Year  End_Year  y_start  y_end
     0  Event A        1950      1950     1945   1955
     1  Event B        1999      2000     1994   2004
     2  Event C        2001      2010     1996   2006
+    >>> result = add_time_range(df, 'end_year', 5)
+    >>> result.head()
+        Events  Start_Year  End_Year  y_start  y_end
+    0  Event A        1950      1950     1945   1955
+    1  Event B        1999      2000     1995   2005
+    2  Event C        2001      2010     2005   2015
+    >>> result = add_time_range(df, 'year_after_start_year', 2)
+    >>> result.head()
+        Events  Start_Year  End_Year  y_start  y_end
+    0  Event A        1950      1950     1949   1953
+    1  Event B        1999      2000     1998   2002
+    2  Event C        2001      2010     2000   2004
+    >>> result = add_time_range(df, 'year_before_end_year', 0)
+    >>> result.head()
+        Events  Start_Year  End_Year  y_start  y_end
+    0  Event A        1950      1950     1949   1949
+    1  Event B        1999      2000     1999   1999
+    2  Event C        2001      2010     2009   2009
     """
     zero_points = ["start_year", "end_year", "year_before_end_year", "year_after_start_year"]
 
@@ -383,7 +405,7 @@ def add_time_range(e_df: pd.DataFrame, t0: str, length: int) -> pd.DataFrame:
     elif t0 == zero_points[3]:
         y0 = e_df["Start_Year"] + 1
     else:
-        raise ValueError('y0 must be one of  ' + ', '.join(zero_points))
+        raise ValueError('y0 must be one of ' + ', '.join(zero_points))
     e_df["y_start"] = y0 - length
     e_df["y_end"] = y0 + length
     return e_df
