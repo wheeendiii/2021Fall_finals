@@ -5,7 +5,7 @@ Group members: Kangyang Wang, Wendy Zhu, and Kay Avila
 import numpy as np
 import pandas as pd
 from datetime import date
-from typing import Union
+from typing import Union, Literal
 import matplotlib.pyplot as plt
 
 
@@ -353,7 +353,7 @@ def read_event_facts(filename: str, types: Union[str, list] = None, ranges: Unio
     return df
 
 
-def add_time_range(e_df: pd.DataFrame, t0: str, length: int) -> pd.DataFrame:
+def add_time_range(e_df: pd.DataFrame, t0: Literal['start_year', 'end_year', 'year_before_end_year', 'year_after_start_year'], length: int) -> pd.DataFrame:
     """
     This function is used to add two columns ("y_start", "y_end") into the event_fact dataframe based on the selection
     of year t0 and the number of years before and after year t0 for further plotting and study.
@@ -502,7 +502,6 @@ def analyze_cpi(us_cpi_file: str, events_file: str, verbose: Union[bool, None] =
     :param verbose: Indicates whether to print debugging information
     :return:
     """
-
     us_cpi_df = read_us_cpi(us_cpi_file)
     min_cpi_year = us_cpi_df['Year'].min()
 
@@ -510,6 +509,9 @@ def analyze_cpi(us_cpi_file: str, events_file: str, verbose: Union[bool, None] =
                                     min_end_year=min_cpi_year)
     wars_df = read_event_facts(events_file, types='War', min_start_year=min_cpi_year, min_end_year=min_cpi_year)
 
+    # Add columns for the plot points
+    pandemics_df = add_time_range(pandemics_df, 'end_year', 10)
+    wars_df = add_time_range(pandemics_df, 'end_year', 10)
 
 
 def analyze_stockmarket(sp500_file: str, dowjones_file: str, events_file: str):
@@ -619,9 +621,9 @@ def main():
     dowjones_data = 'data/dow_jone_monthly.csv'
     us_gdp_data = 'data/gdp_usafacts.csv'
 
-    # analyze_stockmarket(sp500_data, dowjones_data, events_data)
-    # analyze_cpi(us_cpi_data, events_data)
-    analyze_gdp(us_gdp_data, events_data)
+    #analyze_stockmarket(sp500_data, dowjones_data, events_data)
+    analyze_cpi(us_cpi_data, events_data)
+    #analyze_gdp(us_gdp_data, events_data)
 
 
 if __name__ == '__main__':
