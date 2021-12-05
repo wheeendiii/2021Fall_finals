@@ -9,315 +9,6 @@ from typing import Union, Literal
 import matplotlib.pyplot as plt
 
 
-def trim_to_years(df: pd.DataFrame, start_year: int, end_year: int, year_col_name: str = 'Year',
-                  pad: Literal[None, 'zero', 'nan'] = None, pad_col_name: Union[None, str] = None) -> pd.DataFrame:
-    """ Given a dataframe with a year column, filters the dataframe down to the range created by the starting
-    and ending years specified as paramters.  If a pad option is specified, then years for which data does not exist
-    are padded with the value corresponding to the option.
-
-    :param df: A dataframe with some type of year column
-    :param year_col_name: The name of the column holding the years (defaults to 'Year')
-    :param start_year: The beginning of the years to include
-    :param end_year: The last year to include
-    :param pad: Value to insert for years that have no data
-    :param pad_col_name: If pad is specified, the value column in which to add padding
-    :return: An updated dataframe with only the years between the two specified, with optional padding
-    >>> df = pd.DataFrame({'Years': list(range(1990, 2001)), 'Values': list(range(0, 21, 2))})
-    >>> trim_to_years(df, 2000, 1999, 'Years')  # doctest: +ELLIPSIS
-    Traceback (most recent call last):
-    ...
-    ValueError: Invalid years: Minimum year must be less than maximum year.
-    >>> trim_to_years(df, 1995, 2000, pad='none')  # doctest: +ELLIPSIS
-    Traceback (most recent call last):
-    ...
-    ValueError: If pad is specified, pad_col_name must be given.
-    >>> trim_to_years(df, 1995, 2000, pad='fill', pad_col_name='Value')  # doctest: +ELLIPSIS
-    Traceback (most recent call last):
-    ...
-    ValueError: Value for pad must be one of: zero, nan
-    >>> results = trim_to_years(df, 1995, 2020, 'Years')
-    >>> print(results)
-        Years  Values
-    5    1995      10
-    6    1996      12
-    7    1997      14
-    8    1998      16
-    9    1999      18
-    10   2000      20
-    >>> results = trim_to_years(df, 1900, 1910, 'Years')
-    >>> len(results)
-    0
-    >>> results = trim_to_years(df, 1989, 1992, 'Years', pad='zero', pad_col_name='Values')
-    >>> print(results)
-       Years  Values
-    0   1989       0
-    1   1990       0
-    2   1991       2
-    3   1992       4
-    >>> results = trim_to_years(df, 1989, 2003, 'Years', pad='nan', pad_col_name='Values')
-    >>> results.tail()
-        Years  Values
-    10   1999    18.0
-    11   2000    20.0
-    12   2001     NaN
-    13   2002     NaN
-    14   2003     NaN
-    """
-    min_max_year_checking(min_year=start_year, max_year=end_year)
-
-    pad_options = {'zero': 0, 'nan': np.NaN}
-    if pad:
-        # Raise an error if pad is specified but no value column to pad
-        if not pad_col_name:
-            raise ValueError('If pad is specified, pad_col_name must be given.')
-        if pad not in pad_options.keys():
-            raise ValueError('Value for pad must be one of: ' + ', '.join(pad_options))
-        else:
-            pad_value = pad_options[pad]
-            pad = True
-
-    df_selected = df.loc[df[year_col_name] >= start_year]
-    df_selected = df_selected[df_selected[year_col_name] <= end_year]
-
-    if pad:
-        # Given from above that both of these values are filled
-        assert pad_value in pad_options.values()
-        assert pad_col_name is not None
-
-        # Find the first and last years for which there is data available
-        min_year_possible = df[year_col_name].min()
-        max_year_possible = df[year_col_name].max()
-
-        if start_year < min_year_possible:
-            start_pad_df = pd.DataFrame({year_col_name: list(range(start_year, min_year_possible)),
-                                         pad_col_name: [pad_value for _ in range(start_year, min_year_possible)]})
-            df_selected = pd.concat([start_pad_df, df_selected])
-        if end_year > max_year_possible:
-            # Slightly different from start/min, because we need to add values beginning with the next year after the
-            # maximum year available, and pad through the end_year specified as a parameter
-            end_pad_df = pd.DataFrame({year_col_name: list(range(max_year_possible + 1, end_year + 1)),
-                                       pad_col_name: [pad_value for _ in range(max_year_possible + 1, end_year + 1)]})
-            df_selected = pd.concat([df_selected, end_pad_df])
-
-        # Reset the index so all index values are unique
-        df_selected.reset_index(inplace=True, drop=True)
-
-    return df_selected
-
-
-def min_max_year_checking(min_year: int = None, min_year_possible: int = None, max_year: Union[int, None] = None,
-                          max_year_possible: int = None) -> None:
-    """ Throws an error if a given minimum year is less than a minimum year possible, maxinum year is greater than a
-    maximum year possible (or the current year, if none given), or if the minimum year is greater than the maximum year.
-
-    :param min_year: The minimum year value to check
-    :param min_year_possible: The lowest possible year
-    :param max_year: The maximum year value to check
-    :param max_year_possible: The maximum possible year
-    :return: None but raises a ValueError if one of the criteria isn't met
-
-    >>> min_max_year_checking(min_year=2000, max_year=1980)   # doctest: +ELLIPSIS
-    Traceback (most recent call last):
-    ...
-    ValueError: Invalid years: Minimum year must be less than maximum year.
-    >>> min_max_year_checking(min_year=1910, min_year_possible=1960)   # doctest: +ELLIPSIS
-    Traceback (most recent call last):
-    ...
-    ValueError: Invalid minimum year: Minimum year cannot be less than 1960.
-    >>> min_max_year_checking(min_year=3000)   # doctest: +ELLIPSIS
-    Traceback (most recent call last):
-    ...
-    ValueError: Invalid minimum year: Minimum year cannot be greater than 2021.
-    >>> min_max_year_checking(max_year=3000)   # doctest: +ELLIPSIS
-    Traceback (most recent call last):
-    ...
-    ValueError: Invalid maximum year: Maximum year cannot be greater than 2021.
-    >>> min_max_year_checking(min_year=1950, max_year=1930)   # doctest: +ELLIPSIS
-    Traceback (most recent call last):
-    ...
-    ValueError: Invalid years: Minimum year must be less than maximum year.
-    """
-    curr_year = date.today().year
-
-    if min_year:
-        if min_year_possible and min_year < min_year_possible:
-            raise ValueError('Invalid minimum year: Minimum year cannot be less than {}.'.format(min_year_possible))
-        elif min_year > curr_year:
-            raise ValueError('Invalid minimum year: Minimum year cannot be greater than {}.'.format(curr_year))
-    if max_year:
-        # Set maximum year to the current year if none given
-        if not max_year_possible:
-            max_year_possible = curr_year
-        if max_year > max_year_possible:
-            raise ValueError('Invalid maximum year: Maximum year cannot be greater than {}.'.format(max_year_possible))
-
-    # Double-check we haven't been given something invalid for years
-    if (min_year and max_year) and (min_year > max_year):
-        raise ValueError('Invalid years: Minimum year must be less than maximum year.')
-
-
-def read_worlddb_gdp(filename: str, min_year: Union[int, None] = None, max_year: Union[int, None] = None,
-                     countries: Union[list, None] = None) -> pd.DataFrame:
-    """ Takes a csv file from the World Data Bank containing GDP information from various countries.  Original data
-    can be obtained from https://databank.worldbank.org/reports.aspx?source=2&type=metadata&series=NY.GDP.MKTP.CD#
-
-    :param countries: A list of countries to include, using their country codes
-    :param min_year: The starting year to include data from (otherwise data from the beginning to max_year is returned)
-    :param max_year: The ending year to include data from (otherwise data from min_year to current is returned)
-    :param filename: The World Data Bank csv file of GDP data
-    :return: A pandas dataframe containing the GDP data for the countries and years specified
-
-    >>> read_worlddb_gdp('test.txt')  # doctest: +ELLIPSIS
-    Traceback (most recent call last):
-    ...
-    FileNotFoundError: [Errno 2] No such file or directory: 'test.txt'
-    >>> df = read_worlddb_gdp('data/WorldDataBank-GDP.csv')
-    >>> df.head()  # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
-         Country Name Country Code  ...              2019              2020
-    0     Afghanistan          AFG  ...  19291104007.6135  19807067268.1084
-    1         Albania          ALB  ...  15286612572.6895  14799615097.1008
-    2         Algeria          DZA  ...  171157803367.473  145163902228.168
-    3  American Samoa          ASM  ...         638000000               NaN
-    4         Andorra          AND  ...  3155065487.51819               NaN
-    <BLANKLINE>
-    [5 rows x 63 columns]
-    >>> df.tail()  # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
-                                       Country Name  ...              2020
-    261                          Sub-Saharan Africa  ...  1687597704644.75
-    262  Sub-Saharan Africa (excluding high income)  ...  1686475026320.97
-    263   Sub-Saharan Africa (IDA & IBRD countries)  ...  1687597704644.75
-    264                         Upper middle income  ...  23104877770162.5
-    265                                       World  ...  84577962952008.3
-    <BLANKLINE>
-    [5 rows x 63 columns]
-    >>> df = read_worlddb_gdp('data/WorldDataBank-GDP.csv', countries=['IRL', 'IMN', 'GBR'])
-    >>> df.head()  # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
-           Country Name Country Code  ...              2019              2020
-    93          Ireland          IRL  ...  399122063504.148  425888950992.003
-    94      Isle of Man          IMN  ...               NaN               NaN
-    205  United Kingdom          GBR  ...  2830813507746.87  2707743777173.91
-    <BLANKLINE>
-    [3 rows x 63 columns]
-    >>> df = read_worlddb_gdp('data/WorldDataBank-GDP.csv', min_year=1984, max_year=1985)
-    >>> df.head()
-         Country Name Country Code              1984              1985
-    0     Afghanistan          AFG               NaN               NaN
-    1         Albania          ALB  1857338011.85488  1897050133.42015
-    2         Algeria          DZA  53698278905.9678  57937868670.1937
-    3  American Samoa          ASM               NaN               NaN
-    4         Andorra          AND  330070689.298282  346737964.774951
-    >>> df = read_worlddb_gdp('data/WorldDataBank-GDP.csv', min_year=1975, max_year=1975, countries=['USA'])
-    >>> print(df)
-          Country Name Country Code           1975
-    206  United States          USA  1684904000000
-    """
-
-    # Raise an error if the years requested are outside of the year bounds
-    min_max_year_checking(min_year=min_year, min_year_possible=1960, max_year=max_year,
-                          max_year_possible=(date.today().year - 1))
-
-    # Rather than specifying by year, be more usable for the future by dropping unneeded columns
-    df = pd.read_csv(filename, header=0, dtype={'Country Name': 'string', 'Country Code': 'string'})
-    df.drop(columns=['Series Name', 'Series Code'], inplace=True)
-
-    # Trim off the excess year header data (e.g. [YR1971]), and set correct type for the years
-    col_names = list(df.columns)
-    year_type_dict = {}
-    for i, name in enumerate(col_names):
-        if name.endswith(']'):
-            col_names[i] = int(col_names[i].split(' ')[0])
-            year_type_dict[col_names[i]]: 'int16'
-    df.columns = col_names
-    df = df.astype(year_type_dict)
-
-    df = df[df['Country Code'].notna()]  # Drop rows without country codes
-    df = df.replace('..', np.nan)  # Convert the '..'s to NaNs
-
-    if countries:
-        countries = [c.upper() for c in countries]  # Make sure all country codes are uppercase
-        relevant_countries = df['Country Code'].isin(countries)  # Filter down to the ones we want
-        df = df[relevant_countries]
-
-    if max_year:
-        max_year_pos = df.columns.get_loc(int(max_year))
-        df = df.iloc[:, 0:(max_year_pos + 1)]
-
-    # Minimum year is trickier because we need to keep country info in the first two cols
-    if min_year:
-        min_year_pos = df.columns.get_loc(int(min_year))
-        df_right = df.iloc[:, min_year_pos:]  # Grab the year columns
-        df_left = df.iloc[:, 0:2]  # These are the country name and country code
-
-        # Append the year columns on the right to the country name/codes on the left
-        df_left[df_right.columns] = df_right.values
-        df = df_left
-
-    return df
-
-
-def read_us_cpi(filename: str, min_year: Union[int, None] = None, max_year: Union[int, None] = None) -> pd.DataFrame:
-    """ Loads a CVS file with CPI information from the US Bureau of Labor Statistics into a Pandas dataframe.  Also
-    averages all the month values for each year in order to only return one value for each year.
-    Data sets available at https://beta.bls.gov/dataViewer/view/timeseries/CUUR0000SA0
-
-    :param filename:
-    :param min_year:
-    :param max_year:
-    :return:
-
-    >>> read_us_cpi('test.txt')  # doctest: +ELLIPSIS
-    Traceback (most recent call last):
-    ...
-    FileNotFoundError: [Errno 2] No such file or directory: 'test.txt'
-    >>> df = read_us_cpi('data/bls_us_cpi.csv', min_year=2015)
-    >>> df.head()
-         Year    Value
-    102  2015  237.000
-    103  2016  240.000
-    104  2017  245.125
-    105  2018  251.125
-    106  2019  255.625
-    >>> df = read_us_cpi('data/bls_us_cpi.csv', max_year=1950)
-    >>> df.tail()
-        Year      Value
-    33  1946  19.515625
-    34  1947  22.328125
-    35  1948  24.046875
-    36  1949  23.812500
-    37  1950  24.062500
-    >>> df = read_us_cpi('data/bls_us_cpi.csv', min_year=1990, max_year=1993)
-    >>> print(df)
-        Year    Value
-    77  1990  130.625
-    78  1991  136.250
-    79  1992  140.250
-    80  1993  144.500
-    """
-
-    # Raise an error if the years requested are outside of the year bounds
-    if min_year or max_year:
-        min_max_year_checking(min_year=min_year, max_year=max_year)
-
-    df = pd.read_csv(filename, header=0, usecols=['Year', 'Value'], dtype={'Year': 'int16', 'Value': 'float16'})
-
-    # Calculate the averages for each year, and keep year as a column, not an index
-    df = df.groupby('Year').mean()
-    df.reset_index(inplace=True)
-
-    # If either minimum or maximum year was specified, filter down on these
-    if min_year or max_year:
-        # Find the minimum and maximum years if one of these wasn't given as a parameter
-        if not min_year:
-            min_year = int(df['Year'].min())
-        elif not max_year:
-            max_year = int(df['Year'].max())
-
-        df = df[df['Year'] >= min_year]
-        df = df[df['Year'] <= max_year]
-
-    return df
-
-
 def read_event_facts(filename: str, types: Union[str, list] = None, ranges: Union[str, list] = None,
                      min_start_year: Union[int, None] = None, max_start_year: Union[int, None] = None,
                      min_end_year: Union[int, None] = None, max_end_year: Union[int, None] = None) -> pd.DataFrame:
@@ -510,6 +201,432 @@ def add_time_range(e_df: pd.DataFrame, t0: Literal['start_year', 'end_year', 'ye
     return e_df
 
 
+def min_max_year_checking(min_year: int = None, min_year_possible: int = None, max_year: Union[int, None] = None,
+                          max_year_possible: int = None) -> None:
+    """ Throws an error if a given minimum year is less than a minimum year possible, maxinum year is greater than a
+    maximum year possible (or the current year, if none given), or if the minimum year is greater than the maximum year.
+
+    :param min_year: The minimum year value to check
+    :param min_year_possible: The lowest possible year
+    :param max_year: The maximum year value to check
+    :param max_year_possible: The maximum possible year
+    :return: None but raises a ValueError if one of the criteria isn't met
+
+    >>> min_max_year_checking(min_year=2000, max_year=1980)   # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: Invalid years: Minimum year must be less than maximum year.
+    >>> min_max_year_checking(min_year=1910, min_year_possible=1960)   # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: Invalid minimum year: Minimum year cannot be less than 1960.
+    >>> min_max_year_checking(min_year=3000)   # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: Invalid minimum year: Minimum year cannot be greater than 2021.
+    >>> min_max_year_checking(max_year=3000)   # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: Invalid maximum year: Maximum year cannot be greater than 2021.
+    >>> min_max_year_checking(min_year=1950, max_year=1930)   # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: Invalid years: Minimum year must be less than maximum year.
+    """
+    curr_year = date.today().year
+
+    if min_year:
+        if min_year_possible and min_year < min_year_possible:
+            raise ValueError('Invalid minimum year: Minimum year cannot be less than {}.'.format(min_year_possible))
+        elif min_year > curr_year:
+            raise ValueError('Invalid minimum year: Minimum year cannot be greater than {}.'.format(curr_year))
+    if max_year:
+        # Set maximum year to the current year if none given
+        if not max_year_possible:
+            max_year_possible = curr_year
+        if max_year > max_year_possible:
+            raise ValueError('Invalid maximum year: Maximum year cannot be greater than {}.'.format(max_year_possible))
+
+    # Double-check we haven't been given something invalid for years
+    if (min_year and max_year) and (min_year > max_year):
+        raise ValueError('Invalid years: Minimum year must be less than maximum year.')
+
+
+def trim_to_years(df: pd.DataFrame, start_year: int, end_year: int, year_col_name: str = 'Year',
+                  pad: Literal[None, 'zero', 'nan'] = None, pad_col_name: Union[None, str] = None) -> pd.DataFrame:
+    """ Given a dataframe with a year column, filters the dataframe down to the range created by the starting
+    and ending years specified as paramters.  If a pad option is specified, then years for which data does not exist
+    are padded with the value corresponding to the option.
+
+    :param df: A dataframe with some type of year column
+    :param year_col_name: The name of the column holding the years (defaults to 'Year')
+    :param start_year: The beginning of the years to include
+    :param end_year: The last year to include
+    :param pad: Value to insert for years that have no data
+    :param pad_col_name: If pad is specified, the value column in which to add padding
+    :return: An updated dataframe with only the years between the two specified, with optional padding
+    >>> df = pd.DataFrame({'Years': list(range(1990, 2001)), 'Values': list(range(0, 21, 2))})
+    >>> trim_to_years(df, 2000, 1999, 'Years')  # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: Invalid years: Minimum year must be less than maximum year.
+    >>> trim_to_years(df, 1995, 2000, pad='none')  # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: If pad is specified, pad_col_name must be given.
+    >>> trim_to_years(df, 1995, 2000, pad='fill', pad_col_name='Value')  # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: Value for pad must be one of: zero, nan
+    >>> results = trim_to_years(df, 1995, 2020, 'Years')
+    >>> print(results)
+        Years  Values
+    5    1995      10
+    6    1996      12
+    7    1997      14
+    8    1998      16
+    9    1999      18
+    10   2000      20
+    >>> results = trim_to_years(df, 1900, 1910, 'Years')
+    >>> len(results)
+    0
+    >>> results = trim_to_years(df, 1989, 1992, 'Years', pad='zero', pad_col_name='Values')
+    >>> print(results)
+       Years  Values
+    0   1989       0
+    1   1990       0
+    2   1991       2
+    3   1992       4
+    >>> results = trim_to_years(df, 1989, 2003, 'Years', pad='nan', pad_col_name='Values')
+    >>> results.tail()
+        Years  Values
+    10   1999    18.0
+    11   2000    20.0
+    12   2001     NaN
+    13   2002     NaN
+    14   2003     NaN
+    """
+    min_max_year_checking(min_year=start_year, max_year=end_year)
+
+    pad_options = {'zero': 0, 'nan': np.NaN}
+    if pad:
+        # Raise an error if pad is specified but no value column to pad
+        if not pad_col_name:
+            raise ValueError('If pad is specified, pad_col_name must be given.')
+        if pad not in pad_options.keys():
+            raise ValueError('Value for pad must be one of: ' + ', '.join(pad_options))
+        else:
+            pad_value = pad_options[pad]
+            pad = True
+
+    df_selected = df.loc[df[year_col_name] >= start_year]
+    df_selected = df_selected[df_selected[year_col_name] <= end_year]
+
+    if pad:
+        # Given from above that both of these values are filled
+        assert pad_value in pad_options.values()
+        assert pad_col_name is not None
+
+        # Find the first and last years for which there is data available
+        min_year_possible = df[year_col_name].min()
+        max_year_possible = df[year_col_name].max()
+
+        if start_year < min_year_possible:
+            start_pad_df = pd.DataFrame({year_col_name: list(range(start_year, min_year_possible)),
+                                         pad_col_name: [pad_value for _ in range(start_year, min_year_possible)]})
+            df_selected = pd.concat([start_pad_df, df_selected])
+        if end_year > max_year_possible:
+            # Slightly different from start/min, because we need to add values beginning with the next year after the
+            # maximum year available, and pad through the end_year specified as a parameter
+            end_pad_df = pd.DataFrame({year_col_name: list(range(max_year_possible + 1, end_year + 1)),
+                                       pad_col_name: [pad_value for _ in range(max_year_possible + 1, end_year + 1)]})
+            df_selected = pd.concat([df_selected, end_pad_df])
+
+        # Reset the index so all index values are unique
+        df_selected.reset_index(inplace=True, drop=True)
+
+    return df_selected
+
+
+def read_worlddb_gdp(filename: str, min_year: Union[int, None] = None, max_year: Union[int, None] = None,
+                     countries: Union[list, None] = None) -> pd.DataFrame:
+    """ Takes a csv file from the World Data Bank containing GDP information from various countries.  Original data
+    can be obtained from https://databank.worldbank.org/reports.aspx?source=2&type=metadata&series=NY.GDP.MKTP.CD#
+
+    :param countries: A list of countries to include, using their country codes
+    :param min_year: The starting year to include data from (otherwise data from the beginning to max_year is returned)
+    :param max_year: The ending year to include data from (otherwise data from min_year to current is returned)
+    :param filename: The World Data Bank csv file of GDP data
+    :return: A pandas dataframe containing the GDP data for the countries and years specified
+
+    >>> read_worlddb_gdp('test.txt')  # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    FileNotFoundError: [Errno 2] No such file or directory: 'test.txt'
+    >>> df = read_worlddb_gdp('data/WorldDataBank-GDP.csv')
+    >>> df.head()  # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
+         Country Name Country Code  ...              2019              2020
+    0     Afghanistan          AFG  ...  19291104007.6135  19807067268.1084
+    1         Albania          ALB  ...  15286612572.6895  14799615097.1008
+    2         Algeria          DZA  ...  171157803367.473  145163902228.168
+    3  American Samoa          ASM  ...         638000000               NaN
+    4         Andorra          AND  ...  3155065487.51819               NaN
+    <BLANKLINE>
+    [5 rows x 63 columns]
+    >>> df.tail()  # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
+                                       Country Name  ...              2020
+    261                          Sub-Saharan Africa  ...  1687597704644.75
+    262  Sub-Saharan Africa (excluding high income)  ...  1686475026320.97
+    263   Sub-Saharan Africa (IDA & IBRD countries)  ...  1687597704644.75
+    264                         Upper middle income  ...  23104877770162.5
+    265                                       World  ...  84577962952008.3
+    <BLANKLINE>
+    [5 rows x 63 columns]
+    >>> df = read_worlddb_gdp('data/WorldDataBank-GDP.csv', countries=['IRL', 'IMN', 'GBR'])
+    >>> df.head()  # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
+           Country Name Country Code  ...              2019              2020
+    93          Ireland          IRL  ...  399122063504.148  425888950992.003
+    94      Isle of Man          IMN  ...               NaN               NaN
+    205  United Kingdom          GBR  ...  2830813507746.87  2707743777173.91
+    <BLANKLINE>
+    [3 rows x 63 columns]
+    >>> df = read_worlddb_gdp('data/WorldDataBank-GDP.csv', min_year=1984, max_year=1985)
+    >>> df.head()
+         Country Name Country Code              1984              1985
+    0     Afghanistan          AFG               NaN               NaN
+    1         Albania          ALB  1857338011.85488  1897050133.42015
+    2         Algeria          DZA  53698278905.9678  57937868670.1937
+    3  American Samoa          ASM               NaN               NaN
+    4         Andorra          AND  330070689.298282  346737964.774951
+    >>> df = read_worlddb_gdp('data/WorldDataBank-GDP.csv', min_year=1975, max_year=1975, countries=['USA'])
+    >>> print(df)
+          Country Name Country Code           1975
+    206  United States          USA  1684904000000
+    """
+
+    # Raise an error if the years requested are outside of the year bounds
+    min_max_year_checking(min_year=min_year, min_year_possible=1960, max_year=max_year,
+                          max_year_possible=(date.today().year - 1))
+
+    # Rather than specifying by year, be more usable for the future by dropping unneeded columns
+    df = pd.read_csv(filename, header=0, dtype={'Country Name': 'string', 'Country Code': 'string'})
+    df.drop(columns=['Series Name', 'Series Code'], inplace=True)
+
+    # Trim off the excess year header data (e.g. [YR1971]), and set correct type for the years
+    col_names = list(df.columns)
+    year_type_dict = {}
+    for i, name in enumerate(col_names):
+        if name.endswith(']'):
+            col_names[i] = int(col_names[i].split(' ')[0])
+            year_type_dict[col_names[i]]: 'int16'
+    df.columns = col_names
+    df = df.astype(year_type_dict)
+
+    df = df[df['Country Code'].notna()]  # Drop rows without country codes
+    df = df.replace('..', np.nan)  # Convert the '..'s to NaNs
+
+    if countries:
+        countries = [c.upper() for c in countries]  # Make sure all country codes are uppercase
+        relevant_countries = df['Country Code'].isin(countries)  # Filter down to the ones we want
+        df = df[relevant_countries]
+
+    if max_year:
+        max_year_pos = df.columns.get_loc(int(max_year))
+        df = df.iloc[:, 0:(max_year_pos + 1)]
+
+    # Minimum year is trickier because we need to keep country info in the first two cols
+    if min_year:
+        min_year_pos = df.columns.get_loc(int(min_year))
+        df_right = df.iloc[:, min_year_pos:]  # Grab the year columns
+        df_left = df.iloc[:, 0:2]  # These are the country name and country code
+
+        # Append the year columns on the right to the country name/codes on the left
+        df_left[df_right.columns] = df_right.values
+        df = df_left
+
+    return df
+
+
+def get_gdp_info(us_gdp: pd.DataFrame, df: pd.DataFrame):
+    """
+    Get GDP info from US GDP data for each event in df.
+    :param us_gdp: US GDP data
+    :param df: the gdp dataframe for selected events
+    :return:
+    >>> pandemics_gdp = read_event_facts('data/event_facts.csv', types='Pandemics')
+    >>> us_gdp_test = pd.read_csv('data/gdp_usafacts.csv', header=0)
+    >>> get_gdp_info(us_gdp_test, pandemics_gdp)
+    """
+    # go through event file and get start_year, end_year
+    for index, row in df.iterrows():
+        event_name = row['Event_Name']
+        start_year = int(row['Start_Year'])
+        before_event = start_year - 10
+        end_year = int(row['End_Year'])
+        after_event = end_year + 10
+
+        # If start year less than min_year, start from 1929
+        if start_year >= 1929:
+            if end_year > 2020:
+                end_year = 2020
+            if after_event > 2020:
+                after_event = 2020
+            if before_event < 1929:
+                before_event = 1929
+
+            # Slice GDP df according to event
+            event_gdp = us_gdp.loc[0, str(before_event): str(after_event)]
+
+            # call plot_gdp for each event
+            plot_gdp(event_gdp, event_name)
+
+
+def plot_gdp(gdp_df: pd.DataFrame, event_name: str):
+    """
+    Plot gdp trend for given events.
+    :param gdp_df: the gdp dataframe for selected events
+    :param event_name: event name for plotting
+    :param end_year: end year of an event
+    :return: plot of the given dataframe
+    >>> us_gdp_df = pd.read_csv('data/gdp_usafacts.csv', header=0)
+    >>> event_gdp = us_gdp_df.loc[0, '1947': '1968']
+    >>> plot_gdp(event_gdp, "Asian Flu")
+    """
+
+    fig, ax = plt.subplots(figsize=(15, 10))
+    gdp_df= gdp_df.values.astype(int)
+    ax.plot(gdp_df)
+
+    ax.set_xlabel("Years before and after event end year")
+    ax.set_ylabel("Gross domestic product ($)")
+    ax.ticklabel_format(style='plain', axis='y')
+    plt.title("GDP fluctuations for " + event_name)
+
+    plt.xticks(rotation=45)  # Rotates X-Axis Ticks by 45-degrees
+    plt.savefig('Plots/GDP/'+event_name+'.png')
+
+
+def read_us_cpi(filename: str, min_year: Union[int, None] = None, max_year: Union[int, None] = None) -> pd.DataFrame:
+    """ Loads a CVS file with CPI information from the US Bureau of Labor Statistics into a Pandas dataframe.  Also
+    averages all the month values for each year in order to only return one value for each year.
+    Data sets available at https://beta.bls.gov/dataViewer/view/timeseries/CUUR0000SA0
+
+    :param filename:
+    :param min_year:
+    :param max_year:
+    :return:
+
+    >>> read_us_cpi('test.txt')  # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    FileNotFoundError: [Errno 2] No such file or directory: 'test.txt'
+    >>> df = read_us_cpi('data/bls_us_cpi.csv', min_year=2015)
+    >>> df.head()
+         Year    Value
+    102  2015  237.000
+    103  2016  240.000
+    104  2017  245.125
+    105  2018  251.125
+    106  2019  255.625
+    >>> df = read_us_cpi('data/bls_us_cpi.csv', max_year=1950)
+    >>> df.tail()
+        Year      Value
+    33  1946  19.515625
+    34  1947  22.328125
+    35  1948  24.046875
+    36  1949  23.812500
+    37  1950  24.062500
+    >>> df = read_us_cpi('data/bls_us_cpi.csv', min_year=1990, max_year=1993)
+    >>> print(df)
+        Year    Value
+    77  1990  130.625
+    78  1991  136.250
+    79  1992  140.250
+    80  1993  144.500
+    """
+
+    # Raise an error if the years requested are outside of the year bounds
+    if min_year or max_year:
+        min_max_year_checking(min_year=min_year, max_year=max_year)
+
+    df = pd.read_csv(filename, header=0, usecols=['Year', 'Value'], dtype={'Year': 'int16', 'Value': 'float16'})
+
+    # Calculate the averages for each year, and keep year as a column, not an index
+    df = df.groupby('Year').mean()
+    df.reset_index(inplace=True)
+
+    # If either minimum or maximum year was specified, filter down on these
+    if min_year or max_year:
+        # Find the minimum and maximum years if one of these wasn't given as a parameter
+        if not min_year:
+            min_year = int(df['Year'].min())
+        elif not max_year:
+            max_year = int(df['Year'].max())
+
+        df = df[df['Year'] >= min_year]
+        df = df[df['Year'] <= max_year]
+
+    return df
+
+
+def add_cpi_values(event_df: pd.DataFrame, cpi_df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Takes a dataframe with an Event column and y_start and y_end years, and returns a .. #TODO
+
+    Note: Each event must have an equal length between their start and end years
+
+    :param event_df: A dataframe with 'Event_Name' column, and columns with 'y_start' and 'y_end' year
+    :param cpi_df: A dataframe with CPI data with a 'Year' column and 'Value' column
+    :return:
+
+    >>> events_df = pd.DataFrame({'Event_Name': ['Event A', 'Event B'], 'y_start': [1990, 1995], 'y_end': [2000, 2002]})
+    >>> cpi_df = pd.DataFrame({'Year': list(range(1990, 2002)), 'Value': [x * x for x in range(1, 13)]})
+    >>> add_cpi_values(events_df, cpi_df) # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: All events must have the same number of years between their start and end years.
+    >>> events_df = pd.DataFrame({'Event_Name': ['Event A', 'Event B'], 'y_start': [1990, 1995], 'y_end': [2000, 2005]})
+    >>> df = add_cpi_values(events_df, cpi_df)
+    >>> print(df)
+         Event A   Event B
+    1   3.000000  0.361111
+    2   1.250000  0.306122
+    3   0.777778  0.265625
+    4   0.562500  0.234568
+    5   0.440000  0.210000
+    6   0.361111  0.190083
+    7   0.306122  0.000000
+    8   0.265625  0.000000
+    9   0.234568  0.000000
+    10  0.210000  0.000000
+    """
+    results = {}
+    for _, row in event_df.iterrows():
+        event = row['Event_Name']
+        start = row['y_start']
+        end = row['y_end']
+
+        # Select all the CPI values between the beginning and ending years
+        cpi_df_selected = trim_to_years(cpi_df, start, end, 'Year', pad='nan', pad_col_name='Value')
+
+        # Calculate the percentage changes
+        # Value must be changed to float32 away from float16 due to a bug -
+        #   see https://github.com/pandas-dev/pandas/issues/9220
+        cpi_df_selected = cpi_df_selected.astype({'Value': 'float32'})
+
+        # TODO - Is this what is removing the NaN and changing to zero?
+        results[event] = cpi_df_selected['Value'].pct_change().tolist()
+
+    # Some results will have different values because e.g. there haven't been x number of years passed since the end
+    try:
+        results_df = pd.DataFrame.from_dict(results)
+    except ValueError:
+        raise ValueError('All events must have the same number of years between their start and end years.')
+
+    results_df = results_df.iloc[1:, :]  # drop first row in the dataframe since the values are NA
+    return results_df
+
+
 def get_sp_dj(df_selected: pd.DataFrame, df_sp_dj: pd.DataFrame, data_type: str) -> pd.DataFrame:
     """
     Get the selected type ("nominal" or "real") of sp_500 and dow_jones monthly data for the selected events.
@@ -520,6 +637,7 @@ def get_sp_dj(df_selected: pd.DataFrame, df_sp_dj: pd.DataFrame, data_type: str)
     """
     sp_dj_dict = {}
     # TODO - Are you just dropping events that fall outside of the data, rather than padding?
+    df_selected = df_selected
     df_selected = df_selected.loc[df_selected["y_start"] >= 1928]  # the earliest data for sp_dj is in 1927/12
     df_selected = df_selected.loc[df_selected["y_end"] < 2021]  # the latest data for sp_dj is in 2021/11
     event_list = df_selected["Event_Name"].tolist()
@@ -620,62 +738,23 @@ def analyze_cpi(us_cpi_file: str, events_file: str, verbose: Union[bool, None] =
     add_cpi_values(pandemics_df, us_cpi_df)
 
 
-def add_cpi_values(event_df: pd.DataFrame, cpi_df: pd.DataFrame) -> pd.DataFrame:
+def analyze_gdp(gdp_file: str, events_file: str) -> None:
     """
-    Takes a dataframe with an Event column and y_start and y_end years, and returns a .. #TODO
-
-    Note: Each event must have an equal length between their start and end years
-
-    :param event_df: A dataframe with 'Event_Name' column, and columns with 'y_start' and 'y_end' year
-    :param cpi_df: A dataframe with CPI data with a 'Year' column and 'Value' column
+    For each event, select gdp data 10 year before and after, and pass the df to plot_gdp().
+    :param gdp_file: gdp data file name
+    :param events_file: events file name
     :return:
-
-    >>> events_df = pd.DataFrame({'Event_Name': ['Event A', 'Event B'], 'y_start': [1990, 1995], 'y_end': [2000, 2002]})
-    >>> cpi_df = pd.DataFrame({'Year': list(range(1990, 2002)), 'Value': [x * x for x in range(1, 13)]})
-    >>> add_cpi_values(events_df, cpi_df) # doctest: +ELLIPSIS
-    Traceback (most recent call last):
-    ...
-    ValueError: All events must have the same number of years between their start and end years.
-    >>> events_df = pd.DataFrame({'Event_Name': ['Event A', 'Event B'], 'y_start': [1990, 1995], 'y_end': [2000, 2005]})
-    >>> df = add_cpi_values(events_df, cpi_df)
-    >>> print(df)
-         Event A   Event B
-    1   3.000000  0.361111
-    2   1.250000  0.306122
-    3   0.777778  0.265625
-    4   0.562500  0.234568
-    5   0.440000  0.210000
-    6   0.361111  0.190083
-    7   0.306122  0.000000
-    8   0.265625  0.000000
-    9   0.234568  0.000000
-    10  0.210000  0.000000
     """
-    results = {}
-    for _, row in event_df.iterrows():
-        event = row['Event_Name']
-        start = row['y_start']
-        end = row['y_end']
+    # read in us gdp file
+    us_gdp_df = pd.read_csv(gdp_file, header=0)
 
-        # Select all the CPI values between the beginning and ending years
-        cpi_df_selected = trim_to_years(cpi_df, start, end, 'Year', pad='nan', pad_col_name='Value')
+    # separate pandemics and wars gdp dataframe
+    pandemics_gdp = read_event_facts(events_file, types='Pandemics')
+    wars_gdp = read_event_facts(events_file, types='War')
 
-        # Calculate the percentage changes
-        # Value must be changed to float32 away from float16 due to a bug -
-        #   see https://github.com/pandas-dev/pandas/issues/9220
-        cpi_df_selected = cpi_df_selected.astype({'Value': 'float32'})
-
-        # TODO - Is this what is removing the NaN and changing to zero?
-        results[event] = cpi_df_selected['Value'].pct_change().tolist()
-
-    # Some results will have different values because e.g. there haven't been x number of years passed since the end
-    try:
-        results_df = pd.DataFrame.from_dict(results)
-    except ValueError:
-        raise ValueError('All events must have the same number of years between their start and end years.')
-
-    results_df = results_df.iloc[1:, :]  # drop first row in the dataframe since the values are NA
-    return results_df
+    # get gdp_info for each pandemic/war events
+    get_gdp_info(us_gdp_df, pandemics_gdp)
+    get_gdp_info(us_gdp_df, wars_gdp)
 
 
 def analyze_stockmarket(sp500_file: str, dowjones_file: str, events_file: str):
@@ -698,84 +777,6 @@ def analyze_stockmarket(sp500_file: str, dowjones_file: str, events_file: str):
     print("1. If we use the year before the event end year as zero point, and select the inflation adjusted SP500 and "
           "Dow Jones historical data 10 years before and after the zero point year, plots would be")
     output_sp_dj(event_df, sp_dj, "year_before_end_year", 10, "real")
-
-
-def analyze_gdp(gdp_file: str, events_file: str) -> None:
-    """
-    For each event, select gdp data 10 year before and after, and pass the df to plot_gdp().
-    :param gdp_file: gdp data file name
-    :param events_file: events file name
-    :return:
-    """
-    # read in us gdp file
-    us_gdp_df = pd.read_csv(gdp_file, header=0)
-
-    # separate pandemics and wars gdp dataframe
-    pandemics_gdp = read_event_facts(events_file, types='Pandemics')
-    wars_gdp = read_event_facts(events_file, types='War')
-
-    # get gdp_info for each pandemic/war events
-    get_gdp_info(us_gdp_df, pandemics_gdp)
-    get_gdp_info(us_gdp_df, wars_gdp)
-
-
-def get_gdp_info(us_gdp: pd.DataFrame, df: pd.DataFrame):
-    """
-    Get GDP info from US GDP data for each event in df.
-    :param us_gdp: US GDP data
-    :param df: the gdp dataframe for selected events
-    :return:
-    >>> pandemics_gdp = read_event_facts('data/event_facts.csv', types='Pandemics')
-    >>> us_gdp_test = pd.read_csv('data/gdp_usafacts.csv', header=0)
-    >>> get_gdp_info(us_gdp_test, pandemics_gdp)
-    """
-    # go through event file and get start_year, end_year
-    for index, row in df.iterrows():
-        event_name = row['Event_Name']
-        start_year = int(row['Start_Year'])
-        before_event = start_year - 10
-        end_year = int(row['End_Year'])
-        after_event = end_year + 10
-
-        # If start year less than min_year, start from 1929
-        if start_year >= 1929:
-            if end_year > 2020:
-                end_year = 2020
-            if after_event > 2020:
-                after_event = 2020
-            if before_event < 1929:
-                before_event = 1929
-
-            # Slice GDP df according to event
-            event_gdp = us_gdp.loc[0, str(before_event): str(after_event)]
-
-            # call plot_gdp for each event
-            plot_gdp(event_gdp, event_name)
-
-
-def plot_gdp(gdp_df: pd.DataFrame, event_name: str):
-    """
-    Plot gdp trend for given events.
-    :param gdp_df: the gdp dataframe for selected events
-    :param event_name: event name for plotting
-    :param end_year: end year of an event
-    :return: plot of the given dataframe
-    >>> us_gdp_df = pd.read_csv('data/gdp_usafacts.csv', header=0)
-    >>> event_gdp = us_gdp_df.loc[0, '1947': '1968']
-    >>> plot_gdp(event_gdp, "Asian Flu")
-    """
-
-    fig, ax = plt.subplots(figsize=(15, 10))
-    gdp_df= gdp_df.values.astype(int)
-    ax.plot(gdp_df)
-
-    ax.set_xlabel("Years before and after event end year")
-    ax.set_ylabel("Gross domestic product ($)")
-    ax.ticklabel_format(style='plain', axis='y')
-    plt.title("GDP fluctuations for " + event_name)
-
-    plt.xticks(rotation=45)  # Rotates X-Axis Ticks by 45-degrees
-    plt.savefig('Plots/GDP/'+event_name+'.png')
 
 
 def main():
