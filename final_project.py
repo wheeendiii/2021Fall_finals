@@ -406,8 +406,11 @@ def add_time_range(e_df: pd.DataFrame, t0: Literal['start_year', 'end_year', 'ye
         y0 = e_df["Start_Year"] + 1
     else:
         raise ValueError('y0 must be one of ' + ', '.join(zero_points))
+
     e_df["y_start"] = y0 - length
     e_df["y_end"] = y0 + length
+    e_df.astype({'y_start': 'int16', 'y_end': 'int16'})
+
     return e_df
 
 
