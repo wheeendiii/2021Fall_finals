@@ -9,6 +9,41 @@ from typing import Union, Literal
 import matplotlib.pyplot as plt
 
 
+def trim_to_years(df: pd.DataFrame, start_year: int, end_year: int, year_col_name: str = 'Year') -> pd.DataFrame:
+    """
+
+    :param df: A dataframe with some type of year column
+    :param year_col_name: The name of the column holding the years (defaults to 'Year')
+    :param start_year: The beginning of the years to include
+    :param end_year: The last year to include
+    :return: An updated dataframe with only the years between the two specified
+    >>> df = pd.DataFrame({'Years': list(range(1990, 2001)), 'Values': list(range(0, 21, 2))})
+    >>> trim_to_years(df, 2000, 1999, 'Years')  # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: Invalid years: end_year cannot be less than start_year.
+    >>> results = trim_to_years(df, 1995, 2020, 'Years')
+    >>> print(results)
+        Years  Values
+    5    1995      10
+    6    1996      12
+    7    1997      14
+    8    1998      16
+    9    1999      18
+    10   2000      20
+    >>> results = trim_to_years(df, 1900, 1910, 'Years')
+    >>> len(results)
+    0
+    """
+    if end_year < start_year:
+        raise ValueError('Invalid years: end_year cannot be less than start_year.')
+
+    df_selected = df.loc[df[year_col_name] >= start_year]
+    df_selected = df_selected[df_selected[year_col_name] <= end_year]
+
+    return df_selected
+
+
 def min_max_year_checking(min_year: int = None, min_year_possible: int = None, max_year: Union[int, None] = None,
                           max_year_possible: int = None) -> None:
     """ Throws an error if a given minimum year is less than a minimum year possible, maxinum year is greater than a
@@ -512,9 +547,35 @@ def analyze_cpi(us_cpi_file: str, events_file: str, verbose: Union[bool, None] =
                                     min_end_year=min_cpi_year)
     wars_df = read_event_facts(events_file, types='War', min_start_year=min_cpi_year, min_end_year=min_cpi_year)
 
-    # Add columns for the plot points
+    # Add the start and end years for plotting (
     pandemics_df = add_time_range(pandemics_df, 'end_year', 10)
     wars_df = add_time_range(pandemics_df, 'end_year', 10)
+
+    # Add the individual values for those years
+    add_cpi_values(pandemics_df, us_cpi_df)
+
+
+def add_cpi_values(event_df: pd.DataFrame, cpi_df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Takes a dataframe with an Event column and y_start and y_end years.. #TODO
+
+    :param event_df: A dataframe with 'Event_Name' column, and columns with y_start and y_end years
+    :param cpi_df: A dataframe with CPI data
+    :return:
+
+    >>> df = pandas.df({'Events': ['Event A', 'Event B'], 'y_start': [1960, 2007], 'y_end': [1965, 2013]})
+    >>> df.head()
+    """
+
+    for _, row in event_df.iterrows():
+        event = row['Event_Name']
+        start = row['y_start']
+        end = row['y_end']
+
+        # Select all the CPI values between the beginning and ending years
+        cpi_df_selected = trim_to_years(cpi_df, start, end, 'Year')
+
+        # Calculate the percentage changes
 
 
 def analyze_stockmarket(sp500_file: str, dowjones_file: str, events_file: str):
