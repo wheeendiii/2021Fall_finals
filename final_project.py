@@ -10,7 +10,8 @@ import matplotlib.pyplot as plt
 
 
 def trim_to_years(df: pd.DataFrame, start_year: int, end_year: int, year_col_name: str = 'Year') -> pd.DataFrame:
-    """
+    """ Given a dataframe with a year column, filters the dataframe down to the range created by the starting
+    and ending years specified as paramters.
 
     :param df: A dataframe with some type of year column
     :param year_col_name: The name of the column holding the years (defaults to 'Year')
@@ -458,6 +459,7 @@ def get_sp_dj(df_selected: pd.DataFrame, df_sp_dj: pd.DataFrame, data_type: str)
     :return: the dataframe of sp_500 and dow_jones data from y_start year to y_end year for each selected events
     """
     sp_dj_dict = {}
+    # TODO - Are you just dropping events that fall outside of the data, rather than padding?
     df_selected = df_selected.loc[df_selected["y_start"] >= 1928]  # the earliest data for sp_dj is in 1927/12
     df_selected = df_selected.loc[df_selected["y_end"] < 2021]  # the latest data for sp_dj is in 2021/11
     event_list = df_selected["Event_Name"].tolist()
@@ -471,6 +473,7 @@ def get_sp_dj(df_selected: pd.DataFrame, df_sp_dj: pd.DataFrame, data_type: str)
         df_sp_dj["year"] = df_sp_dj["year"].astype(int)
 
         # Select all SP500/DJ values between the two beginning and ending years
+        # TODO - Use trim_to_years() function?
         sp_dj_selected = df_sp_dj.loc[df_sp_dj["year"] >= start]
         sp_dj_selected = sp_dj_selected[sp_dj_selected["year"] <= end]
 
@@ -557,16 +560,25 @@ def analyze_cpi(us_cpi_file: str, events_file: str, verbose: Union[bool, None] =
 
 def add_cpi_values(event_df: pd.DataFrame, cpi_df: pd.DataFrame) -> pd.DataFrame:
     """
-    Takes a dataframe with an Event column and y_start and y_end years.. #TODO
+    Takes a dataframe with an Event column and y_start and y_end years, and returns a .. #TODO
 
-    :param event_df: A dataframe with 'Event_Name' column, and columns with y_start and y_end years
-    :param cpi_df: A dataframe with CPI data
+    Note: Each event must have an equal length between their start and end years
+
+    :param event_df: A dataframe with 'Event_Name' column, and columns with 'y_start' and 'y_end' year
+    :param cpi_df: A dataframe with CPI data with a 'Year' column and 'Value' column
     :return:
 
-    >>> df = pandas.df({'Events': ['Event A', 'Event B'], 'y_start': [1960, 2007], 'y_end': [1965, 2013]})
-    >>> df.head()
+    >>> events_df = pd.DataFrame({'Event_Name': ['Event A', 'Event B'], 'y_start': [1990, 1995], 'y_end': [2000, 2002]})
+    >>> cpi_df = pd.DataFrame({'Year': list(range(1990, 2002)), 'Value': [x * x for x in range(1, 13)]})
+    >>> add_cpi_values(events_df, cpi_df) # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: All events must have the same number of years between their start and end years.
+    >>> events_df = pd.DataFrame({'Event_Name': ['Event A', 'Event B'], 'y_start': [1990, 1995], 'y_end': [2000, 2005]})
+    >>> df = add_cpi_values(events_df, cpi_df)
+    >>> print(df)
     """
-
+    results = {}
     for _, row in event_df.iterrows():
         event = row['Event_Name']
         start = row['y_start']
@@ -576,6 +588,18 @@ def add_cpi_values(event_df: pd.DataFrame, cpi_df: pd.DataFrame) -> pd.DataFrame
         cpi_df_selected = trim_to_years(cpi_df, start, end, 'Year')
 
         # Calculate the percentage changes
+        # Value must be changed to float32 away from float16 due to a bug -
+        #   see https://github.com/pandas-dev/pandas/issues/9220
+        cpi_df_selected = cpi_df_selected.astype({'Value': 'float32'})
+        results[event] = cpi_df_selected['Value'].pct_change().tolist()
+
+    # Some results will have different values because e.g. there haven't been x number of years passed since the end
+    try:
+        results_df = pd.DataFrame.from_dict(results)
+    except ValueError:
+        raise ValueError('All events must have the same number of years between their start and end years.')
+    results_df = results_df.iloc[1:, :]  # drop first row in the dataframe since the values are NA
+    return results_df
 
 
 def analyze_stockmarket(sp500_file: str, dowjones_file: str, events_file: str):
