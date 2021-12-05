@@ -9,20 +9,28 @@ from typing import Union, Literal
 import matplotlib.pyplot as plt
 
 
-def trim_to_years(df: pd.DataFrame, start_year: int, end_year: int, year_col_name: str = 'Year') -> pd.DataFrame:
+def trim_to_years(df: pd.DataFrame, start_year: int, end_year: int, year_col_name: str = 'Year',
+                  pad: Literal[None, 'none', 'zero'] = None, pad_col_name: Union[None, str] = None) -> pd.DataFrame:
     """ Given a dataframe with a year column, filters the dataframe down to the range created by the starting
-    and ending years specified as paramters.
+    and ending years specified as paramters.  If a pad option is specified, then years for which data does not exist
+    are padded with the value corresponding to the option.
 
     :param df: A dataframe with some type of year column
     :param year_col_name: The name of the column holding the years (defaults to 'Year')
     :param start_year: The beginning of the years to include
     :param end_year: The last year to include
-    :return: An updated dataframe with only the years between the two specified
+    :param pad: Value to insert for years that have no data
+    :param pad_col_name: If pad is specified, the value column in which to add padding
+    :return: An updated dataframe with only the years between the two specified, with optional padding
     >>> df = pd.DataFrame({'Years': list(range(1990, 2001)), 'Values': list(range(0, 21, 2))})
     >>> trim_to_years(df, 2000, 1999, 'Years')  # doctest: +ELLIPSIS
     Traceback (most recent call last):
     ...
-    ValueError: Invalid years: end_year cannot be less than start_year.
+    ValueError: Invalid years: Minimum year must be less than maximum year.
+    >>> trim_to_years(df, 1995, 2000, pad='fill', pad_col_name='Value')  # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: Value for pad must be one of: none, zero
     >>> results = trim_to_years(df, 1995, 2020, 'Years')
     >>> print(results)
         Years  Values
@@ -36,11 +44,44 @@ def trim_to_years(df: pd.DataFrame, start_year: int, end_year: int, year_col_nam
     >>> len(results)
     0
     """
-    if end_year < start_year:
-        raise ValueError('Invalid years: end_year cannot be less than start_year.')
+    min_max_year_checking(min_year=start_year, max_year=end_year)
+
+    if pad:
+        # Raise an error if pad is specified but no value column to pad
+        if not pad_col_name:
+            raise ValueError('If pad is specified, pad_col_name must be given.')
+        pad_options = 'none', 'zero'
+        if pad == pad_options[0]:
+            pad_value = None
+        elif pad == pad_options[1]:
+            pad_value = 0
+        else:
+            raise ValueError('Value for pad must be one of: ' + ', '.join(pad_options))
+        pad = True
 
     df_selected = df.loc[df[year_col_name] >= start_year]
     df_selected = df_selected[df_selected[year_col_name] <= end_year]
+
+    if pad:
+        # Given from above that both of these values are filled
+        assert pad_value
+        assert pad_col_name is not None
+
+        # Find the first and last years for which there is data available
+        min_year_possible = df[year_col_name].min()
+        max_year_possible = df[year_col_name].max()
+
+        if start_year < min_year_possible:
+            start_pad_df = pd.DataFrame({year_col_name: list(range(start_year, min_year_possible)),
+                                         pad_col_name: [pad_value for _ in range(start_year, min_year_possible)]})
+            # TODO - merge the dfs
+        if end_year > max_year_possible:
+            # Slightly different from start/min, because we need to add values beginning with the next year after the
+            # maximum year available, and pad through the end_year specified as a parameter
+            end_pad_df = pd.DataFrame({year_col_name: list(range(max_year_possible + 1, end_year + 1)),
+                                       pad_col_name: [pad_value for _ in range(start_year, min_year_possible)]})
+            # TODO - merge the dfs
+
 
     return df_selected
 
