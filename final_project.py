@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 
 def trim_to_years(df: pd.DataFrame, start_year: int, end_year: int, year_col_name: str = 'Year',
-                  pad: Literal[None, 'none', 'zero'] = None, pad_col_name: Union[None, str] = None) -> pd.DataFrame:
+                  pad: Literal[None, 'zero', 'nan'] = None, pad_col_name: Union[None, str] = None) -> pd.DataFrame:
     """ Given a dataframe with a year column, filters the dataframe down to the range created by the starting
     and ending years specified as paramters.  If a pad option is specified, then years for which data does not exist
     are padded with the value corresponding to the option.
@@ -27,10 +27,14 @@ def trim_to_years(df: pd.DataFrame, start_year: int, end_year: int, year_col_nam
     Traceback (most recent call last):
     ...
     ValueError: Invalid years: Minimum year must be less than maximum year.
+    >>> trim_to_years(df, 1995, 2000, pad='none')  # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: If pad is specified, pad_col_name must be given.
     >>> trim_to_years(df, 1995, 2000, pad='fill', pad_col_name='Value')  # doctest: +ELLIPSIS
     Traceback (most recent call last):
     ...
-    ValueError: Value for pad must be one of: none, zero
+    ValueError: Value for pad must be one of: zero, nan
     >>> results = trim_to_years(df, 1995, 2020, 'Years')
     >>> print(results)
         Years  Values
@@ -43,28 +47,41 @@ def trim_to_years(df: pd.DataFrame, start_year: int, end_year: int, year_col_nam
     >>> results = trim_to_years(df, 1900, 1910, 'Years')
     >>> len(results)
     0
+    >>> results = trim_to_years(df, 1989, 1992, 'Years', pad='zero', pad_col_name='Values')
+    >>> print(results)
+       Years  Values
+    0   1989       0
+    1   1990       0
+    2   1991       2
+    3   1992       4
+    >>> results = trim_to_years(df, 1989, 2003, 'Years', pad='nan', pad_col_name='Values')
+    >>> results.tail()
+        Years  Values
+    10   1999    18.0
+    11   2000    20.0
+    12   2001     NaN
+    13   2002     NaN
+    14   2003     NaN
     """
     min_max_year_checking(min_year=start_year, max_year=end_year)
 
+    pad_options = {'zero': 0, 'nan': np.NaN}
     if pad:
         # Raise an error if pad is specified but no value column to pad
         if not pad_col_name:
             raise ValueError('If pad is specified, pad_col_name must be given.')
-        pad_options = 'none', 'zero'
-        if pad == pad_options[0]:
-            pad_value = None
-        elif pad == pad_options[1]:
-            pad_value = 0
-        else:
+        if pad not in pad_options.keys():
             raise ValueError('Value for pad must be one of: ' + ', '.join(pad_options))
-        pad = True
+        else:
+            pad_value = pad_options[pad]
+            pad = True
 
     df_selected = df.loc[df[year_col_name] >= start_year]
     df_selected = df_selected[df_selected[year_col_name] <= end_year]
 
     if pad:
         # Given from above that both of these values are filled
-        assert pad_value
+        assert pad_value in pad_options.values()
         assert pad_col_name is not None
 
         # Find the first and last years for which there is data available
@@ -74,14 +91,16 @@ def trim_to_years(df: pd.DataFrame, start_year: int, end_year: int, year_col_nam
         if start_year < min_year_possible:
             start_pad_df = pd.DataFrame({year_col_name: list(range(start_year, min_year_possible)),
                                          pad_col_name: [pad_value for _ in range(start_year, min_year_possible)]})
-            # TODO - merge the dfs
+            df_selected = pd.concat([start_pad_df, df_selected])
         if end_year > max_year_possible:
             # Slightly different from start/min, because we need to add values beginning with the next year after the
             # maximum year available, and pad through the end_year specified as a parameter
             end_pad_df = pd.DataFrame({year_col_name: list(range(max_year_possible + 1, end_year + 1)),
-                                       pad_col_name: [pad_value for _ in range(start_year, min_year_possible)]})
-            # TODO - merge the dfs
+                                       pad_col_name: [pad_value for _ in range(max_year_possible + 1, end_year + 1)]})
+            df_selected = pd.concat([df_selected, end_pad_df])
 
+        # Reset the index so all index values are unique
+        df_selected.reset_index(inplace=True, drop=True)
 
     return df_selected
 
@@ -618,6 +637,17 @@ def add_cpi_values(event_df: pd.DataFrame, cpi_df: pd.DataFrame) -> pd.DataFrame
     >>> events_df = pd.DataFrame({'Event_Name': ['Event A', 'Event B'], 'y_start': [1990, 1995], 'y_end': [2000, 2005]})
     >>> df = add_cpi_values(events_df, cpi_df)
     >>> print(df)
+         Event A   Event B
+    1   3.000000  0.361111
+    2   1.250000  0.306122
+    3   0.777778  0.265625
+    4   0.562500  0.234568
+    5   0.440000  0.210000
+    6   0.361111  0.190083
+    7   0.306122  0.000000
+    8   0.265625  0.000000
+    9   0.234568  0.000000
+    10  0.210000  0.000000
     """
     results = {}
     for _, row in event_df.iterrows():
@@ -626,12 +656,14 @@ def add_cpi_values(event_df: pd.DataFrame, cpi_df: pd.DataFrame) -> pd.DataFrame
         end = row['y_end']
 
         # Select all the CPI values between the beginning and ending years
-        cpi_df_selected = trim_to_years(cpi_df, start, end, 'Year')
+        cpi_df_selected = trim_to_years(cpi_df, start, end, 'Year', pad='nan', pad_col_name='Value')
 
         # Calculate the percentage changes
         # Value must be changed to float32 away from float16 due to a bug -
         #   see https://github.com/pandas-dev/pandas/issues/9220
         cpi_df_selected = cpi_df_selected.astype({'Value': 'float32'})
+
+        # TODO - Is this what is removing the NaN and changing to zero?
         results[event] = cpi_df_selected['Value'].pct_change().tolist()
 
     # Some results will have different values because e.g. there haven't been x number of years passed since the end
@@ -639,6 +671,7 @@ def add_cpi_values(event_df: pd.DataFrame, cpi_df: pd.DataFrame) -> pd.DataFrame
         results_df = pd.DataFrame.from_dict(results)
     except ValueError:
         raise ValueError('All events must have the same number of years between their start and end years.')
+
     results_df = results_df.iloc[1:, :]  # drop first row in the dataframe since the values are NA
     return results_df
 
