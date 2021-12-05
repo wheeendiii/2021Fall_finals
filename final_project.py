@@ -426,19 +426,29 @@ def get_sp_dj(df_selected: pd.DataFrame, df_sp_dj: pd.DataFrame, data_type: str)
     print(event_list)
     for event in event_list:
         row = df_selected[df_selected["Event_Name"] == event]
+
+        # Find the beginning and end years
         start = row["y_start"].values[0]
         end = row["y_end"].values[0]
         df_sp_dj["year"] = df_sp_dj["year"].astype(int)
+
+        # Select all SP500/DJ values between the two beginning and ending years
         sp_dj_selected = df_sp_dj.loc[df_sp_dj["year"] >= start]
         sp_dj_selected = sp_dj_selected[sp_dj_selected["year"] <= end]
+
+        # Calculate the percentage changes
         if data_type == "nominal":
             sp_change = sp_dj_selected["nominal_sp500"].pct_change().tolist()
             dj_change = sp_dj_selected["nominal_dj"].pct_change().tolist()
         else:
             sp_change = sp_dj_selected["real_sp500"].pct_change().tolist()
             dj_change = sp_dj_selected["real_dj"].pct_change().tolist()
+
+        # Add all the resulting values to the dict, by event
         sp_dj_dict[event + "_sp500"] = sp_change
         sp_dj_dict[event + "_dj"] = dj_change
+
+    # Add the dict to the dataframe
     final_df = pd.DataFrame.from_dict(sp_dj_dict)
     final_df = final_df.iloc[1:, :]  # drop first row in the dataframe since the values are NA
     return final_df
