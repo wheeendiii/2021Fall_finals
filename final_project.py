@@ -9,6 +9,57 @@ from typing import Union, Literal
 import matplotlib.pyplot as plt
 
 
+def min_max_year_checking(min_year: int = None, min_year_possible: int = None, max_year: Union[int, None] = None,
+                          max_year_possible: int = None) -> None:
+    """ Throws an error if a given minimum year is less than a minimum year possible, maxinum year is greater than a
+    maximum year possible (or the current year, if none given), or if the minimum year is greater than the maximum year.
+
+    :param min_year: The minimum year value to check
+    :param min_year_possible: The lowest possible year
+    :param max_year: The maximum year value to check
+    :param max_year_possible: The maximum possible year
+    :return: None but raises a ValueError if one of the criteria isn't met
+
+    >>> min_max_year_checking(min_year=2000, max_year=1980)   # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: Invalid years: Minimum year must be less than maximum year.
+    >>> min_max_year_checking(min_year=1910, min_year_possible=1960)   # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: Invalid minimum year: Minimum year cannot be less than 1960.
+    >>> min_max_year_checking(min_year=3000)   # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: Invalid minimum year: Minimum year cannot be greater than 2021.
+    >>> min_max_year_checking(max_year=3000)   # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: Invalid maximum year: Maximum year cannot be greater than 2021.
+    >>> min_max_year_checking(min_year=1950, max_year=1930)   # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: Invalid years: Minimum year must be less than maximum year.
+    """
+    curr_year = date.today().year
+
+    if min_year:
+        if min_year_possible and min_year < min_year_possible:
+            raise ValueError('Invalid minimum year: Minimum year cannot be less than {}.'.format(min_year_possible))
+        elif min_year > curr_year:
+            raise ValueError('Invalid minimum year: Minimum year cannot be greater than {}.'.format(curr_year))
+    if max_year:
+        # Set maximum year to the current year if none given
+        if not max_year_possible:
+            max_year_possible = curr_year
+        if max_year > max_year_possible:
+            raise ValueError('Invalid maximum year: Maximum year cannot be greater than {}.'.format(max_year_possible))
+
+    # Double-check we haven't been given something invalid for years
+    if (min_year and max_year) and (min_year > max_year):
+        raise ValueError('Invalid years: Minimum year must be less than maximum year.')
+
+
 def read_event_facts(filename: str, types: Union[str, list] = None, ranges: Union[str, list] = None,
                      min_start_year: Union[int, None] = None, max_start_year: Union[int, None] = None,
                      min_end_year: Union[int, None] = None, max_end_year: Union[int, None] = None) -> pd.DataFrame:
@@ -199,57 +250,6 @@ def add_time_range(e_df: pd.DataFrame, t0: Literal['start_year', 'end_year', 'ye
     e_df.astype({'y_start': 'int16', 'y_end': 'int16'})
 
     return e_df
-
-
-def min_max_year_checking(min_year: int = None, min_year_possible: int = None, max_year: Union[int, None] = None,
-                          max_year_possible: int = None) -> None:
-    """ Throws an error if a given minimum year is less than a minimum year possible, maxinum year is greater than a
-    maximum year possible (or the current year, if none given), or if the minimum year is greater than the maximum year.
-
-    :param min_year: The minimum year value to check
-    :param min_year_possible: The lowest possible year
-    :param max_year: The maximum year value to check
-    :param max_year_possible: The maximum possible year
-    :return: None but raises a ValueError if one of the criteria isn't met
-
-    >>> min_max_year_checking(min_year=2000, max_year=1980)   # doctest: +ELLIPSIS
-    Traceback (most recent call last):
-    ...
-    ValueError: Invalid years: Minimum year must be less than maximum year.
-    >>> min_max_year_checking(min_year=1910, min_year_possible=1960)   # doctest: +ELLIPSIS
-    Traceback (most recent call last):
-    ...
-    ValueError: Invalid minimum year: Minimum year cannot be less than 1960.
-    >>> min_max_year_checking(min_year=3000)   # doctest: +ELLIPSIS
-    Traceback (most recent call last):
-    ...
-    ValueError: Invalid minimum year: Minimum year cannot be greater than 2021.
-    >>> min_max_year_checking(max_year=3000)   # doctest: +ELLIPSIS
-    Traceback (most recent call last):
-    ...
-    ValueError: Invalid maximum year: Maximum year cannot be greater than 2021.
-    >>> min_max_year_checking(min_year=1950, max_year=1930)   # doctest: +ELLIPSIS
-    Traceback (most recent call last):
-    ...
-    ValueError: Invalid years: Minimum year must be less than maximum year.
-    """
-    curr_year = date.today().year
-
-    if min_year:
-        if min_year_possible and min_year < min_year_possible:
-            raise ValueError('Invalid minimum year: Minimum year cannot be less than {}.'.format(min_year_possible))
-        elif min_year > curr_year:
-            raise ValueError('Invalid minimum year: Minimum year cannot be greater than {}.'.format(curr_year))
-    if max_year:
-        # Set maximum year to the current year if none given
-        if not max_year_possible:
-            max_year_possible = curr_year
-        if max_year > max_year_possible:
-            raise ValueError('Invalid maximum year: Maximum year cannot be greater than {}.'.format(max_year_possible))
-
-    # Double-check we haven't been given something invalid for years
-    if (min_year and max_year) and (min_year > max_year):
-        raise ValueError('Invalid years: Minimum year must be less than maximum year.')
 
 
 def trim_to_years(df: pd.DataFrame, start_year: int, end_year: int, year_col_name: str = 'Year',
