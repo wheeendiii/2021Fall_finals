@@ -572,6 +572,8 @@ def plot_sp_dj(df_plot: pd.DataFrame, year_num: int):
 
 
 def output_sp_dj(df_e: pd.DataFrame, df_market: pd.DataFrame, zero_point: str, year_l: int, d_type: str):
+    # TODO - I changed add_time_range logic because it was giving incorrect years - should this be deliberately 
+    # adding an extra year at the beginning and/or end?
     df_e = add_time_range(df_e, zero_point, year_l)
     print("The evolution of {} SP500 and Dow Jones {} years before and after all the Pandemics:".format(d_type, year_l))
     selected_p = df_e.loc[df_e["Type"] == "Pandemics"]
