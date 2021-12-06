@@ -692,16 +692,16 @@ def plot_sp_dj(df1: pd.DataFrame, df2: pd.DataFrame, year_num: int, plot_name: s
     fig.suptitle('Change of Stock Market Indexes')
 
     ax1.plot(df1, linewidth=0.5)
-    ax1.set_ylabel("Change of SP500 Index")
+    ax1.set_ylabel("Change of SP500", fontsize = 'xx-small')
 
     ax2.plot(df2, linewidth=0.5)
-    ax2.set_ylabel("Change of Dow Jones Index")
+    ax2.set_ylabel("Change of Dow Jones", fontsize = 'xx-small')
 
     ax3.plot(df1.index, df1["75pct"], color = 'black', label='75% percentile', linewidth=0.5)
     ax3.plot(df1.index, df1["25pct"], color='black', label='25% percentile', linewidth=0.5)
     ax3.plot(df1.index, df1["median"], '--', color='red', label='median', linewidth=0.5)
     ax3.fill_between(df1.index, df1["75pct"], df1["25pct"], facecolor='green')
-    ax3.set_ylabel("Range of SP500 Index")
+    ax3.set_ylabel("Range of SP500", fontsize = 'xx-small')
 
     ax4.plot(df2.index, df2["75pct"], color='black', label='75% percentile', linewidth=0.5)
     ax4.plot(df2.index, df2["25pct"], color='black', label='25% percentile', linewidth=0.5)
@@ -709,7 +709,7 @@ def plot_sp_dj(df1: pd.DataFrame, df2: pd.DataFrame, year_num: int, plot_name: s
     ax4.fill_between(df2.index, df2["75pct"], df2["25pct"], facecolor='blue')
     ax4.set_xlim(-12 * year_num + 1, 12 * (year_num + 1))
     ax4.set_xlabel(str(year_num) + " Year Before and After Events")
-    ax3.set_ylabel("Range of Dow Jones Index")
+    ax4.set_ylabel("Range of Dow Jones", fontsize = 'xx-small')
 
     plt.savefig('Plots/StockIndex/'+ plot_name +'.png')
 
