@@ -668,12 +668,13 @@ def get_index(df_selected: pd.DataFrame, df_index: pd.DataFrame, data_type: str)
     return final_df
 
 
-def plot_sp_dj(df1: pd.DataFrame, df2: pd.DataFrame, year_num: int):
+def plot_sp_dj(df1: pd.DataFrame, df2: pd.DataFrame, year_num: int, plot_name: str):
     """
     Plot the given sp500 and dow jones for selected events dataframe.
     :param df1: the dataframe with sp500 data for selected events
     :param df2: the dataframe with dow jones data for selected events
     :param year_num: the years before and after the selected zero point
+    :param plot_name: the string name of the plot
     :return: plot of the given dataframe
     """
     df1.index = df1.index - (12 * year_num)
@@ -688,7 +689,7 @@ def plot_sp_dj(df1: pd.DataFrame, df2: pd.DataFrame, year_num: int):
     ax2.set_xlim(-12 * year_num + 1, 12 * (year_num + 1))
     ax2.set_xlabel(str(year_num) + " Year Before and After Events")
     ax2.set_ylabel("Change of Dow Jones Index")
-    plt.show()
+    plt.savefig('Plots/StockIndex/'+ plot_name +'.png')
 
 
 def output_sp_dj(df_e: pd.DataFrame, df_sp: pd.DataFrame, df_dj: pd.DataFrame, zero_point: str, year_l: int, d_type: str):
@@ -708,15 +709,13 @@ def output_sp_dj(df_e: pd.DataFrame, df_sp: pd.DataFrame, df_dj: pd.DataFrame, z
     selected_p = df_e.loc[df_e["Type"] == "Pandemics"]
     p1_df = get_index(selected_p, df_sp, d_type)
     p2_df = get_index(selected_p, df_dj, d_type)
-    plot_sp_dj(p1_df, p2_df, year_l)
-    plt.savefig('Plots/StockIndex/all_pandemics.png')
+    plot_sp_dj(p1_df, p2_df, year_l, "all_pandemics")
 
     print("The evolution of {} SP500 and Dow Jones {} years before and after all the Wars:".format(d_type, year_l))
     selected_w = df_e.loc[df_e["Type"] == "War"]
     w1_df = get_index(selected_w, df_sp, d_type)
     w2_df = get_index(selected_w, df_dj, d_type)
-    plot_sp_dj(w1_df, w2_df, year_l)
-    plt.savefig('Plots/StockIndex/all_wars.png')
+    plot_sp_dj(w1_df, w2_df, year_l, "all_wars")
 
     print("The evolution of {} SP500 and Dow Jones {} years before and after Pandemics with over 1m fatalities:"
           .format(d_type, year_l))
@@ -724,16 +723,14 @@ def output_sp_dj(df_e: pd.DataFrame, df_sp: pd.DataFrame, df_dj: pd.DataFrame, z
     selected_1m_p = selected_1m.loc[selected_1m["Type"] == "Pandemics"]
     p1_df_1 = get_index(selected_1m_p, df_sp, d_type)
     p2_df_1 = get_index(selected_1m_p, df_dj, d_type)
-    plot_sp_dj(p1_df_1, p2_df_1, year_l)
-    plt.savefig('Plots/StockIndex/pandemics_over_1m_fatalities.png')
+    plot_sp_dj(p1_df_1, p2_df_1, year_l, "pandemics_over_1m_fatalities")
 
     print("The evolution of {} SP500 and Dow Jones {} years before and after Wars with over 1m fatalities:"
           .format(d_type, year_l))
     selected_1m_w = selected_1m.loc[selected_1m["Type"] == "War"]
     w1_df_1 = get_index(selected_1m_w, df_sp, d_type)
     w2_df_1 = get_index(selected_1m_w, df_dj, d_type)
-    plot_sp_dj(w1_df_1, w2_df_1, year_l)
-    plt.savefig('Plots/StockIndex/wars_over_1m_fatalities.png')
+    plot_sp_dj(w1_df_1, w2_df_1, year_l, "wars_over_1m_fatalities")
 
 
 def analyze_gdp(gdp_file: str, events_file: str) -> None:
@@ -810,7 +807,7 @@ def main():
     dowjones_data = 'data/dow_jone_monthly.csv'
     us_gdp_data = 'data/gdp_usafacts.csv'
 
-    #analyze_index(sp500_data, dowjones_data, events_data)
+    analyze_index(sp500_data, dowjones_data, events_data)
     #analyze_cpi(us_cpi_data, events_data)
     analyze_gdp(us_gdp_data, events_data)
 
