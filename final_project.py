@@ -534,27 +534,27 @@ def read_us_cpi(filename: str, min_year: Union[int, None] = None, max_year: Unio
     FileNotFoundError: [Errno 2] No such file or directory: 'test.txt'
     >>> df = read_us_cpi('data/bls_us_cpi.csv', min_year=2015)
     >>> df.head()
-         Year    Value
-    102  2015  237.000
-    103  2016  240.000
-    104  2017  245.125
-    105  2018  251.125
-    106  2019  255.625
+         Year       Value
+    102  2015  237.016998
+    103  2016  240.007172
+    104  2017  245.119583
+    105  2018  251.106827
+    106  2019  255.657425
     >>> df = read_us_cpi('data/bls_us_cpi.csv', max_year=1950)
     >>> df.tail()
         Year      Value
-    33  1946  19.515625
-    34  1947  22.328125
-    35  1948  24.046875
-    36  1949  23.812500
-    37  1950  24.062500
+    33  1946  19.516666
+    34  1947  22.325001
+    35  1948  24.041666
+    36  1949  23.808332
+    37  1950  24.066668
     >>> df = read_us_cpi('data/bls_us_cpi.csv', min_year=1990, max_year=1993)
     >>> print(df)
-        Year    Value
-    77  1990  130.625
-    78  1991  136.250
-    79  1992  140.250
-    80  1993  144.500
+        Year       Value
+    77  1990  130.658325
+    78  1991  136.191666
+    79  1992  140.316666
+    80  1993  144.458328
     """
 
     # Raise an error if the years requested are outside of the year bounds
@@ -850,9 +850,9 @@ def main():
     dowjones_data = 'data/dow_jone_monthly.csv'
     us_gdp_data = 'data/gdp_usafacts.csv'
 
-    analyze_index(sp500_data, dowjones_data, events_data)
-    #analyze_cpi(us_cpi_data, events_data)
-    analyze_gdp(us_gdp_data, events_data)
+    #analyze_index(sp500_data, dowjones_data, events_data)
+    analyze_cpi(us_cpi_data, events_data)
+    #analyze_gdp(us_gdp_data, events_data)
 
 
 if __name__ == '__main__':
