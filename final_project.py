@@ -825,19 +825,19 @@ def analyze_cpi(us_cpi_file: str, events_file: str, verbose: Union[bool, None] =
     >>> cpi_file = 'data/bls_us_cpi.csv'
     >>> events_file = 'data/event_facts.csv'
     >>> analyze_cpi(cpi_file, events_file, verbose=True)  # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
-        Encephalitis Lethargic Pandemic  ...  COVID-19 pandemic
-    1                         0.178407  ...           0.020693
-    2                         0.172840  ...           0.014648
-    3                         0.152355  ...           0.016222
-    4                         0.156250  ...           0.001186
-    5                        -0.109355  ...           0.012616
+       Encephalitis Lethargic Pandemic  ...  COVID-19 pandemic
+    1                         7.666934  ...           3.156841
+    2                        17.840731  ...           2.069342
+    3                        17.283953  ...           1.464832
+    4                        15.235460  ...           1.622224
+    5                        15.624989  ...           0.118625
     [5 rows x 12 columns]
         World War I  Korean War  ...  Iraq War  War in Somalia
-    16     0.004399    0.010107  ...  0.021301             NaN
-    17     0.024331    0.014580  ...  0.024426             NaN
-    18     0.009026    0.010707  ...  0.018122             NaN
-    19    -0.019303    0.011988  ...  0.012336             NaN
-    20    -0.011522    0.012397  ...  0.041256             NaN
+    17     0.439882    1.010680  ...  2.130103             NaN
+    18     2.433085    1.457977  ...  2.442586             NaN
+    19     0.902617    1.070726  ...  1.812220             NaN
+    20    -1.930320    1.198769  ...  1.233578             NaN
+    21    -1.152188    1.239669  ...  4.125619             NaN
     [5 rows x 9 columns]
     """
     us_cpi_df = read_us_cpi(us_cpi_file)
@@ -848,8 +848,8 @@ def analyze_cpi(us_cpi_file: str, events_file: str, verbose: Union[bool, None] =
     wars_df = read_event_facts(events_file, types='War', min_start_year=min_cpi_year, min_end_year=min_cpi_year)
 
     # Add the start and end years for plotting
-    pandemics_df = add_time_range(pandemics_df, 'end_year', 10)
-    wars_df = add_time_range(wars_df, 'end_year', 10)
+    pandemics_df = add_time_range(pandemics_df, 'end_year', 10, add_extra_yr_before=True)
+    wars_df = add_time_range(wars_df, 'end_year', 10, add_extra_yr_before=True)
 
     # Add the individual values for those years
     pandemics_cpi_df = add_cpi_values(pandemics_df, us_cpi_df)
