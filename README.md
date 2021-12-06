@@ -59,7 +59,7 @@ If we use the year before the event end year as zero point, and select the infla
 
 * The evolution of real SP500 and Dow Jones 10 years before and after all the Pandemics:
 ['Asian Flu', 'Hong Kong Flu', 'London flu', 'Russian flu', 'HIV/AIDS pandemic', 'SARS outbreak', 'Swine flu pandemic']
-![alt text](https://github.com/wheeendiii/2021Fall_finals/blob/main/Plots/all_pandemics.png)
+![alt text](https://github.com/wheeendiii/2021Fall_finals/blob/main/Plots/StockIndex/all_pandemics.png)
 
 * The evolution of real SP500 and Dow Jones 10 years before and after all the Wars:
 ['Korean War', 'Vietnam War', 'World War II', 'Gulf War', 'Civil war in Afghanistan', 'War on Terror', 'Iraq War', 'War in Somalia']
