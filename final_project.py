@@ -485,10 +485,11 @@ def get_gdp_info(us_gdp: pd.DataFrame, df: pd.DataFrame):
                 before_event = 1929
 
             # Slice GDP df according to event
-            event_gdp = us_gdp.loc[0, str(before_event): str(after_event)]
-            event_gdp = event_gdp.to_frame()
+            event_gdp = us_gdp.loc[[0, 124, 131, 152], str(before_event): str(after_event)]
             event_gdp = event_gdp.apply(pd.to_numeric)  # convert all columns of DataFrame
+            event_gdp = event_gdp.T
 
+            #print(event_gdp)
             end_interval = end_year - before_event
             start_interval = start_year - before_event
 
@@ -528,6 +529,7 @@ def plot_gdp(gdp_df: pd.DataFrame, event_name: str, end_interval: int, start_int
     plt.title("GDP fluctuations for " + event_name)
     plt.xticks(rotation=45)  # Rotates X-Axis Ticks by 45-degrees
     plt.savefig('Plots/GDP/'+event_name+'.png')
+    plt.legend()
 
 
 def read_us_cpi(filename: str, min_year: Union[int, None] = None, max_year: Union[int, None] = None) -> pd.DataFrame:
