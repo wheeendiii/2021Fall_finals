@@ -585,13 +585,13 @@ def read_us_cpi(filename: str, min_year: Union[int, None] = None, max_year: Unio
 
 def add_cpi_values(event_df: pd.DataFrame, cpi_df: pd.DataFrame) -> pd.DataFrame:
     """
-    Takes a dataframe with an Event column and y_start and y_end years, and returns a .. #TODO
-
+    Takes a dataframe with an Event column and y_start and y_end years, and a dataframe with 'Year' and 'Value' column
+    with CPI data, and returns a dataframe with the percentage change for each of those years for each event.
     Note: Each event must have an equal length between their start and end years
 
     :param event_df: A dataframe with 'Event_Name' column, and columns with 'y_start' and 'y_end' year
     :param cpi_df: A dataframe with CPI data with a 'Year' column and 'Value' column
-    :return:
+    :return: A dataframe with the CPI percentage change for each year given for each event
 
     >>> events_df = pd.DataFrame({'Event_Name': ['Event A', 'Event B'], 'y_start': [1990, 1995], 'y_end': [2000, 2002]})
     >>> cpi_df = pd.DataFrame({'Year': list(range(1990, 2002)), 'Value': [x * x for x in range(1, 13)]})
@@ -799,6 +799,24 @@ def analyze_cpi(us_cpi_file: str, events_file: str, verbose: Union[bool, None] =
     :param events_file:
     :param verbose: Indicates whether to print debugging information
     :return:
+
+    >>> cpi_file = 'data/bls_us_cpi.csv'
+    >>> events_file = 'data/event_facts.csv'
+    >>> analyze_cpi(cpi_file, events_file, verbose=True)  # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
+        Encephalitis Lethargic Pandemic  ...  COVID-19 pandemic
+    1                         0.178407  ...           0.020693
+    2                         0.172840  ...           0.014648
+    3                         0.152355  ...           0.016222
+    4                         0.156250  ...           0.001186
+    5                        -0.109355  ...           0.012616
+    [5 rows x 12 columns]
+        World War I  Korean War  ...  Iraq War  War in Somalia
+    16     0.004399    0.010107  ...  0.021301             NaN
+    17     0.024331    0.014580  ...  0.024426             NaN
+    18     0.009026    0.010707  ...  0.018122             NaN
+    19    -0.019303    0.011988  ...  0.012336             NaN
+    20    -0.011522    0.012397  ...  0.041256             NaN
+    [5 rows x 9 columns]
     """
     us_cpi_df = read_us_cpi(us_cpi_file)
     min_cpi_year = us_cpi_df['Year'].min()
@@ -807,15 +825,17 @@ def analyze_cpi(us_cpi_file: str, events_file: str, verbose: Union[bool, None] =
                                     min_end_year=min_cpi_year)
     wars_df = read_event_facts(events_file, types='War', min_start_year=min_cpi_year, min_end_year=min_cpi_year)
 
-    # Add the start and end years for plotting (
+    # Add the start and end years for plotting
     pandemics_df = add_time_range(pandemics_df, 'end_year', 10)
-    wars_df = add_time_range(pandemics_df, 'end_year', 10)
+    wars_df = add_time_range(wars_df, 'end_year', 10)
 
     # Add the individual values for those years
-    print(add_cpi_values(pandemics_df, us_cpi_df))
+    pandemics_cpi_df = add_cpi_values(pandemics_df, us_cpi_df)
+    wars_cpi_df = add_cpi_values(wars_df, us_cpi_df)
 
     if verbose:
-        print()
+        print(pandemics_cpi_df.head())
+        print(wars_cpi_df.tail())
 
 
 def analyze_index(sp500_file: str, dowjones_file: str, events_file: str):
