@@ -714,6 +714,25 @@ def output_sp_dj(df_e: pd.DataFrame, df_market: pd.DataFrame, zero_point: str, y
     plot_sp_dj(w_df_1, year_l)
 
 
+def analyze_gdp(gdp_file: str, events_file: str) -> None:
+    """
+    For each event, select gdp data 10 year before and after, and pass the df to plot_gdp().
+    :param gdp_file: gdp data file name
+    :param events_file: events file name
+    :return:
+    """
+    # read in us gdp file
+    us_gdp_df = pd.read_csv(gdp_file, header=0)
+
+    # separate pandemics and wars gdp dataframe
+    pandemics_gdp = read_event_facts(events_file, types='Pandemics')
+    wars_gdp = read_event_facts(events_file, types='War')
+
+    # get gdp_info for each pandemic/war events
+    get_gdp_info(us_gdp_df, pandemics_gdp)
+    get_gdp_info(us_gdp_df, wars_gdp)
+
+
 def analyze_cpi(us_cpi_file: str, events_file: str, verbose: Union[bool, None] = False) -> None:
     """
     # TODO
@@ -738,26 +757,7 @@ def analyze_cpi(us_cpi_file: str, events_file: str, verbose: Union[bool, None] =
     add_cpi_values(pandemics_df, us_cpi_df)
 
 
-def analyze_gdp(gdp_file: str, events_file: str) -> None:
-    """
-    For each event, select gdp data 10 year before and after, and pass the df to plot_gdp().
-    :param gdp_file: gdp data file name
-    :param events_file: events file name
-    :return:
-    """
-    # read in us gdp file
-    us_gdp_df = pd.read_csv(gdp_file, header=0)
-
-    # separate pandemics and wars gdp dataframe
-    pandemics_gdp = read_event_facts(events_file, types='Pandemics')
-    wars_gdp = read_event_facts(events_file, types='War')
-
-    # get gdp_info for each pandemic/war events
-    get_gdp_info(us_gdp_df, pandemics_gdp)
-    get_gdp_info(us_gdp_df, wars_gdp)
-
-
-def analyze_stockmarket(sp500_file: str, dowjones_file: str, events_file: str):
+def analyze_index(sp500_file: str, dowjones_file: str, events_file: str):
     """
 
     :param sp500_file:
@@ -786,7 +786,7 @@ def main():
     dowjones_data = 'data/dow_jone_monthly.csv'
     us_gdp_data = 'data/gdp_usafacts.csv'
 
-    #analyze_stockmarket(sp500_data, dowjones_data, events_data)
+    analyze_index(sp500_data, dowjones_data, events_data)
     analyze_cpi(us_cpi_data, events_data)
     #analyze_gdp(us_gdp_data, events_data)
 
