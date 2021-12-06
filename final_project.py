@@ -694,7 +694,7 @@ def plot_sp_dj(df1: pd.DataFrame, df2: pd.DataFrame, year_num: int, plot_name: s
 
 def output_sp_dj(df_e: pd.DataFrame, df_sp: pd.DataFrame, df_dj: pd.DataFrame, zero_point: str, year_l: int, d_type: str):
     """
-
+    manage plots of stock market indexes by changing parameters for event selection criteria.
     :param df_e: the detailed event facts in pd.DataFrame
     :param df_sp: the given historical SP500 data in pd.DataFrame
     :param df_dj: the given historical Dow Jones data in pd.DataFrame
@@ -702,7 +702,7 @@ def output_sp_dj(df_e: pd.DataFrame, df_sp: pd.DataFrame, df_dj: pd.DataFrame, z
     ["start year", "end year", "the year before end year", "the year after start year"]
     :param year_l: the number of years to study before and after the year used as "zero point"
     :param d_type: the type of SP500 or Dow Jones historical data to study, could be "real" or "nominal"
-    :return:
+    :return: plots for specified event selection criteria
     """
     df_e = add_time_range(df_e, zero_point, year_l)
     print("The evolution of {} SP500 and Dow Jones {} years before and after all the Pandemics:".format(d_type, year_l))
@@ -778,11 +778,12 @@ def analyze_cpi(us_cpi_file: str, events_file: str, verbose: Union[bool, None] =
 
 def analyze_index(sp500_file: str, dowjones_file: str, events_file: str):
     """
-
+    manage the outputs of stock index analysis by passing different parameters of interest to the previous functions and
+    print out results in a readable way.
     :param sp500_file: the name of the data file contains SP500 historical monthly data
     :param dowjones_file: the name of the data file contains Dow Jones historical monthly data
     :param events_file: the name of the data file contains detailed event facts
-    :return:
+    :return: print out results in a readable format
     """
     event_df = read_event_facts(events_file)
     sp_df = pd.read_csv(sp500_file)
