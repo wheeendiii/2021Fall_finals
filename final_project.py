@@ -688,30 +688,30 @@ def plot_sp_dj(df1: pd.DataFrame, df2: pd.DataFrame, year_num: int, plot_name: s
     df2["25pct"] = df2.apply(pd.DataFrame.describe, axis=1)["25%"]
     df2["median"] = df2.median(axis=1)
 
-    fig, (ax1, ax2, ax3, ax4) = plt.subplots(4, sharex=True)
+    fig, (ax1, ax2, ax3, ax4) = plt.subplots(4, sharex=True, figsize=(10, 10))
     fig.suptitle('Change of Stock Market Indexes')
 
     ax1.plot(df1, linewidth=0.5)
-    ax1.set_ylabel("Change of SP500", fontsize = 'xx-small')
+    ax1.set_ylabel("Change of SP500", fontsize = 'x-small')
 
     ax2.plot(df2, linewidth=0.5)
-    ax2.set_ylabel("Change of Dow Jones", fontsize = 'xx-small')
+    ax2.set_ylabel("Change of Dow Jones", fontsize = 'x-small')
 
     ax3.plot(df1.index, df1["75pct"], color = 'black', label='75% percentile', linewidth=0.5)
     ax3.plot(df1.index, df1["25pct"], color='black', label='25% percentile', linewidth=0.5)
-    ax3.plot(df1.index, df1["median"], '--', color='red', label='median', linewidth=0.5)
-    ax3.fill_between(df1.index, df1["75pct"], df1["25pct"], facecolor='green')
-    ax3.set_ylabel("Range of SP500", fontsize = 'xx-small')
+    ax3.plot(df1.index, df1["median"], '--', color='orange', label='median', linewidth=0.5)
+    ax3.fill_between(df1.index, df1["75pct"], df1["25pct"], facecolor='lightgreen')
+    ax3.set_ylabel("Range of SP500", fontsize = 'x-small')
 
     ax4.plot(df2.index, df2["75pct"], color='black', label='75% percentile', linewidth=0.5)
     ax4.plot(df2.index, df2["25pct"], color='black', label='25% percentile', linewidth=0.5)
-    ax4.plot(df2.index, df2["median"], '--', color='red', label='median', linewidth=0.5)
-    ax4.fill_between(df2.index, df2["75pct"], df2["25pct"], facecolor='blue')
+    ax4.plot(df2.index, df2["median"], '--', color='orange', label='median', linewidth=0.5)
+    ax4.fill_between(df2.index, df2["75pct"], df2["25pct"], facecolor='lightblue')
     ax4.set_xlim(-12 * year_num + 1, 12 * (year_num + 1))
     ax4.set_xlabel(str(year_num) + " Year Before and After Events")
-    ax4.set_ylabel("Range of Dow Jones", fontsize = 'xx-small')
+    ax4.set_ylabel("Range of Dow Jones", fontsize = 'x-small')
 
-    plt.savefig('Plots/StockIndex/'+ plot_name +'.png')
+    plt.savefig('Plots/StockIndex/'+ plot_name +'.png', dpi=200)
 
 
 def output_sp_dj(df_e: pd.DataFrame, df_sp: pd.DataFrame, df_dj: pd.DataFrame, zero_point: str, year_l: int, d_type: str):
