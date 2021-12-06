@@ -489,21 +489,22 @@ def get_gdp_info(us_gdp: pd.DataFrame, df: pd.DataFrame):
             event_gdp = event_gdp.to_frame()
             event_gdp = event_gdp.apply(pd.to_numeric)  # convert all columns of DataFrame
 
+            end_interval = end_year - before_event
             # call plot_gdp for each event
-            plot_gdp(event_gdp, event_name)
+            plot_gdp(event_gdp, event_name,end_interval)
 
 
-def plot_gdp(gdp_df: pd.DataFrame, event_name: str):
+def plot_gdp(gdp_df: pd.DataFrame, event_name: str, end_interval: int):
     """
     Plot gdp trend for given events.
     :param gdp_df: the gdp dataframe for selected events
     :param event_name: event name for plotting
-    :param end_year: end year of an event
+    :param end_interval: end year of an event
     :return: plot of the given dataframe
     >>> us_gdp_df = pd.read_csv('data/gdp_usafacts.csv', header=0)
     >>> event_gdp = us_gdp_df.loc[0, '1947': '1968']
-    >>> event_gdp = event_gdp.to_frame().T
-    >>> plot_gdp(event_gdp, "Asian Flu")
+    >>> event_gdp = event_gdp.to_frame()
+    >>> plot_gdp(event_gdp, "Asian Flu", 4)
     """
 
     fig, ax = plt.subplots(figsize=(15, 10))
@@ -512,8 +513,13 @@ def plot_gdp(gdp_df: pd.DataFrame, event_name: str):
     ax.set_xlabel("Years before and after event end year")
     ax.set_ylabel("Gross domestic product ($)")
     ax.ticklabel_format(style='plain', axis='y')
-    plt.title("GDP fluctuations for " + event_name)
 
+    x_bounds = ax.get_xlim()
+    y_bounds = ax.get_ylim()
+    ax.vlines(end_interval, y_bounds[0], y_bounds[1], colors='red',linestyles='dashed')
+    ax.annotate(text='End Year', xy=(end_interval + 0.5, (y_bounds[0]+y_bounds[1]) *2/ 3))
+
+    plt.title("GDP fluctuations for " + event_name)
     plt.xticks(rotation=45)  # Rotates X-Axis Ticks by 45-degrees
     plt.savefig('Plots/GDP/'+event_name+'.png')
 
