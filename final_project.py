@@ -490,21 +490,25 @@ def get_gdp_info(us_gdp: pd.DataFrame, df: pd.DataFrame):
             event_gdp = event_gdp.apply(pd.to_numeric)  # convert all columns of DataFrame
 
             end_interval = end_year - before_event
+            start_interval = start_year - before_event
+
             # call plot_gdp for each event
-            plot_gdp(event_gdp, event_name,end_interval)
+            plot_gdp(event_gdp, event_name, end_interval, start_interval)
 
 
-def plot_gdp(gdp_df: pd.DataFrame, event_name: str, end_interval: int):
+def plot_gdp(gdp_df: pd.DataFrame, event_name: str, end_interval: int, start_interval: int):
     """
     Plot gdp trend for given events.
     :param gdp_df: the gdp dataframe for selected events
     :param event_name: event name for plotting
     :param end_interval: end year of an event
+    :param start_interval: start year of an event
+
     :return: plot of the given dataframe
     >>> us_gdp_df = pd.read_csv('data/gdp_usafacts.csv', header=0)
     >>> event_gdp = us_gdp_df.loc[0, '1947': '1968']
     >>> event_gdp = event_gdp.to_frame()
-    >>> plot_gdp(event_gdp, "Asian Flu", 4)
+    >>> plot_gdp(event_gdp, "Asian Flu", 4, 2)
     """
 
     fig, ax = plt.subplots(figsize=(15, 10))
@@ -516,8 +520,10 @@ def plot_gdp(gdp_df: pd.DataFrame, event_name: str, end_interval: int):
 
     x_bounds = ax.get_xlim()
     y_bounds = ax.get_ylim()
-    ax.vlines(end_interval, y_bounds[0], y_bounds[1], colors='red',linestyles='dashed')
-    ax.annotate(text='End Year', xy=(end_interval + 0.5, (y_bounds[0]+y_bounds[1]) *2/ 3))
+    ax.vlines(end_interval, y_bounds[0], y_bounds[1], colors='red', linestyles='dashed')
+    ax.annotate(text='End Year', xy=(end_interval + 0.5, (y_bounds[0]+y_bounds[1]) * 2 / 3))
+    ax.vlines(start_interval, y_bounds[0], y_bounds[1], colors='green', linestyles='solid')
+    ax.annotate(text='Start Year', xy=(start_interval - 2, (y_bounds[0]+y_bounds[1]) * 2 / 3))
 
     plt.title("GDP fluctuations for " + event_name)
     plt.xticks(rotation=45)  # Rotates X-Axis Ticks by 45-degrees
@@ -877,8 +883,8 @@ def main():
     us_gdp_data = 'data/gdp_usafacts.csv'
 
     #analyze_index(sp500_data, dowjones_data, events_data)
-    analyze_cpi(us_cpi_data, events_data)
-    #analyze_gdp(us_gdp_data, events_data)
+    #analyze_cpi(us_cpi_data, events_data)
+    analyze_gdp(us_gdp_data, events_data)
 
 
 if __name__ == '__main__':
