@@ -73,8 +73,8 @@ def read_event_facts(filename: str, types: Union[str, list] = None, ranges: Unio
     London flu	  Pandemics	Include United States	1972	    1973	    <10,000
 
     :param filename: The csv file to read in
-    :param type: The types of events
-    :param range: The geographical range impacted
+    :param types: The types of events
+    :param ranges: The geographical range impacted
     :param min_start_year: Minimum start year to filter by
     :param max_start_year: Maximum start year to filter by
     :param min_end_year: Minimum end year to filter by
@@ -191,7 +191,8 @@ def read_event_facts(filename: str, types: Union[str, list] = None, ranges: Unio
     return df
 
 
-def add_time_range(e_df: pd.DataFrame, t0: Literal['start_year', 'end_year', 'year_before_end_year', 'year_after_start_year'], length: int) -> pd.DataFrame:
+def add_time_range(e_df: pd.DataFrame, t0: Literal['start_year', 'end_year', 'year_before_end_year',
+                                                   'year_after_start_year'], length: int) -> pd.DataFrame:
     """
     This function is used to add two columns ("y_start", "y_end") into the event_fact dataframe based on the selection
     of year t0 and the number of years before and after year t0 for further plotting and study.
