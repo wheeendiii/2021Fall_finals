@@ -677,18 +677,40 @@ def plot_sp_dj(df1: pd.DataFrame, df2: pd.DataFrame, year_num: int, plot_name: s
     :param plot_name: the string name of the plot
     :return: plot of the given dataframe
     """
+    # change index of data to make the January of "Year Zero" as 0 in x-axis.
     df1.index = df1.index - (12 * year_num)
     df2.index = df2.index - (12 * year_num)
+    # get the 25 and 75 percentile bounds for plotting
+    df1["75pct"] = df1.apply(pd.DataFrame.describe, axis=1)["75%"]
+    df1["25pct"] = df1.apply(pd.DataFrame.describe, axis=1)["25%"]
+    df1["median"] = df1.median(axis=1)
+    df2["75pct"] = df2.apply(pd.DataFrame.describe, axis=1)["75%"]
+    df2["25pct"] = df2.apply(pd.DataFrame.describe, axis=1)["25%"]
+    df2["median"] = df2.median(axis=1)
 
-    fig, (ax1, ax2) = plt.subplots(2, sharex=True)
+    fig, (ax1, ax2, ax3, ax4) = plt.subplots(4, sharex=True)
     fig.suptitle('Change of Stock Market Indexes')
-    ax1.plot(df1)
+
+    ax1.plot(df1, linewidth=0.5)
     ax1.set_ylabel("Change of SP500 Index")
 
-    ax2.plot(df2)
-    ax2.set_xlim(-12 * year_num + 1, 12 * (year_num + 1))
-    ax2.set_xlabel(str(year_num) + " Year Before and After Events")
+    ax2.plot(df2, linewidth=0.5)
     ax2.set_ylabel("Change of Dow Jones Index")
+
+    ax3.plot(df1.index, df1["75pct"], color = 'black', label='75% percentile', linewidth=0.5)
+    ax3.plot(df1.index, df1["25pct"], color='black', label='25% percentile', linewidth=0.5)
+    ax3.plot(df1.index, df1["median"], '--', color='red', label='median', linewidth=0.5)
+    ax3.fill_between(df1.index, df1["75pct"], df1["25pct"], facecolor='green')
+    ax3.set_ylabel("Range of SP500 Index")
+
+    ax4.plot(df2.index, df2["75pct"], color='black', label='75% percentile', linewidth=0.5)
+    ax4.plot(df2.index, df2["25pct"], color='black', label='25% percentile', linewidth=0.5)
+    ax4.plot(df2.index, df2["median"], '--', color='red', label='median', linewidth=0.5)
+    ax4.fill_between(df2.index, df2["75pct"], df2["25pct"], facecolor='blue')
+    ax4.set_xlim(-12 * year_num + 1, 12 * (year_num + 1))
+    ax4.set_xlabel(str(year_num) + " Year Before and After Events")
+    ax3.set_ylabel("Range of Dow Jones Index")
+
     plt.savefig('Plots/StockIndex/'+ plot_name +'.png')
 
 
