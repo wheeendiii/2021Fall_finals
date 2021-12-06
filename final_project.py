@@ -270,7 +270,7 @@ def trim_to_years(df: pd.DataFrame, start_year: int, end_year: int, year_col_nam
     >>> trim_to_years(df, 2000, 1999, 'Years')  # doctest: +ELLIPSIS
     Traceback (most recent call last):
     ...
-    ValueError: Invalid years: Minimum year must be less than maximum year.
+    ValueError: Invalid years: Start year must be less than end year.
     >>> trim_to_years(df, 1995, 2000, pad='none')  # doctest: +ELLIPSIS
     Traceback (most recent call last):
     ...
@@ -307,7 +307,9 @@ def trim_to_years(df: pd.DataFrame, start_year: int, end_year: int, year_col_nam
     13   2002     NaN
     14   2003     NaN
     """
-    min_max_year_checking(min_year=start_year, max_year=end_year)
+    # Don't use min_max_year_checking() because we want to allow invalid years (for padding)
+    if start_year > end_year:
+        raise ValueError('Invalid years: Start year must be less than end year.')
 
     pad_options = {'zero': 0, 'nan': np.NaN}
     if pad:
@@ -796,7 +798,10 @@ def analyze_cpi(us_cpi_file: str, events_file: str, verbose: Union[bool, None] =
     wars_df = add_time_range(pandemics_df, 'end_year', 10)
 
     # Add the individual values for those years
-    add_cpi_values(pandemics_df, us_cpi_df)
+    print(add_cpi_values(pandemics_df, us_cpi_df))
+
+    if verbose:
+        print()
 
 
 def analyze_index(sp500_file: str, dowjones_file: str, events_file: str):
