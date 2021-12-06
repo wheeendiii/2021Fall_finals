@@ -717,14 +717,14 @@ def plot_sp_dj(df1: pd.DataFrame, df2: pd.DataFrame, year_num: int, plot_name: s
     df2["25pct"] = df2.apply(pd.DataFrame.describe, axis=1)["25%"]
     df2["median"] = df2.median(axis=1)
 
-    fig, (ax1, ax2, ax3, ax4) = plt.subplots(4, sharex=True, figsize=(10, 10))
+    fig, (ax3, ax4) = plt.subplots(2, sharex=True, figsize=(10, 5))
     fig.suptitle('Change of Stock Market Indexes')
 
-    ax1.plot(df1, linewidth=0.5)
-    ax1.set_ylabel("Change of SP500", fontsize = 'x-small')
-
-    ax2.plot(df2, linewidth=0.5)
-    ax2.set_ylabel("Change of Dow Jones", fontsize = 'x-small')
+    # ax1.plot(df1, linewidth=0.5)
+    # ax1.set_ylabel("Change of SP500", fontsize = 'x-small')
+    #
+    # ax2.plot(df2, linewidth=0.5)
+    # ax2.set_ylabel("Change of Dow Jones", fontsize = 'x-small')
 
     ax3.plot(df1.index, df1["75pct"], color = 'black', label='75% percentile', linewidth=0.5)
     ax3.plot(df1.index, df1["25pct"], color='black', label='25% percentile', linewidth=0.5)
@@ -756,17 +756,19 @@ def output_sp_dj(df_e: pd.DataFrame, df_sp: pd.DataFrame, df_dj: pd.DataFrame, z
     :return: plots for specified event selection criteria
     """
     df_e = add_time_range(df_e, zero_point, year_l)
+    name_str = str(year_l)+"y_"+zero_point+"_"+d_type
+
     print("The evolution of {} SP500 and Dow Jones {} years before and after all the Pandemics:".format(d_type, year_l))
     selected_p = df_e.loc[df_e["Type"] == "Pandemics"]
     p1_df = get_index(selected_p, df_sp, d_type)
     p2_df = get_index(selected_p, df_dj, d_type)
-    plot_sp_dj(p1_df, p2_df, year_l, "all_pandemics")
+    plot_sp_dj(p1_df, p2_df, year_l, name_str+"_all_pandemics")
 
     print("The evolution of {} SP500 and Dow Jones {} years before and after all the Wars:".format(d_type, year_l))
     selected_w = df_e.loc[df_e["Type"] == "War"]
     w1_df = get_index(selected_w, df_sp, d_type)
     w2_df = get_index(selected_w, df_dj, d_type)
-    plot_sp_dj(w1_df, w2_df, year_l, "all_wars")
+    plot_sp_dj(w1_df, w2_df, year_l, name_str+"_all_wars")
 
     print("The evolution of {} SP500 and Dow Jones {} years before and after Pandemics with over 1m fatalities:"
           .format(d_type, year_l))
@@ -774,14 +776,14 @@ def output_sp_dj(df_e: pd.DataFrame, df_sp: pd.DataFrame, df_dj: pd.DataFrame, z
     selected_1m_p = selected_1m.loc[selected_1m["Type"] == "Pandemics"]
     p1_df_1 = get_index(selected_1m_p, df_sp, d_type)
     p2_df_1 = get_index(selected_1m_p, df_dj, d_type)
-    plot_sp_dj(p1_df_1, p2_df_1, year_l, "pandemics_over_1m_fatalities")
+    plot_sp_dj(p1_df_1, p2_df_1, year_l, name_str+"_pandemics_over_1m_fatalities")
 
     print("The evolution of {} SP500 and Dow Jones {} years before and after Wars with over 1m fatalities:"
           .format(d_type, year_l))
     selected_1m_w = selected_1m.loc[selected_1m["Type"] == "War"]
     w1_df_1 = get_index(selected_1m_w, df_sp, d_type)
     w2_df_1 = get_index(selected_1m_w, df_dj, d_type)
-    plot_sp_dj(w1_df_1, w2_df_1, year_l, "wars_over_1m_fatalities")
+    plot_sp_dj(w1_df_1, w2_df_1, year_l, name_str+"_wars_over_1m_fatalities")
 
 
 def analyze_gdp(gdp_file: str, events_file: str) -> None:
@@ -873,6 +875,15 @@ def analyze_index(sp500_file: str, dowjones_file: str, events_file: str):
     print("1. If we use the year before the event end year as zero point, and select the inflation adjusted SP500 and "
           "Dow Jones historical data 10 years before and after the zero point year, plots would be")
     output_sp_dj(event_df, sp_df, dj_df, "year_before_end_year", 10, "real")
+    print("2. If we use the year before the event end year as zero point, and select the nominal SP500 and "
+          "Dow Jones historical data 10 years before and after the zero point year, plots would be")
+    output_sp_dj(event_df, sp_df, dj_df, "year_before_end_year", 10, "nominal")
+    print("3. If we use the year after the event start year as zero point, and select the real SP500 and "
+          "Dow Jones historical data 10 years before and after the zero point year, plots would be")
+    output_sp_dj(event_df, sp_df, dj_df, "year_after_start_year", 10, "real")
+    print("4. If we use the year before the event end year as zero point, and select the inflation adjusted SP500 and "
+          "Dow Jones historical data 5 years before and after the zero point year, plots would be")
+    output_sp_dj(event_df, sp_df, dj_df, "year_before_end_year", 5, "real")
 
 
 def main():
@@ -882,7 +893,7 @@ def main():
     dowjones_data = 'data/dow_jone_monthly.csv'
     us_gdp_data = 'data/gdp_usafacts.csv'
 
-    #analyze_index(sp500_data, dowjones_data, events_data)
+    analyze_index(sp500_data, dowjones_data, events_data)
     #analyze_cpi(us_cpi_data, events_data)
     analyze_gdp(us_gdp_data, events_data)
 

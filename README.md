@@ -55,23 +55,63 @@ The US CPI data set comes from the United States Bureau of Labor Statistics webs
 
 **S&P500 and Dow Jones before and after Wars and Pandemics** (Kangyang)
 
-If we use the year before the event end year as zero point, and select the inflation adjusted SP500 and Dow Jones historical data 10 years before and after the zero point year, plots would be:
+1. If we use the year before the event end year as zero point, and select the inflation adjusted SP500 and Dow Jones historical data 10 years before and after the zero point year, plots would be:
 
 * The evolution of real SP500 and Dow Jones 10 years before and after all the Pandemics:
 ['Asian Flu', 'Hong Kong Flu', 'London flu', 'Russian flu', 'HIV/AIDS pandemic', 'SARS outbreak', 'Swine flu pandemic']
-![alt text](https://github.com/wheeendiii/2021Fall_finals/blob/main/Plots/StockIndex/all_pandemics.png)
+![alt text](https://github.com/wheeendiii/2021Fall_finals/blob/main/Plots/StockIndex/10y_year_before_end_year_real_all_pandemics.png)
 
 * The evolution of real SP500 and Dow Jones 10 years before and after all the Wars:
 ['Korean War', 'Vietnam War', 'World War II', 'Gulf War', 'Civil war in Afghanistan', 'War on Terror', 'Iraq War', 'War in Somalia']
-![alt text](https://github.com/wheeendiii/2021Fall_finals/blob/main/Plots/StockIndex/all_wars.png)
+![alt text](https://github.com/wheeendiii/2021Fall_finals/blob/main/Plots/StockIndex/10y_year_before_end_year_real_all_wars.png)
 
 * The evolution of real SP500 and Dow Jones 10 years before and after Pandemics with over 1m fatalities:
 ['Asian Flu', 'Hong Kong Flu', 'HIV/AIDS pandemic']
-![alt text](https://github.com/wheeendiii/2021Fall_finals/blob/main/Plots/StockIndex/pandemics_over_1m_fatalities.png)
+![alt text](https://github.com/wheeendiii/2021Fall_finals/blob/main/Plots/StockIndex/10y_year_before_end_year_real_pandemics_over_1m_fatalities.png)
 
 * The evolution of real SP500 and Dow Jones 10 years before and after Wars with over 1m fatalities:
 ['Korean War', 'Vietnam War', 'World War II', 'War in Somalia']
-![alt text](https://github.com/wheeendiii/2021Fall_finals/blob/main/Plots/StockIndex/wars_over_1m_fatalities.png)
+![alt text](https://github.com/wheeendiii/2021Fall_finals/blob/main/Plots/StockIndex/10y_year_before_end_year_real_wars_over_1m_fatalities.png)
+
+2. If we use the year after the event start year as zero point, and select the real SP500 and Dow Jones historical data 10 years before and after the zero point year, plots would be
+
+The evolution of real SP500 and Dow Jones 10 years before and after all the Pandemics:
+['Asian Flu', 'Hong Kong Flu', 'London flu', 'Russian flu', 'HIV AIDS pandemic', 'SARS outbreak', 'Swine flu pandemic']
+![alt text](https://github.com/wheeendiii/2021Fall_finals/blob/main/Plots/StockIndex/10y_year_after_start_year_real_all_pandemics.png)
+
+The evolution of real SP500 and Dow Jones 10 years before and after all the Wars:
+['Korean War', 'Vietnam War', 'World War II', 'Gulf War', 'Civil war in Afghanistan', 'War on Terror', 'Iraq War', 'War in Somalia']
+![alt text](https://github.com/wheeendiii/2021Fall_finals/blob/main/Plots/StockIndex/10y_year_after_start_year_real_all_wars.png)
+
+The evolution of real SP500 and Dow Jones 10 years before and after Pandemics with over 1m fatalities:
+['Asian Flu', 'Hong Kong Flu', 'HIV AIDS pandemic']
+![alt text](https://github.com/wheeendiii/2021Fall_finals/blob/main/Plots/StockIndex/10y_year_after_start_year_real_pandemics_over_1m_fatalities.png)
+
+The evolution of real SP500 and Dow Jones 10 years before and after Wars with over 1m fatalities:
+['Korean War', 'Vietnam War', 'World War II', 'War in Somalia']
+![alt text](https://github.com/wheeendiii/2021Fall_finals/blob/main/Plots/StockIndex/10y_year_after_start_year_real_wars_over_1m_fatalities.png)
+
+3. If we use the year before the event end year as zero point, and select the inflation adjusted SP500 and Dow Jones historical data 5 years before and after the zero point year, plots would be
+
+The evolution of real SP500 and Dow Jones 5 years before and after all the Pandemics:
+['Asian Flu', 'Hong Kong Flu', 'London flu', 'Russian flu', 'SARS outbreak', 'Swine flu pandemic', 'Western African Ebola virus epidemic']
+![alt text](https://github.com/wheeendiii/2021Fall_finals/blob/main/Plots/StockIndex/5y_year_before_end_year_real_all_pandemics.png)
+
+The evolution of real SP500 and Dow Jones 5 years before and after all the Wars:
+['Korean War', 'Vietnam War', 'World War II', 'Gulf War', 'Civil war in Afghanistan', 'Iraq War']
+![alt text](https://github.com/wheeendiii/2021Fall_finals/blob/main/Plots/StockIndex/5y_year_before_end_year_real_all_wars.png)
+
+
+The evolution of real SP500 and Dow Jones 5 years before and after Pandemics with over 1m fatalities:
+['Asian Flu', 'Hong Kong Flu']
+![alt text](https://github.com/wheeendiii/2021Fall_finals/blob/main/Plots/StockIndex/5y_year_before_end_year_real_pandemics_over_1m_fatalities.png)
+
+
+The evolution of real SP500 and Dow Jones 5 years before and after Wars with over 1m fatalities:
+['Korean War', 'Vietnam War', 'World War II']
+![alt text](https://github.com/wheeendiii/2021Fall_finals/blob/main/Plots/StockIndex/5y_year_before_end_year_real_wars_over_1m_fatalities.png)
+
+
 
 ## References
 [^1]: https://www.bls.gov/cpi/questions-and-answers.htm#Question_17
