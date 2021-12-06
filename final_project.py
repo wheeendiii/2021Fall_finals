@@ -298,14 +298,21 @@ def trim_to_years(df: pd.DataFrame, start_year: int, end_year: int, year_col_nam
     1   1990       0
     2   1991       2
     3   1992       4
-    >>> results = trim_to_years(df, 1989, 2003, 'Years', pad='nan', pad_col_name='Values')
+    >>> results = trim_to_years(df, 1988, 2003, 'Years', pad='nan', pad_col_name='Values')
     >>> results.tail()
         Years  Values
-    10   1999    18.0
-    11   2000    20.0
-    12   2001     NaN
-    13   2002     NaN
-    14   2003     NaN
+    11   1999    18.0
+    12   2000    20.0
+    13   2001     NaN
+    14   2002     NaN
+    15   2003     NaN
+    >>> results.head()
+       Years  Values
+    0   1988     NaN
+    1   1989     NaN
+    2   1990     0.0
+    3   1991     2.0
+    4   1992     4.0
     """
     # Don't use min_max_year_checking() because we want to allow invalid years (for padding)
     if start_year > end_year:
@@ -554,7 +561,9 @@ def read_us_cpi(filename: str, min_year: Union[int, None] = None, max_year: Unio
     if min_year or max_year:
         min_max_year_checking(min_year=min_year, max_year=max_year)
 
-    df = pd.read_csv(filename, header=0, usecols=['Year', 'Value'], dtype={'Year': 'int16', 'Value': 'float16'})
+    # Use float32 instead of float16 due to bug with float16 and percentages -
+    #    see https://github.com/pandas-dev/pandas/issues/9220
+    df = pd.read_csv(filename, header=0, usecols=['Year', 'Value'], dtype={'Year': 'int16', 'Value': 'float32'})
 
     # Calculate the averages for each year, and keep year as a column, not an index
     df = df.groupby('Year').mean()
@@ -600,10 +609,10 @@ def add_cpi_values(event_df: pd.DataFrame, cpi_df: pd.DataFrame) -> pd.DataFrame
     4   0.562500  0.234568
     5   0.440000  0.210000
     6   0.361111  0.190083
-    7   0.306122  0.000000
-    8   0.265625  0.000000
-    9   0.234568  0.000000
-    10  0.210000  0.000000
+    7   0.306122       NaN
+    8   0.265625       NaN
+    9   0.234568       NaN
+    10  0.210000       NaN
     """
     results = {}
     for _, row in event_df.iterrows():
@@ -614,13 +623,18 @@ def add_cpi_values(event_df: pd.DataFrame, cpi_df: pd.DataFrame) -> pd.DataFrame
         # Select all the CPI values between the beginning and ending years
         cpi_df_selected = trim_to_years(cpi_df, start, end, 'Year', pad='nan', pad_col_name='Value')
 
-        # Calculate the percentage changes
-        # Value must be changed to float32 away from float16 due to a bug -
+        # Calculate the percentage changes.  Value must be changed to float32 away from float16 due to a bug -
         #   see https://github.com/pandas-dev/pandas/issues/9220
-        cpi_df_selected = cpi_df_selected.astype({'Value': 'float32'})
+        if cpi_df_selected.dtypes['Value'] == 'float16':
+            cpi_df_selected = cpi_df_selected.astype({'Value': 'float32'})
 
-        # TODO - Is this what is removing the NaN and changing to zero?
-        results[event] = cpi_df_selected['Value'].pct_change().tolist()
+        # pct_change() will put in zeros from a value to NaN and we don't want that
+        # Save the nan positions, calculate pct_change, and then put all the NaNs back in
+        nan_value_positions = cpi_df_selected['Value'].isnull()
+        percent_change_df = cpi_df_selected['Value'].pct_change()
+        percent_change_df[nan_value_positions] = np.nan
+
+        results[event] = percent_change_df.tolist()
 
     # Some results will have different values because e.g. there haven't been x number of years passed since the end
     try:
