@@ -454,7 +454,7 @@ def get_gdp_info(us_gdp: pd.DataFrame, df: pd.DataFrame):
     :param df: the gdp dataframe for selected events
     :return:
     >>> pandemics_gdp = read_event_facts('data/event_facts.csv', types='Pandemics')
-    >>> us_gdp_test = pd.read_csv('data/gdp_usafacts.csv', header=0)
+    >>> us_gdp_test = pd.read_csv('data/gdp_usafacts.csv')
     >>> get_gdp_info(us_gdp_test, pandemics_gdp)
     """
     # go through event file and get start_year, end_year
@@ -476,6 +476,8 @@ def get_gdp_info(us_gdp: pd.DataFrame, df: pd.DataFrame):
 
             # Slice GDP df according to event
             event_gdp = us_gdp.loc[0, str(before_event): str(after_event)]
+            event_gdp = event_gdp.to_frame()
+            event_gdp = event_gdp.apply(pd.to_numeric)  # convert all columns of DataFrame
 
             # call plot_gdp for each event
             plot_gdp(event_gdp, event_name)
@@ -490,11 +492,11 @@ def plot_gdp(gdp_df: pd.DataFrame, event_name: str):
     :return: plot of the given dataframe
     >>> us_gdp_df = pd.read_csv('data/gdp_usafacts.csv', header=0)
     >>> event_gdp = us_gdp_df.loc[0, '1947': '1968']
+    >>> event_gdp = event_gdp.to_frame().T
     >>> plot_gdp(event_gdp, "Asian Flu")
     """
 
     fig, ax = plt.subplots(figsize=(15, 10))
-    gdp_df= gdp_df.values.astype(int)
     ax.plot(gdp_df)
 
     ax.set_xlabel("Years before and after event end year")
@@ -790,9 +792,9 @@ def main():
     dowjones_data = 'data/dow_jone_monthly.csv'
     us_gdp_data = 'data/gdp_usafacts.csv'
 
-    analyze_index(sp500_data, dowjones_data, events_data)
-    analyze_cpi(us_cpi_data, events_data)
-    #analyze_gdp(us_gdp_data, events_data)
+    #analyze_index(sp500_data, dowjones_data, events_data)
+    #analyze_cpi(us_cpi_data, events_data)
+    analyze_gdp(us_gdp_data, events_data)
 
 
 if __name__ == '__main__':
