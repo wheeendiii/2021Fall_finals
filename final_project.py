@@ -192,7 +192,8 @@ def read_event_facts(filename: str, types: Union[str, list] = None, ranges: Unio
 
 
 def add_time_range(e_df: pd.DataFrame, t0: Literal['start_year', 'end_year', 'year_before_end_year',
-                                                   'year_after_start_year'], length: int) -> pd.DataFrame:
+                                                   'year_after_start_year'], length: int,
+                   add_extra_yr_before: bool = False) -> pd.DataFrame:
     """
     This function is used to add two columns ("y_start", "y_end") into the event_fact dataframe based on the selection
     of year t0 and the number of years before and after year t0 for further plotting and study.
@@ -200,6 +201,8 @@ def add_time_range(e_df: pd.DataFrame, t0: Literal['start_year', 'end_year', 'ye
     :param t0: the specific year used as the zero point in selecting the time range, the value of t0 could be one of
     ["start year", "end year", "the year before end year", "the year after start year"]
     :param length: the number of years to study before and after t0
+    :param add_extra_yr_before: Indicates whether an extra year should be added before the beginning
+            (to account for pct_change)
     :return: the event facts dataframe with two extra columns storing the start year and end year for further study
     >>> df = pd.DataFrame({'Events': ['Event A', 'Event B', 'Event C'], 'Start_Year': [1950, 1999, 2001], \
                            'End_Year': [1950, 2000, 2010]})
@@ -207,12 +210,12 @@ def add_time_range(e_df: pd.DataFrame, t0: Literal['start_year', 'end_year', 'ye
     Traceback (most recent call last):
     ...
     ValueError: y0 must be one of start_year, end_year, year_before_end_year, year_after_start_year
-    >>> result = add_time_range(df, 'start_year', 5)
+    >>> result = add_time_range(df, 'start_year', 5, add_extra_yr_before=True)
     >>> result.head()
         Events  Start_Year  End_Year  y_start  y_end
-    0  Event A        1950      1950     1945   1955
-    1  Event B        1999      2000     1994   2004
-    2  Event C        2001      2010     1996   2006
+    0  Event A        1950      1950     1944   1955
+    1  Event B        1999      2000     1993   2004
+    2  Event C        2001      2010     1995   2006
     >>> result = add_time_range(df, 'end_year', 5)
     >>> result.head()
         Events  Start_Year  End_Year  y_start  y_end
@@ -246,7 +249,10 @@ def add_time_range(e_df: pd.DataFrame, t0: Literal['start_year', 'end_year', 'ye
     else:
         raise ValueError('y0 must be one of ' + ', '.join(zero_points))
 
-    e_df["y_start"] = y0 - length
+    if add_extra_yr_before:
+        e_df["y_start"] = y0 - length - 1
+    else:
+        e_df["y_start"] = y0 - length
     e_df["y_end"] = y0 + length
     e_df.astype({'y_start': 'int16', 'y_end': 'int16'})
 
@@ -616,17 +622,17 @@ def add_cpi_values(event_df: pd.DataFrame, cpi_df: pd.DataFrame) -> pd.DataFrame
     >>> events_df = pd.DataFrame({'Event_Name': ['Event A', 'Event B'], 'y_start': [1990, 1995], 'y_end': [2000, 2005]})
     >>> df = add_cpi_values(events_df, cpi_df)
     >>> print(df)
-         Event A   Event B
-    1   3.000000  0.361111
-    2   1.250000  0.306122
-    3   0.777778  0.265625
-    4   0.562500  0.234568
-    5   0.440000  0.210000
-    6   0.361111  0.190083
-    7   0.306122       NaN
-    8   0.265625       NaN
-    9   0.234568       NaN
-    10  0.210000       NaN
+           Event A    Event B
+    1   300.000000  36.111111
+    2   125.000000  30.612245
+    3    77.777778  26.562500
+    4    56.250000  23.456790
+    5    44.000000  21.000000
+    6    36.111111  19.008264
+    7    30.612245        NaN
+    8    26.562500        NaN
+    9    23.456790        NaN
+    10   21.000000        NaN
     """
     results = {}
     for _, row in event_df.iterrows():
@@ -645,7 +651,7 @@ def add_cpi_values(event_df: pd.DataFrame, cpi_df: pd.DataFrame) -> pd.DataFrame
         # pct_change() will put in zeros from a value to NaN and we don't want that
         # Save the nan positions, calculate pct_change, and then put all the NaNs back in
         nan_value_positions = cpi_df_selected['Value'].isnull()
-        percent_change_df = cpi_df_selected['Value'].pct_change()
+        percent_change_df = cpi_df_selected['Value'].pct_change() * 100
         percent_change_df[nan_value_positions] = np.nan
 
         results[event] = percent_change_df.tolist()
