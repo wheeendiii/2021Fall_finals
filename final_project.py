@@ -254,7 +254,7 @@ def add_time_range(e_df: pd.DataFrame, t0: Literal['start_year', 'end_year', 'ye
 
 def trim_to_years(df: pd.DataFrame, start_year: int, end_year: int, year_col_name: str = 'Year',
                   pad: Literal[None, 'zero', 'nan'] = None, pad_col_name: Union[None, str] = None) -> pd.DataFrame:
-    """ Given a dataframe with a year column, filters the dataframe down to the range created by the starting
+    """ Given a dataframe with a year    column, filters the dataframe down to the range created by the starting
     and ending years specified as paramters.  If a pad option is specified, then years for which data does not exist
     are padded with the value corresponding to the option.
 
@@ -636,8 +636,6 @@ def get_sp_dj(df_selected: pd.DataFrame, df_sp_dj: pd.DataFrame, data_type: str)
     :return: the dataframe of sp_500 and dow_jones data from y_start year to y_end year for each selected events
     """
     sp_dj_dict = {}
-    # TODO - Are you just dropping events that fall outside of the data, rather than padding?
-    df_selected = df_selected
     df_selected = df_selected.loc[df_selected["y_start"] >= 1928]  # the earliest data for sp_dj is in 1927/12
     df_selected = df_selected.loc[df_selected["y_end"] < 2021]  # the latest data for sp_dj is in 2021/11
     event_list = df_selected["Event_Name"].tolist()
@@ -651,9 +649,7 @@ def get_sp_dj(df_selected: pd.DataFrame, df_sp_dj: pd.DataFrame, data_type: str)
         df_sp_dj["year"] = df_sp_dj["year"].astype(int)
 
         # Select all SP500/DJ values between the two beginning and ending years
-        # TODO - Use trim_to_years() function?
-        sp_dj_selected = df_sp_dj.loc[df_sp_dj["year"] >= start]
-        sp_dj_selected = sp_dj_selected[sp_dj_selected["year"] <= end]
+        sp_dj_selected = trim_to_years(df_sp_dj, start, end, 'year')
 
         # Calculate the percentage changes
         if data_type == "nominal":
@@ -683,15 +679,23 @@ def plot_sp_dj(df_plot: pd.DataFrame, year_num: int):
     df_plot.index = df_plot.index - (12 * year_num)
     fig, ax = plt.subplots(figsize=(15, 10))
     ax.plot(df_plot)
-    ax.set_xlim(-12 * year_num + 1, 12 * year_num)
+    ax.set_xlim(-12 * year_num + 1, 12 * (year_num + 1))
     ax.set_xlabel(str(year_num) + " Year Before and After Events")
     ax.set_ylabel("Change of Stock Market Index")
     plt.show()
 
 
 def output_sp_dj(df_e: pd.DataFrame, df_market: pd.DataFrame, zero_point: str, year_l: int, d_type: str):
-    # TODO - I changed add_time_range logic because it was giving incorrect years - should this be deliberately 
-    # adding an extra year at the beginning and/or end?
+    """
+
+    :param df_e: the detailed event facts in pd.DataFrame
+    :param df_market: the given historical SP500 and Dow Jones data in pd.DataFrame
+    :param zero_point: the specific year used as the zero point in selecting the time range, the value of t0 could be one of
+    ["start year", "end year", "the year before end year", "the year after start year"]
+    :param year_l: the number of years to study before and after the year used as "zero point"
+    :param d_type: the type of SP500 or Dow Jones historical data to study, could be "real" or "nominal"
+    :return:
+    """
     df_e = add_time_range(df_e, zero_point, year_l)
     print("The evolution of {} SP500 and Dow Jones {} years before and after all the Pandemics:".format(d_type, year_l))
     selected_p = df_e.loc[df_e["Type"] == "Pandemics"]
@@ -760,9 +764,9 @@ def analyze_cpi(us_cpi_file: str, events_file: str, verbose: Union[bool, None] =
 def analyze_index(sp500_file: str, dowjones_file: str, events_file: str):
     """
 
-    :param sp500_file:
-    :param dowjones_file:
-    :param events_file:
+    :param sp500_file: the name of the data file contains SP500 historical monthly data
+    :param dowjones_file: the name of the data file contains Dow Jones historical monthly data
+    :param events_file: the name of the data file contains detailed event facts
     :return:
     """
     event_df = read_event_facts(events_file)
