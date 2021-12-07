@@ -28,11 +28,11 @@ Would they affect the final overall trend of the CPI Inflation and bond yield ar
 
 
 ## Data Sources
-**Event Data** (Kangyang)
+### Event Data (Kangyang)
 
 This data file is compiled from the wars and pandemics chart in the reference article "Inflation in the aftermath of wars and pandemics" (https://voxeu.org/article/inflation-aftermath-wars-and-pandemics) and the Wiki pages for wars and pandemics("List of epidemics" - https://en.wikipedia.org/wiki/List_of_epidemics, "Timeline of wars" - https://en.wikipedia.org/wiki/Timeline_of_wars).
 
-**Consumer Price Index (CPI)** (Kay)
+### Consumer Price Index (CPI) (Kay)
 * CPI for US from 1913-present - https://beta.bls.gov/dataViewer/view/timeseries/CUUR0000SA0
 * CPI for G20 countries from 1915-present -  https://stats.oecd.org/Index.aspx?DataSetCode=G20_PRICES# 
 
@@ -40,20 +40,23 @@ Consumer price index represents the change in prices that consumers are paying f
 
 The US CPI data set comes from the United States Bureau of Labor Statistics website, which has data available from 1913 through the present year.  The values are relevant to each other. That is, the rather than discrete amounts, the index represents the change in prices from year to year, based on a "base index".  The base index for this dataset is calculated by taking the average of the period from January 1982 through December 1984 and setting it at 100[^1].  All other index values are then given as a percentage change from that time period.
 
-**Gross Domestic Product (GDP)** (Wendy)
+### Gross Domestic Product (GDP) (Wendy)
 * GDP for all countries from 1960-present - https://databank.worldbank.org/reports.aspx?source=2&type=metadata&series=NY.GDP.MKTP.CD#
 
-**S&P500 and Dow Jones** (Kangyang)
+### S&P500 and Dow Jones (Kangyang)
 * S&P500 historical monthly nominal and real (inflation adjusted) data from 1927 - https://www.macrotrends.net/2324/sp-500-historical-chart-data
 * Dow Jones historical monthly nominal and real (inflation adjusted) data from 1915 - https://www.macrotrends.net/1319/dow-jones-100-year-historical-chart
 
 ## Conclusions
 
-**Consumer Price Index (CPI) before and after Wars and Pandemics** (Kay)
+### Consumer Price Index (CPI) before and after Wars and Pandemics (Kay)
+Plotting all pandemics and all wars:
+![alt text]([plots_folder]/CPI/all_pandemics.png)
 
-**Gross Domestic Product (GDP) before and after Wars and Pandemics** (Wendy)
 
-**S&P500 and Dow Jones before and after Wars and Pandemics** (Kangyang)
+### Gross Domestic Product (GDP) before and after Wars and Pandemics (Wendy)
+
+### S&P500 and Dow Jones before and after Wars and Pandemics (Kangyang)
 
 1. If we use the year before the event end year as zero point, and select the inflation adjusted SP500 and Dow Jones historical data 10 years before and after the zero point year, plots would be:
 
@@ -115,3 +118,5 @@ The US CPI data set comes from the United States Bureau of Labor Statistics webs
 
 ## References
 [^1]: https://www.bls.gov/cpi/questions-and-answers.htm#Question_17
+
+[plots_folder]: https://github.com/wheeendiii/2021Fall_finals/blob/main/Plots
