@@ -43,11 +43,6 @@ The US CPI data set comes from the United States Bureau of Labor Statistics webs
 **Gross Domestic Product (GDP)** (Wendy)
 * GDP for all countries from 1960-present - https://databank.worldbank.org/reports.aspx?source=2&type=metadata&series=NY.GDP.MKTP.CD#
 
-1. Pandemics Vs. Wars
-* TODO
-2. Overall GDP and subcategories (Personal consumption expenditures, Gross private domestic investment and Government consumption expenditures and gross investment)
-
-
 **S&P500 and Dow Jones** (Kangyang)
 * S&P500 historical monthly nominal and real (inflation adjusted) data from 1927 - https://www.macrotrends.net/2324/sp-500-historical-chart-data
 * Dow Jones historical monthly nominal and real (inflation adjusted) data from 1915 - https://www.macrotrends.net/1319/dow-jones-100-year-historical-chart
@@ -57,6 +52,16 @@ The US CPI data set comes from the United States Bureau of Labor Statistics webs
 **Consumer Price Index (CPI) before and after Wars and Pandemics** (Kay)
 
 **Gross Domestic Product (GDP) before and after Wars and Pandemics** (Wendy)
+
+1. Pandemics Vs. Wars
+* GDP fluctuations for SARS outbreak, Ebola virus epidemic and COVID-19 pandemic.
+![alt text](https://github.com/wheeendiii/2021Fall_finals/blob/main/Plots/GDP/SARS outbreak.png)
+![alt text](https://github.com/wheeendiii/2021Fall_finals/blob/main/Plots/GDP/Western African Ebola virus epidemic.png)
+![alt text](https://github.com/wheeendiii/2021Fall_finals/blob/main/Plots/GDP/COVID-19 pandemic.png)
+
+
+2. Overall GDP and subcategories (Personal consumption expenditures, Gross private domestic investment and Government consumption expenditures and gross investment)
+
 
 **S&P500 and Dow Jones before and after Wars and Pandemics** (Kangyang)
 
