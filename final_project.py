@@ -594,7 +594,8 @@ def plot_gdp(gdp_df: pd.DataFrame, event_name: str, end_interval: int, start_int
 
     plt.title("GDP fluctuations for " + event_name)
     plt.xticks(rotation=45)  # Rotates X-Axis Ticks by 45-degrees
-    #plt.legend(['a','b'],loc='upper left')
+    plt.legend(['GDP', 'Personal consumption expenditures', 'Gross private domestic investment',
+                'Government consumption expenditures and gross investment'], loc='upper left')
     plt.savefig('Plots/GDP/' + event_name + '.png')
 
 
