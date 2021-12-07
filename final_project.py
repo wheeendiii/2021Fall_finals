@@ -781,14 +781,9 @@ def plot_sp_dj(df1: pd.DataFrame, df2: pd.DataFrame, year_num: int, plot_name: s
     df1.index = df1.index - (12 * year_num)
     df2.index = df2.index - (12 * year_num)
 
-    # TODO - Kangyang, I factored this out as add_mean_and_quartiles() - use that now instead?
     # get the 25 and 75 percentile bounds for plotting
-    df1["75pct"] = df1.apply(pd.DataFrame.describe, axis=1)["75%"]
-    df1["25pct"] = df1.apply(pd.DataFrame.describe, axis=1)["25%"]
-    df1["median"] = df1.median(axis=1)
-    df2["75pct"] = df2.apply(pd.DataFrame.describe, axis=1)["75%"]
-    df2["25pct"] = df2.apply(pd.DataFrame.describe, axis=1)["25%"]
-    df2["median"] = df2.median(axis=1)
+    df1 = add_mean_and_quartiles(df1)
+    df2 = add_mean_and_quartiles(df2)
 
     fig, (ax3, ax4) = plt.subplots(2, sharex=True, figsize=(10, 5))
     fig.suptitle('Change of Stock Market Indexes')
@@ -802,12 +797,14 @@ def plot_sp_dj(df1: pd.DataFrame, df2: pd.DataFrame, year_num: int, plot_name: s
     ax3.plot(df1.index, df1["75pct"], color='black', label='75% percentile', linewidth=0.5)
     ax3.plot(df1.index, df1["25pct"], color='black', label='25% percentile', linewidth=0.5)
     ax3.plot(df1.index, df1["median"], '--', color='orange', label='median', linewidth=0.5)
+    ax3.hlines(y=0, xmin = - (12 * year_num), xmax = 12 * (year_num + 1), linewidth=2, color='r')
     ax3.fill_between(df1.index, df1["75pct"], df1["25pct"], facecolor='lightgreen')
     ax3.set_ylabel("Range of SP500", fontsize='x-small')
 
     ax4.plot(df2.index, df2["75pct"], color='black', label='75% percentile', linewidth=0.5)
     ax4.plot(df2.index, df2["25pct"], color='black', label='25% percentile', linewidth=0.5)
     ax4.plot(df2.index, df2["median"], '--', color='orange', label='median', linewidth=0.5)
+    ax4.hlines(y=0, xmin=- (12 * year_num), xmax=12 * (year_num + 1), linewidth=2, color='r')
     ax4.fill_between(df2.index, df2["75pct"], df2["25pct"], facecolor='lightblue')
     ax4.set_xlim(-12 * year_num + 1, 12 * (year_num + 1))
     ax4.set_xlabel(str(year_num) + " Year Before and After Events")
