@@ -52,9 +52,13 @@ The US CPI data set comes from the United States Bureau of Labor Statistics webs
 ### Consumer Price Index (CPI) before and after Wars and Pandemics (Kay)
 Plotting all pandemics and all wars:
 ![alt text](Plots/CPI/all_pandemics.png)
+![alt text](Plots/CPI/all_wars.png)
 
-![alt text](../Plots/CPI/all_pandemics.png)
-
+Plotting the quartiles and means calculated for all pandemics and all wars:
+![alt text](Plots/CPI/pandemics_quartiles.png)
+![alt text](Plots/CPI/pandemics_mean.png)
+![alt text](Plots/CPI/wars_quartiles.png)
+![alt text](Plots/CPI/wars_mean.png)
 
 ### Gross Domestic Product (GDP) before and after Wars and Pandemics (Wendy)
 
