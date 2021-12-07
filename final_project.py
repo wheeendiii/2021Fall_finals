@@ -531,6 +531,7 @@ def get_gdp_info(us_gdp: pd.DataFrame, df: pd.DataFrame):
     >>> us_gdp_test = pd.read_csv('data/gdp_usafacts.csv')
     >>> get_gdp_info(us_gdp_test, pandemics_gdp)
     """
+    # TODO: error raised in this function
     # go through event file and get start_year, end_year
     for index, row in df.iterrows():
         event_name = row['Event_Name']
@@ -736,6 +737,29 @@ def get_index(df_selected: pd.DataFrame, df_index: pd.DataFrame, data_type: str)
     :param df_index: the given market index historical data
     :param data_type: could be "nominal" or "real"("real" is inflation adjusted "nominal" index data)
     :return: the dataframe of the market index data from y_start year to y_end year for each selected events
+
+    >>> s = {'Event_Name': ['Event A', 'Event B', 'Event C'], 'y_start': [1909, 1990, 1994], 'y_end': [1911, 2000, 2002]}
+    >>> sdf = pd.DataFrame(s)
+    >>> idf = pd.DataFrame({'year': list(range(1930, 2020)), 'nominal': [x * x * 100 for x in range(1, 91)], 'real': [y * y for y in range(1, 91)]})
+    >>> get_index(sdf, idf, 'real')# doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: All arrays must be of the same length
+    >>> s1 = {'Event_Name': ['Event A', 'Event B'], 'y_start': [1990, 1994], 'y_end': [2000, 2004]}
+    >>> sdf1 = pd.DataFrame(s1)
+    >>> get_index(sdf1, idf, 'real')
+    ['Event A', 'Event B']
+         Event A   Event B
+    1   0.033056  0.031006
+    2   0.032518  0.030533
+    3   0.031998  0.030074
+    4   0.031494  0.029628
+    5   0.031006  0.029196
+    6   0.030533  0.028776
+    7   0.030074  0.028367
+    8   0.029628  0.027971
+    9   0.029196  0.027585
+    10  0.028776  0.027210
     """
     index_dict = {}
     df_selected = df_selected.loc[df_selected["y_start"] >= 1928]  # the earliest data available is in 1927/12
@@ -961,7 +985,7 @@ def analyze_cpi(us_cpi_file: str, events_file: str, year_boundaries: int,
 
     >>> cpi_file = 'data/bls_us_cpi.csv'
     >>> events_file = 'data/event_facts.csv'
-    >>> pans_df, wars_df = analyze_cpi(cpi_file, events_file)
+    >>> pans_df, wars_df = analyze_cpi(cpi_file, events_file, 10, "end_year")
     >>> pans_df.head()                                              # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
          Encephalitis Lethargic Pandemic (ended 1926)  ...  COVID-19 pandemic (ended 2021)
     -10                                      7.666934  ...                        3.156841
