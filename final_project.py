@@ -364,6 +364,64 @@ def trim_to_years(df: pd.DataFrame, start_year: int, end_year: int, year_col_nam
     return df_selected
 
 
+def add_mean_and_quartiles(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Takes a dataframe with a series of values in columns and adds new columns for the median and quartiles.
+
+    :param df: The dataframe with values in columns
+    :return: An updated dataframe with 25pct, median, and 75pct columns
+
+    >>> df = pd.DataFrame({'Col1': [0, 1, 2, 3], 'Col2': [1, 1, 1, 1], 'Col3': [1, 2, 4, 8]})
+    >>> print(add_mean_and_quartiles(df))
+       Col1  Col2  Col3      mean  median  25pct  75pct
+    0     0     1     1  0.666667     1.0    0.5    1.0
+    1     1     1     2  1.333333     1.0    1.0    1.5
+    2     2     1     4  2.333333     2.0    1.5    3.0
+    3     3     1     8  4.000000     3.0    2.0    5.5
+    """
+    # Get statistics on the df, then grab the appropriate columns from them
+    stats_df = df.apply(pd.DataFrame.describe, axis=1)
+
+    df['mean'] = stats_df['mean']
+    df['median'] = stats_df['50%']  # median is equivalent to 50% percentile
+    df['25pct'] = stats_df['25%']
+    df['75pct'] = stats_df['75%']
+
+    return df
+
+
+def adjust_index(df: pd.DataFrame) -> None:
+    """ Takes a dataframe with regular range index and updates it so that it goes from negative numbers from zero,
+    to zero, to numbers past zero.  Only works with an odd number of rows.
+
+    :param df: The dataframe whose index should be adjusted
+    :return: None
+
+    >>> df = pd.DataFrame().from_dict([x for x in range(0, 6)])
+    >>> adjust_index(df)    # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: Dataframe provided must have an odd number of rows.
+    >>> df = pd.DataFrame().from_dict([x for x in range(1, 6)])
+    >>> adjust_index(df)
+    >>> print(df)
+        0
+    -2  1
+    -1  2
+    0   3
+    1   4
+    2   5
+    """
+    current_index = df.index
+
+    # This only works for an odd number of rows - throw an error if even
+    if len(current_index) % 2 == 0:
+        raise ValueError('Dataframe provided must have an odd number of rows.')
+
+    range_from_zero = int(current_index.stop/2 - .5)
+    df.index = pd.RangeIndex(start=range_from_zero*-1, stop=range_from_zero+1)
+
+
 def read_worlddb_gdp(filename: str, min_year: Union[int, None] = None, max_year: Union[int, None] = None,
                      countries: Union[list, None] = None) -> pd.DataFrame:
     """ Takes a csv file from the World Data Bank containing GDP information from various countries.  Original data
@@ -718,6 +776,8 @@ def plot_sp_dj(df1: pd.DataFrame, df2: pd.DataFrame, year_num: int, plot_name: s
     # change index of data to make the January of "Year Zero" as 0 in x-axis.
     df1.index = df1.index - (12 * year_num)
     df2.index = df2.index - (12 * year_num)
+
+    # TODO - Kangyang, I factored this out as add_mean_and_quartiles() - use that now instead?
     # get the 25 and 75 percentile bounds for plotting
     df1["75pct"] = df1.apply(pd.DataFrame.describe, axis=1)["75%"]
     df1["25pct"] = df1.apply(pd.DataFrame.describe, axis=1)["25%"]
@@ -796,24 +856,59 @@ def output_sp_dj(df_e: pd.DataFrame, df_sp: pd.DataFrame, df_dj: pd.DataFrame, z
     plot_sp_dj(w1_df_1, w2_df_1, year_l, name_str + "_wars_over_1m_fatalities")
 
 
-def plot_cpi(df: pd.DataFrame, plot_name: str, title: str, x_label: str, y_label: str) -> None:
+def plot_cpi(df: pd.DataFrame, plot_name: str, title: str, x_label: str, y_label: str, plot_quartiles: bool = False,
+             plot_mean: bool = False) -> None:
     """
 
     :param df:
+    :param plot_name:
+    :param title:
+    :param x_label:
+    :param y_label:
+    :param plot_quartiles:
     :return:
     """
-    # Update the index so that it goes from negative years from zero, to zero, to years past zero
-    curr_index = df.index
-    range_from_zero = int(curr_index.stop/2 - 1)
-    df.index = pd.RangeIndex(start=range_from_zero*-1, stop=range_from_zero+1)
 
     # Create an empty graph and axes
     graph, axes = plt.subplots(figsize=(15, 10))
 
-    df.plot(ax=axes, xlabel=x_label, ylabel=y_label, title=title, xticks=[x for x in range(range_from_zero*-1, range_from_zero+1)])
+    # Either regular values can be plotted, or the quartiles and/or mean
+    if plot_quartiles or plot_mean:
+        if plot_quartiles:
+            axes.plot(df.index, df['75pct'], color='black', label='75% percentile', linewidth=1)
+            axes.plot(df.index, df['25pct'], color='black', label='25% percentile', linewidth=1)
+            axes.plot(df.index, df['median'],  color='darkgreen', label='median', linewidth=1)
+            axes.fill_between(df.index, df['75pct'], df['25pct'], facecolor='lightgreen')
+        if plot_mean:
+            axes.plot(df.index, df['mean'], '-.', color='purple', label='mean', linewidth=1)
+    else:
+        # Plotting normal values
+        df.plot(ax=axes, xlabel=x_label, ylabel=y_label, title=title, xticks=df.index.to_list())
 
     # Save to disk
     graph.savefig(plot_name, dpi=200)
+
+
+def plot_all_cpi_graphs(pandemics_cpi_df, wars_cpi_df):
+    """
+
+    :param pandemics_cpi_df:
+    :param wars_cpi_df:
+    :return:
+    """
+    plot_cpi(pandemics_cpi_df, 'Plots/CPI/all_pandemics.png', title='Individual Pandemics vs CPI Change', x_label='Years +/- End of Pandemic',
+             y_label='Year on Year CPI % Change')
+    plot_cpi(wars_cpi_df, 'Plots/CPI/all_wars.png', title='Individual Wars vs CPI Change', x_label='Years +/- End of War',
+             y_label='Year on Year CPI % Change')
+
+    # Calculate quartiles so these can be plotted
+    pandemics_cpi_df = add_mean_and_quartiles(pandemics_cpi_df)
+    wars_cpi_df = add_mean_and_quartiles(wars_cpi_df)
+
+    plot_cpi(pandemics_cpi_df, 'Plots/CPI/pandemics_quartiles.png', title='Individual Pandemics vs CPI Change',
+             x_label='Years +/- End of Pandemic',
+             y_label='Year on Year CPI % Change', plot_quartiles=True, plot_mean=True)
+
 
 def analyze_gdp(gdp_file: str, events_file: str) -> None:
     """
@@ -882,6 +977,10 @@ def analyze_cpi(us_cpi_file: str, events_file: str, year_boundaries: int = 10,
     pandemics_cpi_df = add_cpi_values(pandemics_df, us_cpi_df)
     wars_cpi_df = add_cpi_values(wars_df, us_cpi_df)
 
+    # Update the index so that it goes from negative years from zero, to zero, to years past zero
+    adjust_index(pandemics_cpi_df)
+    adjust_index(wars_cpi_df)
+
     return pandemics_cpi_df, wars_cpi_df
 
 
@@ -930,10 +1029,8 @@ def main():
     analyze_gdp(us_gdp_data, events_data)
 
     pandemics_cpi_df, wars_cpi_df = analyze_cpi(us_cpi_data, events_data)
-    plot_cpi(pandemics_cpi_df, 'Plots/CPI/all_pandemics.png', title='Individual Pandemics vs CPI Change', x_label='Years +/- End of Pandemic',
-             y_label='Year on Year CPI % Change')
-    plot_cpi(wars_cpi_df, 'Plots/CPI/all_wars.png', title='Individual Wars vs CPI Change', x_label='Years +/- End of War',
-             y_label='Year on Year CPI % Change')
+    plot_all_cpi_graphs(pandemics_cpi_df, wars_cpi_df)
+
 
 
 if __name__ == '__main__':
