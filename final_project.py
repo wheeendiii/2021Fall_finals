@@ -662,35 +662,36 @@ def read_us_cpi(filename: str, min_year: Union[int, None] = None, max_year: Unio
 
 
 def add_cpi_values(event_df: pd.DataFrame, cpi_df: pd.DataFrame) -> pd.DataFrame:
-    """
-    Takes a dataframe with an Event column and y_start and y_end years, and a dataframe with 'Year' and 'Value' column
-    with CPI data, and returns a dataframe with the percentage change for each of those years for each event.
+    """ Takes a dataframe with an Event, End_Year, y_start, and y_end columns, and a dataframe with 'Year' and 'Value'
+    column with CPI data, and returns a dataframe with the percentage change for each of those years for each event.
     Note: Each event must have an equal length between their start and end years
 
     :param event_df: A dataframe with 'Event_Name' column, and columns with 'y_start' and 'y_end' year
     :param cpi_df: A dataframe with CPI data with a 'Year' column and 'Value' column
     :return: A dataframe with the CPI percentage change for each year given for each event
 
-    >>> events_df = pd.DataFrame({'Event_Name': ['Event A', 'Event B'], 'y_start': [1990, 1995], 'y_end': [2000, 2002]})
+    >>> args = {'Event_Name': ['Event A', 'Event B'], 'y_start': [1990, 1994], 'y_end': [2000, 2002], 'End_Year': [1992, 2001]}
+    >>> events_df = pd.DataFrame(args)
     >>> cpi_df = pd.DataFrame({'Year': list(range(1990, 2002)), 'Value': [x * x for x in range(1, 13)]})
     >>> add_cpi_values(events_df, cpi_df) # doctest: +ELLIPSIS
     Traceback (most recent call last):
     ...
     ValueError: All events must have the same number of years between their start and end years.
-    >>> events_df = pd.DataFrame({'Event_Name': ['Event A', 'Event B'], 'y_start': [1990, 1995], 'y_end': [2000, 2005]})
+    >>> args = {'Event_Name': ['Event A', 'Event B'], 'y_start': [1990, 1994], 'y_end': [2000, 2004], 'End_Year': [1992, 2002]}
+    >>> events_df = pd.DataFrame(args)
     >>> df = add_cpi_values(events_df, cpi_df)
     >>> print(df)
-        Event A (2000)  Event B (2005)
-    1       300.000000       36.111111
-    2       125.000000       30.612245
-    3        77.777778       26.562500
-    4        56.250000       23.456790
-    5        44.000000       21.000000
-    6        36.111111       19.008264
-    7        30.612245             NaN
-    8        26.562500             NaN
-    9        23.456790             NaN
-    10       21.000000             NaN
+        Event A (ended 1992)  Event B (ended 2002)
+    1             300.000000             44.000000
+    2             125.000000             36.111111
+    3              77.777778             30.612245
+    4              56.250000             26.562500
+    5              44.000000             23.456790
+    6              36.111111             21.000000
+    7              30.612245             19.008264
+    8              26.562500                   NaN
+    9              23.456790                   NaN
+    10             21.000000                   NaN
     """
     results = {}
     for _, row in event_df.iterrows():
@@ -963,20 +964,20 @@ def analyze_cpi(us_cpi_file: str, events_file: str, year_boundaries: int = 10,
     >>> events_file = 'data/event_facts.csv'
     >>> pans_df, wars_df = analyze_cpi(cpi_file, events_file)
     >>> pans_df.head()                                              # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
-       Encephalitis Lethargic Pandemic  ...  COVID-19 pandemic
-    1                         7.666934  ...           3.156841
-    2                        17.840731  ...           2.069342
-    3                        17.283953  ...           1.464832
-    4                        15.235460  ...           1.622224
-    5                        15.624989  ...           0.118625
+         Encephalitis Lethargic Pandemic (ended 1926)  ...  COVID-19 pandemic (ended 2021)
+    -10                                      7.666934  ...                        3.156841
+    -9                                      17.840731  ...                        2.069342
+    -8                                      17.283953  ...                        1.464832
+    -7                                      15.235460  ...                        1.622224
+    -6                                      15.624989  ...                        0.118625
     [5 rows x 12 columns]
     >>> wars_df.tail()                                              # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
-        World War I  Korean War  ...  Iraq War  War in Somalia
-    17     0.439882    1.010680  ...  2.130103             NaN
-    18     2.433085    1.457977  ...  2.442586             NaN
-    19     0.902617    1.070726  ...  1.812220             NaN
-    20    -1.930320    1.198769  ...  1.233578             NaN
-    21    -1.152188    1.239669  ...  4.125619             NaN
+        World War I (ended 1918)  ...  War in Somalia (ended 2021)
+    6                   0.439882  ...                          NaN
+    7                   2.433085  ...                          NaN
+    8                   0.902617  ...                          NaN
+    9                  -1.930320  ...                          NaN
+    10                 -1.152188  ...                          NaN
     [5 rows x 9 columns]
     """
     us_cpi_df = read_us_cpi(us_cpi_file)
