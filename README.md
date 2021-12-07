@@ -64,6 +64,8 @@ Plotting the quartiles and means calculated for all pandemics and all wars:
 
 ### S&P500 and Dow Jones before and after Wars and Pandemics (Kangyang)
 
+**x = 0 is the January of the selected Year Zero.** 
+
 1. If we use the year before the event end year as zero point, and select the inflation adjusted SP500 and Dow Jones historical data 10 years before and after the zero point year, plots would be:
 
 * The evolution of real SP500 and Dow Jones 10 years before and after all the Pandemics:

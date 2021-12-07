@@ -807,7 +807,7 @@ def plot_sp_dj(df1: pd.DataFrame, df2: pd.DataFrame, year_num: int, plot_name: s
     ax4.hlines(y=0, xmin=- (12 * year_num), xmax=12 * (year_num + 1), linewidth=2, color='r')
     ax4.fill_between(df2.index, df2["75pct"], df2["25pct"], facecolor='lightblue')
     ax4.set_xlim(-12 * year_num + 1, 12 * (year_num + 1))
-    ax4.set_xlabel(str(year_num) + " Year Before and After Events")
+    ax4.set_xlabel(str(year_num) + " Year Before and After Events (month)" )
     ax4.set_ylabel("Range of Dow Jones", fontsize='x-small')
 
     plt.savefig('Plots/StockIndex/' + plot_name + '.png', dpi=200)
@@ -948,9 +948,8 @@ def analyze_gdp(gdp_file: str, events_file: str) -> None:
     get_gdp_info(us_gdp_df, wars_gdp)
 
 
-def analyze_cpi(us_cpi_file: str, events_file: str, year_boundaries: int = 10,
-                graph_type: Literal['start_year', 'end_year', 'year_before_end_year', 'year_after_start_year'] =
-                'end_year') -> tuple[pd.DataFrame, pd.DataFrame]:
+def analyze_cpi(us_cpi_file: str, events_file: str, year_boundaries: int,
+                graph_type: Literal['start_year', 'end_year', 'year_before_end_year', 'year_after_start_year']) -> tuple:
     """ This takes an events file and file with CPI information and prepares two dataframes for plotting, one for wars
     and one for pandemics.  The dataframes returned have the percentage CPI change from year to year.
 
@@ -1045,10 +1044,10 @@ def main():
     us_gdp_data = 'data/gdp_usafacts.csv'
 
     analyze_index(sp500_data, dowjones_data, events_data)
-    analyze_gdp(us_gdp_data, events_data)
+    # analyze_gdp(us_gdp_data, events_data)
 
-    pandemics_cpi_df, wars_cpi_df = analyze_cpi(us_cpi_data, events_data)
-    plot_all_cpi_graphs(pandemics_cpi_df, wars_cpi_df)
+    pandemics_cpi_df, wars_cpi_df = analyze_cpi(us_cpi_data, events_data, 10, 'end_year')
+    # plot_all_cpi_graphs(pandemics_cpi_df, wars_cpi_df)
 
 
 if __name__ == '__main__':
