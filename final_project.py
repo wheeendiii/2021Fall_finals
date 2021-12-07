@@ -896,6 +896,7 @@ def plot_all_cpi_graphs(pandemics_cpi_df, wars_cpi_df):
     :param wars_cpi_df:
     :return:
     """
+    # Plot individual events as lines
     plot_cpi(pandemics_cpi_df, 'Plots/CPI/all_pandemics.png', title='Individual Pandemics vs CPI Change', x_label='Years +/- End of Pandemic',
              y_label='Year on Year CPI % Change')
     plot_cpi(wars_cpi_df, 'Plots/CPI/all_wars.png', title='Individual Wars vs CPI Change', x_label='Years +/- End of War',
@@ -905,9 +906,21 @@ def plot_all_cpi_graphs(pandemics_cpi_df, wars_cpi_df):
     pandemics_cpi_df = add_mean_and_quartiles(pandemics_cpi_df)
     wars_cpi_df = add_mean_and_quartiles(wars_cpi_df)
 
-    plot_cpi(pandemics_cpi_df, 'Plots/CPI/pandemics_quartiles.png', title='Individual Pandemics vs CPI Change',
+    # Plot averages for pandemics (quartiles and mean)
+    plot_cpi(pandemics_cpi_df, 'Plots/CPI/pandemics_quartiles.png', title='Averaged Pandemics vs CPI Change Quartiles',
              x_label='Years +/- End of Pandemic',
-             y_label='Year on Year CPI % Change', plot_quartiles=True, plot_mean=True)
+             y_label='Year on Year CPI % Change', plot_quartiles=True)
+    plot_cpi(pandemics_cpi_df, 'Plots/CPI/pandemics_mean.png', title='Averaged Pandemics vs CPI Change Mean',
+             x_label='Years +/- End of Pandemic',
+             y_label='Year on Year CPI % Change', plot_mean=True)
+
+    # Plot averages for wars (quartiles and mean)
+    plot_cpi(wars_cpi_df, 'Plots/CPI/wars_quartiles.png', title='Averaged Wars vs CPI Change Quartiles',
+             x_label='Years +/- End of War',
+             y_label='Year on Year CPI % Change', plot_quartiles=True)
+    plot_cpi(wars_cpi_df, 'Plots/CPI/wars_mean.png', title='Averaged Wars vs CPI Change Mean',
+             x_label='Years +/- End of War',
+             y_label='Year on Year CPI % Change', plot_mean=True)
 
 
 def analyze_gdp(gdp_file: str, events_file: str) -> None:
@@ -1030,7 +1043,6 @@ def main():
 
     pandemics_cpi_df, wars_cpi_df = analyze_cpi(us_cpi_data, events_data)
     plot_all_cpi_graphs(pandemics_cpi_df, wars_cpi_df)
-
 
 
 if __name__ == '__main__':
