@@ -859,7 +859,7 @@ def output_sp_dj(df_e: pd.DataFrame, df_sp: pd.DataFrame, df_dj: pd.DataFrame, z
 def plot_cpi(df: pd.DataFrame, plot_name: str, title: str, x_label: str, y_label: str, plot_quartiles: bool = False,
              plot_mean: bool = False) -> None:
     """
-
+    # TODO
     :param df:
     :param plot_name:
     :param title:
@@ -870,7 +870,7 @@ def plot_cpi(df: pd.DataFrame, plot_name: str, title: str, x_label: str, y_label
     """
 
     # Create an empty graph and axes
-    graph, axes = plt.subplots(figsize=(15, 10))
+    figure, axes = plt.subplots(figsize=(15, 10))
 
     # Either regular values can be plotted, or the quartiles and/or mean
     if plot_quartiles or plot_mean:
@@ -881,16 +881,21 @@ def plot_cpi(df: pd.DataFrame, plot_name: str, title: str, x_label: str, y_label
             axes.fill_between(df.index, df['75pct'], df['25pct'], facecolor='lightgreen')
         if plot_mean:
             axes.plot(df.index, df['mean'], '-.', color='purple', label='mean', linewidth=1)
+        axes.set_xlabel(x_label)
+        axes.set_ylabel(y_label)
+        axes.set_title(title)
+        axes.set_xticks(df.index.to_list())
+        axes.legend()
     else:
         # Plotting normal values
         df.plot(ax=axes, xlabel=x_label, ylabel=y_label, title=title, xticks=df.index.to_list())
 
     # Save to disk
-    graph.savefig(plot_name, dpi=200)
+    figure.savefig(plot_name, dpi=200)
 
 
 def plot_all_cpi_graphs(pandemics_cpi_df, wars_cpi_df):
-    """
+    """ #TODO
 
     :param pandemics_cpi_df:
     :param wars_cpi_df:
