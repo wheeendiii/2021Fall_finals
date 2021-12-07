@@ -43,6 +43,11 @@ The US CPI data set comes from the United States Bureau of Labor Statistics webs
 **Gross Domestic Product (GDP)** (Wendy)
 * GDP for all countries from 1960-present - https://databank.worldbank.org/reports.aspx?source=2&type=metadata&series=NY.GDP.MKTP.CD#
 
+1. Pandemics Vs. Wars
+* TODO
+2. Overall GDP and subcategories (Personal consumption expenditures, Gross private domestic investment and Government consumption expenditures and gross investment)
+
+
 **S&P500 and Dow Jones** (Kangyang)
 * S&P500 historical monthly nominal and real (inflation adjusted) data from 1927 - https://www.macrotrends.net/2324/sp-500-historical-chart-data
 * Dow Jones historical monthly nominal and real (inflation adjusted) data from 1915 - https://www.macrotrends.net/1319/dow-jones-100-year-historical-chart
