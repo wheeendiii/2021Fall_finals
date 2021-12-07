@@ -531,7 +531,6 @@ def get_gdp_info(us_gdp: pd.DataFrame, df: pd.DataFrame):
     >>> us_gdp_test = pd.read_csv('data/gdp_usafacts.csv')
     >>> get_gdp_info(us_gdp_test, pandemics_gdp)
     """
-    # TODO: error raised in this function
     # go through event file and get start_year, end_year
     for index, row in df.iterrows():
         event_name = row['Event_Name']
@@ -553,7 +552,7 @@ def get_gdp_info(us_gdp: pd.DataFrame, df: pd.DataFrame):
             event_gdp = us_gdp.loc[[0, 124, 131, 152], str(before_event): str(after_event)]
             event_gdp = event_gdp.apply(pd.to_numeric)  # convert all columns of DataFrame
             event_gdp = event_gdp.T
-            event_gdp.columns = ['GDP', 'Personal consumption expenditures'
+            event_gdp.columns = ['GDP', 'Personal consumption expenditures',
                                  'Gross private domestic investment',
                                  'Government consumption expenditures and gross investment']
 
@@ -737,29 +736,6 @@ def get_index(df_selected: pd.DataFrame, df_index: pd.DataFrame, data_type: str)
     :param df_index: the given market index historical data
     :param data_type: could be "nominal" or "real"("real" is inflation adjusted "nominal" index data)
     :return: the dataframe of the market index data from y_start year to y_end year for each selected events
-
-    >>> s = {'Event_Name': ['Event A', 'Event B', 'Event C'], 'y_start': [1909, 1990, 1994], 'y_end': [1911, 2000, 2002]}
-    >>> sdf = pd.DataFrame(s)
-    >>> idf = pd.DataFrame({'year': list(range(1930, 2020)), 'nominal': [x * x * 100 for x in range(1, 91)], 'real': [y * y for y in range(1, 91)]})
-    >>> get_index(sdf, idf, 'real')# doctest: +ELLIPSIS
-    Traceback (most recent call last):
-    ...
-    ValueError: All arrays must be of the same length
-    >>> s1 = {'Event_Name': ['Event A', 'Event B'], 'y_start': [1990, 1994], 'y_end': [2000, 2004]}
-    >>> sdf1 = pd.DataFrame(s1)
-    >>> get_index(sdf1, idf, 'real')
-    ['Event A', 'Event B']
-         Event A   Event B
-    1   0.033056  0.031006
-    2   0.032518  0.030533
-    3   0.031998  0.030074
-    4   0.031494  0.029628
-    5   0.031006  0.029196
-    6   0.030533  0.028776
-    7   0.030074  0.028367
-    8   0.029628  0.027971
-    9   0.029196  0.027585
-    10  0.028776  0.027210
     """
     index_dict = {}
     df_selected = df_selected.loc[df_selected["y_start"] >= 1928]  # the earliest data available is in 1927/12
@@ -805,9 +781,14 @@ def plot_sp_dj(df1: pd.DataFrame, df2: pd.DataFrame, year_num: int, plot_name: s
     df1.index = df1.index - (12 * year_num)
     df2.index = df2.index - (12 * year_num)
 
+    # TODO - Kangyang, I factored this out as add_mean_and_quartiles() - use that now instead?
     # get the 25 and 75 percentile bounds for plotting
-    df1 = add_mean_and_quartiles(df1)
-    df2 = add_mean_and_quartiles(df2)
+    df1["75pct"] = df1.apply(pd.DataFrame.describe, axis=1)["75%"]
+    df1["25pct"] = df1.apply(pd.DataFrame.describe, axis=1)["25%"]
+    df1["median"] = df1.median(axis=1)
+    df2["75pct"] = df2.apply(pd.DataFrame.describe, axis=1)["75%"]
+    df2["25pct"] = df2.apply(pd.DataFrame.describe, axis=1)["25%"]
+    df2["median"] = df2.median(axis=1)
 
     fig, (ax3, ax4) = plt.subplots(2, sharex=True, figsize=(10, 5))
     fig.suptitle('Change of Stock Market Indexes')
@@ -821,17 +802,15 @@ def plot_sp_dj(df1: pd.DataFrame, df2: pd.DataFrame, year_num: int, plot_name: s
     ax3.plot(df1.index, df1["75pct"], color='black', label='75% percentile', linewidth=0.5)
     ax3.plot(df1.index, df1["25pct"], color='black', label='25% percentile', linewidth=0.5)
     ax3.plot(df1.index, df1["median"], '--', color='orange', label='median', linewidth=0.5)
-    ax3.hlines(y=0, xmin = - (12 * year_num), xmax = 12 * (year_num + 1), linewidth=2, color='r')
     ax3.fill_between(df1.index, df1["75pct"], df1["25pct"], facecolor='lightgreen')
     ax3.set_ylabel("Range of SP500", fontsize='x-small')
 
     ax4.plot(df2.index, df2["75pct"], color='black', label='75% percentile', linewidth=0.5)
     ax4.plot(df2.index, df2["25pct"], color='black', label='25% percentile', linewidth=0.5)
     ax4.plot(df2.index, df2["median"], '--', color='orange', label='median', linewidth=0.5)
-    ax4.hlines(y=0, xmin=- (12 * year_num), xmax=12 * (year_num + 1), linewidth=2, color='r')
     ax4.fill_between(df2.index, df2["75pct"], df2["25pct"], facecolor='lightblue')
     ax4.set_xlim(-12 * year_num + 1, 12 * (year_num + 1))
-    ax4.set_xlabel(str(year_num) + " Year Before and After Events (month)" )
+    ax4.set_xlabel(str(year_num) + " Year Before and After Events")
     ax4.set_ylabel("Range of Dow Jones", fontsize='x-small')
 
     plt.savefig('Plots/StockIndex/' + plot_name + '.png', dpi=200)
@@ -972,8 +951,9 @@ def analyze_gdp(gdp_file: str, events_file: str) -> None:
     get_gdp_info(us_gdp_df, wars_gdp)
 
 
-def analyze_cpi(us_cpi_file: str, events_file: str, year_boundaries: int,
-                graph_type: Literal['start_year', 'end_year', 'year_before_end_year', 'year_after_start_year']) -> tuple:
+def analyze_cpi(us_cpi_file: str, events_file: str, year_boundaries: int = 10,
+                graph_type: Literal['start_year', 'end_year', 'year_before_end_year', 'year_after_start_year'] =
+                'end_year') -> tuple[pd.DataFrame, pd.DataFrame]:
     """ This takes an events file and file with CPI information and prepares two dataframes for plotting, one for wars
     and one for pandemics.  The dataframes returned have the percentage CPI change from year to year.
 
@@ -985,7 +965,7 @@ def analyze_cpi(us_cpi_file: str, events_file: str, year_boundaries: int,
 
     >>> cpi_file = 'data/bls_us_cpi.csv'
     >>> events_file = 'data/event_facts.csv'
-    >>> pans_df, wars_df = analyze_cpi(cpi_file, events_file, 10, "end_year")
+    >>> pans_df, wars_df = analyze_cpi(cpi_file, events_file)
     >>> pans_df.head()                                              # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
          Encephalitis Lethargic Pandemic (ended 1926)  ...  COVID-19 pandemic (ended 2021)
     -10                                      7.666934  ...                        3.156841
@@ -1068,10 +1048,10 @@ def main():
     us_gdp_data = 'data/gdp_usafacts.csv'
 
     analyze_index(sp500_data, dowjones_data, events_data)
-    # analyze_gdp(us_gdp_data, events_data)
+    analyze_gdp(us_gdp_data, events_data)
 
-    pandemics_cpi_df, wars_cpi_df = analyze_cpi(us_cpi_data, events_data, 10, 'end_year')
-    # plot_all_cpi_graphs(pandemics_cpi_df, wars_cpi_df)
+    pandemics_cpi_df, wars_cpi_df = analyze_cpi(us_cpi_data, events_data)
+    plot_all_cpi_graphs(pandemics_cpi_df, wars_cpi_df)
 
 
 if __name__ == '__main__':
