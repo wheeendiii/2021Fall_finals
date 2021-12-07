@@ -792,13 +792,10 @@ def plot_sp_dj(df1: pd.DataFrame, df2: pd.DataFrame, year_num: int, plot_name: s
 
     fig, (ax3, ax4) = plt.subplots(2, sharex=True, figsize=(10, 5))
     fig.suptitle('Change of Stock Market Indexes')
-
     # ax1.plot(df1, linewidth=0.5)
     # ax1.set_ylabel("Change of SP500", fontsize = 'x-small')
-    #
     # ax2.plot(df2, linewidth=0.5)
     # ax2.set_ylabel("Change of Dow Jones", fontsize = 'x-small')
-
     ax3.plot(df1.index, df1["75pct"], color='black', label='75% percentile', linewidth=0.5)
     ax3.plot(df1.index, df1["25pct"], color='black', label='25% percentile', linewidth=0.5)
     ax3.plot(df1.index, df1["median"], '--', color='orange', label='median', linewidth=0.5)
@@ -951,9 +948,8 @@ def analyze_gdp(gdp_file: str, events_file: str) -> None:
     get_gdp_info(us_gdp_df, wars_gdp)
 
 
-def analyze_cpi(us_cpi_file: str, events_file: str, year_boundaries: int = 10,
-                graph_type: Literal['start_year', 'end_year', 'year_before_end_year', 'year_after_start_year'] =
-                'end_year') -> tuple[pd.DataFrame, pd.DataFrame]:
+def analyze_cpi(us_cpi_file: str, events_file: str, year_boundaries: int,
+                graph_type: Literal['start_year', 'end_year', 'year_before_end_year', 'year_after_start_year']) -> tuple:
     """ This takes an events file and file with CPI information and prepares two dataframes for plotting, one for wars
     and one for pandemics.  The dataframes returned have the percentage CPI change from year to year.
 
@@ -965,7 +961,7 @@ def analyze_cpi(us_cpi_file: str, events_file: str, year_boundaries: int = 10,
 
     >>> cpi_file = 'data/bls_us_cpi.csv'
     >>> events_file = 'data/event_facts.csv'
-    >>> pans_df, wars_df = analyze_cpi(cpi_file, events_file)
+    >>> pans_df, wars_df = analyze_cpi(cpi_file, events_file, 10, 'end_year')
     >>> pans_df.head()                                              # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
          Encephalitis Lethargic Pandemic (ended 1926)  ...  COVID-19 pandemic (ended 2021)
     -10                                      7.666934  ...                        3.156841
@@ -1051,7 +1047,7 @@ def main():
     analyze_gdp(us_gdp_data, events_data)
 
     pandemics_cpi_df, wars_cpi_df = analyze_cpi(us_cpi_data, events_data)
-    plot_all_cpi_graphs(pandemics_cpi_df, wars_cpi_df)
+    # plot_all_cpi_graphs(pandemics_cpi_df, wars_cpi_df)
 
 
 if __name__ == '__main__':
