@@ -30,7 +30,9 @@ for this one country in particular, using events that have influenced it.
 
 * CPI - For the United States, we follow the authors' hypothesis that wars will result in higher inflation in the near term after the end of the war (as indicated by the consumer price index), but pandemics will not.
 * GDP - The growth of GDP will be exceptionally strong during wars and will remain an increasing trend afterwards, whereas pandemics exhibit minor impact on GDP growth. 
-* S&P 500 and Dow Jones - 1. In the aftermath of wars and pandemics, the major stock market indexes (S&P500 and Dow Jones) will slide down due to the impacted economic conditions. 2. The major stock market indexes (S&P500 and Dow Jones) will be more volatile after the start of the wars/pandemics.
+* S&P 500 and Dow Jones
+  1. In the aftermath of wars and pandemics, the major stock market indexes (S&P500 and Dow Jones) will slide down due to the impacted economic conditions. 
+  2. The major stock market indexes (S&P500 and Dow Jones) will be more volatile after the start of the wars/pandemics.
 
 ## Data Sources
 ### Event Data (Kangyang)
