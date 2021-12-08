@@ -818,6 +818,8 @@ def plot_sp_dj(df1: pd.DataFrame, df2: pd.DataFrame, year_num: int, plot_name: s
     ax3.plot(df1.index, df1["25pct"], color='black', label='25% percentile', linewidth=0.5)
     ax3.plot(df1.index, df1["median"], '--', color='orange', label='median', linewidth=0.5)
     ax3.hlines(y=0, xmin=- (12 * year_num), xmax=12 * (year_num + 1), linewidth=2, color='r')
+    ax3.vlines(x=0, ymin=-0.1, ymax=0.1, linestyles='dashed', linewidth=2, color='r')
+    ax3.vlines(x=11, ymin=-0.1, ymax=0.1, linestyles='dashed', linewidth=2, color='r')
     ax3.fill_between(df1.index, df1["75pct"], df1["25pct"], facecolor='lightgreen')
     ax3.set_ylabel("Range of SP500", fontsize='x-small')
 
@@ -825,6 +827,8 @@ def plot_sp_dj(df1: pd.DataFrame, df2: pd.DataFrame, year_num: int, plot_name: s
     ax4.plot(df2.index, df2["25pct"], color='black', label='25% percentile', linewidth=0.5)
     ax4.plot(df2.index, df2["median"], '--', color='orange', label='median', linewidth=0.5)
     ax4.hlines(y=0, xmin=- (12 * year_num), xmax=12 * (year_num + 1), linewidth=2, color='r')
+    ax4.vlines(x=0, ymin=-0.1, ymax=0.1, linestyles='dashed', linewidth=2, color='r')
+    ax4.vlines(x=11, ymin=-0.1, ymax=0.1, linestyles='dashed', linewidth=2, color='r')
     ax4.fill_between(df2.index, df2["75pct"], df2["25pct"], facecolor='lightblue')
     ax4.set_xlim(-12 * year_num + 1, 12 * (year_num + 1))
     ax4.set_xlabel(str(year_num) + " Year Before and After Events (month)")
@@ -1048,9 +1052,9 @@ def analyze_index(sp500_file: str, dowjones_file: str, events_file: str):
     print("2. If we use the year before the event end year as zero point, and select the nominal SP500 and "
           "Dow Jones historical data 10 years before and after the zero point year, plots would be")
     output_sp_dj(event_df, sp_df, dj_df, "year_before_end_year", 10, "nominal")
-    print("3. If we use the year after the event start year as zero point, and select the real SP500 and "
-          "Dow Jones historical data 10 years before and after the zero point year, plots would be")
-    output_sp_dj(event_df, sp_df, dj_df, "year_after_start_year", 10, "real")
+    print("3. If we use the event start year as zero point, and select the real SP500 and "
+          "Dow Jones historical data 5 years before and after the zero point year, plots would be")
+    output_sp_dj(event_df, sp_df, dj_df, "start_year", 5, "real")
     print("4. If we use the year before the event end year as zero point, and select the inflation adjusted SP500 and "
           "Dow Jones historical data 5 years before and after the zero point year, plots would be")
     output_sp_dj(event_df, sp_df, dj_df, "year_before_end_year", 5, "real")
