@@ -100,23 +100,33 @@ def read_event_facts(filename: str, types: Union[str, list] = None, ranges: Unio
     >>> read_event_facts('data/event_facts.csv', ranges='South America')
     Traceback (most recent call last):
     ...
-    ValueError: Invalid range(s) given: South America. Valid ranges(s): Worldwide, Include United States
-    >>> df = read_event_facts('data/event_facts.csv', ranges='Worldwide', types=['War'])
+    ValueError: Invalid range(s) given: South America. Valid ranges(s): Affect United States
+    >>> df = read_event_facts('data/event_facts.csv', ranges='Affect United States', types=['War'])
     >>> df
-          Event_Name Type      Range  Start_Year  End_Year Fatalities  Duration
-    12   World War I  War  Worldwide        1914      1918    10-100m         4
-    15  World War II  War  Worldwide        1939      1945      >100m         6
+                      Event_Name Type  ... Fatalities  Duration
+    11               World War I  War  ...    10-100m         4
+    12                Korean War  War  ...      1-10m         3
+    13               Vietnam War  War  ...      1-10m        10
+    14              World War II  War  ...      >100m         6
+    15                  Gulf War  War  ...  10,000-1m         1
+    16  Civil war in Afghanistan  War  ...  10,000-1m         5
+    17             War on Terror  War  ...  10,000-1m        20
+    18                  Iraq War  War  ...  10,000-1m         8
+    19            War in Somalia  War  ...      1-10m        15
+    <BLANKLINE>
+    [9 rows x 7 columns]
     >>> df = read_event_facts('data/event_facts.csv', min_start_year=1900, max_end_year=1930)
     >>> df[['Event_Name', 'Start_Year', 'End_Year']]
-                             Event_Name  Start_Year  End_Year
-    0   Encephalitis Lethargic Pandemic        1915      1926
-    1                       Spanish Flu        1918      1920
-    12                      World War I        1914      1918
+                 Event_Name  Start_Year  End_Year
+    0   Diphtheria epidemic        1921      1925
+    2    Spanish Flu (H1N1)        1918      1920
+    11          World War I        1914      1918
     >>> df = read_event_facts('data/event_facts.csv', max_start_year=1990, min_end_year=1991)
     >>> df[['Event_Name', 'Start_Year', 'End_Year']]
-               Event_Name  Start_Year  End_Year
-    6   HIV AIDS pandemic        1981      2021
-    16           Gulf War        1990      1991
+                     Event_Name  Start_Year  End_Year
+    6   Second measles outbreak        1981      1991
+    7         HIV AIDS pandemic        1981      2021
+    15                 Gulf War        1990      1991
     """
 
     # Raise an error if one of the optional year parameters given is invalid
@@ -1000,13 +1010,14 @@ def analyze_cpi(us_cpi_file: str, events_file: str, year_boundaries: int,
     >>> events_file = 'data/event_facts.csv'
     >>> pans_df, wars_df = analyze_cpi(cpi_file, events_file, 10, 'end_year')
     >>> pans_df.head()                                              # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
-         Encephalitis Lethargic Pandemic (ended 1926)  ...  COVID-19 pandemic (ended 2021)
-    -10                                      7.666934  ...                        3.156841
-    -9                                      17.840731  ...                        2.069342
-    -8                                      17.283953  ...                        1.464832
-    -7                                      15.235460  ...                        1.622224
-    -6                                      15.624989  ...                        0.118625
-    [5 rows x 12 columns]
+         Diphtheria epidemic (ended 1925)  ...  COVID-19 pandemic (ended 2021)
+    -10                          0.915146  ...                        3.156841
+    -9                           7.666934  ...                        2.069342
+    -8                          17.840731  ...                        1.464832
+    -7                          17.283953  ...                        1.622224
+    -6                          15.235460  ...                        0.118625
+    <BLANKLINE>
+    [5 rows x 11 columns]
     >>> wars_df.tail()                                              # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
         World War I (ended 1918)  ...  War in Somalia (ended 2021)
     6                   0.439882  ...                          NaN
@@ -1054,27 +1065,27 @@ def analyze_index(sp500_file: str, dowjones_file: str, events_file: str):
     >>> analyze_index(str1, str2, str3)
     1. If we use the year before the event end year as zero point, and select the inflation adjusted SP500 and Dow Jones historical data 10 years before and after the zero point year, plots would be
     The evolution of real SP500 and Dow Jones 10 years before and after all the Pandemics:
-    ['Asian Flu', 'Hong Kong Flu', 'London flu', 'Russian flu', 'SARS outbreak', 'Swine flu pandemic']
-    ['Asian Flu', 'Hong Kong Flu', 'London flu', 'Russian flu', 'SARS outbreak', 'Swine flu pandemic']
+    ['Polio', 'Asian Flu (H2N2)', 'Hong Kong Flu (H3N2)', 'London flu', 'Second measles outbreak', 'SARS outbreak', 'Swine flu pandemic (H1N1)']
+    ['Polio', 'Asian Flu (H2N2)', 'Hong Kong Flu (H3N2)', 'London flu', 'Second measles outbreak', 'SARS outbreak', 'Swine flu pandemic (H1N1)']
     The evolution of real SP500 and Dow Jones 10 years before and after all the Wars:
     ['Korean War', 'Vietnam War', 'World War II', 'Gulf War', 'Civil war in Afghanistan', 'Iraq War']
     ['Korean War', 'Vietnam War', 'World War II', 'Gulf War', 'Civil war in Afghanistan', 'Iraq War']
     The evolution of real SP500 and Dow Jones 10 years before and after Pandemics with over 1m fatalities:
-    ['Asian Flu', 'Hong Kong Flu']
-    ['Asian Flu', 'Hong Kong Flu']
+    ['Asian Flu (H2N2)', 'Hong Kong Flu (H3N2)']
+    ['Asian Flu (H2N2)', 'Hong Kong Flu (H3N2)']
     The evolution of real SP500 and Dow Jones 10 years before and after Wars with over 1m fatalities:
     ['Korean War', 'Vietnam War', 'World War II']
     ['Korean War', 'Vietnam War', 'World War II']
     3. If we use the event start year as zero point, and select the real SP500 and Dow Jones historical data 5 years before and after the zero point year, plots would be
     The evolution of real SP500 and Dow Jones 5 years before and after all the Pandemics:
-    ['Asian Flu', 'Hong Kong Flu', 'London flu', 'Russian flu', 'HIV AIDS pandemic', 'SARS outbreak', 'Swine flu pandemic', 'Middle East respiratory syndrome coronavirus outbreak', 'Western African Ebola virus epidemic']
-    ['Asian Flu', 'Hong Kong Flu', 'London flu', 'Russian flu', 'HIV AIDS pandemic', 'SARS outbreak', 'Swine flu pandemic', 'Middle East respiratory syndrome coronavirus outbreak', 'Western African Ebola virus epidemic']
+    ['Asian Flu (H2N2)', 'Hong Kong Flu (H3N2)', 'London flu', 'Second measles outbreak', 'HIV AIDS pandemic', 'SARS outbreak', 'Swine flu pandemic (H1N1)']
+    ['Asian Flu (H2N2)', 'Hong Kong Flu (H3N2)', 'London flu', 'Second measles outbreak', 'HIV AIDS pandemic', 'SARS outbreak', 'Swine flu pandemic (H1N1)']
     The evolution of real SP500 and Dow Jones 5 years before and after all the Wars:
     ['Korean War', 'Vietnam War', 'World War II', 'Gulf War', 'Civil war in Afghanistan', 'War on Terror', 'Iraq War', 'War in Somalia']
     ['Korean War', 'Vietnam War', 'World War II', 'Gulf War', 'Civil war in Afghanistan', 'War on Terror', 'Iraq War', 'War in Somalia']
     The evolution of real SP500 and Dow Jones 5 years before and after Pandemics with over 1m fatalities:
-    ['Asian Flu', 'Hong Kong Flu', 'HIV AIDS pandemic']
-    ['Asian Flu', 'Hong Kong Flu', 'HIV AIDS pandemic']
+    ['Asian Flu (H2N2)', 'Hong Kong Flu (H3N2)', 'HIV AIDS pandemic']
+    ['Asian Flu (H2N2)', 'Hong Kong Flu (H3N2)', 'HIV AIDS pandemic']
     The evolution of real SP500 and Dow Jones 5 years before and after Wars with over 1m fatalities:
     ['Korean War', 'Vietnam War', 'World War II', 'War in Somalia']
     ['Korean War', 'Vietnam War', 'World War II', 'War in Somalia']
