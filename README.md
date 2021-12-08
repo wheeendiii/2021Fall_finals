@@ -45,7 +45,7 @@ Consumer price index represents the change in prices that consumers are paying f
 including food, gas, and prescription drugs.
 
 The US CPI data set comes from the United States Bureau of Labor Statistics website, which has data available
-from 1913 through the present year.  The values are relevant to each other. That is, rather than discrete amounts, 
+from 1913 through the present year.  The values are relative to each other. That is, rather than discrete amounts, 
 the index represents the change in prices from year to year, based on a "base index".  The base index for
 this dataset is calculated by taking the average of the period from January 1982 through December 1984 and 
 setting it at 100[^1].  All other index values are then given as a percentage change from that value.
