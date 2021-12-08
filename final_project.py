@@ -759,6 +759,19 @@ def get_index(df_selected: pd.DataFrame, df_index: pd.DataFrame, data_type: str)
     8   0.029628  0.027971
     9   0.029196  0.027585
     10  0.028776  0.027210
+    >>> get_index(sdf1, idf, 'nominal')
+    ['Event A', 'Event B']
+         Event A   Event B
+    1   0.033056  0.031006
+    2   0.032518  0.030533
+    3   0.031998  0.030074
+    4   0.031494  0.029628
+    5   0.031006  0.029196
+    6   0.030533  0.028776
+    7   0.030074  0.028367
+    8   0.029628  0.027971
+    9   0.029196  0.027585
+    10  0.028776  0.027210
     """
     index_dict = {}
     df_selected = df_selected.loc[df_selected["y_start"] >= 1928]  # the earliest data available is in 1927/12
@@ -1034,6 +1047,37 @@ def analyze_index(sp500_file: str, dowjones_file: str, events_file: str):
     :param dowjones_file: the name of the data file contains Dow Jones historical monthly data
     :param events_file: the name of the data file contains detailed event facts
     :return: print out results in a readable format
+
+    >>> str1 = 'data/sp500_monthly.csv'
+    >>> str2 = 'data/dow_jone_monthly.csv'
+    >>> str3 = 'data/event_facts.csv'
+    >>> analyze_index(str1, str2, str3)
+    1. If we use the year before the event end year as zero point, and select the inflation adjusted SP500 and Dow Jones historical data 10 years before and after the zero point year, plots would be
+    The evolution of real SP500 and Dow Jones 10 years before and after all the Pandemics:
+    ['Asian Flu', 'Hong Kong Flu', 'London flu', 'Russian flu', 'SARS outbreak', 'Swine flu pandemic']
+    ['Asian Flu', 'Hong Kong Flu', 'London flu', 'Russian flu', 'SARS outbreak', 'Swine flu pandemic']
+    The evolution of real SP500 and Dow Jones 10 years before and after all the Wars:
+    ['Korean War', 'Vietnam War', 'World War II', 'Gulf War', 'Civil war in Afghanistan', 'Iraq War']
+    ['Korean War', 'Vietnam War', 'World War II', 'Gulf War', 'Civil war in Afghanistan', 'Iraq War']
+    The evolution of real SP500 and Dow Jones 10 years before and after Pandemics with over 1m fatalities:
+    ['Asian Flu', 'Hong Kong Flu']
+    ['Asian Flu', 'Hong Kong Flu']
+    The evolution of real SP500 and Dow Jones 10 years before and after Wars with over 1m fatalities:
+    ['Korean War', 'Vietnam War', 'World War II']
+    ['Korean War', 'Vietnam War', 'World War II']
+    3. If we use the event start year as zero point, and select the real SP500 and Dow Jones historical data 5 years before and after the zero point year, plots would be
+    The evolution of real SP500 and Dow Jones 5 years before and after all the Pandemics:
+    ['Asian Flu', 'Hong Kong Flu', 'London flu', 'Russian flu', 'HIV AIDS pandemic', 'SARS outbreak', 'Swine flu pandemic', 'Middle East respiratory syndrome coronavirus outbreak', 'Western African Ebola virus epidemic']
+    ['Asian Flu', 'Hong Kong Flu', 'London flu', 'Russian flu', 'HIV AIDS pandemic', 'SARS outbreak', 'Swine flu pandemic', 'Middle East respiratory syndrome coronavirus outbreak', 'Western African Ebola virus epidemic']
+    The evolution of real SP500 and Dow Jones 5 years before and after all the Wars:
+    ['Korean War', 'Vietnam War', 'World War II', 'Gulf War', 'Civil war in Afghanistan', 'War on Terror', 'Iraq War', 'War in Somalia']
+    ['Korean War', 'Vietnam War', 'World War II', 'Gulf War', 'Civil war in Afghanistan', 'War on Terror', 'Iraq War', 'War in Somalia']
+    The evolution of real SP500 and Dow Jones 5 years before and after Pandemics with over 1m fatalities:
+    ['Asian Flu', 'Hong Kong Flu', 'HIV AIDS pandemic']
+    ['Asian Flu', 'Hong Kong Flu', 'HIV AIDS pandemic']
+    The evolution of real SP500 and Dow Jones 5 years before and after Wars with over 1m fatalities:
+    ['Korean War', 'Vietnam War', 'World War II', 'War in Somalia']
+    ['Korean War', 'Vietnam War', 'World War II', 'War in Somalia']
     """
     event_df = read_event_facts(events_file)
     sp_df = pd.read_csv(sp500_file)
@@ -1049,15 +1093,15 @@ def analyze_index(sp500_file: str, dowjones_file: str, events_file: str):
     print("1. If we use the year before the event end year as zero point, and select the inflation adjusted SP500 and "
           "Dow Jones historical data 10 years before and after the zero point year, plots would be")
     output_sp_dj(event_df, sp_df, dj_df, "year_before_end_year", 10, "real")
-    print("2. If we use the year before the event end year as zero point, and select the nominal SP500 and "
-          "Dow Jones historical data 10 years before and after the zero point year, plots would be")
-    output_sp_dj(event_df, sp_df, dj_df, "year_before_end_year", 10, "nominal")
+    # print("2. If we use the year before the event end year as zero point, and select the nominal SP500 and "
+    #       "Dow Jones historical data 10 years before and after the zero point year, plots would be")
+    # output_sp_dj(event_df, sp_df, dj_df, "year_before_end_year", 10, "nominal")
     print("3. If we use the event start year as zero point, and select the real SP500 and "
           "Dow Jones historical data 5 years before and after the zero point year, plots would be")
     output_sp_dj(event_df, sp_df, dj_df, "start_year", 5, "real")
-    print("4. If we use the year before the event end year as zero point, and select the inflation adjusted SP500 and "
-          "Dow Jones historical data 5 years before and after the zero point year, plots would be")
-    output_sp_dj(event_df, sp_df, dj_df, "year_before_end_year", 5, "real")
+    # print("4. If we use the year before the event end year as zero point, and select the inflation adjusted SP500 and "
+    #       "Dow Jones historical data 5 years before and after the zero point year, plots would be")
+    # output_sp_dj(event_df, sp_df, dj_df, "year_before_end_year", 5, "real")
 
 
 def main():
