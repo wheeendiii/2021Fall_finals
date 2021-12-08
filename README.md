@@ -9,8 +9,8 @@ Group members: Kangyang Wang (*kangyangwang*), Wendy Zhu (*wheeendiii*), and Kay
 
 ## Potential Questions and Improvements:
 
-Based on the analysis of the above two articles, the authors conclude that "wars result in higher inflation and bond yields, 
-pandemics do not". This conclusion is supported by several well-plotted graphs of CPI Inflation or Nominal ten-year bond 
+Based on the analysis of the above two articles, the authors conclude that, overall, "wars result in higher inflation and bond yields, 
+pandemics do not". This conclusion is supported by several well-plotted graphs of Consumer Price Index (CPI) Inflation or Nominal ten-year bond 
 yields around wars and pandemics. More specifically, the authors used the last year of significant fatalities as the 
 end-year for wars and pandemics (Year = 0) (In a number of instances, this is one year before the formal end of the 
 war/pandemics) and overlaid the historical CPI Inflation/Bond Yield data 10 years before and after the year 0 to monitor
@@ -23,9 +23,14 @@ outbreak of COVID-19 and is reaching a 30-year record high recently.
 Would they affect the final overall trend of the CPI Inflation and bond yield around the events?
 * Are there any significant market vibrations (changes of major market indexes) before and after wars and pandemics?
 
+As we investigate these, we will look specifically at the United States, and see if the authors' proposals hold true
+for this one country in particular, using events that have influenced it.
+
 ## Hypotheses
 
-
+* CPI - For the United States, we follow the authors' hypothesis that wars will result in higher inflation in the near term after the end of the war (as indicated by the consumer price index), but pandemics will not.
+* GDP -
+* S&P 500 and Dow Jones -
 
 ## Data Sources
 ### Event Data (Kangyang)
