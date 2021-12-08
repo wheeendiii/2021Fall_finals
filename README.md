@@ -63,7 +63,10 @@ Plotting the quartiles and means calculated for all pandemics and all wars:
 
 ### Gross Domestic Product (GDP) before and after Wars and Pandemics (Wendy)
 
-1. Pandemics Vs. Wars
+1. Overall GDP and subcategories (Personal consumption expenditures, Gross private domestic investment and Government consumption expenditures and gross investment)
+![alt text](https://github.com/wheeendiii/2021Fall_finals/blob/main/Plots/GDP/HIV%20AIDS%20pandemic.png)
+
+2. Pandemics Vs. Wars
 * GDP fluctuations for SARS outbreak, Ebola virus epidemic and COVID-19 pandemic:
 ![alt text](https://github.com/wheeendiii/2021Fall_finals/blob/main/Plots/GDP/SARS%20outbreak.png)
 ![alt text](https://github.com/wheeendiii/2021Fall_finals/blob/main/Plots/GDP/Western%20African%20Ebola%20virus%20epidemic.png)
@@ -73,7 +76,6 @@ Plotting the quartiles and means calculated for all pandemics and all wars:
 ![alt text](https://github.com/wheeendiii/2021Fall_finals/blob/main/Plots/GDP/Korean%20War.png)
 ![alt text](https://github.com/wheeendiii/2021Fall_finals/blob/main/Plots/GDP/World%20War%20II.png)
 
-2. Overall GDP and subcategories (Personal consumption expenditures, Gross private domestic investment and Government consumption expenditures and gross investment)
 
 ### S&P500 and Dow Jones before and after Wars and Pandemics (Kangyang)
 
