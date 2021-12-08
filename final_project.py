@@ -581,7 +581,7 @@ def plot_gdp(gdp_df: pd.DataFrame, event_name: str, end_interval: int, start_int
     fig, ax = plt.subplots(figsize=(15, 10))
     ax.plot(gdp_df)
 
-    ax.set_xlabel("Years before and after event end year")
+    ax.set_xlabel("Year")
     ax.set_ylabel("Gross domestic product ($)")
     ax.ticklabel_format(style='plain', axis='y')
 
@@ -1067,7 +1067,7 @@ def main():
     analyze_gdp(us_gdp_data, events_data)
 
     pandemics_cpi_df, wars_cpi_df = analyze_cpi(us_cpi_data, events_data, 10, 'end_year')
-    # plot_all_cpi_graphs(pandemics_cpi_df, wars_cpi_df)
+    plot_all_cpi_graphs(pandemics_cpi_df, wars_cpi_df)
 
 
 if __name__ == '__main__':
