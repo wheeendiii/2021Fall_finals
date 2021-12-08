@@ -112,19 +112,15 @@ Plotting the quartiles and means calculated for all pandemics and all wars:
 2. If we use the event start year as zero point, and select the real SP500 and Dow Jones historical data 5 years before and after the zero point year, plots would be
 
 * The evolution of real SP500 and Dow Jones 5 years before and after all the Pandemics:
-['Asian Flu', 'Hong Kong Flu', 'London flu', 'Russian flu', 'HIV AIDS pandemic', 'SARS outbreak', 'Swine flu pandemic']
 ![alt text](Plots/StockIndex/5y_start_year_real_all_pandemics.png)
 
 * The evolution of real SP500 and Dow Jones 5 years before and after all the Wars:
-['Korean War', 'Vietnam War', 'World War II', 'Gulf War', 'Civil war in Afghanistan', 'War on Terror', 'Iraq War', 'War in Somalia']
 ![alt text](Plots/StockIndex/5y_start_year_real_all_wars.png)
 
 * The evolution of real SP500 and Dow Jones 5 years before and after Pandemics with over 1m fatalities:
-['Asian Flu', 'Hong Kong Flu', 'HIV AIDS pandemic']
 ![alt text](Plots/StockIndex/5y_start_year_real_pandemics_over_1m_fatalities.png)
 
 * The evolution of real SP500 and Dow Jones 5 years before and after Wars with over 1m fatalities:
-['Korean War', 'Vietnam War', 'World War II', 'War in Somalia']
 ![alt text](Plots/StockIndex/5y_start_year_real_wars_over_1m_fatalities.png)
 
 [comment]: <> (3. If we use the year before the event end year as zero point, and select the inflation adjusted SP500 and Dow Jones historical data 5 years before and after the zero point year, plots would be)
