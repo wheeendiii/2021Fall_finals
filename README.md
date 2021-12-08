@@ -89,7 +89,7 @@ Plotting the quartiles and means calculated for all pandemics and all wars:
 
 ### S&P500 and Dow Jones before and after Wars and Pandemics (Kangyang)
 
-**x = 0 is the January of the selected Year Zero.** 
+**x = 0 is the January of the selected "Year Zero".** 
 
 1. If we use the year before the event end year as zero point, and select the inflation adjusted SP500 and Dow Jones historical data 10 years before and after the zero point year, plots would be:
 
@@ -122,32 +122,6 @@ Plotting the quartiles and means calculated for all pandemics and all wars:
 
 * The evolution of real SP500 and Dow Jones 5 years before and after Wars with over 1m fatalities:
 ![alt text](Plots/StockIndex/5y_start_year_real_wars_over_1m_fatalities.png)
-
-[comment]: <> (3. If we use the year before the event end year as zero point, and select the inflation adjusted SP500 and Dow Jones historical data 5 years before and after the zero point year, plots would be)
-
-[comment]: <> (* The evolution of real SP500 and Dow Jones 5 years before and after all the Pandemics:)
-
-[comment]: <> (['Asian Flu', 'Hong Kong Flu', 'London flu', 'Russian flu', 'SARS outbreak', 'Swine flu pandemic', 'Western African Ebola virus epidemic'])
-
-[comment]: <> (![alt text]&#40;Plots/StockIndex/5y_year_before_end_year_real_all_pandemics.png&#41;)
-
-[comment]: <> (* The evolution of real SP500 and Dow Jones 5 years before and after all the Wars:)
-
-[comment]: <> (['Korean War', 'Vietnam War', 'World War II', 'Gulf War', 'Civil war in Afghanistan', 'Iraq War'])
-
-[comment]: <> (![alt text]&#40;Plots/StockIndex/5y_year_before_end_year_real_all_wars.png&#41;)
-
-
-[comment]: <> (* The evolution of real SP500 and Dow Jones 5 years before and after Pandemics with over 1m fatalities:)
-
-[comment]: <> (['Asian Flu', 'Hong Kong Flu'])
-
-[comment]: <> (![alt text]&#40;Plots/StockIndex/5y_year_before_end_year_real_pandemics_over_1m_fatalities.png&#41;)
-
-
-* The evolution of real SP500 and Dow Jones 5 years before and after Wars with over 1m fatalities:
-['Korean War', 'Vietnam War', 'World War II']
-![alt text](Plots/StockIndex/5y_year_before_end_year_real_wars_over_1m_fatalities.png)
 
 
 
