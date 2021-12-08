@@ -51,7 +51,7 @@ this dataset is calculated by taking the average of the period from January 1982
 setting it at 100[^1].  All other index values are then given as a percentage change from that value.
 
 ### Gross Domestic Product (GDP) (Wendy)
-* GDP for all countries from 1960-present - https://databank.worldbank.org/reports.aspx?source=2&type=metadata&series=NY.GDP.MKTP.CD#
+* GDP for all countries from 1929-present - https://databank.worldbank.org/reports.aspx?source=2&type=metadata&series=NY.GDP.MKTP.CD#
 
 ### S&P500 and Dow Jones (Kangyang)
 * S&P500 historical monthly nominal and real (inflation adjusted) data from 1927 - https://www.macrotrends.net/2324/sp-500-historical-chart-data
@@ -82,10 +82,13 @@ Plotting the quartiles and means calculated for all pandemics and all wars:
 ![alt text](Plots/GDP/Western%20African%20Ebola%20virus%20epidemic.png)
 ![alt text](Plots/GDP/COVID-19%20pandemic.png)
 
+**Most Pandemics have negligible influences on GDP, except for that during COVID-19.**
+
 * GDP fluctuations for Korean War and World War II:
 ![alt text](Plots/GDP/Korean%20War.png)
 ![alt text](Plots/GDP/World%20War%20II.png)
 
+**GDP during wars is fluctuating and government consumption contributes the most and leads to increase in GDP.**
 
 ### S&P500 and Dow Jones before and after Wars and Pandemics (Kangyang)
 
