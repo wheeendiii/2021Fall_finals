@@ -1,5 +1,5 @@
 [![Build Status](https://app.travis-ci.com/wheeendiii/2021Fall_finals.svg?branch=main)](https://app.travis-ci.com/wheeendiii/2021Fall_finals)
-# Evolution of Inflation/GDP/Stock Market before and after Wars And Pandemics (Type I)
+# Evolution of Inflation/GDP/Stock Market before and after Wars/Pandemics (Type I)
 
 Group members: Kangyang Wang (*kangyangwang*), Wendy Zhu (*wheeendiii*), and Kay Avila (*kayavila*)
 
@@ -89,7 +89,7 @@ Plotting the quartiles and means calculated for all pandemics and all wars:
 
 ### S&P500 and Dow Jones before and after Wars and Pandemics (Kangyang)
 
-**x = 0 is the January of the selected "Year Zero".** 
+**Monthly historical data for S&P500 and Dow Jones are used in the plots below. x = 0 is the January of the selected "Year Zero".** 
 
 1. If we use the year before the event end year as zero point, and select the inflation adjusted SP500 and Dow Jones historical data 10 years before and after the zero point year, plots would be:
 
