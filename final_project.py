@@ -585,7 +585,11 @@ def plot_gdp(gdp_df: pd.DataFrame, event_name: str, end_interval: int, start_int
     >>> us_gdp_df = pd.read_csv('data/gdp_usafacts.csv', header=0)
     >>> event_gdp = us_gdp_df.loc[0, '1947': '1968']
     >>> event_gdp = event_gdp.to_frame()
-    >>> plot_gdp(event_gdp, "Asian Flu", 4, 2)
+    >>> plot_gdp(event_gdp, "Test Flu", 4, 2)
+    >>> image = plt.imread('Plots/GDP/Test Flu.png')
+    >>> print(image[0][0])  # doctest: +ELLIPSIS
+    [1. 1. 1. 1.]
+
     """
 
     fig, ax = plt.subplots(figsize=(15, 10))
