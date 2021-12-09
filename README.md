@@ -30,14 +30,18 @@ for this one country in particular, using events that have influenced it.
 
 * CPI - For the United States, we follow the authors' hypothesis that wars will result in higher inflation in the near term after the end of the war (as indicated by the consumer price index), but pandemics will not.
 * GDP - The growth of GDP will be exceptionally strong during wars and will remain an increasing trend afterwards, whereas pandemics exhibit minor impact on GDP growth. 
-* S&P 500 and Dow Jones - 1. In the aftermath of wars and pandemics, the major stock market indexes (S&P500 and Dow Jones) will slide down due to the impacted economic conditions. 2. The major stock market indexes (S&P500 and Dow Jones) will be more volatile after the start of the wars/pandemics.
+* S&P 500 and Dow Jones
+  1. In the aftermath of wars and pandemics, the major stock market indexes (S&P500 and Dow Jones) will slide down due to the impacted economic conditions. 
+  2. The major stock market indexes (S&P500 and Dow Jones) will be more volatile after the start of the wars/pandemics.
 
 ## Data Sources
-### Event Data (Kangyang)
+### Event Data
 
 This data file is compiled from the wars and pandemics chart in the reference article "Inflation in the aftermath of wars and pandemics" (https://voxeu.org/article/inflation-aftermath-wars-and-pandemics) and the Wiki pages for wars and pandemics("List of epidemics" - https://en.wikipedia.org/wiki/List_of_epidemics, "Timeline of wars" - https://en.wikipedia.org/wiki/Timeline_of_wars).
 
-### Consumer Price Index (CPI) (Kay)
+**Note: We modified our original event dataset to focus only on the events that are significantly related to U.S.** The pandemics/epidemics selected in this dataset are based on the article "The Worst Outbreaks in U.S. History"[^2].
+
+### Consumer Price Index (CPI)
 * CPI for US from 1913-present - https://beta.bls.gov/dataViewer/view/timeseries/CUUR0000SA0
 * CPI for G20 countries from 1915-present -  https://stats.oecd.org/Index.aspx?DataSetCode=G20_PRICES# 
 
@@ -50,16 +54,16 @@ the index represents the change in prices from year to year, based on a "base in
 this dataset is calculated by taking the average of the period from January 1982 through December 1984 and 
 setting it at 100[^1].  All other index values are then given as a percentage change from that value.
 
-### Gross Domestic Product (GDP) (Wendy)
+### Gross Domestic Product (GDP)
 * GDP for all countries from 1929-present - https://databank.worldbank.org/reports.aspx?source=2&type=metadata&series=NY.GDP.MKTP.CD#
 
-### S&P500 and Dow Jones (Kangyang)
+### S&P500 and Dow Jones
 * S&P500 historical monthly nominal and real (inflation adjusted) data from 1927 - https://www.macrotrends.net/2324/sp-500-historical-chart-data
 * Dow Jones historical monthly nominal and real (inflation adjusted) data from 1915 - https://www.macrotrends.net/1319/dow-jones-100-year-historical-chart
 
 ## Conclusions
 
-### Consumer Price Index (CPI) before and after Wars and Pandemics (Kay)
+### Consumer Price Index (CPI) before and after Wars and Pandemics
 
 Plotting all pandemics and all wars:
 ![alt text](Plots/CPI/all_pandemics.png)
@@ -71,7 +75,7 @@ Plotting the quartiles and means calculated for all pandemics and all wars:
 ![alt text](Plots/CPI/wars_quartiles.png)
 ![alt text](Plots/CPI/wars_mean.png)
 
-### Gross Domestic Product (GDP) before and after Wars and Pandemics (Wendy)
+### Gross Domestic Product (GDP) before and after Wars and Pandemics
 
 1. Overall GDP and subcategories (Personal consumption expenditures, Gross private domestic investment and Government consumption expenditures and gross investment)
 ![alt text](Plots/GDP/HIV%20AIDS%20pandemic.png)
@@ -90,7 +94,7 @@ Plotting the quartiles and means calculated for all pandemics and all wars:
 
 **GDP during wars is fluctuating and government consumption contributes the most and leads to increase in GDP.**
 
-### S&P500 and Dow Jones before and after Wars and Pandemics (Kangyang)
+### S&P500 and Dow Jones before and after Wars and Pandemics
 
 **Monthly historical data for S&P500 and Dow Jones are used in the plots below. x = 0 is the January of the selected "Year Zero".** 
 
@@ -130,3 +134,4 @@ Plotting the quartiles and means calculated for all pandemics and all wars:
 
 ## References
 [^1]: https://www.bls.gov/cpi/questions-and-answers.htm#Question_17
+[^2]: https://www.healthline.com/health/worst-disease-outbreaks-history
