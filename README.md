@@ -152,6 +152,16 @@ pandemics.  However, as we've seen, this is far from guaranteed.
 * The evolution of real SP500 and Dow Jones 5 years before and after Wars with over 1m fatalities:
 ![SP500 DJ High Fatality Wars](Plots/StockIndex/5y_start_year_real_wars_over_1m_fatalities.png)
 
+## Selective Compilation (Numba and Cython)
+
+Without any selective compilation, the program took about 43.99 seconds on a sample run.
+
+We initially intended to try numba compilation on the read_event_facts(), which uses numpy.setdiff1d(), since numba primarily improves numpy functionality.  However, once applying it, numba took issue with the try/except code catching different kinds of exceptions, and that led to us researching and reading that numba has only the barest exception handling support.[^3].  Handling different kinds of exceptions in read_event_facts() function was desirable and thus numba was not a good option.
+
+Next we followed the PyCharm instructions for compiling with cython.[^4]
+
 ## References
 [^1]: https://www.bls.gov/cpi/questions-and-answers.htm#Question_17
 [^2]: https://www.healthline.com/health/worst-disease-outbreaks-history
+[^3]: https://numba.pydata.org/numba-doc/dev/reference/pysupported.html#pysupported-exception-handling
+[^4]: https://www.jetbrains.com/help/pycharm/cython.html#get-started-cython
