@@ -6,10 +6,12 @@ Reads in event data about pandemics and wars, as well as data from the United St
 Gross Domestic Product (GPD), and stock market S&P500 and Dow Jones.  Then creates a series of plots combining
 these data sets.
 
-This version uses compiled cython functions.
+This version uses compiled cython functions when "from final_project_cython import *" is enabled.  Travis CI
+does not like this, so a pure python version is saved in Git.
 """
 
-from final_project_cython import *
+#from final_project_cython import *
+from final_project_cython_functions import *
 
 
 def main():
