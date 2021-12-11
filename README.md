@@ -158,7 +158,7 @@ Without any selective compilation, the program took about 43.99 seconds on a sam
 
 We initially intended to try numba compilation on the read_event_facts(), which uses numpy.setdiff1d(), since numba primarily improves numpy functionality.  However, once applying it, numba took issue with the try/except code catching different kinds of exceptions, and that led to us researching and reading that numba has only the barest exception handling support.[^3].  Handling different kinds of exceptions in read_event_facts() function was desirable and thus numba was not a good option.
 
-Next we followed the PyCharm instructions for compiling with cython.[^4]
+Next we followed the PyCharm instructions for compiling with cython.[^4]  Without any help with static typing, only compiling the code as is from a .pyx file, a sample run of the program took 24.7 seconds.  Profiling showed that analyze_index(), output_sp_dj(), plot_sp_dj(), and add_mean_and_quartiles() took the most time.  As these were primarily pandas and plotting, they did not easily take to static typing.  The helper functions min_max_year_checking() and read_event_facts() seemed to be more readily adapted, but on attempting that,  we better understood the static typing inside a function is for variables declared inside the function rather than the parameters.  get_gdp_info() is the only function where we save new variables inside of the function, so we added static typing there.  After recompiling, a sample run took 21.7 samples.
 
 ## References
 [^1]: https://www.bls.gov/cpi/questions-and-answers.htm#Question_17
