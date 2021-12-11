@@ -65,15 +65,23 @@ setting it at 100[^1].  All other index values are then given as a percentage ch
 
 ### Consumer Price Index (CPI) before and after Wars and Pandemics
 
-Plotting all pandemics and all wars:
+First we plotted individual pandemics/epidemics and wars.  The year that the event ended is
+set as time zero.  The plot lines end early when no data for an event exists.  For instance,
+the two ongoing health events, covid-19 and HIV/AIDS, are plotted for 2021 as year zero, which
+is the last year for which there is data.
+
+Notably, the graphs for diptheria epidemic and Spanish flu look the same, because they have an
+overlapping time period with the former ending in 1925 and the latter ending in 1920.  The time
+period for these two events also overlap with the United States' involvement in World War I, which
+lasted from 1914 to 1918.  This makes it hard to draw independent conclusions for events during
+that time.
 ![alt text](Plots/CPI/all_pandemics.png)
 ![alt text](Plots/CPI/all_wars.png)
 
-Plotting the quartiles and means calculated for all pandemics and all wars:
-![alt text](Plots/CPI/pandemics_quartiles.png)
-![alt text](Plots/CPI/pandemics_mean.png)
-![alt text](Plots/CPI/wars_quartiles.png)
-![alt text](Plots/CPI/wars_mean.png)
+In order to get a higher level picture, we also plotted the 25% and 75% percentiles and median
+of the values, as well as the mean of the values.
+![alt text](Plots/CPI/pandemics_quartiles_mean.png)
+![alt text](Plots/CPI/wars_quartiles_mean.png)
 
 ### Gross Domestic Product (GDP) before and after Wars and Pandemics
 

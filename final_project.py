@@ -67,10 +67,10 @@ def read_event_facts(filename: str, types: Union[str, list] = None, ranges: Unio
     Converts it into a Pandas dataframe and returns it after calculating a Duration column
 
     Event_Name	  Type	    Range	                Start_Year	End_Year	Fatalities
-    Spanish Flu	  Pandemics	Worldwide	            1918	    1920	    >100m
-    Asian Flu	  Pandemics	Worldwide	            1957	    1958	    1-10m
-    Hong Kong Flu Pandemics	Worldwide	            1968	    1970	    1-10m
-    London flu	  Pandemics	Include United States	1972	    1973	    <10,000
+    Spanish Flu	  Pandemics	Affect United States    1918	    1920	    >100m
+    Asian Flu	  Pandemics	Affect United States    1957	    1958	    1-10m
+    Hong Kong Flu Pandemics	Affect United States    1968	    1970	    1-10m
+    London flu	  Pandemics	Affect United States    1972	    1973	    <10,000
 
     :param filename: The csv file to read in
     :param types: The types of events
@@ -964,20 +964,15 @@ def plot_all_cpi_graphs(pandemics_cpi_df, wars_cpi_df):
     wars_cpi_df = add_mean_and_quartiles(wars_cpi_df)
 
     # Plot averages for pandemics (quartiles and mean)
-    plot_cpi(pandemics_cpi_df, 'Plots/CPI/pandemics_quartiles.png', title='Averaged Pandemics vs CPI Change Quartiles',
+    plot_cpi(pandemics_cpi_df, 'Plots/CPI/pandemics_quartiles_mean.png', title='Averaged Pandemics vs CPI Change '
+                                                                               'Quartiles and Mean',
              x_label='Years +/- End of Pandemic',
-             y_label='Year on Year CPI % Change', plot_quartiles=True)
-    plot_cpi(pandemics_cpi_df, 'Plots/CPI/pandemics_mean.png', title='Averaged Pandemics vs CPI Change Mean',
-             x_label='Years +/- End of Pandemic',
-             y_label='Year on Year CPI % Change', plot_mean=True)
+             y_label='Year on Year CPI % Change', plot_quartiles=True, plot_mean=True)
 
     # Plot averages for wars (quartiles and mean)
-    plot_cpi(wars_cpi_df, 'Plots/CPI/wars_quartiles.png', title='Averaged Wars vs CPI Change Quartiles',
+    plot_cpi(wars_cpi_df, 'Plots/CPI/wars_quartiles_mean.png', title='Averaged Wars vs CPI Change Quartiles and Mean',
              x_label='Years +/- End of War',
-             y_label='Year on Year CPI % Change', plot_quartiles=True)
-    plot_cpi(wars_cpi_df, 'Plots/CPI/wars_mean.png', title='Averaged Wars vs CPI Change Mean',
-             x_label='Years +/- End of War',
-             y_label='Year on Year CPI % Change', plot_mean=True)
+             y_label='Year on Year CPI % Change', plot_quartiles=True, plot_mean=True)
 
 
 def analyze_gdp(gdp_file: str, events_file: str) -> None:
