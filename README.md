@@ -80,8 +80,22 @@ that time.
 
 In order to get a higher level picture, we also plotted the 25% and 75% percentiles and median
 of the values, as well as the mean of the values.
+
+The quartiles for the pandemics have a wider band than the wars, meaning the pandemics follow
+less of a strict pattern than the wars.  On average, the pandemics have a much smaller increase
+in the rate of inflation at their end than the wars do.
 ![alt text](Plots/CPI/pandemics_quartiles_mean.png)
+
+Wars have a narrower range of inflation change values, except right after the end of the war.
+Here, they exhibit a large range.  Looking at the individual graphs above, the events that
+most notably lead to an increase in inflation in the United States were World War I and World
+War II, as well as the Vietnam War.  Many of the other wars did not seem to have a noticeable
+impact on inflation when they ended.
 ![alt text](Plots/CPI/wars_quartiles_mean.png)
+
+From these results, we conclude that the authors conclusions (and our hypothesis following them)
+were correct on average.  Inflation tends to increase after wars end but not as noticeably after
+pandemics.  However, as we've seen, this is far from guaranteed.
 
 ### Gross Domestic Product (GDP) before and after Wars and Pandemics
 
