@@ -10,8 +10,8 @@ This version uses compiled cython functions when "from final_project_cython impo
 does not like this, so a pure python version is saved in Git.
 """
 
-#from final_project_cython import *
-from final_project_cython_functions import *
+#from final_project_cython.final_project_cython import *
+from final_project_cython.final_project_cython_functions import *
 
 
 def main():
