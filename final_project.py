@@ -1,6 +1,10 @@
 """
 IS597 Spring 2021 Final Project
 Group members: Kangyang Wang, Wendy Zhu, and Kay Avila
+
+Reads in event data about pandemics and wars, as well as data from the United States Consumer Price Index (CPI),
+Gross Domestic Product (GPD), and stock market S&P500 and Dow Jones.  Then creates a series of plots combining
+these data sets.
 """
 import numpy as np
 import pandas as pd
@@ -911,14 +915,16 @@ def output_sp_dj(df_e: pd.DataFrame, df_sp: pd.DataFrame, df_dj: pd.DataFrame, z
 def plot_cpi(df: pd.DataFrame, plot_name: str, title: str, x_label: str, y_label: str, plot_quartiles: bool = False,
              plot_mean: bool = False) -> None:
     """
-    # TODO
-    :param df:
-    :param plot_name:
-    :param title:
-    :param x_label:
-    :param y_label:
-    :param plot_quartiles:
-    :return:
+    Takes a Pandas dataframe with event and CPI data and plots it, with optional quartiles and mean value.
+
+    :param df: A dataframe with CPI values for various events as the column titles and their values by relative year below
+    :param plot_name: The file name to be used for the plot
+    :param title: The title to be used for the plot
+    :param x_label: The x label to be used for the plot
+    :param y_label: The y label to be used for the plot
+    :param plot_quartiles: Whether quartiles (25%, 50% aka mean, and 75%) should be plotted - requires these as columns
+    :param plot_mean: Whether the the mean should be plotted - requires this as a column
+    :return: None
     """
 
     # Create an empty graph and axes
@@ -947,17 +953,18 @@ def plot_cpi(df: pd.DataFrame, plot_name: str, title: str, x_label: str, y_label
 
 
 def plot_all_cpi_graphs(pandemics_cpi_df, wars_cpi_df):
-    """ #TODO
+    """ Takes dataframes with CPI information as well as pandemics and wars and is responsible for configuring
+    all of the plots for these.
 
-    :param pandemics_cpi_df:
-    :param wars_cpi_df:
+    :param pandemics_cpi_df: The dataframe with pandemic and CPI information
+    :param wars_cpi_df: THe dataframe with war and CPI information
     :return:
     """
     # Plot individual events as lines
-    plot_cpi(pandemics_cpi_df, 'Plots/CPI/all_pandemics.png', title='Individual Pandemics vs CPI Change', x_label='Years +/- End of Pandemic',
-             y_label='Year on Year CPI % Change')
-    plot_cpi(wars_cpi_df, 'Plots/CPI/all_wars.png', title='Individual Wars vs CPI Change', x_label='Years +/- End of War',
-             y_label='Year on Year CPI % Change')
+    plot_cpi(pandemics_cpi_df, 'Plots/CPI/all_pandemics.png', title='Individual Pandemics vs CPI Change',
+             x_label='Years +/- End of Pandemic', y_label='Year on Year CPI % Change')
+    plot_cpi(wars_cpi_df, 'Plots/CPI/all_wars.png', title='Individual Wars vs CPI Change',
+             x_label='Years +/- End of War', y_label='Year on Year CPI % Change')
 
     # Calculate quartiles so these can be plotted
     pandemics_cpi_df = add_mean_and_quartiles(pandemics_cpi_df)
@@ -1115,6 +1122,10 @@ def analyze_index(sp500_file: str, dowjones_file: str, events_file: str):
 
 
 def main():
+    """
+    Main function for starting all data processing and plotting
+    :return: None
+    """
     us_cpi_data = 'data/bls_us_cpi.csv'
     events_data = 'data/event_facts.csv'
     sp500_data = 'data/sp500_monthly.csv'
@@ -1123,7 +1134,6 @@ def main():
 
     analyze_index(sp500_data, dowjones_data, events_data)
     analyze_gdp(us_gdp_data, events_data)
-
     pandemics_cpi_df, wars_cpi_df = analyze_cpi(us_cpi_data, events_data, 10, 'end_year')
     plot_all_cpi_graphs(pandemics_cpi_df, wars_cpi_df)
 
