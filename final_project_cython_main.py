@@ -9,7 +9,7 @@ these data sets.
 This version uses compiled cython functions.
 """
 
-from final_project_cython_functions import *
+from final_project_cython import *
 
 
 def main():

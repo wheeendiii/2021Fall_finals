@@ -545,6 +545,11 @@ def get_gdp_info(us_gdp: pd.DataFrame, df: pd.DataFrame):
     >>> us_gdp_test = pd.read_csv('data/gdp_usafacts.csv')
     >>> get_gdp_info(us_gdp_test, pandemics_gdp)
     """
+    cdef int start_year
+    cdef int before_event
+    cdef int end_year
+    cdef int after_event
+
     # go through event file and get start_year, end_year
     for index, row in df.iterrows():
         event_name = row['Event_Name']

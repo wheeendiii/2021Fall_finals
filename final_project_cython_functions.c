@@ -1331,14 +1331,17 @@ static PyObject* __pyx_print_kwargs = 0;
 /* CIntToPy.proto */
 static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value);
 
+/* CIntFromPy.proto */
+static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *);
+
+/* CIntToPy.proto */
+static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value);
+
 /* PrintOne.proto */
 static int __Pyx_PrintOne(PyObject* stream, PyObject *o);
 
 /* CIntFromPy.proto */
 static CYTHON_INLINE long __Pyx_PyInt_As_long(PyObject *);
-
-/* CIntFromPy.proto */
-static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *);
 
 /* FastTypeChecks.proto */
 #if CYTHON_COMPILING_IN_CPYTHON
@@ -1698,11 +1701,11 @@ static const char __pyx_k_matplotlib_pyplot[] = "matplotlib.pyplot";
 static const char __pyx_k_max_year_possible[] = "max_year_possible";
 static const char __pyx_k_min_year_possible[] = "min_year_possible";
 static const char __pyx_k_percent_change_df[] = "percent_change_df";
-static const char __pyx_k_plot_gdp_line_580[] = "plot_gdp (line 580)";
+static const char __pyx_k_plot_gdp_line_585[] = "plot_gdp (line 585)";
 static const char __pyx_k_y0_must_be_one_of[] = "y0 must be one of ";
 static const char __pyx_k_Range_of_Dow_Jones[] = "Range of Dow Jones";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
-static const char __pyx_k_get_index_line_750[] = "get_index (line 750)";
+static const char __pyx_k_get_index_line_755[] = "get_index (line 755)";
 static const char __pyx_k_relevant_countries[] = "relevant_countries";
 static const char __pyx_k_add_extra_yr_before[] = "add_extra_yr_before";
 static const char __pyx_k_nan_value_positions[] = "nan_value_positions";
@@ -1710,12 +1713,12 @@ static const char __pyx_k_plot_all_cpi_graphs[] = "plot_all_cpi_graphs";
 static const char __pyx_k_GDP_fluctuations_for[] = "GDP fluctuations for ";
 static const char __pyx_k_Invalid_type_s_given[] = "Invalid type(s) given: ";
 static const char __pyx_k_final_project_cython[] = "final_project_cython";
-static const char __pyx_k_read_us_cpi_line_620[] = "read_us_cpi (line 620)";
+static const char __pyx_k_read_us_cpi_line_625[] = "read_us_cpi (line 625)";
 static const char __pyx_k_year_before_end_year[] = "year_before_end_year";
 static const char __pyx_k_Invalid_range_s_given[] = "Invalid range(s) given: ";
 static const char __pyx_k_Years_End_of_Pandemic[] = "Years +/- End of Pandemic";
 static const char __pyx_k_adjust_index_line_407[] = "adjust_index (line 407)";
-static const char __pyx_k_analyze_cpi_line_1004[] = "analyze_cpi (line 1004)";
+static const char __pyx_k_analyze_cpi_line_1009[] = "analyze_cpi (line 1009)";
 static const char __pyx_k_get_gdp_info_line_538[] = "get_gdp_info (line 538)";
 static const char __pyx_k_min_max_year_checking[] = "min_max_year_checking";
 static const char __pyx_k_year_after_start_year[] = "year_after_start_year";
@@ -1724,9 +1727,9 @@ static const char __pyx_k_Plots_CPI_all_wars_png[] = "Plots/CPI/all_wars.png";
 static const char __pyx_k_add_mean_and_quartiles[] = "add_mean_and_quartiles";
 static const char __pyx_k_trim_to_years_line_276[] = "trim_to_years (line 276)";
 static const char __pyx_k_Year_on_Year_CPI_Change[] = "Year on Year CPI % Change";
-static const char __pyx_k_add_cpi_values_line_685[] = "add_cpi_values (line 685)";
+static const char __pyx_k_add_cpi_values_line_690[] = "add_cpi_values (line 690)";
 static const char __pyx_k_add_time_range_line_208[] = "add_time_range (line 208)";
-static const char __pyx_k_analyze_index_line_1059[] = "analyze_index (line 1059)";
+static const char __pyx_k_analyze_index_line_1063[] = "analyze_index (line 1063)";
 static const char __pyx_k_wars_over_1m_fatalities[] = "_wars_over_1m_fatalities";
 static const char __pyx_k_Invalid_end_year_value_s[] = "Invalid end year value(s):  {}";
 static const char __pyx_k_read_event_facts_line_67[] = "read_event_facts (line 67)";
@@ -1879,7 +1882,7 @@ static PyObject *__pyx_kp_s__6;
 static PyObject *__pyx_kp_s__7;
 static PyObject *__pyx_kp_s__8;
 static PyObject *__pyx_n_s_add_cpi_values;
-static PyObject *__pyx_kp_u_add_cpi_values_line_685;
+static PyObject *__pyx_kp_u_add_cpi_values_line_690;
 static PyObject *__pyx_n_s_add_extra_yr_before;
 static PyObject *__pyx_n_s_add_mean_and_quartiles;
 static PyObject *__pyx_kp_u_add_mean_and_quartiles_line_381;
@@ -1891,10 +1894,10 @@ static PyObject *__pyx_n_s_after_event;
 static PyObject *__pyx_n_s_all_pandemics;
 static PyObject *__pyx_n_s_all_wars;
 static PyObject *__pyx_n_s_analyze_cpi;
-static PyObject *__pyx_kp_u_analyze_cpi_line_1004;
+static PyObject *__pyx_kp_u_analyze_cpi_line_1009;
 static PyObject *__pyx_n_s_analyze_gdp;
 static PyObject *__pyx_n_s_analyze_index;
-static PyObject *__pyx_kp_u_analyze_index_line_1059;
+static PyObject *__pyx_kp_u_analyze_index_line_1063;
 static PyObject *__pyx_n_s_annotate;
 static PyObject *__pyx_n_s_apply;
 static PyObject *__pyx_n_s_astype;
@@ -1977,7 +1980,7 @@ static PyObject *__pyx_n_s_gdp_file;
 static PyObject *__pyx_n_s_get_gdp_info;
 static PyObject *__pyx_kp_u_get_gdp_info_line_538;
 static PyObject *__pyx_n_s_get_index;
-static PyObject *__pyx_kp_u_get_index_line_750;
+static PyObject *__pyx_kp_u_get_index_line_755;
 static PyObject *__pyx_n_s_get_loc;
 static PyObject *__pyx_n_s_get_xlim;
 static PyObject *__pyx_n_s_get_ylim;
@@ -2062,7 +2065,7 @@ static PyObject *__pyx_n_s_plot_all_cpi_graphs;
 static PyObject *__pyx_n_s_plot_cpi;
 static PyObject *__pyx_n_s_plot_end_year;
 static PyObject *__pyx_n_s_plot_gdp;
-static PyObject *__pyx_kp_u_plot_gdp_line_580;
+static PyObject *__pyx_kp_u_plot_gdp_line_585;
 static PyObject *__pyx_n_s_plot_mean;
 static PyObject *__pyx_n_s_plot_name;
 static PyObject *__pyx_n_s_plot_quartiles;
@@ -2080,7 +2083,7 @@ static PyObject *__pyx_n_s_read_csv;
 static PyObject *__pyx_n_s_read_event_facts;
 static PyObject *__pyx_kp_u_read_event_facts_line_67;
 static PyObject *__pyx_n_s_read_us_cpi;
-static PyObject *__pyx_kp_u_read_us_cpi_line_620;
+static PyObject *__pyx_kp_u_read_us_cpi_line_625;
 static PyObject *__pyx_n_s_read_worlddb_gdp;
 static PyObject *__pyx_kp_u_read_worlddb_gdp_line_439;
 static PyObject *__pyx_n_s_real;
@@ -2227,9 +2230,7 @@ static PyObject *__pyx_int_131;
 static PyObject *__pyx_int_152;
 static PyObject *__pyx_int_200;
 static PyObject *__pyx_int_1928;
-static PyObject *__pyx_int_1929;
 static PyObject *__pyx_int_1960;
-static PyObject *__pyx_int_2020;
 static PyObject *__pyx_int_2021;
 static PyObject *__pyx_int_neg_1;
 static PyObject *__pyx_int_neg_12;
@@ -6915,16 +6916,16 @@ static PyObject *__pyx_pw_20final_project_cython_15get_gdp_info(PyObject *__pyx_
 }
 
 static PyObject *__pyx_pf_20final_project_cython_14get_gdp_info(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_us_gdp, PyObject *__pyx_v_df) {
+  int __pyx_v_start_year;
+  int __pyx_v_before_event;
+  int __pyx_v_end_year;
+  int __pyx_v_after_event;
   CYTHON_UNUSED PyObject *__pyx_v_index = NULL;
   PyObject *__pyx_v_row = NULL;
   PyObject *__pyx_v_event_name = NULL;
-  PyObject *__pyx_v_start_year = NULL;
-  PyObject *__pyx_v_before_event = NULL;
-  PyObject *__pyx_v_end_year = NULL;
-  PyObject *__pyx_v_after_event = NULL;
   PyObject *__pyx_v_event_gdp = NULL;
-  PyObject *__pyx_v_end_interval = NULL;
-  PyObject *__pyx_v_start_interval = NULL;
+  int __pyx_v_end_interval;
+  int __pyx_v_start_interval;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -6936,21 +6937,22 @@ static PyObject *__pyx_pf_20final_project_cython_14get_gdp_info(CYTHON_UNUSED Py
   PyObject *__pyx_t_7 = NULL;
   PyObject *(*__pyx_t_8)(PyObject *);
   int __pyx_t_9;
-  PyObject *__pyx_t_10 = NULL;
-  int __pyx_t_11;
+  int __pyx_t_10;
+  PyObject *__pyx_t_11 = NULL;
+  PyObject *__pyx_t_12 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_gdp_info", 0);
 
-  /* "final_project_cython_functions.pyx":549
- *     """
+  /* "final_project_cython_functions.pyx":554
+ * 
  *     # go through event file and get start_year, end_year
  *     for index, row in df.iterrows():             # <<<<<<<<<<<<<<
  *         event_name = row['Event_Name']
  *         start_year = int(row['Start_Year'])
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_df, __pyx_n_s_iterrows); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 549, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_df, __pyx_n_s_iterrows); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 554, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -6964,16 +6966,16 @@ static PyObject *__pyx_pf_20final_project_cython_14get_gdp_info(CYTHON_UNUSED Py
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 549, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 554, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
     __pyx_t_2 = __pyx_t_1; __Pyx_INCREF(__pyx_t_2); __pyx_t_4 = 0;
     __pyx_t_5 = NULL;
   } else {
-    __pyx_t_4 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 549, __pyx_L1_error)
+    __pyx_t_4 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 554, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_5 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 549, __pyx_L1_error)
+    __pyx_t_5 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 554, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   for (;;) {
@@ -6981,17 +6983,17 @@ static PyObject *__pyx_pf_20final_project_cython_14get_gdp_info(CYTHON_UNUSED Py
       if (likely(PyList_CheckExact(__pyx_t_2))) {
         if (__pyx_t_4 >= PyList_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_1 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_4); __Pyx_INCREF(__pyx_t_1); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 549, __pyx_L1_error)
+        __pyx_t_1 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_4); __Pyx_INCREF(__pyx_t_1); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 554, __pyx_L1_error)
         #else
-        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 549, __pyx_L1_error)
+        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 554, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         #endif
       } else {
         if (__pyx_t_4 >= PyTuple_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_4); __Pyx_INCREF(__pyx_t_1); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 549, __pyx_L1_error)
+        __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_4); __Pyx_INCREF(__pyx_t_1); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 554, __pyx_L1_error)
         #else
-        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 549, __pyx_L1_error)
+        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 554, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         #endif
       }
@@ -7001,7 +7003,7 @@ static PyObject *__pyx_pf_20final_project_cython_14get_gdp_info(CYTHON_UNUSED Py
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 549, __pyx_L1_error)
+          else __PYX_ERR(0, 554, __pyx_L1_error)
         }
         break;
       }
@@ -7013,7 +7015,7 @@ static PyObject *__pyx_pf_20final_project_cython_14get_gdp_info(CYTHON_UNUSED Py
       if (unlikely(size != 2)) {
         if (size > 2) __Pyx_RaiseTooManyValuesError(2);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 549, __pyx_L1_error)
+        __PYX_ERR(0, 554, __pyx_L1_error)
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
       if (likely(PyTuple_CheckExact(sequence))) {
@@ -7026,15 +7028,15 @@ static PyObject *__pyx_pf_20final_project_cython_14get_gdp_info(CYTHON_UNUSED Py
       __Pyx_INCREF(__pyx_t_3);
       __Pyx_INCREF(__pyx_t_6);
       #else
-      __pyx_t_3 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 549, __pyx_L1_error)
+      __pyx_t_3 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 554, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_6 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 549, __pyx_L1_error)
+      __pyx_t_6 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 554, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       #endif
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     } else {
       Py_ssize_t index = -1;
-      __pyx_t_7 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 549, __pyx_L1_error)
+      __pyx_t_7 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 554, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_t_8 = Py_TYPE(__pyx_t_7)->tp_iternext;
@@ -7042,7 +7044,7 @@ static PyObject *__pyx_pf_20final_project_cython_14get_gdp_info(CYTHON_UNUSED Py
       __Pyx_GOTREF(__pyx_t_3);
       index = 1; __pyx_t_6 = __pyx_t_8(__pyx_t_7); if (unlikely(!__pyx_t_6)) goto __pyx_L5_unpacking_failed;
       __Pyx_GOTREF(__pyx_t_6);
-      if (__Pyx_IternextUnpackEndCheck(__pyx_t_8(__pyx_t_7), 2) < 0) __PYX_ERR(0, 549, __pyx_L1_error)
+      if (__Pyx_IternextUnpackEndCheck(__pyx_t_8(__pyx_t_7), 2) < 0) __PYX_ERR(0, 554, __pyx_L1_error)
       __pyx_t_8 = NULL;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       goto __pyx_L6_unpacking_done;
@@ -7050,7 +7052,7 @@ static PyObject *__pyx_pf_20final_project_cython_14get_gdp_info(CYTHON_UNUSED Py
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __pyx_t_8 = NULL;
       if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-      __PYX_ERR(0, 549, __pyx_L1_error)
+      __PYX_ERR(0, 554, __pyx_L1_error)
       __pyx_L6_unpacking_done:;
     }
     __Pyx_XDECREF_SET(__pyx_v_index, __pyx_t_3);
@@ -7058,107 +7060,98 @@ static PyObject *__pyx_pf_20final_project_cython_14get_gdp_info(CYTHON_UNUSED Py
     __Pyx_XDECREF_SET(__pyx_v_row, __pyx_t_6);
     __pyx_t_6 = 0;
 
-    /* "final_project_cython_functions.pyx":550
+    /* "final_project_cython_functions.pyx":555
  *     # go through event file and get start_year, end_year
  *     for index, row in df.iterrows():
  *         event_name = row['Event_Name']             # <<<<<<<<<<<<<<
  *         start_year = int(row['Start_Year'])
  *         before_event = start_year - 10
  */
-    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_row, __pyx_n_s_Event_Name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 550, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_row, __pyx_n_s_Event_Name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 555, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_XDECREF_SET(__pyx_v_event_name, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "final_project_cython_functions.pyx":551
+    /* "final_project_cython_functions.pyx":556
  *     for index, row in df.iterrows():
  *         event_name = row['Event_Name']
  *         start_year = int(row['Start_Year'])             # <<<<<<<<<<<<<<
  *         before_event = start_year - 10
  *         end_year = int(row['End_Year'])
  */
-    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_row, __pyx_n_s_Start_Year); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 551, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_row, __pyx_n_s_Start_Year); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 556, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_6 = __Pyx_PyNumber_Int(__pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 551, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyNumber_Int(__pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 556, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __Pyx_XDECREF_SET(__pyx_v_start_year, __pyx_t_6);
-    __pyx_t_6 = 0;
+    __pyx_t_9 = __Pyx_PyInt_As_int(__pyx_t_6); if (unlikely((__pyx_t_9 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 556, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    __pyx_v_start_year = __pyx_t_9;
 
-    /* "final_project_cython_functions.pyx":552
+    /* "final_project_cython_functions.pyx":557
  *         event_name = row['Event_Name']
  *         start_year = int(row['Start_Year'])
  *         before_event = start_year - 10             # <<<<<<<<<<<<<<
  *         end_year = int(row['End_Year'])
  *         after_event = end_year + 10
  */
-    __pyx_t_6 = __Pyx_PyInt_SubtractObjC(__pyx_v_start_year, __pyx_int_10, 10, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 552, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    __Pyx_XDECREF_SET(__pyx_v_before_event, __pyx_t_6);
-    __pyx_t_6 = 0;
+    __pyx_v_before_event = (__pyx_v_start_year - 10);
 
-    /* "final_project_cython_functions.pyx":553
+    /* "final_project_cython_functions.pyx":558
  *         start_year = int(row['Start_Year'])
  *         before_event = start_year - 10
  *         end_year = int(row['End_Year'])             # <<<<<<<<<<<<<<
  *         after_event = end_year + 10
  * 
  */
-    __pyx_t_6 = __Pyx_PyObject_Dict_GetItem(__pyx_v_row, __pyx_n_s_End_Year); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 553, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_Dict_GetItem(__pyx_v_row, __pyx_n_s_End_Year); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 558, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_1 = __Pyx_PyNumber_Int(__pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 553, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyNumber_Int(__pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 558, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __Pyx_XDECREF_SET(__pyx_v_end_year, __pyx_t_1);
-    __pyx_t_1 = 0;
+    __pyx_t_9 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_9 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 558, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_v_end_year = __pyx_t_9;
 
-    /* "final_project_cython_functions.pyx":554
+    /* "final_project_cython_functions.pyx":559
  *         before_event = start_year - 10
  *         end_year = int(row['End_Year'])
  *         after_event = end_year + 10             # <<<<<<<<<<<<<<
  * 
  *         # If start year less than min_year, start from 1929
  */
-    __pyx_t_1 = __Pyx_PyInt_AddObjC(__pyx_v_end_year, __pyx_int_10, 10, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 554, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_XDECREF_SET(__pyx_v_after_event, __pyx_t_1);
-    __pyx_t_1 = 0;
+    __pyx_v_after_event = (__pyx_v_end_year + 10);
 
-    /* "final_project_cython_functions.pyx":557
+    /* "final_project_cython_functions.pyx":562
  * 
  *         # If start year less than min_year, start from 1929
  *         if start_year >= 1929:             # <<<<<<<<<<<<<<
  *             if end_year > 2020:
  *                 end_year = 2020
  */
-    __pyx_t_1 = PyObject_RichCompare(__pyx_v_start_year, __pyx_int_1929, Py_GE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 557, __pyx_L1_error)
-    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 557, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (__pyx_t_9) {
+    __pyx_t_10 = ((__pyx_v_start_year >= 0x789) != 0);
+    if (__pyx_t_10) {
 
-      /* "final_project_cython_functions.pyx":558
+      /* "final_project_cython_functions.pyx":563
  *         # If start year less than min_year, start from 1929
  *         if start_year >= 1929:
  *             if end_year > 2020:             # <<<<<<<<<<<<<<
  *                 end_year = 2020
  *             if after_event > 2020:
  */
-      __pyx_t_1 = PyObject_RichCompare(__pyx_v_end_year, __pyx_int_2020, Py_GT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 558, __pyx_L1_error)
-      __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 558, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      if (__pyx_t_9) {
+      __pyx_t_10 = ((__pyx_v_end_year > 0x7E4) != 0);
+      if (__pyx_t_10) {
 
-        /* "final_project_cython_functions.pyx":559
+        /* "final_project_cython_functions.pyx":564
  *         if start_year >= 1929:
  *             if end_year > 2020:
  *                 end_year = 2020             # <<<<<<<<<<<<<<
  *             if after_event > 2020:
  *                 after_event = 2020
  */
-        __Pyx_INCREF(__pyx_int_2020);
-        __Pyx_DECREF_SET(__pyx_v_end_year, __pyx_int_2020);
+        __pyx_v_end_year = 0x7E4;
 
-        /* "final_project_cython_functions.pyx":558
+        /* "final_project_cython_functions.pyx":563
  *         # If start year less than min_year, start from 1929
  *         if start_year >= 1929:
  *             if end_year > 2020:             # <<<<<<<<<<<<<<
@@ -7167,29 +7160,26 @@ static PyObject *__pyx_pf_20final_project_cython_14get_gdp_info(CYTHON_UNUSED Py
  */
       }
 
-      /* "final_project_cython_functions.pyx":560
+      /* "final_project_cython_functions.pyx":565
  *             if end_year > 2020:
  *                 end_year = 2020
  *             if after_event > 2020:             # <<<<<<<<<<<<<<
  *                 after_event = 2020
  *             if before_event < 1929:
  */
-      __pyx_t_1 = PyObject_RichCompare(__pyx_v_after_event, __pyx_int_2020, Py_GT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 560, __pyx_L1_error)
-      __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 560, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      if (__pyx_t_9) {
+      __pyx_t_10 = ((__pyx_v_after_event > 0x7E4) != 0);
+      if (__pyx_t_10) {
 
-        /* "final_project_cython_functions.pyx":561
+        /* "final_project_cython_functions.pyx":566
  *                 end_year = 2020
  *             if after_event > 2020:
  *                 after_event = 2020             # <<<<<<<<<<<<<<
  *             if before_event < 1929:
  *                 before_event = 1929
  */
-        __Pyx_INCREF(__pyx_int_2020);
-        __Pyx_DECREF_SET(__pyx_v_after_event, __pyx_int_2020);
+        __pyx_v_after_event = 0x7E4;
 
-        /* "final_project_cython_functions.pyx":560
+        /* "final_project_cython_functions.pyx":565
  *             if end_year > 2020:
  *                 end_year = 2020
  *             if after_event > 2020:             # <<<<<<<<<<<<<<
@@ -7198,29 +7188,26 @@ static PyObject *__pyx_pf_20final_project_cython_14get_gdp_info(CYTHON_UNUSED Py
  */
       }
 
-      /* "final_project_cython_functions.pyx":562
+      /* "final_project_cython_functions.pyx":567
  *             if after_event > 2020:
  *                 after_event = 2020
  *             if before_event < 1929:             # <<<<<<<<<<<<<<
  *                 before_event = 1929
  * 
  */
-      __pyx_t_1 = PyObject_RichCompare(__pyx_v_before_event, __pyx_int_1929, Py_LT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 562, __pyx_L1_error)
-      __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 562, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      if (__pyx_t_9) {
+      __pyx_t_10 = ((__pyx_v_before_event < 0x789) != 0);
+      if (__pyx_t_10) {
 
-        /* "final_project_cython_functions.pyx":563
+        /* "final_project_cython_functions.pyx":568
  *                 after_event = 2020
  *             if before_event < 1929:
  *                 before_event = 1929             # <<<<<<<<<<<<<<
  * 
  *             # Slice GDP df according to event
  */
-        __Pyx_INCREF(__pyx_int_1929);
-        __Pyx_DECREF_SET(__pyx_v_before_event, __pyx_int_1929);
+        __pyx_v_before_event = 0x789;
 
-        /* "final_project_cython_functions.pyx":562
+        /* "final_project_cython_functions.pyx":567
  *             if after_event > 2020:
  *                 after_event = 2020
  *             if before_event < 1929:             # <<<<<<<<<<<<<<
@@ -7229,16 +7216,16 @@ static PyObject *__pyx_pf_20final_project_cython_14get_gdp_info(CYTHON_UNUSED Py
  */
       }
 
-      /* "final_project_cython_functions.pyx":566
+      /* "final_project_cython_functions.pyx":571
  * 
  *             # Slice GDP df according to event
  *             event_gdp = us_gdp.loc[[0, 124, 131, 152], str(before_event): str(after_event)]             # <<<<<<<<<<<<<<
  *             event_gdp = event_gdp.apply(pd.to_numeric)  # convert all columns of DataFrame
  *             event_gdp = event_gdp.T
  */
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_us_gdp, __pyx_n_s_loc); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 566, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_us_gdp, __pyx_n_s_loc); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 571, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_6 = PyList_New(4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 566, __pyx_L1_error)
+      __pyx_t_6 = PyList_New(4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 571, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_INCREF(__pyx_int_0);
       __Pyx_GIVEREF(__pyx_int_0);
@@ -7252,185 +7239,193 @@ static PyObject *__pyx_pf_20final_project_cython_14get_gdp_info(CYTHON_UNUSED Py
       __Pyx_INCREF(__pyx_int_152);
       __Pyx_GIVEREF(__pyx_int_152);
       PyList_SET_ITEM(__pyx_t_6, 3, __pyx_int_152);
-      __pyx_t_3 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_v_before_event); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 566, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_before_event); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 571, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_7 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_v_after_event); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 566, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_t_3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 571, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_10 = PySlice_New(__pyx_t_3, __pyx_t_7, Py_None); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 566, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+      __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_after_event); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 571, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_3);
+      __pyx_t_11 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_t_3); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 571, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_11);
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+      __pyx_t_3 = PySlice_New(__pyx_t_7, __pyx_t_11, Py_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 571, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __pyx_t_7 = PyTuple_New(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 566, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_7);
+      __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+      __pyx_t_11 = PyTuple_New(2); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 571, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_11);
       __Pyx_GIVEREF(__pyx_t_6);
-      PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_6);
-      __Pyx_GIVEREF(__pyx_t_10);
-      PyTuple_SET_ITEM(__pyx_t_7, 1, __pyx_t_10);
+      PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_6);
+      __Pyx_GIVEREF(__pyx_t_3);
+      PyTuple_SET_ITEM(__pyx_t_11, 1, __pyx_t_3);
       __pyx_t_6 = 0;
-      __pyx_t_10 = 0;
-      __pyx_t_10 = __Pyx_PyObject_GetItem(__pyx_t_1, __pyx_t_7); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 566, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_10);
+      __pyx_t_3 = 0;
+      __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_t_1, __pyx_t_11); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 571, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __Pyx_XDECREF_SET(__pyx_v_event_gdp, __pyx_t_10);
-      __pyx_t_10 = 0;
+      __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+      __Pyx_XDECREF_SET(__pyx_v_event_gdp, __pyx_t_3);
+      __pyx_t_3 = 0;
 
-      /* "final_project_cython_functions.pyx":567
+      /* "final_project_cython_functions.pyx":572
  *             # Slice GDP df according to event
  *             event_gdp = us_gdp.loc[[0, 124, 131, 152], str(before_event): str(after_event)]
  *             event_gdp = event_gdp.apply(pd.to_numeric)  # convert all columns of DataFrame             # <<<<<<<<<<<<<<
  *             event_gdp = event_gdp.T
  *             event_gdp.columns = ['GDP', 'Personal consumption expenditures',
  */
-      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_event_gdp, __pyx_n_s_apply); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 567, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_7);
-      __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_pd); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 567, __pyx_L1_error)
+      __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_event_gdp, __pyx_n_s_apply); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 572, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_11);
+      __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_pd); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 572, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_to_numeric); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 567, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_to_numeric); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 572, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_t_1 = NULL;
-      if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_7))) {
-        __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_7);
+      if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_11))) {
+        __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_11);
         if (likely(__pyx_t_1)) {
-          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_7);
+          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_11);
           __Pyx_INCREF(__pyx_t_1);
           __Pyx_INCREF(function);
-          __Pyx_DECREF_SET(__pyx_t_7, function);
+          __Pyx_DECREF_SET(__pyx_t_11, function);
         }
       }
-      __pyx_t_10 = (__pyx_t_1) ? __Pyx_PyObject_Call2Args(__pyx_t_7, __pyx_t_1, __pyx_t_6) : __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_6);
+      __pyx_t_3 = (__pyx_t_1) ? __Pyx_PyObject_Call2Args(__pyx_t_11, __pyx_t_1, __pyx_t_6) : __Pyx_PyObject_CallOneArg(__pyx_t_11, __pyx_t_6);
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 567, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_10);
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __Pyx_DECREF_SET(__pyx_v_event_gdp, __pyx_t_10);
-      __pyx_t_10 = 0;
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 572, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_3);
+      __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+      __Pyx_DECREF_SET(__pyx_v_event_gdp, __pyx_t_3);
+      __pyx_t_3 = 0;
 
-      /* "final_project_cython_functions.pyx":568
+      /* "final_project_cython_functions.pyx":573
  *             event_gdp = us_gdp.loc[[0, 124, 131, 152], str(before_event): str(after_event)]
  *             event_gdp = event_gdp.apply(pd.to_numeric)  # convert all columns of DataFrame
  *             event_gdp = event_gdp.T             # <<<<<<<<<<<<<<
  *             event_gdp.columns = ['GDP', 'Personal consumption expenditures',
  *                                  'Gross private domestic investment',
  */
-      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_event_gdp, __pyx_n_s_T); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 568, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_10);
-      __Pyx_DECREF_SET(__pyx_v_event_gdp, __pyx_t_10);
-      __pyx_t_10 = 0;
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_event_gdp, __pyx_n_s_T); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 573, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_3);
+      __Pyx_DECREF_SET(__pyx_v_event_gdp, __pyx_t_3);
+      __pyx_t_3 = 0;
 
-      /* "final_project_cython_functions.pyx":569
+      /* "final_project_cython_functions.pyx":574
  *             event_gdp = event_gdp.apply(pd.to_numeric)  # convert all columns of DataFrame
  *             event_gdp = event_gdp.T
  *             event_gdp.columns = ['GDP', 'Personal consumption expenditures',             # <<<<<<<<<<<<<<
  *                                  'Gross private domestic investment',
  *                                  'Government consumption expenditures and gross investment']
  */
-      __pyx_t_10 = PyList_New(4); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 569, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_10);
+      __pyx_t_3 = PyList_New(4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 574, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_3);
       __Pyx_INCREF(__pyx_n_s_GDP);
       __Pyx_GIVEREF(__pyx_n_s_GDP);
-      PyList_SET_ITEM(__pyx_t_10, 0, __pyx_n_s_GDP);
+      PyList_SET_ITEM(__pyx_t_3, 0, __pyx_n_s_GDP);
       __Pyx_INCREF(__pyx_kp_s_Personal_consumption_expenditure);
       __Pyx_GIVEREF(__pyx_kp_s_Personal_consumption_expenditure);
-      PyList_SET_ITEM(__pyx_t_10, 1, __pyx_kp_s_Personal_consumption_expenditure);
+      PyList_SET_ITEM(__pyx_t_3, 1, __pyx_kp_s_Personal_consumption_expenditure);
       __Pyx_INCREF(__pyx_kp_s_Gross_private_domestic_investmen);
       __Pyx_GIVEREF(__pyx_kp_s_Gross_private_domestic_investmen);
-      PyList_SET_ITEM(__pyx_t_10, 2, __pyx_kp_s_Gross_private_domestic_investmen);
+      PyList_SET_ITEM(__pyx_t_3, 2, __pyx_kp_s_Gross_private_domestic_investmen);
       __Pyx_INCREF(__pyx_kp_s_Government_consumption_expenditu);
       __Pyx_GIVEREF(__pyx_kp_s_Government_consumption_expenditu);
-      PyList_SET_ITEM(__pyx_t_10, 3, __pyx_kp_s_Government_consumption_expenditu);
-      if (__Pyx_PyObject_SetAttrStr(__pyx_v_event_gdp, __pyx_n_s_columns, __pyx_t_10) < 0) __PYX_ERR(0, 569, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+      PyList_SET_ITEM(__pyx_t_3, 3, __pyx_kp_s_Government_consumption_expenditu);
+      if (__Pyx_PyObject_SetAttrStr(__pyx_v_event_gdp, __pyx_n_s_columns, __pyx_t_3) < 0) __PYX_ERR(0, 574, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "final_project_cython_functions.pyx":573
+      /* "final_project_cython_functions.pyx":578
  *                                  'Government consumption expenditures and gross investment']
  * 
  *             end_interval = end_year - before_event             # <<<<<<<<<<<<<<
  *             start_interval = start_year - before_event
  * 
  */
-      __pyx_t_10 = PyNumber_Subtract(__pyx_v_end_year, __pyx_v_before_event); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 573, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_10);
-      __Pyx_XDECREF_SET(__pyx_v_end_interval, __pyx_t_10);
-      __pyx_t_10 = 0;
+      __pyx_v_end_interval = (__pyx_v_end_year - __pyx_v_before_event);
 
-      /* "final_project_cython_functions.pyx":574
+      /* "final_project_cython_functions.pyx":579
  * 
  *             end_interval = end_year - before_event
  *             start_interval = start_year - before_event             # <<<<<<<<<<<<<<
  * 
  *             # call plot_gdp for each event
  */
-      __pyx_t_10 = PyNumber_Subtract(__pyx_v_start_year, __pyx_v_before_event); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 574, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_10);
-      __Pyx_XDECREF_SET(__pyx_v_start_interval, __pyx_t_10);
-      __pyx_t_10 = 0;
+      __pyx_v_start_interval = (__pyx_v_start_year - __pyx_v_before_event);
 
-      /* "final_project_cython_functions.pyx":577
+      /* "final_project_cython_functions.pyx":582
  * 
  *             # call plot_gdp for each event
  *             plot_gdp(event_gdp, event_name, end_interval, start_interval)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_plot_gdp); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 577, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_6 = NULL;
-      __pyx_t_11 = 0;
-      if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_7))) {
-        __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_7);
-        if (likely(__pyx_t_6)) {
-          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_7);
-          __Pyx_INCREF(__pyx_t_6);
+      __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_n_s_plot_gdp); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 582, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_11);
+      __pyx_t_6 = __Pyx_PyInt_From_int(__pyx_v_end_interval); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 582, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_6);
+      __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_start_interval); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 582, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      __pyx_t_7 = NULL;
+      __pyx_t_9 = 0;
+      if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_11))) {
+        __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_11);
+        if (likely(__pyx_t_7)) {
+          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_11);
+          __Pyx_INCREF(__pyx_t_7);
           __Pyx_INCREF(function);
-          __Pyx_DECREF_SET(__pyx_t_7, function);
-          __pyx_t_11 = 1;
+          __Pyx_DECREF_SET(__pyx_t_11, function);
+          __pyx_t_9 = 1;
         }
       }
       #if CYTHON_FAST_PYCALL
-      if (PyFunction_Check(__pyx_t_7)) {
-        PyObject *__pyx_temp[5] = {__pyx_t_6, __pyx_v_event_gdp, __pyx_v_event_name, __pyx_v_end_interval, __pyx_v_start_interval};
-        __pyx_t_10 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_11, 4+__pyx_t_11); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 577, __pyx_L1_error)
-        __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __Pyx_GOTREF(__pyx_t_10);
+      if (PyFunction_Check(__pyx_t_11)) {
+        PyObject *__pyx_temp[5] = {__pyx_t_7, __pyx_v_event_gdp, __pyx_v_event_name, __pyx_t_6, __pyx_t_1};
+        __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_11, __pyx_temp+1-__pyx_t_9, 4+__pyx_t_9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 582, __pyx_L1_error)
+        __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+        __Pyx_GOTREF(__pyx_t_3);
+        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       } else
       #endif
       #if CYTHON_FAST_PYCCALL
-      if (__Pyx_PyFastCFunction_Check(__pyx_t_7)) {
-        PyObject *__pyx_temp[5] = {__pyx_t_6, __pyx_v_event_gdp, __pyx_v_event_name, __pyx_v_end_interval, __pyx_v_start_interval};
-        __pyx_t_10 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_11, 4+__pyx_t_11); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 577, __pyx_L1_error)
-        __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __Pyx_GOTREF(__pyx_t_10);
+      if (__Pyx_PyFastCFunction_Check(__pyx_t_11)) {
+        PyObject *__pyx_temp[5] = {__pyx_t_7, __pyx_v_event_gdp, __pyx_v_event_name, __pyx_t_6, __pyx_t_1};
+        __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_11, __pyx_temp+1-__pyx_t_9, 4+__pyx_t_9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 582, __pyx_L1_error)
+        __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+        __Pyx_GOTREF(__pyx_t_3);
+        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       } else
       #endif
       {
-        __pyx_t_1 = PyTuple_New(4+__pyx_t_11); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 577, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_1);
-        if (__pyx_t_6) {
-          __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_6); __pyx_t_6 = NULL;
+        __pyx_t_12 = PyTuple_New(4+__pyx_t_9); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 582, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_12);
+        if (__pyx_t_7) {
+          __Pyx_GIVEREF(__pyx_t_7); PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_7); __pyx_t_7 = NULL;
         }
         __Pyx_INCREF(__pyx_v_event_gdp);
         __Pyx_GIVEREF(__pyx_v_event_gdp);
-        PyTuple_SET_ITEM(__pyx_t_1, 0+__pyx_t_11, __pyx_v_event_gdp);
+        PyTuple_SET_ITEM(__pyx_t_12, 0+__pyx_t_9, __pyx_v_event_gdp);
         __Pyx_INCREF(__pyx_v_event_name);
         __Pyx_GIVEREF(__pyx_v_event_name);
-        PyTuple_SET_ITEM(__pyx_t_1, 1+__pyx_t_11, __pyx_v_event_name);
-        __Pyx_INCREF(__pyx_v_end_interval);
-        __Pyx_GIVEREF(__pyx_v_end_interval);
-        PyTuple_SET_ITEM(__pyx_t_1, 2+__pyx_t_11, __pyx_v_end_interval);
-        __Pyx_INCREF(__pyx_v_start_interval);
-        __Pyx_GIVEREF(__pyx_v_start_interval);
-        PyTuple_SET_ITEM(__pyx_t_1, 3+__pyx_t_11, __pyx_v_start_interval);
-        __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_1, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 577, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_10);
-        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+        PyTuple_SET_ITEM(__pyx_t_12, 1+__pyx_t_9, __pyx_v_event_name);
+        __Pyx_GIVEREF(__pyx_t_6);
+        PyTuple_SET_ITEM(__pyx_t_12, 2+__pyx_t_9, __pyx_t_6);
+        __Pyx_GIVEREF(__pyx_t_1);
+        PyTuple_SET_ITEM(__pyx_t_12, 3+__pyx_t_9, __pyx_t_1);
+        __pyx_t_6 = 0;
+        __pyx_t_1 = 0;
+        __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_12, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 582, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
+        __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       }
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+      __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "final_project_cython_functions.pyx":557
+      /* "final_project_cython_functions.pyx":562
  * 
  *         # If start year less than min_year, start from 1929
  *         if start_year >= 1929:             # <<<<<<<<<<<<<<
@@ -7439,8 +7434,8 @@ static PyObject *__pyx_pf_20final_project_cython_14get_gdp_info(CYTHON_UNUSED Py
  */
     }
 
-    /* "final_project_cython_functions.pyx":549
- *     """
+    /* "final_project_cython_functions.pyx":554
+ * 
  *     # go through event file and get start_year, end_year
  *     for index, row in df.iterrows():             # <<<<<<<<<<<<<<
  *         event_name = row['Event_Name']
@@ -7466,26 +7461,21 @@ static PyObject *__pyx_pf_20final_project_cython_14get_gdp_info(CYTHON_UNUSED Py
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_XDECREF(__pyx_t_10);
+  __Pyx_XDECREF(__pyx_t_11);
+  __Pyx_XDECREF(__pyx_t_12);
   __Pyx_AddTraceback("final_project_cython.get_gdp_info", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_index);
   __Pyx_XDECREF(__pyx_v_row);
   __Pyx_XDECREF(__pyx_v_event_name);
-  __Pyx_XDECREF(__pyx_v_start_year);
-  __Pyx_XDECREF(__pyx_v_before_event);
-  __Pyx_XDECREF(__pyx_v_end_year);
-  __Pyx_XDECREF(__pyx_v_after_event);
   __Pyx_XDECREF(__pyx_v_event_gdp);
-  __Pyx_XDECREF(__pyx_v_end_interval);
-  __Pyx_XDECREF(__pyx_v_start_interval);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "final_project_cython_functions.pyx":580
+/* "final_project_cython_functions.pyx":585
  * 
  * 
  * def plot_gdp(gdp_df: pd.DataFrame, event_name: str, end_interval: int, start_interval: int):             # <<<<<<<<<<<<<<
@@ -7535,23 +7525,23 @@ static PyObject *__pyx_pw_20final_project_cython_17plot_gdp(PyObject *__pyx_self
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_event_name)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("plot_gdp", 1, 4, 4, 1); __PYX_ERR(0, 580, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("plot_gdp", 1, 4, 4, 1); __PYX_ERR(0, 585, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_end_interval)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("plot_gdp", 1, 4, 4, 2); __PYX_ERR(0, 580, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("plot_gdp", 1, 4, 4, 2); __PYX_ERR(0, 585, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_start_interval)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("plot_gdp", 1, 4, 4, 3); __PYX_ERR(0, 580, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("plot_gdp", 1, 4, 4, 3); __PYX_ERR(0, 585, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "plot_gdp") < 0)) __PYX_ERR(0, 580, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "plot_gdp") < 0)) __PYX_ERR(0, 585, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
       goto __pyx_L5_argtuple_error;
@@ -7568,13 +7558,13 @@ static PyObject *__pyx_pw_20final_project_cython_17plot_gdp(PyObject *__pyx_self
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("plot_gdp", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 580, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("plot_gdp", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 585, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("final_project_cython.plot_gdp", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_event_name), (&PyString_Type), 1, "event_name", 1))) __PYX_ERR(0, 580, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_event_name), (&PyString_Type), 1, "event_name", 1))) __PYX_ERR(0, 585, __pyx_L1_error)
   __pyx_r = __pyx_pf_20final_project_cython_16plot_gdp(__pyx_self, __pyx_v_gdp_df, __pyx_v_event_name, __pyx_v_end_interval, __pyx_v_start_interval);
 
   /* function exit code */
@@ -7605,22 +7595,22 @@ static PyObject *__pyx_pf_20final_project_cython_16plot_gdp(CYTHON_UNUSED PyObje
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("plot_gdp", 0);
 
-  /* "final_project_cython_functions.pyx":599
+  /* "final_project_cython_functions.pyx":604
  *     """
  * 
  *     fig, ax = plt.subplots(figsize=(15, 10))             # <<<<<<<<<<<<<<
  *     ax.plot(gdp_df)
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_plt); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 599, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_plt); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 604, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_subplots); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 599, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_subplots); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 604, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 599, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 604, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_figsize, __pyx_tuple__12) < 0) __PYX_ERR(0, 599, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 599, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_figsize, __pyx_tuple__12) < 0) __PYX_ERR(0, 604, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 604, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -7630,7 +7620,7 @@ static PyObject *__pyx_pf_20final_project_cython_16plot_gdp(CYTHON_UNUSED PyObje
     if (unlikely(size != 2)) {
       if (size > 2) __Pyx_RaiseTooManyValuesError(2);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 599, __pyx_L1_error)
+      __PYX_ERR(0, 604, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     if (likely(PyTuple_CheckExact(sequence))) {
@@ -7643,15 +7633,15 @@ static PyObject *__pyx_pf_20final_project_cython_16plot_gdp(CYTHON_UNUSED PyObje
     __Pyx_INCREF(__pyx_t_1);
     __Pyx_INCREF(__pyx_t_2);
     #else
-    __pyx_t_1 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 599, __pyx_L1_error)
+    __pyx_t_1 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 604, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 599, __pyx_L1_error)
+    __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 604, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     #endif
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
     Py_ssize_t index = -1;
-    __pyx_t_4 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 599, __pyx_L1_error)
+    __pyx_t_4 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 604, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_5 = Py_TYPE(__pyx_t_4)->tp_iternext;
@@ -7659,7 +7649,7 @@ static PyObject *__pyx_pf_20final_project_cython_16plot_gdp(CYTHON_UNUSED PyObje
     __Pyx_GOTREF(__pyx_t_1);
     index = 1; __pyx_t_2 = __pyx_t_5(__pyx_t_4); if (unlikely(!__pyx_t_2)) goto __pyx_L3_unpacking_failed;
     __Pyx_GOTREF(__pyx_t_2);
-    if (__Pyx_IternextUnpackEndCheck(__pyx_t_5(__pyx_t_4), 2) < 0) __PYX_ERR(0, 599, __pyx_L1_error)
+    if (__Pyx_IternextUnpackEndCheck(__pyx_t_5(__pyx_t_4), 2) < 0) __PYX_ERR(0, 604, __pyx_L1_error)
     __pyx_t_5 = NULL;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     goto __pyx_L4_unpacking_done;
@@ -7667,7 +7657,7 @@ static PyObject *__pyx_pf_20final_project_cython_16plot_gdp(CYTHON_UNUSED PyObje
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_5 = NULL;
     if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-    __PYX_ERR(0, 599, __pyx_L1_error)
+    __PYX_ERR(0, 604, __pyx_L1_error)
     __pyx_L4_unpacking_done:;
   }
   __pyx_v_fig = __pyx_t_1;
@@ -7675,14 +7665,14 @@ static PyObject *__pyx_pf_20final_project_cython_16plot_gdp(CYTHON_UNUSED PyObje
   __pyx_v_ax = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":600
+  /* "final_project_cython_functions.pyx":605
  * 
  *     fig, ax = plt.subplots(figsize=(15, 10))
  *     ax.plot(gdp_df)             # <<<<<<<<<<<<<<
  * 
  *     ax.set_xlabel("Year")
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax, __pyx_n_s_plot); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 600, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax, __pyx_n_s_plot); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 605, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_1 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -7696,19 +7686,19 @@ static PyObject *__pyx_pf_20final_project_cython_16plot_gdp(CYTHON_UNUSED PyObje
   }
   __pyx_t_3 = (__pyx_t_1) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_1, __pyx_v_gdp_df) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_gdp_df);
   __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 600, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 605, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "final_project_cython_functions.pyx":602
+  /* "final_project_cython_functions.pyx":607
  *     ax.plot(gdp_df)
  * 
  *     ax.set_xlabel("Year")             # <<<<<<<<<<<<<<
  *     ax.set_ylabel("Gross domestic product ($)")
  *     ax.ticklabel_format(style='plain', axis='y')
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax, __pyx_n_s_set_xlabel); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 602, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax, __pyx_n_s_set_xlabel); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 607, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_1 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -7722,19 +7712,19 @@ static PyObject *__pyx_pf_20final_project_cython_16plot_gdp(CYTHON_UNUSED PyObje
   }
   __pyx_t_3 = (__pyx_t_1) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_1, __pyx_n_s_Year) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_n_s_Year);
   __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 602, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 607, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "final_project_cython_functions.pyx":603
+  /* "final_project_cython_functions.pyx":608
  * 
  *     ax.set_xlabel("Year")
  *     ax.set_ylabel("Gross domestic product ($)")             # <<<<<<<<<<<<<<
  *     ax.ticklabel_format(style='plain', axis='y')
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax, __pyx_n_s_set_ylabel); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 603, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax, __pyx_n_s_set_ylabel); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 608, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_1 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -7748,38 +7738,38 @@ static PyObject *__pyx_pf_20final_project_cython_16plot_gdp(CYTHON_UNUSED PyObje
   }
   __pyx_t_3 = (__pyx_t_1) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_1, __pyx_kp_s_Gross_domestic_product) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_kp_s_Gross_domestic_product);
   __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 603, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 608, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "final_project_cython_functions.pyx":604
+  /* "final_project_cython_functions.pyx":609
  *     ax.set_xlabel("Year")
  *     ax.set_ylabel("Gross domestic product ($)")
  *     ax.ticklabel_format(style='plain', axis='y')             # <<<<<<<<<<<<<<
  * 
  *     x_bounds = ax.get_xlim()
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax, __pyx_n_s_ticklabel_format); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 604, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax, __pyx_n_s_ticklabel_format); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 609, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 604, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 609, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_style, __pyx_n_s_plain) < 0) __PYX_ERR(0, 604, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_axis, __pyx_n_s_y) < 0) __PYX_ERR(0, 604, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_empty_tuple, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 604, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_style, __pyx_n_s_plain) < 0) __PYX_ERR(0, 609, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_axis, __pyx_n_s_y) < 0) __PYX_ERR(0, 609, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_empty_tuple, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 609, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":606
+  /* "final_project_cython_functions.pyx":611
  *     ax.ticklabel_format(style='plain', axis='y')
  * 
  *     x_bounds = ax.get_xlim()             # <<<<<<<<<<<<<<
  *     y_bounds = ax.get_ylim()
  *     ax.vlines(end_interval, y_bounds[0], y_bounds[1], colors='red', linestyles='dashed')
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax, __pyx_n_s_get_xlim); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 606, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax, __pyx_n_s_get_xlim); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 611, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -7793,20 +7783,20 @@ static PyObject *__pyx_pf_20final_project_cython_16plot_gdp(CYTHON_UNUSED PyObje
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 606, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 611, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_x_bounds = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":607
+  /* "final_project_cython_functions.pyx":612
  * 
  *     x_bounds = ax.get_xlim()
  *     y_bounds = ax.get_ylim()             # <<<<<<<<<<<<<<
  *     ax.vlines(end_interval, y_bounds[0], y_bounds[1], colors='red', linestyles='dashed')
  *     ax.annotate(text='End Year', xy=(end_interval + 0.5, (y_bounds[0] + y_bounds[1]) * 2 / 3))
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax, __pyx_n_s_get_ylim); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 607, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax, __pyx_n_s_get_ylim); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 612, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -7820,26 +7810,26 @@ static PyObject *__pyx_pf_20final_project_cython_16plot_gdp(CYTHON_UNUSED PyObje
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 607, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 612, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_y_bounds = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":608
+  /* "final_project_cython_functions.pyx":613
  *     x_bounds = ax.get_xlim()
  *     y_bounds = ax.get_ylim()
  *     ax.vlines(end_interval, y_bounds[0], y_bounds[1], colors='red', linestyles='dashed')             # <<<<<<<<<<<<<<
  *     ax.annotate(text='End Year', xy=(end_interval + 0.5, (y_bounds[0] + y_bounds[1]) * 2 / 3))
  *     ax.vlines(start_interval, y_bounds[0], y_bounds[1], colors='green', linestyles='solid')
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax, __pyx_n_s_vlines); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 608, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax, __pyx_n_s_vlines); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 613, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_y_bounds, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 608, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_y_bounds, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 613, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_y_bounds, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 608, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_y_bounds, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 613, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 608, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 613, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(__pyx_v_end_interval);
   __Pyx_GIVEREF(__pyx_v_end_interval);
@@ -7850,46 +7840,46 @@ static PyObject *__pyx_pf_20final_project_cython_16plot_gdp(CYTHON_UNUSED PyObje
   PyTuple_SET_ITEM(__pyx_t_4, 2, __pyx_t_3);
   __pyx_t_2 = 0;
   __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 608, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 613, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_colors, __pyx_n_s_red) < 0) __PYX_ERR(0, 608, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_linestyles, __pyx_n_s_dashed) < 0) __PYX_ERR(0, 608, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_4, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 608, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_colors, __pyx_n_s_red) < 0) __PYX_ERR(0, 613, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_linestyles, __pyx_n_s_dashed) < 0) __PYX_ERR(0, 613, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_4, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 613, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":609
+  /* "final_project_cython_functions.pyx":614
  *     y_bounds = ax.get_ylim()
  *     ax.vlines(end_interval, y_bounds[0], y_bounds[1], colors='red', linestyles='dashed')
  *     ax.annotate(text='End Year', xy=(end_interval + 0.5, (y_bounds[0] + y_bounds[1]) * 2 / 3))             # <<<<<<<<<<<<<<
  *     ax.vlines(start_interval, y_bounds[0], y_bounds[1], colors='green', linestyles='solid')
  *     ax.annotate(text='Start Year', xy=(start_interval - 2, (y_bounds[0] + y_bounds[1]) * 2 / 3))
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax, __pyx_n_s_annotate); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 609, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax, __pyx_n_s_annotate); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 614, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 609, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 614, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_text, __pyx_kp_s_End_Year_2) < 0) __PYX_ERR(0, 609, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_PyFloat_AddObjC(__pyx_v_end_interval, __pyx_float_0_5, 0.5, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 609, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_text, __pyx_kp_s_End_Year_2) < 0) __PYX_ERR(0, 614, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyFloat_AddObjC(__pyx_v_end_interval, __pyx_float_0_5, 0.5, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 614, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_y_bounds, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 609, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_y_bounds, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 614, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_6 = __Pyx_GetItemInt(__pyx_v_y_bounds, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 609, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_GetItemInt(__pyx_v_y_bounds, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 614, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_7 = PyNumber_Add(__pyx_t_1, __pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 609, __pyx_L1_error)
+  __pyx_t_7 = PyNumber_Add(__pyx_t_1, __pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 614, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = PyNumber_Multiply(__pyx_t_7, __pyx_int_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 609, __pyx_L1_error)
+  __pyx_t_6 = PyNumber_Multiply(__pyx_t_7, __pyx_int_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 614, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = __Pyx_PyNumber_Divide(__pyx_t_6, __pyx_int_3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 609, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyNumber_Divide(__pyx_t_6, __pyx_int_3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 614, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 609, __pyx_L1_error)
+  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 614, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_4);
@@ -7897,28 +7887,28 @@ static PyObject *__pyx_pf_20final_project_cython_16plot_gdp(CYTHON_UNUSED PyObje
   PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_7);
   __pyx_t_4 = 0;
   __pyx_t_7 = 0;
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_xy, __pyx_t_6) < 0) __PYX_ERR(0, 609, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_xy, __pyx_t_6) < 0) __PYX_ERR(0, 614, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_empty_tuple, __pyx_t_3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 609, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_empty_tuple, __pyx_t_3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 614, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "final_project_cython_functions.pyx":610
+  /* "final_project_cython_functions.pyx":615
  *     ax.vlines(end_interval, y_bounds[0], y_bounds[1], colors='red', linestyles='dashed')
  *     ax.annotate(text='End Year', xy=(end_interval + 0.5, (y_bounds[0] + y_bounds[1]) * 2 / 3))
  *     ax.vlines(start_interval, y_bounds[0], y_bounds[1], colors='green', linestyles='solid')             # <<<<<<<<<<<<<<
  *     ax.annotate(text='Start Year', xy=(start_interval - 2, (y_bounds[0] + y_bounds[1]) * 2 / 3))
  * 
  */
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax, __pyx_n_s_vlines); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 610, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax, __pyx_n_s_vlines); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 615, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_y_bounds, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 610, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_y_bounds, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 615, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_y_bounds, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 610, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_y_bounds, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 615, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_7 = PyTuple_New(3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 610, __pyx_L1_error)
+  __pyx_t_7 = PyTuple_New(3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 615, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_INCREF(__pyx_v_start_interval);
   __Pyx_GIVEREF(__pyx_v_start_interval);
@@ -7929,46 +7919,46 @@ static PyObject *__pyx_pf_20final_project_cython_16plot_gdp(CYTHON_UNUSED PyObje
   PyTuple_SET_ITEM(__pyx_t_7, 2, __pyx_t_2);
   __pyx_t_3 = 0;
   __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 610, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 615, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_colors, __pyx_n_s_green) < 0) __PYX_ERR(0, 610, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_linestyles, __pyx_n_s_solid) < 0) __PYX_ERR(0, 610, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_7, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 610, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_colors, __pyx_n_s_green) < 0) __PYX_ERR(0, 615, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_linestyles, __pyx_n_s_solid) < 0) __PYX_ERR(0, 615, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_7, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 615, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "final_project_cython_functions.pyx":611
+  /* "final_project_cython_functions.pyx":616
  *     ax.annotate(text='End Year', xy=(end_interval + 0.5, (y_bounds[0] + y_bounds[1]) * 2 / 3))
  *     ax.vlines(start_interval, y_bounds[0], y_bounds[1], colors='green', linestyles='solid')
  *     ax.annotate(text='Start Year', xy=(start_interval - 2, (y_bounds[0] + y_bounds[1]) * 2 / 3))             # <<<<<<<<<<<<<<
  * 
  *     plt.title("GDP fluctuations for " + event_name)
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax, __pyx_n_s_annotate); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 611, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax, __pyx_n_s_annotate); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 616, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 611, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 616, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_text, __pyx_kp_s_Start_Year_2) < 0) __PYX_ERR(0, 611, __pyx_L1_error)
-  __pyx_t_7 = __Pyx_PyInt_SubtractObjC(__pyx_v_start_interval, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 611, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_text, __pyx_kp_s_Start_Year_2) < 0) __PYX_ERR(0, 616, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyInt_SubtractObjC(__pyx_v_start_interval, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 616, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_6 = __Pyx_GetItemInt(__pyx_v_y_bounds, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 611, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_GetItemInt(__pyx_v_y_bounds, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 616, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_4 = __Pyx_GetItemInt(__pyx_v_y_bounds, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 611, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_GetItemInt(__pyx_v_y_bounds, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 616, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_1 = PyNumber_Add(__pyx_t_6, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 611, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Add(__pyx_t_6, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 616, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyNumber_Multiply(__pyx_t_1, __pyx_int_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 611, __pyx_L1_error)
+  __pyx_t_4 = PyNumber_Multiply(__pyx_t_1, __pyx_int_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 616, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyNumber_Divide(__pyx_t_4, __pyx_int_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 611, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyNumber_Divide(__pyx_t_4, __pyx_int_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 616, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 611, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 616, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_7);
   PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_7);
@@ -7976,27 +7966,27 @@ static PyObject *__pyx_pf_20final_project_cython_16plot_gdp(CYTHON_UNUSED PyObje
   PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_1);
   __pyx_t_7 = 0;
   __pyx_t_1 = 0;
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_xy, __pyx_t_4) < 0) __PYX_ERR(0, 611, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_xy, __pyx_t_4) < 0) __PYX_ERR(0, 616, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_empty_tuple, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 611, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_empty_tuple, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 616, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "final_project_cython_functions.pyx":613
+  /* "final_project_cython_functions.pyx":618
  *     ax.annotate(text='Start Year', xy=(start_interval - 2, (y_bounds[0] + y_bounds[1]) * 2 / 3))
  * 
  *     plt.title("GDP fluctuations for " + event_name)             # <<<<<<<<<<<<<<
  *     plt.xticks(rotation=45)  # Rotates X-Axis Ticks by 45-degrees
  *     plt.legend(['GDP', 'Personal consumption expenditures', 'Gross private domestic investment',
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_plt); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 613, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_plt); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 618, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_title); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 613, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_title); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 618, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyNumber_Add(__pyx_kp_s_GDP_fluctuations_for, __pyx_v_event_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 613, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Add(__pyx_kp_s_GDP_fluctuations_for, __pyx_v_event_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 618, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_1 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
@@ -8011,45 +8001,45 @@ static PyObject *__pyx_pf_20final_project_cython_16plot_gdp(CYTHON_UNUSED PyObje
   __pyx_t_4 = (__pyx_t_1) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_1, __pyx_t_2) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2);
   __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 613, __pyx_L1_error)
+  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 618, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "final_project_cython_functions.pyx":614
+  /* "final_project_cython_functions.pyx":619
  * 
  *     plt.title("GDP fluctuations for " + event_name)
  *     plt.xticks(rotation=45)  # Rotates X-Axis Ticks by 45-degrees             # <<<<<<<<<<<<<<
  *     plt.legend(['GDP', 'Personal consumption expenditures', 'Gross private domestic investment',
  *                 'Government consumption expenditures and gross investment'], loc='upper left')
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_plt); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 614, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_plt); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 619, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_xticks); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 614, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_xticks); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 619, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 614, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 619, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_rotation, __pyx_int_45) < 0) __PYX_ERR(0, 614, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_empty_tuple, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 614, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_rotation, __pyx_int_45) < 0) __PYX_ERR(0, 619, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_empty_tuple, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 619, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":615
+  /* "final_project_cython_functions.pyx":620
  *     plt.title("GDP fluctuations for " + event_name)
  *     plt.xticks(rotation=45)  # Rotates X-Axis Ticks by 45-degrees
  *     plt.legend(['GDP', 'Personal consumption expenditures', 'Gross private domestic investment',             # <<<<<<<<<<<<<<
  *                 'Government consumption expenditures and gross investment'], loc='upper left')
  *     plt.savefig('Plots/GDP/' + event_name + '.png')
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_plt); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 615, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_plt); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 620, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_legend); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 615, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_legend); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 620, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyList_New(4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 615, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 620, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_n_s_GDP);
   __Pyx_GIVEREF(__pyx_n_s_GDP);
@@ -8063,52 +8053,52 @@ static PyObject *__pyx_pf_20final_project_cython_16plot_gdp(CYTHON_UNUSED PyObje
   __Pyx_INCREF(__pyx_kp_s_Government_consumption_expenditu);
   __Pyx_GIVEREF(__pyx_kp_s_Government_consumption_expenditu);
   PyList_SET_ITEM(__pyx_t_2, 3, __pyx_kp_s_Government_consumption_expenditu);
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 615, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 620, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":616
+  /* "final_project_cython_functions.pyx":621
  *     plt.xticks(rotation=45)  # Rotates X-Axis Ticks by 45-degrees
  *     plt.legend(['GDP', 'Personal consumption expenditures', 'Gross private domestic investment',
  *                 'Government consumption expenditures and gross investment'], loc='upper left')             # <<<<<<<<<<<<<<
  *     plt.savefig('Plots/GDP/' + event_name + '.png')
  * 
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 616, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 621, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_loc, __pyx_kp_s_upper_left) < 0) __PYX_ERR(0, 616, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_loc, __pyx_kp_s_upper_left) < 0) __PYX_ERR(0, 621, __pyx_L1_error)
 
-  /* "final_project_cython_functions.pyx":615
+  /* "final_project_cython_functions.pyx":620
  *     plt.title("GDP fluctuations for " + event_name)
  *     plt.xticks(rotation=45)  # Rotates X-Axis Ticks by 45-degrees
  *     plt.legend(['GDP', 'Personal consumption expenditures', 'Gross private domestic investment',             # <<<<<<<<<<<<<<
  *                 'Government consumption expenditures and gross investment'], loc='upper left')
  *     plt.savefig('Plots/GDP/' + event_name + '.png')
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 615, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 620, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":617
+  /* "final_project_cython_functions.pyx":622
  *     plt.legend(['GDP', 'Personal consumption expenditures', 'Gross private domestic investment',
  *                 'Government consumption expenditures and gross investment'], loc='upper left')
  *     plt.savefig('Plots/GDP/' + event_name + '.png')             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_plt); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 617, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_plt); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 622, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_savefig); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 617, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_savefig); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 622, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyNumber_Add(__pyx_kp_s_Plots_GDP, __pyx_v_event_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 617, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Add(__pyx_kp_s_Plots_GDP, __pyx_v_event_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 622, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = PyNumber_Add(__pyx_t_2, __pyx_kp_s_png); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 617, __pyx_L1_error)
+  __pyx_t_4 = PyNumber_Add(__pyx_t_2, __pyx_kp_s_png); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 622, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -8124,12 +8114,12 @@ static PyObject *__pyx_pf_20final_project_cython_16plot_gdp(CYTHON_UNUSED PyObje
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_2, __pyx_t_4) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 617, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 622, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":580
+  /* "final_project_cython_functions.pyx":585
  * 
  * 
  * def plot_gdp(gdp_df: pd.DataFrame, event_name: str, end_interval: int, start_interval: int):             # <<<<<<<<<<<<<<
@@ -8159,7 +8149,7 @@ static PyObject *__pyx_pf_20final_project_cython_16plot_gdp(CYTHON_UNUSED PyObje
   return __pyx_r;
 }
 
-/* "final_project_cython_functions.pyx":620
+/* "final_project_cython_functions.pyx":625
  * 
  * 
  * def read_us_cpi(filename: str, min_year: Union[int, None] = None, max_year: Union[int, None] = None) -> pd.DataFrame:             # <<<<<<<<<<<<<<
@@ -8218,7 +8208,7 @@ static PyObject *__pyx_pw_20final_project_cython_19read_us_cpi(PyObject *__pyx_s
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "read_us_cpi") < 0)) __PYX_ERR(0, 620, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "read_us_cpi") < 0)) __PYX_ERR(0, 625, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -8237,13 +8227,13 @@ static PyObject *__pyx_pw_20final_project_cython_19read_us_cpi(PyObject *__pyx_s
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("read_us_cpi", 0, 1, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 620, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("read_us_cpi", 0, 1, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 625, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("final_project_cython.read_us_cpi", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_filename), (&PyString_Type), 1, "filename", 1))) __PYX_ERR(0, 620, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_filename), (&PyString_Type), 1, "filename", 1))) __PYX_ERR(0, 625, __pyx_L1_error)
   __pyx_r = __pyx_pf_20final_project_cython_18read_us_cpi(__pyx_self, __pyx_v_filename, __pyx_v_min_year, __pyx_v_max_year);
 
   /* function exit code */
@@ -8272,44 +8262,44 @@ static PyObject *__pyx_pf_20final_project_cython_18read_us_cpi(CYTHON_UNUSED PyO
   __Pyx_INCREF(__pyx_v_min_year);
   __Pyx_INCREF(__pyx_v_max_year);
 
-  /* "final_project_cython_functions.pyx":660
+  /* "final_project_cython_functions.pyx":665
  * 
  *     # Raise an error if the years requested are outside of the year bounds
  *     if min_year or max_year:             # <<<<<<<<<<<<<<
  *         min_max_year_checking(min_year=min_year, max_year=max_year)
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_min_year); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 660, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_min_year); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 665, __pyx_L1_error)
   if (!__pyx_t_2) {
   } else {
     __pyx_t_1 = __pyx_t_2;
     goto __pyx_L4_bool_binop_done;
   }
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_max_year); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 660, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_max_year); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 665, __pyx_L1_error)
   __pyx_t_1 = __pyx_t_2;
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "final_project_cython_functions.pyx":661
+    /* "final_project_cython_functions.pyx":666
  *     # Raise an error if the years requested are outside of the year bounds
  *     if min_year or max_year:
  *         min_max_year_checking(min_year=min_year, max_year=max_year)             # <<<<<<<<<<<<<<
  * 
  *     # Use float32 instead of float16 due to bug with float16 and percentages -
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_min_max_year_checking); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 661, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_min_max_year_checking); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 666, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 661, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 666, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_min_year, __pyx_v_min_year) < 0) __PYX_ERR(0, 661, __pyx_L1_error)
-    if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_max_year, __pyx_v_max_year) < 0) __PYX_ERR(0, 661, __pyx_L1_error)
-    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_empty_tuple, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 661, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_min_year, __pyx_v_min_year) < 0) __PYX_ERR(0, 666, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_max_year, __pyx_v_max_year) < 0) __PYX_ERR(0, 666, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_empty_tuple, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 666, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-    /* "final_project_cython_functions.pyx":660
+    /* "final_project_cython_functions.pyx":665
  * 
  *     # Raise an error if the years requested are outside of the year bounds
  *     if min_year or max_year:             # <<<<<<<<<<<<<<
@@ -8318,27 +8308,27 @@ static PyObject *__pyx_pf_20final_project_cython_18read_us_cpi(CYTHON_UNUSED PyO
  */
   }
 
-  /* "final_project_cython_functions.pyx":665
+  /* "final_project_cython_functions.pyx":670
  *     # Use float32 instead of float16 due to bug with float16 and percentages -
  *     #    see https://github.com/pandas-dev/pandas/issues/9220
  *     df = pd.read_csv(filename, header=0, usecols=['Year', 'Value'], dtype={'Year': 'int16', 'Value': 'float32'})             # <<<<<<<<<<<<<<
  * 
  *     # Calculate the averages for each year, and keep year as a column, not an index
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_pd); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 665, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_pd); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 670, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_read_csv); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 665, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_read_csv); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 670, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 665, __pyx_L1_error)
+  __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 670, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_INCREF(__pyx_v_filename);
   __Pyx_GIVEREF(__pyx_v_filename);
   PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_v_filename);
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 665, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 670, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_header, __pyx_int_0) < 0) __PYX_ERR(0, 665, __pyx_L1_error)
-  __pyx_t_6 = PyList_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 665, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_header, __pyx_int_0) < 0) __PYX_ERR(0, 670, __pyx_L1_error)
+  __pyx_t_6 = PyList_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 670, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_INCREF(__pyx_n_s_Year);
   __Pyx_GIVEREF(__pyx_n_s_Year);
@@ -8346,15 +8336,15 @@ static PyObject *__pyx_pf_20final_project_cython_18read_us_cpi(CYTHON_UNUSED PyO
   __Pyx_INCREF(__pyx_n_s_Value);
   __Pyx_GIVEREF(__pyx_n_s_Value);
   PyList_SET_ITEM(__pyx_t_6, 1, __pyx_n_s_Value);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_usecols, __pyx_t_6) < 0) __PYX_ERR(0, 665, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_usecols, __pyx_t_6) < 0) __PYX_ERR(0, 670, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 665, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 670, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_Year, __pyx_n_s_int16) < 0) __PYX_ERR(0, 665, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_Value, __pyx_n_s_float32) < 0) __PYX_ERR(0, 665, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_6) < 0) __PYX_ERR(0, 665, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_Year, __pyx_n_s_int16) < 0) __PYX_ERR(0, 670, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_Value, __pyx_n_s_float32) < 0) __PYX_ERR(0, 670, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_6) < 0) __PYX_ERR(0, 670, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_5, __pyx_t_3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 665, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_5, __pyx_t_3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 670, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -8362,14 +8352,14 @@ static PyObject *__pyx_pf_20final_project_cython_18read_us_cpi(CYTHON_UNUSED PyO
   __pyx_v_df = __pyx_t_6;
   __pyx_t_6 = 0;
 
-  /* "final_project_cython_functions.pyx":668
+  /* "final_project_cython_functions.pyx":673
  * 
  *     # Calculate the averages for each year, and keep year as a column, not an index
  *     df = df.groupby('Year').mean()             # <<<<<<<<<<<<<<
  *     df.reset_index(inplace=True)
  * 
  */
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_df, __pyx_n_s_groupby); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 668, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_df, __pyx_n_s_groupby); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 673, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_4 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
@@ -8383,10 +8373,10 @@ static PyObject *__pyx_pf_20final_project_cython_18read_us_cpi(CYTHON_UNUSED PyO
   }
   __pyx_t_3 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_4, __pyx_n_s_Year) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_n_s_Year);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 668, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 673, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_mean); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 668, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_mean); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 673, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -8401,69 +8391,69 @@ static PyObject *__pyx_pf_20final_project_cython_18read_us_cpi(CYTHON_UNUSED PyO
   }
   __pyx_t_6 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 668, __pyx_L1_error)
+  if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 673, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF_SET(__pyx_v_df, __pyx_t_6);
   __pyx_t_6 = 0;
 
-  /* "final_project_cython_functions.pyx":669
+  /* "final_project_cython_functions.pyx":674
  *     # Calculate the averages for each year, and keep year as a column, not an index
  *     df = df.groupby('Year').mean()
  *     df.reset_index(inplace=True)             # <<<<<<<<<<<<<<
  * 
  *     # If either minimum or maximum year was specified, filter down on these
  */
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_df, __pyx_n_s_reset_index); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 669, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_df, __pyx_n_s_reset_index); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 674, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 669, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 674, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_inplace, Py_True) < 0) __PYX_ERR(0, 669, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_empty_tuple, __pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 669, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_inplace, Py_True) < 0) __PYX_ERR(0, 674, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_empty_tuple, __pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 674, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "final_project_cython_functions.pyx":672
+  /* "final_project_cython_functions.pyx":677
  * 
  *     # If either minimum or maximum year was specified, filter down on these
  *     if min_year or max_year:             # <<<<<<<<<<<<<<
  *         # Find the minimum and maximum years if one of these wasn't given as a parameter
  *         if not min_year:
  */
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_min_year); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 672, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_min_year); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 677, __pyx_L1_error)
   if (!__pyx_t_2) {
   } else {
     __pyx_t_1 = __pyx_t_2;
     goto __pyx_L7_bool_binop_done;
   }
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_max_year); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 672, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_max_year); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 677, __pyx_L1_error)
   __pyx_t_1 = __pyx_t_2;
   __pyx_L7_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "final_project_cython_functions.pyx":674
+    /* "final_project_cython_functions.pyx":679
  *     if min_year or max_year:
  *         # Find the minimum and maximum years if one of these wasn't given as a parameter
  *         if not min_year:             # <<<<<<<<<<<<<<
  *             min_year = int(df['Year'].min())
  *         elif not max_year:
  */
-    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_min_year); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 674, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_min_year); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 679, __pyx_L1_error)
     __pyx_t_2 = ((!__pyx_t_1) != 0);
     if (__pyx_t_2) {
 
-      /* "final_project_cython_functions.pyx":675
+      /* "final_project_cython_functions.pyx":680
  *         # Find the minimum and maximum years if one of these wasn't given as a parameter
  *         if not min_year:
  *             min_year = int(df['Year'].min())             # <<<<<<<<<<<<<<
  *         elif not max_year:
  *             max_year = int(df['Year'].max())
  */
-      __pyx_t_5 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df, __pyx_n_s_Year); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 675, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df, __pyx_n_s_Year); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 680, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_min); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 675, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_min); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 680, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __pyx_t_5 = NULL;
@@ -8478,16 +8468,16 @@ static PyObject *__pyx_pf_20final_project_cython_18read_us_cpi(CYTHON_UNUSED PyO
       }
       __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_5) : __Pyx_PyObject_CallNoArg(__pyx_t_6);
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 675, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 680, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __pyx_t_6 = __Pyx_PyNumber_Int(__pyx_t_3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 675, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyNumber_Int(__pyx_t_3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 680, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF_SET(__pyx_v_min_year, __pyx_t_6);
       __pyx_t_6 = 0;
 
-      /* "final_project_cython_functions.pyx":674
+      /* "final_project_cython_functions.pyx":679
  *     if min_year or max_year:
  *         # Find the minimum and maximum years if one of these wasn't given as a parameter
  *         if not min_year:             # <<<<<<<<<<<<<<
@@ -8497,27 +8487,27 @@ static PyObject *__pyx_pf_20final_project_cython_18read_us_cpi(CYTHON_UNUSED PyO
       goto __pyx_L9;
     }
 
-    /* "final_project_cython_functions.pyx":676
+    /* "final_project_cython_functions.pyx":681
  *         if not min_year:
  *             min_year = int(df['Year'].min())
  *         elif not max_year:             # <<<<<<<<<<<<<<
  *             max_year = int(df['Year'].max())
  * 
  */
-    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_max_year); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 676, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_max_year); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 681, __pyx_L1_error)
     __pyx_t_1 = ((!__pyx_t_2) != 0);
     if (__pyx_t_1) {
 
-      /* "final_project_cython_functions.pyx":677
+      /* "final_project_cython_functions.pyx":682
  *             min_year = int(df['Year'].min())
  *         elif not max_year:
  *             max_year = int(df['Year'].max())             # <<<<<<<<<<<<<<
  * 
  *         df = df[df['Year'] >= min_year]
  */
-      __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df, __pyx_n_s_Year); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 677, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df, __pyx_n_s_Year); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 682, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_max); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 677, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_max); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 682, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __pyx_t_3 = NULL;
@@ -8532,16 +8522,16 @@ static PyObject *__pyx_pf_20final_project_cython_18read_us_cpi(CYTHON_UNUSED PyO
       }
       __pyx_t_6 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_5);
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 677, __pyx_L1_error)
+      if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 682, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_5 = __Pyx_PyNumber_Int(__pyx_t_6); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 677, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyNumber_Int(__pyx_t_6); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 682, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF_SET(__pyx_v_max_year, __pyx_t_5);
       __pyx_t_5 = 0;
 
-      /* "final_project_cython_functions.pyx":676
+      /* "final_project_cython_functions.pyx":681
  *         if not min_year:
  *             min_year = int(df['Year'].min())
  *         elif not max_year:             # <<<<<<<<<<<<<<
@@ -8551,41 +8541,41 @@ static PyObject *__pyx_pf_20final_project_cython_18read_us_cpi(CYTHON_UNUSED PyO
     }
     __pyx_L9:;
 
-    /* "final_project_cython_functions.pyx":679
+    /* "final_project_cython_functions.pyx":684
  *             max_year = int(df['Year'].max())
  * 
  *         df = df[df['Year'] >= min_year]             # <<<<<<<<<<<<<<
  *         df = df[df['Year'] <= max_year]
  * 
  */
-    __pyx_t_5 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df, __pyx_n_s_Year); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 679, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df, __pyx_n_s_Year); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 684, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = PyObject_RichCompare(__pyx_t_5, __pyx_v_min_year, Py_GE); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 679, __pyx_L1_error)
+    __pyx_t_6 = PyObject_RichCompare(__pyx_t_5, __pyx_v_min_year, Py_GE); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 684, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_GetItem(__pyx_v_df, __pyx_t_6); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 679, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetItem(__pyx_v_df, __pyx_t_6); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 684, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF_SET(__pyx_v_df, __pyx_t_5);
     __pyx_t_5 = 0;
 
-    /* "final_project_cython_functions.pyx":680
+    /* "final_project_cython_functions.pyx":685
  * 
  *         df = df[df['Year'] >= min_year]
  *         df = df[df['Year'] <= max_year]             # <<<<<<<<<<<<<<
  * 
  *     return df
  */
-    __pyx_t_5 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df, __pyx_n_s_Year); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 680, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df, __pyx_n_s_Year); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 685, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = PyObject_RichCompare(__pyx_t_5, __pyx_v_max_year, Py_LE); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 680, __pyx_L1_error)
+    __pyx_t_6 = PyObject_RichCompare(__pyx_t_5, __pyx_v_max_year, Py_LE); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 685, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_GetItem(__pyx_v_df, __pyx_t_6); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 680, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetItem(__pyx_v_df, __pyx_t_6); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 685, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF_SET(__pyx_v_df, __pyx_t_5);
     __pyx_t_5 = 0;
 
-    /* "final_project_cython_functions.pyx":672
+    /* "final_project_cython_functions.pyx":677
  * 
  *     # If either minimum or maximum year was specified, filter down on these
  *     if min_year or max_year:             # <<<<<<<<<<<<<<
@@ -8594,7 +8584,7 @@ static PyObject *__pyx_pf_20final_project_cython_18read_us_cpi(CYTHON_UNUSED PyO
  */
   }
 
-  /* "final_project_cython_functions.pyx":682
+  /* "final_project_cython_functions.pyx":687
  *         df = df[df['Year'] <= max_year]
  * 
  *     return df             # <<<<<<<<<<<<<<
@@ -8606,7 +8596,7 @@ static PyObject *__pyx_pf_20final_project_cython_18read_us_cpi(CYTHON_UNUSED PyO
   __pyx_r = __pyx_v_df;
   goto __pyx_L0;
 
-  /* "final_project_cython_functions.pyx":620
+  /* "final_project_cython_functions.pyx":625
  * 
  * 
  * def read_us_cpi(filename: str, min_year: Union[int, None] = None, max_year: Union[int, None] = None) -> pd.DataFrame:             # <<<<<<<<<<<<<<
@@ -8631,7 +8621,7 @@ static PyObject *__pyx_pf_20final_project_cython_18read_us_cpi(CYTHON_UNUSED PyO
   return __pyx_r;
 }
 
-/* "final_project_cython_functions.pyx":685
+/* "final_project_cython_functions.pyx":690
  * 
  * 
  * def add_cpi_values(event_df: pd.DataFrame, cpi_df: pd.DataFrame) -> pd.DataFrame:             # <<<<<<<<<<<<<<
@@ -8675,11 +8665,11 @@ static PyObject *__pyx_pw_20final_project_cython_21add_cpi_values(PyObject *__py
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_cpi_df)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("add_cpi_values", 1, 2, 2, 1); __PYX_ERR(0, 685, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("add_cpi_values", 1, 2, 2, 1); __PYX_ERR(0, 690, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "add_cpi_values") < 0)) __PYX_ERR(0, 685, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "add_cpi_values") < 0)) __PYX_ERR(0, 690, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -8692,7 +8682,7 @@ static PyObject *__pyx_pw_20final_project_cython_21add_cpi_values(PyObject *__py
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("add_cpi_values", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 685, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("add_cpi_values", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 690, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("final_project_cython.add_cpi_values", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -8738,26 +8728,26 @@ static PyObject *__pyx_pf_20final_project_cython_20add_cpi_values(CYTHON_UNUSED 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("add_cpi_values", 0);
 
-  /* "final_project_cython_functions.pyx":717
+  /* "final_project_cython_functions.pyx":722
  *     10             21.000000                   NaN
  *     """
  *     results = {}             # <<<<<<<<<<<<<<
  *     for _, row in event_df.iterrows():
  *         event = row['Event_Name']
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 717, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 722, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_results = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":718
+  /* "final_project_cython_functions.pyx":723
  *     """
  *     results = {}
  *     for _, row in event_df.iterrows():             # <<<<<<<<<<<<<<
  *         event = row['Event_Name']
  *         plot_start_year = row['y_start']
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_event_df, __pyx_n_s_iterrows); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 718, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_event_df, __pyx_n_s_iterrows); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 723, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -8771,16 +8761,16 @@ static PyObject *__pyx_pf_20final_project_cython_20add_cpi_values(CYTHON_UNUSED 
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 718, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 723, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
     __pyx_t_2 = __pyx_t_1; __Pyx_INCREF(__pyx_t_2); __pyx_t_4 = 0;
     __pyx_t_5 = NULL;
   } else {
-    __pyx_t_4 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 718, __pyx_L1_error)
+    __pyx_t_4 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 723, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_5 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 718, __pyx_L1_error)
+    __pyx_t_5 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 723, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   for (;;) {
@@ -8788,17 +8778,17 @@ static PyObject *__pyx_pf_20final_project_cython_20add_cpi_values(CYTHON_UNUSED 
       if (likely(PyList_CheckExact(__pyx_t_2))) {
         if (__pyx_t_4 >= PyList_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_1 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_4); __Pyx_INCREF(__pyx_t_1); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 718, __pyx_L1_error)
+        __pyx_t_1 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_4); __Pyx_INCREF(__pyx_t_1); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 723, __pyx_L1_error)
         #else
-        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 718, __pyx_L1_error)
+        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 723, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         #endif
       } else {
         if (__pyx_t_4 >= PyTuple_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_4); __Pyx_INCREF(__pyx_t_1); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 718, __pyx_L1_error)
+        __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_4); __Pyx_INCREF(__pyx_t_1); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 723, __pyx_L1_error)
         #else
-        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 718, __pyx_L1_error)
+        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 723, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         #endif
       }
@@ -8808,7 +8798,7 @@ static PyObject *__pyx_pf_20final_project_cython_20add_cpi_values(CYTHON_UNUSED 
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 718, __pyx_L1_error)
+          else __PYX_ERR(0, 723, __pyx_L1_error)
         }
         break;
       }
@@ -8820,7 +8810,7 @@ static PyObject *__pyx_pf_20final_project_cython_20add_cpi_values(CYTHON_UNUSED 
       if (unlikely(size != 2)) {
         if (size > 2) __Pyx_RaiseTooManyValuesError(2);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 718, __pyx_L1_error)
+        __PYX_ERR(0, 723, __pyx_L1_error)
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
       if (likely(PyTuple_CheckExact(sequence))) {
@@ -8833,15 +8823,15 @@ static PyObject *__pyx_pf_20final_project_cython_20add_cpi_values(CYTHON_UNUSED 
       __Pyx_INCREF(__pyx_t_3);
       __Pyx_INCREF(__pyx_t_6);
       #else
-      __pyx_t_3 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 718, __pyx_L1_error)
+      __pyx_t_3 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 723, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_6 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 718, __pyx_L1_error)
+      __pyx_t_6 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 723, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       #endif
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     } else {
       Py_ssize_t index = -1;
-      __pyx_t_7 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 718, __pyx_L1_error)
+      __pyx_t_7 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 723, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_t_8 = Py_TYPE(__pyx_t_7)->tp_iternext;
@@ -8849,7 +8839,7 @@ static PyObject *__pyx_pf_20final_project_cython_20add_cpi_values(CYTHON_UNUSED 
       __Pyx_GOTREF(__pyx_t_3);
       index = 1; __pyx_t_6 = __pyx_t_8(__pyx_t_7); if (unlikely(!__pyx_t_6)) goto __pyx_L5_unpacking_failed;
       __Pyx_GOTREF(__pyx_t_6);
-      if (__Pyx_IternextUnpackEndCheck(__pyx_t_8(__pyx_t_7), 2) < 0) __PYX_ERR(0, 718, __pyx_L1_error)
+      if (__Pyx_IternextUnpackEndCheck(__pyx_t_8(__pyx_t_7), 2) < 0) __PYX_ERR(0, 723, __pyx_L1_error)
       __pyx_t_8 = NULL;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       goto __pyx_L6_unpacking_done;
@@ -8857,7 +8847,7 @@ static PyObject *__pyx_pf_20final_project_cython_20add_cpi_values(CYTHON_UNUSED 
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __pyx_t_8 = NULL;
       if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-      __PYX_ERR(0, 718, __pyx_L1_error)
+      __PYX_ERR(0, 723, __pyx_L1_error)
       __pyx_L6_unpacking_done:;
     }
     __Pyx_XDECREF_SET(__pyx_v__, __pyx_t_3);
@@ -8865,64 +8855,64 @@ static PyObject *__pyx_pf_20final_project_cython_20add_cpi_values(CYTHON_UNUSED 
     __Pyx_XDECREF_SET(__pyx_v_row, __pyx_t_6);
     __pyx_t_6 = 0;
 
-    /* "final_project_cython_functions.pyx":719
+    /* "final_project_cython_functions.pyx":724
  *     results = {}
  *     for _, row in event_df.iterrows():
  *         event = row['Event_Name']             # <<<<<<<<<<<<<<
  *         plot_start_year = row['y_start']
  *         plot_end_year = row['y_end']
  */
-    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_row, __pyx_n_s_Event_Name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 719, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_row, __pyx_n_s_Event_Name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 724, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_XDECREF_SET(__pyx_v_event, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "final_project_cython_functions.pyx":720
+    /* "final_project_cython_functions.pyx":725
  *     for _, row in event_df.iterrows():
  *         event = row['Event_Name']
  *         plot_start_year = row['y_start']             # <<<<<<<<<<<<<<
  *         plot_end_year = row['y_end']
  *         event_end_year = row['End_Year']
  */
-    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_row, __pyx_n_s_y_start); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 720, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_row, __pyx_n_s_y_start); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 725, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_XDECREF_SET(__pyx_v_plot_start_year, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "final_project_cython_functions.pyx":721
+    /* "final_project_cython_functions.pyx":726
  *         event = row['Event_Name']
  *         plot_start_year = row['y_start']
  *         plot_end_year = row['y_end']             # <<<<<<<<<<<<<<
  *         event_end_year = row['End_Year']
  * 
  */
-    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_row, __pyx_n_s_y_end); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 721, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_row, __pyx_n_s_y_end); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 726, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_XDECREF_SET(__pyx_v_plot_end_year, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "final_project_cython_functions.pyx":722
+    /* "final_project_cython_functions.pyx":727
  *         plot_start_year = row['y_start']
  *         plot_end_year = row['y_end']
  *         event_end_year = row['End_Year']             # <<<<<<<<<<<<<<
  * 
  *         # Select all the CPI values between the beginning and ending years
  */
-    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_row, __pyx_n_s_End_Year); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 722, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_row, __pyx_n_s_End_Year); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 727, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_XDECREF_SET(__pyx_v_event_end_year, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "final_project_cython_functions.pyx":725
+    /* "final_project_cython_functions.pyx":730
  * 
  *         # Select all the CPI values between the beginning and ending years
  *         cpi_df_selected = trim_to_years(cpi_df, plot_start_year, plot_end_year, 'Year', pad='nan', pad_col_name='Value')             # <<<<<<<<<<<<<<
  * 
  *         # Calculate the percentage changes.  Value must be changed to float32 away from float16 due to a bug -
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_trim_to_years); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 725, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_trim_to_years); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 730, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_6 = PyTuple_New(4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 725, __pyx_L1_error)
+    __pyx_t_6 = PyTuple_New(4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 730, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_INCREF(__pyx_v_cpi_df);
     __Pyx_GIVEREF(__pyx_v_cpi_df);
@@ -8936,11 +8926,11 @@ static PyObject *__pyx_pf_20final_project_cython_20add_cpi_values(CYTHON_UNUSED 
     __Pyx_INCREF(__pyx_n_s_Year);
     __Pyx_GIVEREF(__pyx_n_s_Year);
     PyTuple_SET_ITEM(__pyx_t_6, 3, __pyx_n_s_Year);
-    __pyx_t_3 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 725, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 730, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_pad, __pyx_n_s_nan) < 0) __PYX_ERR(0, 725, __pyx_L1_error)
-    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_pad_col_name, __pyx_n_s_Value) < 0) __PYX_ERR(0, 725, __pyx_L1_error)
-    __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_6, __pyx_t_3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 725, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_pad, __pyx_n_s_nan) < 0) __PYX_ERR(0, 730, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_pad_col_name, __pyx_n_s_Value) < 0) __PYX_ERR(0, 730, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_6, __pyx_t_3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 730, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -8948,34 +8938,34 @@ static PyObject *__pyx_pf_20final_project_cython_20add_cpi_values(CYTHON_UNUSED 
     __Pyx_XDECREF_SET(__pyx_v_cpi_df_selected, __pyx_t_7);
     __pyx_t_7 = 0;
 
-    /* "final_project_cython_functions.pyx":729
+    /* "final_project_cython_functions.pyx":734
  *         # Calculate the percentage changes.  Value must be changed to float32 away from float16 due to a bug -
  *         #   see https://github.com/pandas-dev/pandas/issues/9220
  *         if cpi_df_selected.dtypes['Value'] == 'float16':             # <<<<<<<<<<<<<<
  *             cpi_df_selected = cpi_df_selected.astype({'Value': 'float32'})
  * 
  */
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_cpi_df_selected, __pyx_n_s_dtypes); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 729, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_cpi_df_selected, __pyx_n_s_dtypes); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 734, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_t_7, __pyx_n_s_Value); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 729, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_t_7, __pyx_n_s_Value); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 734, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __pyx_t_9 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_float16, Py_EQ)); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 729, __pyx_L1_error)
+    __pyx_t_9 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_float16, Py_EQ)); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 734, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_9) {
 
-      /* "final_project_cython_functions.pyx":730
+      /* "final_project_cython_functions.pyx":735
  *         #   see https://github.com/pandas-dev/pandas/issues/9220
  *         if cpi_df_selected.dtypes['Value'] == 'float16':
  *             cpi_df_selected = cpi_df_selected.astype({'Value': 'float32'})             # <<<<<<<<<<<<<<
  * 
  *         # pct_change() will put in zeros from a value to NaN and we don't want that
  */
-      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_cpi_df_selected, __pyx_n_s_astype); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 730, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_cpi_df_selected, __pyx_n_s_astype); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 735, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 730, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 735, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
-      if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_Value, __pyx_n_s_float32) < 0) __PYX_ERR(0, 730, __pyx_L1_error)
+      if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_Value, __pyx_n_s_float32) < 0) __PYX_ERR(0, 735, __pyx_L1_error)
       __pyx_t_1 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_7))) {
         __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_7);
@@ -8989,13 +8979,13 @@ static PyObject *__pyx_pf_20final_project_cython_20add_cpi_values(CYTHON_UNUSED 
       __pyx_t_3 = (__pyx_t_1) ? __Pyx_PyObject_Call2Args(__pyx_t_7, __pyx_t_1, __pyx_t_6) : __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_6);
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 730, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 735, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF_SET(__pyx_v_cpi_df_selected, __pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "final_project_cython_functions.pyx":729
+      /* "final_project_cython_functions.pyx":734
  *         # Calculate the percentage changes.  Value must be changed to float32 away from float16 due to a bug -
  *         #   see https://github.com/pandas-dev/pandas/issues/9220
  *         if cpi_df_selected.dtypes['Value'] == 'float16':             # <<<<<<<<<<<<<<
@@ -9004,16 +8994,16 @@ static PyObject *__pyx_pf_20final_project_cython_20add_cpi_values(CYTHON_UNUSED 
  */
     }
 
-    /* "final_project_cython_functions.pyx":734
+    /* "final_project_cython_functions.pyx":739
  *         # pct_change() will put in zeros from a value to NaN and we don't want that
  *         # Save the nan positions, calculate pct_change, and then put all the NaNs back in
  *         nan_value_positions = cpi_df_selected['Value'].isnull()             # <<<<<<<<<<<<<<
  *         percent_change_df = cpi_df_selected['Value'].pct_change() * 100
  *         percent_change_df[nan_value_positions] = np.nan
  */
-    __pyx_t_7 = __Pyx_PyObject_Dict_GetItem(__pyx_v_cpi_df_selected, __pyx_n_s_Value); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 734, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_Dict_GetItem(__pyx_v_cpi_df_selected, __pyx_n_s_Value); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 739, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_isnull); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 734, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_isnull); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 739, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __pyx_t_7 = NULL;
@@ -9028,22 +9018,22 @@ static PyObject *__pyx_pf_20final_project_cython_20add_cpi_values(CYTHON_UNUSED 
     }
     __pyx_t_3 = (__pyx_t_7) ? __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_7) : __Pyx_PyObject_CallNoArg(__pyx_t_6);
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 734, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 739, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_XDECREF_SET(__pyx_v_nan_value_positions, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "final_project_cython_functions.pyx":735
+    /* "final_project_cython_functions.pyx":740
  *         # Save the nan positions, calculate pct_change, and then put all the NaNs back in
  *         nan_value_positions = cpi_df_selected['Value'].isnull()
  *         percent_change_df = cpi_df_selected['Value'].pct_change() * 100             # <<<<<<<<<<<<<<
  *         percent_change_df[nan_value_positions] = np.nan
  * 
  */
-    __pyx_t_6 = __Pyx_PyObject_Dict_GetItem(__pyx_v_cpi_df_selected, __pyx_n_s_Value); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 735, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_Dict_GetItem(__pyx_v_cpi_df_selected, __pyx_n_s_Value); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 740, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_pct_change); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 735, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_pct_change); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 740, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __pyx_t_6 = NULL;
@@ -9058,38 +9048,38 @@ static PyObject *__pyx_pf_20final_project_cython_20add_cpi_values(CYTHON_UNUSED 
     }
     __pyx_t_3 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_7);
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 735, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 740, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __pyx_t_7 = PyNumber_Multiply(__pyx_t_3, __pyx_int_100); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 735, __pyx_L1_error)
+    __pyx_t_7 = PyNumber_Multiply(__pyx_t_3, __pyx_int_100); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 740, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_XDECREF_SET(__pyx_v_percent_change_df, __pyx_t_7);
     __pyx_t_7 = 0;
 
-    /* "final_project_cython_functions.pyx":736
+    /* "final_project_cython_functions.pyx":741
  *         nan_value_positions = cpi_df_selected['Value'].isnull()
  *         percent_change_df = cpi_df_selected['Value'].pct_change() * 100
  *         percent_change_df[nan_value_positions] = np.nan             # <<<<<<<<<<<<<<
  * 
  *         results['{} (ended {})'.format(event, event_end_year)] = percent_change_df.tolist()
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 736, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 741, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_nan); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 736, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_nan); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 741, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(PyObject_SetItem(__pyx_v_percent_change_df, __pyx_v_nan_value_positions, __pyx_t_3) < 0)) __PYX_ERR(0, 736, __pyx_L1_error)
+    if (unlikely(PyObject_SetItem(__pyx_v_percent_change_df, __pyx_v_nan_value_positions, __pyx_t_3) < 0)) __PYX_ERR(0, 741, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "final_project_cython_functions.pyx":738
+    /* "final_project_cython_functions.pyx":743
  *         percent_change_df[nan_value_positions] = np.nan
  * 
  *         results['{} (ended {})'.format(event, event_end_year)] = percent_change_df.tolist()             # <<<<<<<<<<<<<<
  * 
  *     # Some results will have different values because e.g. there haven't been x number of years passed since the end
  */
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_percent_change_df, __pyx_n_s_tolist); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 738, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_percent_change_df, __pyx_n_s_tolist); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 743, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __pyx_t_6 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_7))) {
@@ -9103,10 +9093,10 @@ static PyObject *__pyx_pf_20final_project_cython_20add_cpi_values(CYTHON_UNUSED 
     }
     __pyx_t_3 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_7);
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 738, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 743, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_ended, __pyx_n_s_format); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 738, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_ended, __pyx_n_s_format); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 743, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_1 = NULL;
     __pyx_t_10 = 0;
@@ -9123,7 +9113,7 @@ static PyObject *__pyx_pf_20final_project_cython_20add_cpi_values(CYTHON_UNUSED 
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_6)) {
       PyObject *__pyx_temp[3] = {__pyx_t_1, __pyx_v_event, __pyx_v_event_end_year};
-      __pyx_t_7 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 738, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 743, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_GOTREF(__pyx_t_7);
     } else
@@ -9131,13 +9121,13 @@ static PyObject *__pyx_pf_20final_project_cython_20add_cpi_values(CYTHON_UNUSED 
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_6)) {
       PyObject *__pyx_temp[3] = {__pyx_t_1, __pyx_v_event, __pyx_v_event_end_year};
-      __pyx_t_7 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 738, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 743, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_GOTREF(__pyx_t_7);
     } else
     #endif
     {
-      __pyx_t_11 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 738, __pyx_L1_error)
+      __pyx_t_11 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 743, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_11);
       if (__pyx_t_1) {
         __Pyx_GIVEREF(__pyx_t_1); PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_1); __pyx_t_1 = NULL;
@@ -9148,16 +9138,16 @@ static PyObject *__pyx_pf_20final_project_cython_20add_cpi_values(CYTHON_UNUSED 
       __Pyx_INCREF(__pyx_v_event_end_year);
       __Pyx_GIVEREF(__pyx_v_event_end_year);
       PyTuple_SET_ITEM(__pyx_t_11, 1+__pyx_t_10, __pyx_v_event_end_year);
-      __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_11, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 738, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_11, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 743, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
     }
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(PyDict_SetItem(__pyx_v_results, __pyx_t_7, __pyx_t_3) < 0)) __PYX_ERR(0, 738, __pyx_L1_error)
+    if (unlikely(PyDict_SetItem(__pyx_v_results, __pyx_t_7, __pyx_t_3) < 0)) __PYX_ERR(0, 743, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "final_project_cython_functions.pyx":718
+    /* "final_project_cython_functions.pyx":723
  *     """
  *     results = {}
  *     for _, row in event_df.iterrows():             # <<<<<<<<<<<<<<
@@ -9167,7 +9157,7 @@ static PyObject *__pyx_pf_20final_project_cython_20add_cpi_values(CYTHON_UNUSED 
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":741
+  /* "final_project_cython_functions.pyx":746
  * 
  *     # Some results will have different values because e.g. there haven't been x number of years passed since the end
  *     try:             # <<<<<<<<<<<<<<
@@ -9183,19 +9173,19 @@ static PyObject *__pyx_pf_20final_project_cython_20add_cpi_values(CYTHON_UNUSED 
     __Pyx_XGOTREF(__pyx_t_14);
     /*try:*/ {
 
-      /* "final_project_cython_functions.pyx":742
+      /* "final_project_cython_functions.pyx":747
  *     # Some results will have different values because e.g. there haven't been x number of years passed since the end
  *     try:
  *         results_df = pd.DataFrame.from_dict(results)             # <<<<<<<<<<<<<<
  *     except ValueError:
  *         raise ValueError('All events must have the same number of years between their start and end years.')
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_pd); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 742, __pyx_L8_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_pd); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 747, __pyx_L8_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_DataFrame); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 742, __pyx_L8_error)
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_DataFrame); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 747, __pyx_L8_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_from_dict); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 742, __pyx_L8_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_from_dict); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 747, __pyx_L8_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __pyx_t_7 = NULL;
@@ -9210,13 +9200,13 @@ static PyObject *__pyx_pf_20final_project_cython_20add_cpi_values(CYTHON_UNUSED 
       }
       __pyx_t_2 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_7, __pyx_v_results) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_results);
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 742, __pyx_L8_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 747, __pyx_L8_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __pyx_v_results_df = __pyx_t_2;
       __pyx_t_2 = 0;
 
-      /* "final_project_cython_functions.pyx":741
+      /* "final_project_cython_functions.pyx":746
  * 
  *     # Some results will have different values because e.g. there haven't been x number of years passed since the end
  *     try:             # <<<<<<<<<<<<<<
@@ -9236,7 +9226,7 @@ static PyObject *__pyx_pf_20final_project_cython_20add_cpi_values(CYTHON_UNUSED 
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-    /* "final_project_cython_functions.pyx":743
+    /* "final_project_cython_functions.pyx":748
  *     try:
  *         results_df = pd.DataFrame.from_dict(results)
  *     except ValueError:             # <<<<<<<<<<<<<<
@@ -9246,28 +9236,28 @@ static PyObject *__pyx_pf_20final_project_cython_20add_cpi_values(CYTHON_UNUSED 
     __pyx_t_10 = __Pyx_PyErr_ExceptionMatches(__pyx_builtin_ValueError);
     if (__pyx_t_10) {
       __Pyx_AddTraceback("final_project_cython.add_cpi_values", __pyx_clineno, __pyx_lineno, __pyx_filename);
-      if (__Pyx_GetException(&__pyx_t_2, &__pyx_t_3, &__pyx_t_7) < 0) __PYX_ERR(0, 743, __pyx_L10_except_error)
+      if (__Pyx_GetException(&__pyx_t_2, &__pyx_t_3, &__pyx_t_7) < 0) __PYX_ERR(0, 748, __pyx_L10_except_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_GOTREF(__pyx_t_7);
 
-      /* "final_project_cython_functions.pyx":744
+      /* "final_project_cython_functions.pyx":749
  *         results_df = pd.DataFrame.from_dict(results)
  *     except ValueError:
  *         raise ValueError('All events must have the same number of years between their start and end years.')             # <<<<<<<<<<<<<<
  * 
  *     results_df = results_df.iloc[1:, :]  # drop first row in the dataframe since the values are NA
  */
-      __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__13, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 744, __pyx_L10_except_error)
+      __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__13, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 749, __pyx_L10_except_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_Raise(__pyx_t_6, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __PYX_ERR(0, 744, __pyx_L10_except_error)
+      __PYX_ERR(0, 749, __pyx_L10_except_error)
     }
     goto __pyx_L10_except_error;
     __pyx_L10_except_error:;
 
-    /* "final_project_cython_functions.pyx":741
+    /* "final_project_cython_functions.pyx":746
  * 
  *     # Some results will have different values because e.g. there haven't been x number of years passed since the end
  *     try:             # <<<<<<<<<<<<<<
@@ -9282,22 +9272,22 @@ static PyObject *__pyx_pf_20final_project_cython_20add_cpi_values(CYTHON_UNUSED 
     __pyx_L13_try_end:;
   }
 
-  /* "final_project_cython_functions.pyx":746
+  /* "final_project_cython_functions.pyx":751
  *         raise ValueError('All events must have the same number of years between their start and end years.')
  * 
  *     results_df = results_df.iloc[1:, :]  # drop first row in the dataframe since the values are NA             # <<<<<<<<<<<<<<
  *     return results_df
  * 
  */
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_results_df, __pyx_n_s_iloc); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 746, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_results_df, __pyx_n_s_iloc); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 751, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_t_7, __pyx_tuple__15); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 746, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_t_7, __pyx_tuple__15); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 751, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF_SET(__pyx_v_results_df, __pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "final_project_cython_functions.pyx":747
+  /* "final_project_cython_functions.pyx":752
  * 
  *     results_df = results_df.iloc[1:, :]  # drop first row in the dataframe since the values are NA
  *     return results_df             # <<<<<<<<<<<<<<
@@ -9309,7 +9299,7 @@ static PyObject *__pyx_pf_20final_project_cython_20add_cpi_values(CYTHON_UNUSED 
   __pyx_r = __pyx_v_results_df;
   goto __pyx_L0;
 
-  /* "final_project_cython_functions.pyx":685
+  /* "final_project_cython_functions.pyx":690
  * 
  * 
  * def add_cpi_values(event_df: pd.DataFrame, cpi_df: pd.DataFrame) -> pd.DataFrame:             # <<<<<<<<<<<<<<
@@ -9344,7 +9334,7 @@ static PyObject *__pyx_pf_20final_project_cython_20add_cpi_values(CYTHON_UNUSED 
   return __pyx_r;
 }
 
-/* "final_project_cython_functions.pyx":750
+/* "final_project_cython_functions.pyx":755
  * 
  * 
  * def get_index(df_selected: pd.DataFrame, df_index: pd.DataFrame, data_type: str) -> pd.DataFrame:             # <<<<<<<<<<<<<<
@@ -9391,17 +9381,17 @@ static PyObject *__pyx_pw_20final_project_cython_23get_index(PyObject *__pyx_sel
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_df_index)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("get_index", 1, 3, 3, 1); __PYX_ERR(0, 750, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("get_index", 1, 3, 3, 1); __PYX_ERR(0, 755, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_data_type)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("get_index", 1, 3, 3, 2); __PYX_ERR(0, 750, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("get_index", 1, 3, 3, 2); __PYX_ERR(0, 755, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "get_index") < 0)) __PYX_ERR(0, 750, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "get_index") < 0)) __PYX_ERR(0, 755, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -9416,13 +9406,13 @@ static PyObject *__pyx_pw_20final_project_cython_23get_index(PyObject *__pyx_sel
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_index", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 750, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_index", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 755, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("final_project_cython.get_index", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_data_type), (&PyString_Type), 1, "data_type", 1))) __PYX_ERR(0, 750, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_data_type), (&PyString_Type), 1, "data_type", 1))) __PYX_ERR(0, 755, __pyx_L1_error)
   __pyx_r = __pyx_pf_20final_project_cython_22get_index(__pyx_self, __pyx_v_df_selected, __pyx_v_df_index, __pyx_v_data_type);
 
   /* function exit code */
@@ -9462,68 +9452,68 @@ static PyObject *__pyx_pf_20final_project_cython_22get_index(CYTHON_UNUSED PyObj
   __Pyx_RefNannySetupContext("get_index", 0);
   __Pyx_INCREF(__pyx_v_df_selected);
 
-  /* "final_project_cython_functions.pyx":794
+  /* "final_project_cython_functions.pyx":799
  *     10  0.028776  0.027210
  *     """
  *     index_dict = {}             # <<<<<<<<<<<<<<
  *     df_selected = df_selected.loc[df_selected["y_start"] >= 1928]  # the earliest data available is in 1927/12
  *     df_selected = df_selected.loc[df_selected["y_end"] < 2021]  # the latest data for available is in 2021/11
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 794, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 799, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_index_dict = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":795
+  /* "final_project_cython_functions.pyx":800
  *     """
  *     index_dict = {}
  *     df_selected = df_selected.loc[df_selected["y_start"] >= 1928]  # the earliest data available is in 1927/12             # <<<<<<<<<<<<<<
  *     df_selected = df_selected.loc[df_selected["y_end"] < 2021]  # the latest data for available is in 2021/11
  *     event_list = df_selected["Event_Name"].tolist()
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_df_selected, __pyx_n_s_loc); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 795, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_df_selected, __pyx_n_s_loc); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 800, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df_selected, __pyx_n_s_y_start); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 795, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df_selected, __pyx_n_s_y_start); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 800, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyObject_RichCompare(__pyx_t_2, __pyx_int_1928, Py_GE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 795, __pyx_L1_error)
+  __pyx_t_3 = PyObject_RichCompare(__pyx_t_2, __pyx_int_1928, Py_GE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 800, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 795, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 800, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF_SET(__pyx_v_df_selected, __pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":796
+  /* "final_project_cython_functions.pyx":801
  *     index_dict = {}
  *     df_selected = df_selected.loc[df_selected["y_start"] >= 1928]  # the earliest data available is in 1927/12
  *     df_selected = df_selected.loc[df_selected["y_end"] < 2021]  # the latest data for available is in 2021/11             # <<<<<<<<<<<<<<
  *     event_list = df_selected["Event_Name"].tolist()
  *     print(event_list)
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_df_selected, __pyx_n_s_loc); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 796, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_df_selected, __pyx_n_s_loc); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 801, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df_selected, __pyx_n_s_y_end); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 796, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df_selected, __pyx_n_s_y_end); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 801, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = PyObject_RichCompare(__pyx_t_3, __pyx_int_2021, Py_LT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 796, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_t_3, __pyx_int_2021, Py_LT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 801, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 796, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 801, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF_SET(__pyx_v_df_selected, __pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "final_project_cython_functions.pyx":797
+  /* "final_project_cython_functions.pyx":802
  *     df_selected = df_selected.loc[df_selected["y_start"] >= 1928]  # the earliest data available is in 1927/12
  *     df_selected = df_selected.loc[df_selected["y_end"] < 2021]  # the latest data for available is in 2021/11
  *     event_list = df_selected["Event_Name"].tolist()             # <<<<<<<<<<<<<<
  *     print(event_list)
  *     for event in event_list:
  */
-  __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df_selected, __pyx_n_s_Event_Name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 797, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df_selected, __pyx_n_s_Event_Name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 802, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_tolist); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 797, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_tolist); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 802, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = NULL;
@@ -9538,22 +9528,22 @@ static PyObject *__pyx_pf_20final_project_cython_22get_index(CYTHON_UNUSED PyObj
   }
   __pyx_t_3 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 797, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 802, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_event_list = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "final_project_cython_functions.pyx":798
+  /* "final_project_cython_functions.pyx":803
  *     df_selected = df_selected.loc[df_selected["y_end"] < 2021]  # the latest data for available is in 2021/11
  *     event_list = df_selected["Event_Name"].tolist()
  *     print(event_list)             # <<<<<<<<<<<<<<
  *     for event in event_list:
  *         row = df_selected[df_selected["Event_Name"] == event]
  */
-  if (__Pyx_PrintOne(0, __pyx_v_event_list) < 0) __PYX_ERR(0, 798, __pyx_L1_error)
+  if (__Pyx_PrintOne(0, __pyx_v_event_list) < 0) __PYX_ERR(0, 803, __pyx_L1_error)
 
-  /* "final_project_cython_functions.pyx":799
+  /* "final_project_cython_functions.pyx":804
  *     event_list = df_selected["Event_Name"].tolist()
  *     print(event_list)
  *     for event in event_list:             # <<<<<<<<<<<<<<
@@ -9564,26 +9554,26 @@ static PyObject *__pyx_pf_20final_project_cython_22get_index(CYTHON_UNUSED PyObj
     __pyx_t_3 = __pyx_v_event_list; __Pyx_INCREF(__pyx_t_3); __pyx_t_4 = 0;
     __pyx_t_5 = NULL;
   } else {
-    __pyx_t_4 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_v_event_list); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 799, __pyx_L1_error)
+    __pyx_t_4 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_v_event_list); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 804, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_5 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 799, __pyx_L1_error)
+    __pyx_t_5 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 804, __pyx_L1_error)
   }
   for (;;) {
     if (likely(!__pyx_t_5)) {
       if (likely(PyList_CheckExact(__pyx_t_3))) {
         if (__pyx_t_4 >= PyList_GET_SIZE(__pyx_t_3)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_4); __Pyx_INCREF(__pyx_t_2); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 799, __pyx_L1_error)
+        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_4); __Pyx_INCREF(__pyx_t_2); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 804, __pyx_L1_error)
         #else
-        __pyx_t_2 = PySequence_ITEM(__pyx_t_3, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 799, __pyx_L1_error)
+        __pyx_t_2 = PySequence_ITEM(__pyx_t_3, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 804, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         #endif
       } else {
         if (__pyx_t_4 >= PyTuple_GET_SIZE(__pyx_t_3)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_4); __Pyx_INCREF(__pyx_t_2); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 799, __pyx_L1_error)
+        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_4); __Pyx_INCREF(__pyx_t_2); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 804, __pyx_L1_error)
         #else
-        __pyx_t_2 = PySequence_ITEM(__pyx_t_3, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 799, __pyx_L1_error)
+        __pyx_t_2 = PySequence_ITEM(__pyx_t_3, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 804, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         #endif
       }
@@ -9593,7 +9583,7 @@ static PyObject *__pyx_pf_20final_project_cython_22get_index(CYTHON_UNUSED PyObj
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 799, __pyx_L1_error)
+          else __PYX_ERR(0, 804, __pyx_L1_error)
         }
         break;
       }
@@ -9602,69 +9592,69 @@ static PyObject *__pyx_pf_20final_project_cython_22get_index(CYTHON_UNUSED PyObj
     __Pyx_XDECREF_SET(__pyx_v_event, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "final_project_cython_functions.pyx":800
+    /* "final_project_cython_functions.pyx":805
  *     print(event_list)
  *     for event in event_list:
  *         row = df_selected[df_selected["Event_Name"] == event]             # <<<<<<<<<<<<<<
  * 
  *         # Find the beginning and end years
  */
-    __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df_selected, __pyx_n_s_Event_Name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 800, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df_selected, __pyx_n_s_Event_Name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 805, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = PyObject_RichCompare(__pyx_t_2, __pyx_v_event, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 800, __pyx_L1_error)
+    __pyx_t_1 = PyObject_RichCompare(__pyx_t_2, __pyx_v_event, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 805, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_v_df_selected, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 800, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_v_df_selected, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 805, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_XDECREF_SET(__pyx_v_row, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "final_project_cython_functions.pyx":803
+    /* "final_project_cython_functions.pyx":808
  * 
  *         # Find the beginning and end years
  *         start = row["y_start"].values[0]             # <<<<<<<<<<<<<<
  *         end = row["y_end"].values[0]
  *         df_index["year"] = df_index["year"].astype(int)
  */
-    __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_v_row, __pyx_n_s_y_start); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 803, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_v_row, __pyx_n_s_y_start); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 808, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_values); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 803, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_values); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 808, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 803, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 808, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_XDECREF_SET(__pyx_v_start, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "final_project_cython_functions.pyx":804
+    /* "final_project_cython_functions.pyx":809
  *         # Find the beginning and end years
  *         start = row["y_start"].values[0]
  *         end = row["y_end"].values[0]             # <<<<<<<<<<<<<<
  *         df_index["year"] = df_index["year"].astype(int)
  * 
  */
-    __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_v_row, __pyx_n_s_y_end); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 804, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_v_row, __pyx_n_s_y_end); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 809, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_values); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 804, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_values); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 809, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 804, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 809, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_XDECREF_SET(__pyx_v_end, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "final_project_cython_functions.pyx":805
+    /* "final_project_cython_functions.pyx":810
  *         start = row["y_start"].values[0]
  *         end = row["y_end"].values[0]
  *         df_index["year"] = df_index["year"].astype(int)             # <<<<<<<<<<<<<<
  * 
  *         # Select all SP500/DJ values between the two beginning and ending years
  */
-    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df_index, __pyx_n_s_year); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 805, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df_index, __pyx_n_s_year); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 810, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_astype); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 805, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_astype); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 810, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_1 = NULL;
@@ -9679,20 +9669,20 @@ static PyObject *__pyx_pf_20final_project_cython_22get_index(CYTHON_UNUSED PyObj
     }
     __pyx_t_2 = (__pyx_t_1) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_1, ((PyObject *)(&PyInt_Type))) : __Pyx_PyObject_CallOneArg(__pyx_t_6, ((PyObject *)(&PyInt_Type)));
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 805, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 810, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(PyObject_SetItem(__pyx_v_df_index, __pyx_n_s_year, __pyx_t_2) < 0)) __PYX_ERR(0, 805, __pyx_L1_error)
+    if (unlikely(PyObject_SetItem(__pyx_v_df_index, __pyx_n_s_year, __pyx_t_2) < 0)) __PYX_ERR(0, 810, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "final_project_cython_functions.pyx":808
+    /* "final_project_cython_functions.pyx":813
  * 
  *         # Select all SP500/DJ values between the two beginning and ending years
  *         index_selected = trim_to_years(df_index, start, end, 'year')             # <<<<<<<<<<<<<<
  * 
  *         # Calculate the percentage changes
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_trim_to_years); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 808, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_trim_to_years); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 813, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_1 = NULL;
     __pyx_t_7 = 0;
@@ -9709,7 +9699,7 @@ static PyObject *__pyx_pf_20final_project_cython_22get_index(CYTHON_UNUSED PyObj
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_6)) {
       PyObject *__pyx_temp[5] = {__pyx_t_1, __pyx_v_df_index, __pyx_v_start, __pyx_v_end, __pyx_n_s_year};
-      __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_7, 4+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 808, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_7, 4+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 813, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_GOTREF(__pyx_t_2);
     } else
@@ -9717,13 +9707,13 @@ static PyObject *__pyx_pf_20final_project_cython_22get_index(CYTHON_UNUSED PyObj
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_6)) {
       PyObject *__pyx_temp[5] = {__pyx_t_1, __pyx_v_df_index, __pyx_v_start, __pyx_v_end, __pyx_n_s_year};
-      __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_7, 4+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 808, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_7, 4+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 813, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_GOTREF(__pyx_t_2);
     } else
     #endif
     {
-      __pyx_t_8 = PyTuple_New(4+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 808, __pyx_L1_error)
+      __pyx_t_8 = PyTuple_New(4+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 813, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       if (__pyx_t_1) {
         __Pyx_GIVEREF(__pyx_t_1); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_1); __pyx_t_1 = NULL;
@@ -9740,7 +9730,7 @@ static PyObject *__pyx_pf_20final_project_cython_22get_index(CYTHON_UNUSED PyObj
       __Pyx_INCREF(__pyx_n_s_year);
       __Pyx_GIVEREF(__pyx_n_s_year);
       PyTuple_SET_ITEM(__pyx_t_8, 3+__pyx_t_7, __pyx_n_s_year);
-      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 808, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 813, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     }
@@ -9748,27 +9738,27 @@ static PyObject *__pyx_pf_20final_project_cython_22get_index(CYTHON_UNUSED PyObj
     __Pyx_XDECREF_SET(__pyx_v_index_selected, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "final_project_cython_functions.pyx":811
+    /* "final_project_cython_functions.pyx":816
  * 
  *         # Calculate the percentage changes
  *         if data_type == "nominal":             # <<<<<<<<<<<<<<
  *             pct_change = index_selected["nominal"].pct_change().tolist()
  *         else:
  */
-    __pyx_t_9 = (__Pyx_PyString_Equals(__pyx_v_data_type, __pyx_n_s_nominal, Py_EQ)); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 811, __pyx_L1_error)
+    __pyx_t_9 = (__Pyx_PyString_Equals(__pyx_v_data_type, __pyx_n_s_nominal, Py_EQ)); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 816, __pyx_L1_error)
     __pyx_t_10 = (__pyx_t_9 != 0);
     if (__pyx_t_10) {
 
-      /* "final_project_cython_functions.pyx":812
+      /* "final_project_cython_functions.pyx":817
  *         # Calculate the percentage changes
  *         if data_type == "nominal":
  *             pct_change = index_selected["nominal"].pct_change().tolist()             # <<<<<<<<<<<<<<
  *         else:
  *             pct_change = index_selected["real"].pct_change().tolist()
  */
-      __pyx_t_8 = __Pyx_PyObject_Dict_GetItem(__pyx_v_index_selected, __pyx_n_s_nominal); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 812, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyObject_Dict_GetItem(__pyx_v_index_selected, __pyx_n_s_nominal); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 817, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_pct_change); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 812, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_pct_change); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 817, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __pyx_t_8 = NULL;
@@ -9783,10 +9773,10 @@ static PyObject *__pyx_pf_20final_project_cython_22get_index(CYTHON_UNUSED PyObj
       }
       __pyx_t_6 = (__pyx_t_8) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_8) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
       __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-      if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 812, __pyx_L1_error)
+      if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 817, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_tolist); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 812, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_tolist); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 817, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __pyx_t_6 = NULL;
@@ -9801,13 +9791,13 @@ static PyObject *__pyx_pf_20final_project_cython_22get_index(CYTHON_UNUSED PyObj
       }
       __pyx_t_2 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 812, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 817, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_XDECREF_SET(__pyx_v_pct_change, __pyx_t_2);
       __pyx_t_2 = 0;
 
-      /* "final_project_cython_functions.pyx":811
+      /* "final_project_cython_functions.pyx":816
  * 
  *         # Calculate the percentage changes
  *         if data_type == "nominal":             # <<<<<<<<<<<<<<
@@ -9817,7 +9807,7 @@ static PyObject *__pyx_pf_20final_project_cython_22get_index(CYTHON_UNUSED PyObj
       goto __pyx_L5;
     }
 
-    /* "final_project_cython_functions.pyx":814
+    /* "final_project_cython_functions.pyx":819
  *             pct_change = index_selected["nominal"].pct_change().tolist()
  *         else:
  *             pct_change = index_selected["real"].pct_change().tolist()             # <<<<<<<<<<<<<<
@@ -9825,9 +9815,9 @@ static PyObject *__pyx_pf_20final_project_cython_22get_index(CYTHON_UNUSED PyObj
  *         # Add all the resulting values to the dict, by event
  */
     /*else*/ {
-      __pyx_t_6 = __Pyx_PyObject_Dict_GetItem(__pyx_v_index_selected, __pyx_n_s_real); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 814, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_Dict_GetItem(__pyx_v_index_selected, __pyx_n_s_real); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 819, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_pct_change); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 814, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_pct_change); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 819, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __pyx_t_6 = NULL;
@@ -9842,10 +9832,10 @@ static PyObject *__pyx_pf_20final_project_cython_22get_index(CYTHON_UNUSED PyObj
       }
       __pyx_t_1 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_8);
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 814, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 819, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_tolist); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 814, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_tolist); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 819, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_t_1 = NULL;
@@ -9860,7 +9850,7 @@ static PyObject *__pyx_pf_20final_project_cython_22get_index(CYTHON_UNUSED PyObj
       }
       __pyx_t_2 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_8);
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 814, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 819, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_XDECREF_SET(__pyx_v_pct_change, __pyx_t_2);
@@ -9868,16 +9858,16 @@ static PyObject *__pyx_pf_20final_project_cython_22get_index(CYTHON_UNUSED PyObj
     }
     __pyx_L5:;
 
-    /* "final_project_cython_functions.pyx":817
+    /* "final_project_cython_functions.pyx":822
  * 
  *         # Add all the resulting values to the dict, by event
  *         index_dict[event] = pct_change             # <<<<<<<<<<<<<<
  * 
  *     # Add the dict to the dataframe
  */
-    if (unlikely(PyDict_SetItem(__pyx_v_index_dict, __pyx_v_event, __pyx_v_pct_change) < 0)) __PYX_ERR(0, 817, __pyx_L1_error)
+    if (unlikely(PyDict_SetItem(__pyx_v_index_dict, __pyx_v_event, __pyx_v_pct_change) < 0)) __PYX_ERR(0, 822, __pyx_L1_error)
 
-    /* "final_project_cython_functions.pyx":799
+    /* "final_project_cython_functions.pyx":804
  *     event_list = df_selected["Event_Name"].tolist()
  *     print(event_list)
  *     for event in event_list:             # <<<<<<<<<<<<<<
@@ -9887,19 +9877,19 @@ static PyObject *__pyx_pf_20final_project_cython_22get_index(CYTHON_UNUSED PyObj
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "final_project_cython_functions.pyx":820
+  /* "final_project_cython_functions.pyx":825
  * 
  *     # Add the dict to the dataframe
  *     final_df = pd.DataFrame.from_dict(index_dict)             # <<<<<<<<<<<<<<
  *     final_df = final_df.iloc[1:, :]  # drop first row in the dataframe since the values are NA
  *     return final_df
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_pd); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 820, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_pd); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 825, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_DataFrame); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 820, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_DataFrame); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 825, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_from_dict); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 820, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_from_dict); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 825, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   __pyx_t_8 = NULL;
@@ -9914,28 +9904,28 @@ static PyObject *__pyx_pf_20final_project_cython_22get_index(CYTHON_UNUSED PyObj
   }
   __pyx_t_3 = (__pyx_t_8) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_8, __pyx_v_index_dict) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_index_dict);
   __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 820, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 825, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_final_df = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "final_project_cython_functions.pyx":821
+  /* "final_project_cython_functions.pyx":826
  *     # Add the dict to the dataframe
  *     final_df = pd.DataFrame.from_dict(index_dict)
  *     final_df = final_df.iloc[1:, :]  # drop first row in the dataframe since the values are NA             # <<<<<<<<<<<<<<
  *     return final_df
  * 
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_final_df, __pyx_n_s_iloc); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 821, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_final_df, __pyx_n_s_iloc); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 826, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_t_3, __pyx_tuple__15); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 821, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_t_3, __pyx_tuple__15); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 826, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF_SET(__pyx_v_final_df, __pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":822
+  /* "final_project_cython_functions.pyx":827
  *     final_df = pd.DataFrame.from_dict(index_dict)
  *     final_df = final_df.iloc[1:, :]  # drop first row in the dataframe since the values are NA
  *     return final_df             # <<<<<<<<<<<<<<
@@ -9947,7 +9937,7 @@ static PyObject *__pyx_pf_20final_project_cython_22get_index(CYTHON_UNUSED PyObj
   __pyx_r = __pyx_v_final_df;
   goto __pyx_L0;
 
-  /* "final_project_cython_functions.pyx":750
+  /* "final_project_cython_functions.pyx":755
  * 
  * 
  * def get_index(df_selected: pd.DataFrame, df_index: pd.DataFrame, data_type: str) -> pd.DataFrame:             # <<<<<<<<<<<<<<
@@ -9980,7 +9970,7 @@ static PyObject *__pyx_pf_20final_project_cython_22get_index(CYTHON_UNUSED PyObj
   return __pyx_r;
 }
 
-/* "final_project_cython_functions.pyx":825
+/* "final_project_cython_functions.pyx":830
  * 
  * 
  * def plot_sp_dj(df1: pd.DataFrame, df2: pd.DataFrame, year_num: int, plot_name: str):             # <<<<<<<<<<<<<<
@@ -10030,23 +10020,23 @@ static PyObject *__pyx_pw_20final_project_cython_25plot_sp_dj(PyObject *__pyx_se
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_df2)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("plot_sp_dj", 1, 4, 4, 1); __PYX_ERR(0, 825, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("plot_sp_dj", 1, 4, 4, 1); __PYX_ERR(0, 830, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_year_num)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("plot_sp_dj", 1, 4, 4, 2); __PYX_ERR(0, 825, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("plot_sp_dj", 1, 4, 4, 2); __PYX_ERR(0, 830, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_plot_name)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("plot_sp_dj", 1, 4, 4, 3); __PYX_ERR(0, 825, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("plot_sp_dj", 1, 4, 4, 3); __PYX_ERR(0, 830, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "plot_sp_dj") < 0)) __PYX_ERR(0, 825, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "plot_sp_dj") < 0)) __PYX_ERR(0, 830, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
       goto __pyx_L5_argtuple_error;
@@ -10063,13 +10053,13 @@ static PyObject *__pyx_pw_20final_project_cython_25plot_sp_dj(PyObject *__pyx_se
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("plot_sp_dj", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 825, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("plot_sp_dj", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 830, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("final_project_cython.plot_sp_dj", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_plot_name), (&PyString_Type), 1, "plot_name", 1))) __PYX_ERR(0, 825, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_plot_name), (&PyString_Type), 1, "plot_name", 1))) __PYX_ERR(0, 830, __pyx_L1_error)
   __pyx_r = __pyx_pf_20final_project_cython_24plot_sp_dj(__pyx_self, __pyx_v_df1, __pyx_v_df2, __pyx_v_year_num, __pyx_v_plot_name);
 
   /* function exit code */
@@ -10102,50 +10092,50 @@ static PyObject *__pyx_pf_20final_project_cython_24plot_sp_dj(CYTHON_UNUSED PyOb
   __Pyx_INCREF(__pyx_v_df1);
   __Pyx_INCREF(__pyx_v_df2);
 
-  /* "final_project_cython_functions.pyx":835
+  /* "final_project_cython_functions.pyx":840
  *     """
  *     # change index of data to make the January of "Year Zero" as 0 in x-axis.
  *     df1.index = df1.index - (12 * year_num)             # <<<<<<<<<<<<<<
  *     df2.index = df2.index - (12 * year_num)
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_df1, __pyx_n_s_index); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 835, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_df1, __pyx_n_s_index); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 840, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyNumber_Multiply(__pyx_int_12, __pyx_v_year_num); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 835, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Multiply(__pyx_int_12, __pyx_v_year_num); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 840, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyNumber_Subtract(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 835, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Subtract(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 840, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_df1, __pyx_n_s_index, __pyx_t_3) < 0) __PYX_ERR(0, 835, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_df1, __pyx_n_s_index, __pyx_t_3) < 0) __PYX_ERR(0, 840, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "final_project_cython_functions.pyx":836
+  /* "final_project_cython_functions.pyx":841
  *     # change index of data to make the January of "Year Zero" as 0 in x-axis.
  *     df1.index = df1.index - (12 * year_num)
  *     df2.index = df2.index - (12 * year_num)             # <<<<<<<<<<<<<<
  * 
  *     # get the 25 and 75 percentile bounds for plotting
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_df2, __pyx_n_s_index); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 836, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_df2, __pyx_n_s_index); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 841, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = PyNumber_Multiply(__pyx_int_12, __pyx_v_year_num); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 836, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Multiply(__pyx_int_12, __pyx_v_year_num); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 841, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = PyNumber_Subtract(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 836, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Subtract(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 841, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_df2, __pyx_n_s_index, __pyx_t_1) < 0) __PYX_ERR(0, 836, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_df2, __pyx_n_s_index, __pyx_t_1) < 0) __PYX_ERR(0, 841, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":839
+  /* "final_project_cython_functions.pyx":844
  * 
  *     # get the 25 and 75 percentile bounds for plotting
  *     df1 = add_mean_and_quartiles(df1)             # <<<<<<<<<<<<<<
  *     df2 = add_mean_and_quartiles(df2)
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_add_mean_and_quartiles); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 839, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_add_mean_and_quartiles); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 844, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -10159,20 +10149,20 @@ static PyObject *__pyx_pf_20final_project_cython_24plot_sp_dj(CYTHON_UNUSED PyOb
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_df1) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_df1);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 839, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 844, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF_SET(__pyx_v_df1, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":840
+  /* "final_project_cython_functions.pyx":845
  *     # get the 25 and 75 percentile bounds for plotting
  *     df1 = add_mean_and_quartiles(df1)
  *     df2 = add_mean_and_quartiles(df2)             # <<<<<<<<<<<<<<
  * 
  *     fig, (ax3, ax4) = plt.subplots(2, sharex=True, figsize=(10, 5))
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_add_mean_and_quartiles); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 840, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_add_mean_and_quartiles); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 845, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -10186,29 +10176,29 @@ static PyObject *__pyx_pf_20final_project_cython_24plot_sp_dj(CYTHON_UNUSED PyOb
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_df2) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_df2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 840, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 845, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF_SET(__pyx_v_df2, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":842
+  /* "final_project_cython_functions.pyx":847
  *     df2 = add_mean_and_quartiles(df2)
  * 
  *     fig, (ax3, ax4) = plt.subplots(2, sharex=True, figsize=(10, 5))             # <<<<<<<<<<<<<<
  *     fig.suptitle('Change of Stock Market Indexes')
  *     # ax1.plot(df1, linewidth=0.5)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_plt); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 842, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_plt); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 847, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_subplots); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 842, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_subplots); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 847, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 842, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 847, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_sharex, Py_True) < 0) __PYX_ERR(0, 842, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_figsize, __pyx_tuple__17) < 0) __PYX_ERR(0, 842, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__16, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 842, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_sharex, Py_True) < 0) __PYX_ERR(0, 847, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_figsize, __pyx_tuple__17) < 0) __PYX_ERR(0, 847, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__16, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 847, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -10218,7 +10208,7 @@ static PyObject *__pyx_pf_20final_project_cython_24plot_sp_dj(CYTHON_UNUSED PyOb
     if (unlikely(size != 2)) {
       if (size > 2) __Pyx_RaiseTooManyValuesError(2);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 842, __pyx_L1_error)
+      __PYX_ERR(0, 847, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     if (likely(PyTuple_CheckExact(sequence))) {
@@ -10231,15 +10221,15 @@ static PyObject *__pyx_pf_20final_project_cython_24plot_sp_dj(CYTHON_UNUSED PyOb
     __Pyx_INCREF(__pyx_t_1);
     __Pyx_INCREF(__pyx_t_2);
     #else
-    __pyx_t_1 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 842, __pyx_L1_error)
+    __pyx_t_1 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 847, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 842, __pyx_L1_error)
+    __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 847, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     #endif
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
     Py_ssize_t index = -1;
-    __pyx_t_4 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 842, __pyx_L1_error)
+    __pyx_t_4 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 847, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_5 = Py_TYPE(__pyx_t_4)->tp_iternext;
@@ -10247,7 +10237,7 @@ static PyObject *__pyx_pf_20final_project_cython_24plot_sp_dj(CYTHON_UNUSED PyOb
     __Pyx_GOTREF(__pyx_t_1);
     index = 1; __pyx_t_2 = __pyx_t_5(__pyx_t_4); if (unlikely(!__pyx_t_2)) goto __pyx_L3_unpacking_failed;
     __Pyx_GOTREF(__pyx_t_2);
-    if (__Pyx_IternextUnpackEndCheck(__pyx_t_5(__pyx_t_4), 2) < 0) __PYX_ERR(0, 842, __pyx_L1_error)
+    if (__Pyx_IternextUnpackEndCheck(__pyx_t_5(__pyx_t_4), 2) < 0) __PYX_ERR(0, 847, __pyx_L1_error)
     __pyx_t_5 = NULL;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     goto __pyx_L4_unpacking_done;
@@ -10255,7 +10245,7 @@ static PyObject *__pyx_pf_20final_project_cython_24plot_sp_dj(CYTHON_UNUSED PyOb
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_5 = NULL;
     if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-    __PYX_ERR(0, 842, __pyx_L1_error)
+    __PYX_ERR(0, 847, __pyx_L1_error)
     __pyx_L4_unpacking_done:;
   }
   __pyx_v_fig = __pyx_t_1;
@@ -10266,7 +10256,7 @@ static PyObject *__pyx_pf_20final_project_cython_24plot_sp_dj(CYTHON_UNUSED PyOb
     if (unlikely(size != 2)) {
       if (size > 2) __Pyx_RaiseTooManyValuesError(2);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 842, __pyx_L1_error)
+      __PYX_ERR(0, 847, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     if (likely(PyTuple_CheckExact(sequence))) {
@@ -10279,15 +10269,15 @@ static PyObject *__pyx_pf_20final_project_cython_24plot_sp_dj(CYTHON_UNUSED PyOb
     __Pyx_INCREF(__pyx_t_4);
     __Pyx_INCREF(__pyx_t_6);
     #else
-    __pyx_t_4 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 842, __pyx_L1_error)
+    __pyx_t_4 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 847, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_6 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 842, __pyx_L1_error)
+    __pyx_t_6 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 847, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     #endif
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   } else {
     Py_ssize_t index = -1;
-    __pyx_t_7 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 842, __pyx_L1_error)
+    __pyx_t_7 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 847, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_5 = Py_TYPE(__pyx_t_7)->tp_iternext;
@@ -10295,7 +10285,7 @@ static PyObject *__pyx_pf_20final_project_cython_24plot_sp_dj(CYTHON_UNUSED PyOb
     __Pyx_GOTREF(__pyx_t_4);
     index = 1; __pyx_t_6 = __pyx_t_5(__pyx_t_7); if (unlikely(!__pyx_t_6)) goto __pyx_L5_unpacking_failed;
     __Pyx_GOTREF(__pyx_t_6);
-    if (__Pyx_IternextUnpackEndCheck(__pyx_t_5(__pyx_t_7), 2) < 0) __PYX_ERR(0, 842, __pyx_L1_error)
+    if (__Pyx_IternextUnpackEndCheck(__pyx_t_5(__pyx_t_7), 2) < 0) __PYX_ERR(0, 847, __pyx_L1_error)
     __pyx_t_5 = NULL;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     goto __pyx_L6_unpacking_done;
@@ -10303,7 +10293,7 @@ static PyObject *__pyx_pf_20final_project_cython_24plot_sp_dj(CYTHON_UNUSED PyOb
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __pyx_t_5 = NULL;
     if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-    __PYX_ERR(0, 842, __pyx_L1_error)
+    __PYX_ERR(0, 847, __pyx_L1_error)
     __pyx_L6_unpacking_done:;
   }
   __pyx_v_ax3 = __pyx_t_4;
@@ -10311,14 +10301,14 @@ static PyObject *__pyx_pf_20final_project_cython_24plot_sp_dj(CYTHON_UNUSED PyOb
   __pyx_v_ax4 = __pyx_t_6;
   __pyx_t_6 = 0;
 
-  /* "final_project_cython_functions.pyx":843
+  /* "final_project_cython_functions.pyx":848
  * 
  *     fig, (ax3, ax4) = plt.subplots(2, sharex=True, figsize=(10, 5))
  *     fig.suptitle('Change of Stock Market Indexes')             # <<<<<<<<<<<<<<
  *     # ax1.plot(df1, linewidth=0.5)
  *     # ax1.set_ylabel("Change of SP500", fontsize = 'x-small')
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_fig, __pyx_n_s_suptitle); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 843, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_fig, __pyx_n_s_suptitle); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 848, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_1 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -10332,25 +10322,25 @@ static PyObject *__pyx_pf_20final_project_cython_24plot_sp_dj(CYTHON_UNUSED PyOb
   }
   __pyx_t_3 = (__pyx_t_1) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_1, __pyx_kp_s_Change_of_Stock_Market_Indexes) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_kp_s_Change_of_Stock_Market_Indexes);
   __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 843, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 848, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "final_project_cython_functions.pyx":848
+  /* "final_project_cython_functions.pyx":853
  *     # ax2.plot(df2, linewidth=0.5)
  *     # ax2.set_ylabel("Change of Dow Jones", fontsize = 'x-small')
  *     ax3.plot(df1.index, df1["75pct"], color='black', label='75% percentile', linewidth=0.5)             # <<<<<<<<<<<<<<
  *     ax3.plot(df1.index, df1["25pct"], color='black', label='25% percentile', linewidth=0.5)
  *     ax3.plot(df1.index, df1["median"], '--', color='orange', label='median', linewidth=0.5)
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax3, __pyx_n_s_plot); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 848, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax3, __pyx_n_s_plot); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 853, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_df1, __pyx_n_s_index); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 848, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_df1, __pyx_n_s_index); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 853, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df1, __pyx_kp_s_75pct); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 848, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df1, __pyx_kp_s_75pct); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 853, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 848, __pyx_L1_error)
+  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 853, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_2);
@@ -10358,32 +10348,32 @@ static PyObject *__pyx_pf_20final_project_cython_24plot_sp_dj(CYTHON_UNUSED PyOb
   PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_1);
   __pyx_t_2 = 0;
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 848, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 853, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_color, __pyx_n_s_black) < 0) __PYX_ERR(0, 848, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_label, __pyx_kp_s_75_percentile) < 0) __PYX_ERR(0, 848, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_linewidth, __pyx_float_0_5) < 0) __PYX_ERR(0, 848, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_6, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 848, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_color, __pyx_n_s_black) < 0) __PYX_ERR(0, 853, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_label, __pyx_kp_s_75_percentile) < 0) __PYX_ERR(0, 853, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_linewidth, __pyx_float_0_5) < 0) __PYX_ERR(0, 853, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_6, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 853, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":849
+  /* "final_project_cython_functions.pyx":854
  *     # ax2.set_ylabel("Change of Dow Jones", fontsize = 'x-small')
  *     ax3.plot(df1.index, df1["75pct"], color='black', label='75% percentile', linewidth=0.5)
  *     ax3.plot(df1.index, df1["25pct"], color='black', label='25% percentile', linewidth=0.5)             # <<<<<<<<<<<<<<
  *     ax3.plot(df1.index, df1["median"], '--', color='orange', label='median', linewidth=0.5)
  *     ax3.hlines(y=0, xmin=- (12 * year_num), xmax=12 * (year_num + 1), linewidth=2, color='r')
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax3, __pyx_n_s_plot); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 849, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax3, __pyx_n_s_plot); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 854, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_df1, __pyx_n_s_index); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 849, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_df1, __pyx_n_s_index); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 854, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_6 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df1, __pyx_kp_s_25pct); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 849, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df1, __pyx_kp_s_25pct); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 854, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 849, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 854, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
@@ -10391,32 +10381,32 @@ static PyObject *__pyx_pf_20final_project_cython_24plot_sp_dj(CYTHON_UNUSED PyOb
   PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_6);
   __pyx_t_1 = 0;
   __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 849, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 854, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_color, __pyx_n_s_black) < 0) __PYX_ERR(0, 849, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_label, __pyx_kp_s_25_percentile) < 0) __PYX_ERR(0, 849, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_linewidth, __pyx_float_0_5) < 0) __PYX_ERR(0, 849, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 849, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_color, __pyx_n_s_black) < 0) __PYX_ERR(0, 854, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_label, __pyx_kp_s_25_percentile) < 0) __PYX_ERR(0, 854, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_linewidth, __pyx_float_0_5) < 0) __PYX_ERR(0, 854, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 854, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":850
+  /* "final_project_cython_functions.pyx":855
  *     ax3.plot(df1.index, df1["75pct"], color='black', label='75% percentile', linewidth=0.5)
  *     ax3.plot(df1.index, df1["25pct"], color='black', label='25% percentile', linewidth=0.5)
  *     ax3.plot(df1.index, df1["median"], '--', color='orange', label='median', linewidth=0.5)             # <<<<<<<<<<<<<<
  *     ax3.hlines(y=0, xmin=- (12 * year_num), xmax=12 * (year_num + 1), linewidth=2, color='r')
  *     ax3.vlines(x=0, ymin=-0.1, ymax=0.1, linestyles='dashed', linewidth=2, color='r')
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax3, __pyx_n_s_plot); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 850, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax3, __pyx_n_s_plot); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 855, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_df1, __pyx_n_s_index); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 850, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_df1, __pyx_n_s_index); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 855, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df1, __pyx_n_s_median); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 850, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df1, __pyx_n_s_median); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 855, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = PyTuple_New(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 850, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 855, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_6);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_6);
@@ -10427,114 +10417,114 @@ static PyObject *__pyx_pf_20final_project_cython_24plot_sp_dj(CYTHON_UNUSED PyOb
   PyTuple_SET_ITEM(__pyx_t_2, 2, __pyx_kp_s__18);
   __pyx_t_6 = 0;
   __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 850, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 855, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_color, __pyx_n_s_orange) < 0) __PYX_ERR(0, 850, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_label, __pyx_n_s_median) < 0) __PYX_ERR(0, 850, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_linewidth, __pyx_float_0_5) < 0) __PYX_ERR(0, 850, __pyx_L1_error)
-  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 850, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_color, __pyx_n_s_orange) < 0) __PYX_ERR(0, 855, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_label, __pyx_n_s_median) < 0) __PYX_ERR(0, 855, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_linewidth, __pyx_float_0_5) < 0) __PYX_ERR(0, 855, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 855, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "final_project_cython_functions.pyx":851
+  /* "final_project_cython_functions.pyx":856
  *     ax3.plot(df1.index, df1["25pct"], color='black', label='25% percentile', linewidth=0.5)
  *     ax3.plot(df1.index, df1["median"], '--', color='orange', label='median', linewidth=0.5)
  *     ax3.hlines(y=0, xmin=- (12 * year_num), xmax=12 * (year_num + 1), linewidth=2, color='r')             # <<<<<<<<<<<<<<
  *     ax3.vlines(x=0, ymin=-0.1, ymax=0.1, linestyles='dashed', linewidth=2, color='r')
  *     ax3.vlines(x=11, ymin=-0.1, ymax=0.1, linestyles='dashed', linewidth=2, color='r')
  */
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax3, __pyx_n_s_hlines); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 851, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax3, __pyx_n_s_hlines); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 856, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 851, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 856, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_y, __pyx_int_0) < 0) __PYX_ERR(0, 851, __pyx_L1_error)
-  __pyx_t_2 = PyNumber_Multiply(__pyx_int_12, __pyx_v_year_num); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 851, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_y, __pyx_int_0) < 0) __PYX_ERR(0, 856, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Multiply(__pyx_int_12, __pyx_v_year_num); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 856, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = PyNumber_Negative(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 851, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Negative(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 856, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_xmin, __pyx_t_1) < 0) __PYX_ERR(0, 851, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_xmin, __pyx_t_1) < 0) __PYX_ERR(0, 856, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyInt_AddObjC(__pyx_v_year_num, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 851, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_AddObjC(__pyx_v_year_num, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 856, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyNumber_Multiply(__pyx_int_12, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 851, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Multiply(__pyx_int_12, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 856, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_xmax, __pyx_t_2) < 0) __PYX_ERR(0, 851, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_xmax, __pyx_t_2) < 0) __PYX_ERR(0, 856, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_linewidth, __pyx_int_2) < 0) __PYX_ERR(0, 851, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_color, __pyx_n_s_r) < 0) __PYX_ERR(0, 851, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_empty_tuple, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 851, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_linewidth, __pyx_int_2) < 0) __PYX_ERR(0, 856, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_color, __pyx_n_s_r) < 0) __PYX_ERR(0, 856, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_empty_tuple, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 856, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":852
+  /* "final_project_cython_functions.pyx":857
  *     ax3.plot(df1.index, df1["median"], '--', color='orange', label='median', linewidth=0.5)
  *     ax3.hlines(y=0, xmin=- (12 * year_num), xmax=12 * (year_num + 1), linewidth=2, color='r')
  *     ax3.vlines(x=0, ymin=-0.1, ymax=0.1, linestyles='dashed', linewidth=2, color='r')             # <<<<<<<<<<<<<<
  *     ax3.vlines(x=11, ymin=-0.1, ymax=0.1, linestyles='dashed', linewidth=2, color='r')
  *     ax3.fill_between(df1.index, df1["75pct"], df1["25pct"], facecolor='lightgreen')
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax3, __pyx_n_s_vlines); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 852, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax3, __pyx_n_s_vlines); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 857, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 852, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 857, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_x, __pyx_int_0) < 0) __PYX_ERR(0, 852, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_ymin, __pyx_float_neg_0_1) < 0) __PYX_ERR(0, 852, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_ymax, __pyx_float_0_1) < 0) __PYX_ERR(0, 852, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_linestyles, __pyx_n_s_dashed) < 0) __PYX_ERR(0, 852, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_linewidth, __pyx_int_2) < 0) __PYX_ERR(0, 852, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_color, __pyx_n_s_r) < 0) __PYX_ERR(0, 852, __pyx_L1_error)
-  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_empty_tuple, __pyx_t_3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 852, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_x, __pyx_int_0) < 0) __PYX_ERR(0, 857, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_ymin, __pyx_float_neg_0_1) < 0) __PYX_ERR(0, 857, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_ymax, __pyx_float_0_1) < 0) __PYX_ERR(0, 857, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_linestyles, __pyx_n_s_dashed) < 0) __PYX_ERR(0, 857, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_linewidth, __pyx_int_2) < 0) __PYX_ERR(0, 857, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_color, __pyx_n_s_r) < 0) __PYX_ERR(0, 857, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_empty_tuple, __pyx_t_3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 857, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "final_project_cython_functions.pyx":853
+  /* "final_project_cython_functions.pyx":858
  *     ax3.hlines(y=0, xmin=- (12 * year_num), xmax=12 * (year_num + 1), linewidth=2, color='r')
  *     ax3.vlines(x=0, ymin=-0.1, ymax=0.1, linestyles='dashed', linewidth=2, color='r')
  *     ax3.vlines(x=11, ymin=-0.1, ymax=0.1, linestyles='dashed', linewidth=2, color='r')             # <<<<<<<<<<<<<<
  *     ax3.fill_between(df1.index, df1["75pct"], df1["25pct"], facecolor='lightgreen')
  *     ax3.set_ylabel("Range of SP500", fontsize='x-small')
  */
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax3, __pyx_n_s_vlines); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 853, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax3, __pyx_n_s_vlines); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 858, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 853, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 858, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_x, __pyx_int_11) < 0) __PYX_ERR(0, 853, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_ymin, __pyx_float_neg_0_1) < 0) __PYX_ERR(0, 853, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_ymax, __pyx_float_0_1) < 0) __PYX_ERR(0, 853, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_linestyles, __pyx_n_s_dashed) < 0) __PYX_ERR(0, 853, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_linewidth, __pyx_int_2) < 0) __PYX_ERR(0, 853, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_color, __pyx_n_s_r) < 0) __PYX_ERR(0, 853, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_empty_tuple, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 853, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_x, __pyx_int_11) < 0) __PYX_ERR(0, 858, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_ymin, __pyx_float_neg_0_1) < 0) __PYX_ERR(0, 858, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_ymax, __pyx_float_0_1) < 0) __PYX_ERR(0, 858, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_linestyles, __pyx_n_s_dashed) < 0) __PYX_ERR(0, 858, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_linewidth, __pyx_int_2) < 0) __PYX_ERR(0, 858, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_color, __pyx_n_s_r) < 0) __PYX_ERR(0, 858, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_empty_tuple, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 858, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":854
+  /* "final_project_cython_functions.pyx":859
  *     ax3.vlines(x=0, ymin=-0.1, ymax=0.1, linestyles='dashed', linewidth=2, color='r')
  *     ax3.vlines(x=11, ymin=-0.1, ymax=0.1, linestyles='dashed', linewidth=2, color='r')
  *     ax3.fill_between(df1.index, df1["75pct"], df1["25pct"], facecolor='lightgreen')             # <<<<<<<<<<<<<<
  *     ax3.set_ylabel("Range of SP500", fontsize='x-small')
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax3, __pyx_n_s_fill_between); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 854, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax3, __pyx_n_s_fill_between); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 859, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_df1, __pyx_n_s_index); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 854, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_df1, __pyx_n_s_index); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 859, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_6 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df1, __pyx_kp_s_75pct); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 854, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df1, __pyx_kp_s_75pct); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 859, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df1, __pyx_kp_s_25pct); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 854, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df1, __pyx_kp_s_25pct); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 859, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 854, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 859, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_3);
   PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_3);
@@ -10545,48 +10535,48 @@ static PyObject *__pyx_pf_20final_project_cython_24plot_sp_dj(CYTHON_UNUSED PyOb
   __pyx_t_3 = 0;
   __pyx_t_6 = 0;
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 854, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 859, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_facecolor, __pyx_n_s_lightgreen) < 0) __PYX_ERR(0, 854, __pyx_L1_error)
-  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 854, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_facecolor, __pyx_n_s_lightgreen) < 0) __PYX_ERR(0, 859, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 859, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "final_project_cython_functions.pyx":855
+  /* "final_project_cython_functions.pyx":860
  *     ax3.vlines(x=11, ymin=-0.1, ymax=0.1, linestyles='dashed', linewidth=2, color='r')
  *     ax3.fill_between(df1.index, df1["75pct"], df1["25pct"], facecolor='lightgreen')
  *     ax3.set_ylabel("Range of SP500", fontsize='x-small')             # <<<<<<<<<<<<<<
  * 
  *     ax4.plot(df2.index, df2["75pct"], color='black', label='75% percentile', linewidth=0.5)
  */
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax3, __pyx_n_s_set_ylabel); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 855, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax3, __pyx_n_s_set_ylabel); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 860, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 855, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 860, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_fontsize, __pyx_kp_s_x_small) < 0) __PYX_ERR(0, 855, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_tuple__19, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 855, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_fontsize, __pyx_kp_s_x_small) < 0) __PYX_ERR(0, 860, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_tuple__19, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 860, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "final_project_cython_functions.pyx":857
+  /* "final_project_cython_functions.pyx":862
  *     ax3.set_ylabel("Range of SP500", fontsize='x-small')
  * 
  *     ax4.plot(df2.index, df2["75pct"], color='black', label='75% percentile', linewidth=0.5)             # <<<<<<<<<<<<<<
  *     ax4.plot(df2.index, df2["25pct"], color='black', label='25% percentile', linewidth=0.5)
  *     ax4.plot(df2.index, df2["median"], '--', color='orange', label='median', linewidth=0.5)
  */
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax4, __pyx_n_s_plot); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 857, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax4, __pyx_n_s_plot); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 862, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_df2, __pyx_n_s_index); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 857, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_df2, __pyx_n_s_index); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 862, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_6 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df2, __pyx_kp_s_75pct); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 857, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df2, __pyx_kp_s_75pct); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 862, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 857, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 862, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
@@ -10594,32 +10584,32 @@ static PyObject *__pyx_pf_20final_project_cython_24plot_sp_dj(CYTHON_UNUSED PyOb
   PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_6);
   __pyx_t_1 = 0;
   __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 857, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 862, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_color, __pyx_n_s_black) < 0) __PYX_ERR(0, 857, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_label, __pyx_kp_s_75_percentile) < 0) __PYX_ERR(0, 857, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_linewidth, __pyx_float_0_5) < 0) __PYX_ERR(0, 857, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_2, __pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 857, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_color, __pyx_n_s_black) < 0) __PYX_ERR(0, 862, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_label, __pyx_kp_s_75_percentile) < 0) __PYX_ERR(0, 862, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_linewidth, __pyx_float_0_5) < 0) __PYX_ERR(0, 862, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_2, __pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 862, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":858
+  /* "final_project_cython_functions.pyx":863
  * 
  *     ax4.plot(df2.index, df2["75pct"], color='black', label='75% percentile', linewidth=0.5)
  *     ax4.plot(df2.index, df2["25pct"], color='black', label='25% percentile', linewidth=0.5)             # <<<<<<<<<<<<<<
  *     ax4.plot(df2.index, df2["median"], '--', color='orange', label='median', linewidth=0.5)
  *     ax4.hlines(y=0, xmin=- (12 * year_num), xmax=12 * (year_num + 1), linewidth=2, color='r')
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax4, __pyx_n_s_plot); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 858, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax4, __pyx_n_s_plot); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 863, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_df2, __pyx_n_s_index); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 858, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_df2, __pyx_n_s_index); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 863, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df2, __pyx_kp_s_25pct); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 858, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df2, __pyx_kp_s_25pct); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 863, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 858, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 863, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_6);
   PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_6);
@@ -10627,32 +10617,32 @@ static PyObject *__pyx_pf_20final_project_cython_24plot_sp_dj(CYTHON_UNUSED PyOb
   PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_2);
   __pyx_t_6 = 0;
   __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 858, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 863, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_color, __pyx_n_s_black) < 0) __PYX_ERR(0, 858, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_label, __pyx_kp_s_25_percentile) < 0) __PYX_ERR(0, 858, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_linewidth, __pyx_float_0_5) < 0) __PYX_ERR(0, 858, __pyx_L1_error)
-  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 858, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_color, __pyx_n_s_black) < 0) __PYX_ERR(0, 863, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_label, __pyx_kp_s_25_percentile) < 0) __PYX_ERR(0, 863, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_linewidth, __pyx_float_0_5) < 0) __PYX_ERR(0, 863, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 863, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "final_project_cython_functions.pyx":859
+  /* "final_project_cython_functions.pyx":864
  *     ax4.plot(df2.index, df2["75pct"], color='black', label='75% percentile', linewidth=0.5)
  *     ax4.plot(df2.index, df2["25pct"], color='black', label='25% percentile', linewidth=0.5)
  *     ax4.plot(df2.index, df2["median"], '--', color='orange', label='median', linewidth=0.5)             # <<<<<<<<<<<<<<
  *     ax4.hlines(y=0, xmin=- (12 * year_num), xmax=12 * (year_num + 1), linewidth=2, color='r')
  *     ax4.vlines(x=0, ymin=-0.1, ymax=0.1, linestyles='dashed', linewidth=2, color='r')
  */
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax4, __pyx_n_s_plot); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 859, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax4, __pyx_n_s_plot); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 864, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_df2, __pyx_n_s_index); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 859, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_df2, __pyx_n_s_index); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 864, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df2, __pyx_n_s_median); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 859, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df2, __pyx_n_s_median); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 864, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_1 = PyTuple_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 859, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 864, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_2);
@@ -10663,114 +10653,114 @@ static PyObject *__pyx_pf_20final_project_cython_24plot_sp_dj(CYTHON_UNUSED PyOb
   PyTuple_SET_ITEM(__pyx_t_1, 2, __pyx_kp_s__18);
   __pyx_t_2 = 0;
   __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 859, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 864, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_color, __pyx_n_s_orange) < 0) __PYX_ERR(0, 859, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_label, __pyx_n_s_median) < 0) __PYX_ERR(0, 859, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_linewidth, __pyx_float_0_5) < 0) __PYX_ERR(0, 859, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 859, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_color, __pyx_n_s_orange) < 0) __PYX_ERR(0, 864, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_label, __pyx_n_s_median) < 0) __PYX_ERR(0, 864, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_linewidth, __pyx_float_0_5) < 0) __PYX_ERR(0, 864, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 864, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":860
+  /* "final_project_cython_functions.pyx":865
  *     ax4.plot(df2.index, df2["25pct"], color='black', label='25% percentile', linewidth=0.5)
  *     ax4.plot(df2.index, df2["median"], '--', color='orange', label='median', linewidth=0.5)
  *     ax4.hlines(y=0, xmin=- (12 * year_num), xmax=12 * (year_num + 1), linewidth=2, color='r')             # <<<<<<<<<<<<<<
  *     ax4.vlines(x=0, ymin=-0.1, ymax=0.1, linestyles='dashed', linewidth=2, color='r')
  *     ax4.vlines(x=11, ymin=-0.1, ymax=0.1, linestyles='dashed', linewidth=2, color='r')
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax4, __pyx_n_s_hlines); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 860, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax4, __pyx_n_s_hlines); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 865, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 860, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 865, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_y, __pyx_int_0) < 0) __PYX_ERR(0, 860, __pyx_L1_error)
-  __pyx_t_1 = PyNumber_Multiply(__pyx_int_12, __pyx_v_year_num); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 860, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_y, __pyx_int_0) < 0) __PYX_ERR(0, 865, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Multiply(__pyx_int_12, __pyx_v_year_num); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 865, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_6 = PyNumber_Negative(__pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 860, __pyx_L1_error)
+  __pyx_t_6 = PyNumber_Negative(__pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 865, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_xmin, __pyx_t_6) < 0) __PYX_ERR(0, 860, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_xmin, __pyx_t_6) < 0) __PYX_ERR(0, 865, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyInt_AddObjC(__pyx_v_year_num, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 860, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_AddObjC(__pyx_v_year_num, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 865, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_1 = PyNumber_Multiply(__pyx_int_12, __pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 860, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Multiply(__pyx_int_12, __pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 865, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_xmax, __pyx_t_1) < 0) __PYX_ERR(0, 860, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_xmax, __pyx_t_1) < 0) __PYX_ERR(0, 865, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_linewidth, __pyx_int_2) < 0) __PYX_ERR(0, 860, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_color, __pyx_n_s_r) < 0) __PYX_ERR(0, 860, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_empty_tuple, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 860, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_linewidth, __pyx_int_2) < 0) __PYX_ERR(0, 865, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_color, __pyx_n_s_r) < 0) __PYX_ERR(0, 865, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_empty_tuple, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 865, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":861
+  /* "final_project_cython_functions.pyx":866
  *     ax4.plot(df2.index, df2["median"], '--', color='orange', label='median', linewidth=0.5)
  *     ax4.hlines(y=0, xmin=- (12 * year_num), xmax=12 * (year_num + 1), linewidth=2, color='r')
  *     ax4.vlines(x=0, ymin=-0.1, ymax=0.1, linestyles='dashed', linewidth=2, color='r')             # <<<<<<<<<<<<<<
  *     ax4.vlines(x=11, ymin=-0.1, ymax=0.1, linestyles='dashed', linewidth=2, color='r')
  *     ax4.fill_between(df2.index, df2["75pct"], df2["25pct"], facecolor='lightblue')
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax4, __pyx_n_s_vlines); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 861, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax4, __pyx_n_s_vlines); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 866, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 861, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 866, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_x, __pyx_int_0) < 0) __PYX_ERR(0, 861, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_ymin, __pyx_float_neg_0_1) < 0) __PYX_ERR(0, 861, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_ymax, __pyx_float_0_1) < 0) __PYX_ERR(0, 861, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_linestyles, __pyx_n_s_dashed) < 0) __PYX_ERR(0, 861, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_linewidth, __pyx_int_2) < 0) __PYX_ERR(0, 861, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_color, __pyx_n_s_r) < 0) __PYX_ERR(0, 861, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 861, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_x, __pyx_int_0) < 0) __PYX_ERR(0, 866, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_ymin, __pyx_float_neg_0_1) < 0) __PYX_ERR(0, 866, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_ymax, __pyx_float_0_1) < 0) __PYX_ERR(0, 866, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_linestyles, __pyx_n_s_dashed) < 0) __PYX_ERR(0, 866, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_linewidth, __pyx_int_2) < 0) __PYX_ERR(0, 866, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_color, __pyx_n_s_r) < 0) __PYX_ERR(0, 866, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 866, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":862
+  /* "final_project_cython_functions.pyx":867
  *     ax4.hlines(y=0, xmin=- (12 * year_num), xmax=12 * (year_num + 1), linewidth=2, color='r')
  *     ax4.vlines(x=0, ymin=-0.1, ymax=0.1, linestyles='dashed', linewidth=2, color='r')
  *     ax4.vlines(x=11, ymin=-0.1, ymax=0.1, linestyles='dashed', linewidth=2, color='r')             # <<<<<<<<<<<<<<
  *     ax4.fill_between(df2.index, df2["75pct"], df2["25pct"], facecolor='lightblue')
  *     ax4.set_xlim(-12 * year_num + 1, 12 * (year_num + 1))
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax4, __pyx_n_s_vlines); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 862, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax4, __pyx_n_s_vlines); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 867, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 862, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 867, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_x, __pyx_int_11) < 0) __PYX_ERR(0, 862, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_ymin, __pyx_float_neg_0_1) < 0) __PYX_ERR(0, 862, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_ymax, __pyx_float_0_1) < 0) __PYX_ERR(0, 862, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_linestyles, __pyx_n_s_dashed) < 0) __PYX_ERR(0, 862, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_linewidth, __pyx_int_2) < 0) __PYX_ERR(0, 862, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_color, __pyx_n_s_r) < 0) __PYX_ERR(0, 862, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_empty_tuple, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 862, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_x, __pyx_int_11) < 0) __PYX_ERR(0, 867, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_ymin, __pyx_float_neg_0_1) < 0) __PYX_ERR(0, 867, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_ymax, __pyx_float_0_1) < 0) __PYX_ERR(0, 867, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_linestyles, __pyx_n_s_dashed) < 0) __PYX_ERR(0, 867, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_linewidth, __pyx_int_2) < 0) __PYX_ERR(0, 867, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_color, __pyx_n_s_r) < 0) __PYX_ERR(0, 867, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_empty_tuple, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 867, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":863
+  /* "final_project_cython_functions.pyx":868
  *     ax4.vlines(x=0, ymin=-0.1, ymax=0.1, linestyles='dashed', linewidth=2, color='r')
  *     ax4.vlines(x=11, ymin=-0.1, ymax=0.1, linestyles='dashed', linewidth=2, color='r')
  *     ax4.fill_between(df2.index, df2["75pct"], df2["25pct"], facecolor='lightblue')             # <<<<<<<<<<<<<<
  *     ax4.set_xlim(-12 * year_num + 1, 12 * (year_num + 1))
  *     ax4.set_xlabel(str(year_num) + " Year Before and After Events (month)")
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax4, __pyx_n_s_fill_between); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 863, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax4, __pyx_n_s_fill_between); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 868, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_df2, __pyx_n_s_index); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 863, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_df2, __pyx_n_s_index); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 868, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df2, __pyx_kp_s_75pct); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 863, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df2, __pyx_kp_s_75pct); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 868, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_6 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df2, __pyx_kp_s_25pct); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 863, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df2, __pyx_kp_s_25pct); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 868, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 863, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 868, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4);
@@ -10781,33 +10771,33 @@ static PyObject *__pyx_pf_20final_project_cython_24plot_sp_dj(CYTHON_UNUSED PyOb
   __pyx_t_4 = 0;
   __pyx_t_2 = 0;
   __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 863, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 868, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_facecolor, __pyx_n_s_lightblue) < 0) __PYX_ERR(0, 863, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_3, __pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 863, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_facecolor, __pyx_n_s_lightblue) < 0) __PYX_ERR(0, 868, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_3, __pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 868, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":864
+  /* "final_project_cython_functions.pyx":869
  *     ax4.vlines(x=11, ymin=-0.1, ymax=0.1, linestyles='dashed', linewidth=2, color='r')
  *     ax4.fill_between(df2.index, df2["75pct"], df2["25pct"], facecolor='lightblue')
  *     ax4.set_xlim(-12 * year_num + 1, 12 * (year_num + 1))             # <<<<<<<<<<<<<<
  *     ax4.set_xlabel(str(year_num) + " Year Before and After Events (month)")
  *     ax4.set_ylabel("Range of Dow Jones", fontsize='x-small')
  */
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax4, __pyx_n_s_set_xlim); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 864, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax4, __pyx_n_s_set_xlim); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 869, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_3 = PyNumber_Multiply(__pyx_int_neg_12, __pyx_v_year_num); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 864, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Multiply(__pyx_int_neg_12, __pyx_v_year_num); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 869, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyInt_AddObjC(__pyx_t_3, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 864, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_AddObjC(__pyx_t_3, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 869, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyInt_AddObjC(__pyx_v_year_num, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 864, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_AddObjC(__pyx_v_year_num, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 869, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_Multiply(__pyx_int_12, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 864, __pyx_L1_error)
+  __pyx_t_4 = PyNumber_Multiply(__pyx_int_12, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 869, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -10825,7 +10815,7 @@ static PyObject *__pyx_pf_20final_project_cython_24plot_sp_dj(CYTHON_UNUSED PyOb
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_6)) {
     PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_t_1, __pyx_t_4};
-    __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 864, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 869, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -10835,7 +10825,7 @@ static PyObject *__pyx_pf_20final_project_cython_24plot_sp_dj(CYTHON_UNUSED PyOb
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_6)) {
     PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_t_1, __pyx_t_4};
-    __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 864, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 869, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -10843,7 +10833,7 @@ static PyObject *__pyx_pf_20final_project_cython_24plot_sp_dj(CYTHON_UNUSED PyOb
   } else
   #endif
   {
-    __pyx_t_7 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 864, __pyx_L1_error)
+    __pyx_t_7 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 869, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     if (__pyx_t_3) {
       __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -10854,25 +10844,25 @@ static PyObject *__pyx_pf_20final_project_cython_24plot_sp_dj(CYTHON_UNUSED PyOb
     PyTuple_SET_ITEM(__pyx_t_7, 1+__pyx_t_8, __pyx_t_4);
     __pyx_t_1 = 0;
     __pyx_t_4 = 0;
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_7, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 864, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_7, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 869, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   }
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":865
+  /* "final_project_cython_functions.pyx":870
  *     ax4.fill_between(df2.index, df2["75pct"], df2["25pct"], facecolor='lightblue')
  *     ax4.set_xlim(-12 * year_num + 1, 12 * (year_num + 1))
  *     ax4.set_xlabel(str(year_num) + " Year Before and After Events (month)")             # <<<<<<<<<<<<<<
  *     ax4.set_ylabel("Range of Dow Jones", fontsize='x-small')
  * 
  */
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax4, __pyx_n_s_set_xlabel); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 865, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax4, __pyx_n_s_set_xlabel); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 870, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_7 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_v_year_num); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 865, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_v_year_num); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 870, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_4 = PyNumber_Add(__pyx_t_7, __pyx_kp_s_Year_Before_and_After_Events_mo); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 865, __pyx_L1_error)
+  __pyx_t_4 = PyNumber_Add(__pyx_t_7, __pyx_kp_s_Year_Before_and_After_Events_mo); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 870, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_t_7 = NULL;
@@ -10888,62 +10878,62 @@ static PyObject *__pyx_pf_20final_project_cython_24plot_sp_dj(CYTHON_UNUSED PyOb
   __pyx_t_2 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_7, __pyx_t_4) : __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_4);
   __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 865, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 870, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":866
+  /* "final_project_cython_functions.pyx":871
  *     ax4.set_xlim(-12 * year_num + 1, 12 * (year_num + 1))
  *     ax4.set_xlabel(str(year_num) + " Year Before and After Events (month)")
  *     ax4.set_ylabel("Range of Dow Jones", fontsize='x-small')             # <<<<<<<<<<<<<<
  * 
  *     plt.savefig('Plots/StockIndex/' + plot_name + '.png', dpi=200)
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax4, __pyx_n_s_set_ylabel); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 866, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_ax4, __pyx_n_s_set_ylabel); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 871, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 866, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 871, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_fontsize, __pyx_kp_s_x_small) < 0) __PYX_ERR(0, 866, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__20, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 866, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_fontsize, __pyx_kp_s_x_small) < 0) __PYX_ERR(0, 871, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__20, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 871, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "final_project_cython_functions.pyx":868
+  /* "final_project_cython_functions.pyx":873
  *     ax4.set_ylabel("Range of Dow Jones", fontsize='x-small')
  * 
  *     plt.savefig('Plots/StockIndex/' + plot_name + '.png', dpi=200)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_plt); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 868, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_plt); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 873, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_savefig); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 868, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_savefig); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 873, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyNumber_Add(__pyx_kp_s_Plots_StockIndex, __pyx_v_plot_name); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 868, __pyx_L1_error)
+  __pyx_t_4 = PyNumber_Add(__pyx_kp_s_Plots_StockIndex, __pyx_v_plot_name); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 873, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_2 = PyNumber_Add(__pyx_t_4, __pyx_kp_s_png); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 868, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Add(__pyx_t_4, __pyx_kp_s_png); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 873, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 868, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 873, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_2);
   __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 868, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 873, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_dpi, __pyx_int_200) < 0) __PYX_ERR(0, 868, __pyx_L1_error)
-  __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 868, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_dpi, __pyx_int_200) < 0) __PYX_ERR(0, 873, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 873, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "final_project_cython_functions.pyx":825
+  /* "final_project_cython_functions.pyx":830
  * 
  * 
  * def plot_sp_dj(df1: pd.DataFrame, df2: pd.DataFrame, year_num: int, plot_name: str):             # <<<<<<<<<<<<<<
@@ -10974,7 +10964,7 @@ static PyObject *__pyx_pf_20final_project_cython_24plot_sp_dj(CYTHON_UNUSED PyOb
   return __pyx_r;
 }
 
-/* "final_project_cython_functions.pyx":871
+/* "final_project_cython_functions.pyx":876
  * 
  * 
  * def output_sp_dj(df_e: pd.DataFrame, df_sp: pd.DataFrame, df_dj: pd.DataFrame, zero_point: str, year_l: int,             # <<<<<<<<<<<<<<
@@ -11030,35 +11020,35 @@ static PyObject *__pyx_pw_20final_project_cython_27output_sp_dj(PyObject *__pyx_
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_df_sp)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("output_sp_dj", 1, 6, 6, 1); __PYX_ERR(0, 871, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("output_sp_dj", 1, 6, 6, 1); __PYX_ERR(0, 876, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_df_dj)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("output_sp_dj", 1, 6, 6, 2); __PYX_ERR(0, 871, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("output_sp_dj", 1, 6, 6, 2); __PYX_ERR(0, 876, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_zero_point)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("output_sp_dj", 1, 6, 6, 3); __PYX_ERR(0, 871, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("output_sp_dj", 1, 6, 6, 3); __PYX_ERR(0, 876, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_year_l)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("output_sp_dj", 1, 6, 6, 4); __PYX_ERR(0, 871, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("output_sp_dj", 1, 6, 6, 4); __PYX_ERR(0, 876, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
         if (likely((values[5] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_d_type)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("output_sp_dj", 1, 6, 6, 5); __PYX_ERR(0, 871, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("output_sp_dj", 1, 6, 6, 5); __PYX_ERR(0, 876, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "output_sp_dj") < 0)) __PYX_ERR(0, 871, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "output_sp_dj") < 0)) __PYX_ERR(0, 876, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 6) {
       goto __pyx_L5_argtuple_error;
@@ -11079,14 +11069,14 @@ static PyObject *__pyx_pw_20final_project_cython_27output_sp_dj(PyObject *__pyx_
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("output_sp_dj", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 871, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("output_sp_dj", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 876, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("final_project_cython.output_sp_dj", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_zero_point), (&PyString_Type), 1, "zero_point", 1))) __PYX_ERR(0, 871, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_d_type), (&PyString_Type), 1, "d_type", 1))) __PYX_ERR(0, 872, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_zero_point), (&PyString_Type), 1, "zero_point", 1))) __PYX_ERR(0, 876, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_d_type), (&PyString_Type), 1, "d_type", 1))) __PYX_ERR(0, 877, __pyx_L1_error)
   __pyx_r = __pyx_pf_20final_project_cython_26output_sp_dj(__pyx_self, __pyx_v_df_e, __pyx_v_df_sp, __pyx_v_df_dj, __pyx_v_zero_point, __pyx_v_year_l, __pyx_v_d_type);
 
   /* function exit code */
@@ -11127,14 +11117,14 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   __Pyx_RefNannySetupContext("output_sp_dj", 0);
   __Pyx_INCREF(__pyx_v_df_e);
 
-  /* "final_project_cython_functions.pyx":884
+  /* "final_project_cython_functions.pyx":889
  *     :return: plots for specified event selection criteria
  *     """
  *     df_e = add_time_range(df_e, zero_point, year_l)             # <<<<<<<<<<<<<<
  *     name_str = str(year_l) + "y_" + zero_point + "_" + d_type
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_add_time_range); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 884, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_add_time_range); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 889, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   __pyx_t_4 = 0;
@@ -11151,7 +11141,7 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[4] = {__pyx_t_3, __pyx_v_df_e, __pyx_v_zero_point, __pyx_v_year_l};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 884, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 889, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
@@ -11159,13 +11149,13 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[4] = {__pyx_t_3, __pyx_v_df_e, __pyx_v_zero_point, __pyx_v_year_l};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 884, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 889, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
   #endif
   {
-    __pyx_t_5 = PyTuple_New(3+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 884, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(3+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 889, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     if (__pyx_t_3) {
       __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -11179,7 +11169,7 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
     __Pyx_INCREF(__pyx_v_year_l);
     __Pyx_GIVEREF(__pyx_v_year_l);
     PyTuple_SET_ITEM(__pyx_t_5, 2+__pyx_t_4, __pyx_v_year_l);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 884, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 889, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
@@ -11187,38 +11177,38 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   __Pyx_DECREF_SET(__pyx_v_df_e, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":885
+  /* "final_project_cython_functions.pyx":890
  *     """
  *     df_e = add_time_range(df_e, zero_point, year_l)
  *     name_str = str(year_l) + "y_" + zero_point + "_" + d_type             # <<<<<<<<<<<<<<
  * 
  *     print("The evolution of {} SP500 and Dow Jones {} years before and after all the Pandemics:".format(d_type, year_l))
  */
-  __pyx_t_1 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_v_year_l); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 885, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_v_year_l); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 890, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyNumber_Add(__pyx_t_1, __pyx_n_s_y_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 885, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Add(__pyx_t_1, __pyx_n_s_y_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 890, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyNumber_Add(__pyx_t_2, __pyx_v_zero_point); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 885, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Add(__pyx_t_2, __pyx_v_zero_point); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 890, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyNumber_Add(__pyx_t_1, __pyx_n_s__21); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 885, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Add(__pyx_t_1, __pyx_n_s__21); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 890, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyNumber_Add(__pyx_t_2, __pyx_v_d_type); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 885, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Add(__pyx_t_2, __pyx_v_d_type); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 890, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_name_str = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":887
+  /* "final_project_cython_functions.pyx":892
  *     name_str = str(year_l) + "y_" + zero_point + "_" + d_type
  * 
  *     print("The evolution of {} SP500 and Dow Jones {} years before and after all the Pandemics:".format(d_type, year_l))             # <<<<<<<<<<<<<<
  *     selected_p = df_e.loc[df_e["Type"] == "Pandemics"]
  *     p1_df = get_index(selected_p, df_sp, d_type)
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_The_evolution_of_SP500_and_Dow_J, __pyx_n_s_format); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 887, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_The_evolution_of_SP500_and_Dow_J, __pyx_n_s_format); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 892, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_5 = NULL;
   __pyx_t_4 = 0;
@@ -11235,7 +11225,7 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_v_d_type, __pyx_v_year_l};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 887, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 892, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
@@ -11243,13 +11233,13 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_v_d_type, __pyx_v_year_l};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 887, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 892, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
   #endif
   {
-    __pyx_t_3 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 887, __pyx_L1_error)
+    __pyx_t_3 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 892, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     if (__pyx_t_5) {
       __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_5); __pyx_t_5 = NULL;
@@ -11260,42 +11250,42 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
     __Pyx_INCREF(__pyx_v_year_l);
     __Pyx_GIVEREF(__pyx_v_year_l);
     PyTuple_SET_ITEM(__pyx_t_3, 1+__pyx_t_4, __pyx_v_year_l);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 887, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 892, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_PrintOne(0, __pyx_t_1) < 0) __PYX_ERR(0, 887, __pyx_L1_error)
+  if (__Pyx_PrintOne(0, __pyx_t_1) < 0) __PYX_ERR(0, 892, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":888
+  /* "final_project_cython_functions.pyx":893
  * 
  *     print("The evolution of {} SP500 and Dow Jones {} years before and after all the Pandemics:".format(d_type, year_l))
  *     selected_p = df_e.loc[df_e["Type"] == "Pandemics"]             # <<<<<<<<<<<<<<
  *     p1_df = get_index(selected_p, df_sp, d_type)
  *     p2_df = get_index(selected_p, df_dj, d_type)
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_df_e, __pyx_n_s_loc); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 888, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_df_e, __pyx_n_s_loc); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 893, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df_e, __pyx_n_s_Type); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 888, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df_e, __pyx_n_s_Type); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 893, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyObject_RichCompare(__pyx_t_2, __pyx_n_s_Pandemics, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 888, __pyx_L1_error)
+  __pyx_t_3 = PyObject_RichCompare(__pyx_t_2, __pyx_n_s_Pandemics, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 893, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 888, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 893, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_selected_p = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":889
+  /* "final_project_cython_functions.pyx":894
  *     print("The evolution of {} SP500 and Dow Jones {} years before and after all the Pandemics:".format(d_type, year_l))
  *     selected_p = df_e.loc[df_e["Type"] == "Pandemics"]
  *     p1_df = get_index(selected_p, df_sp, d_type)             # <<<<<<<<<<<<<<
  *     p2_df = get_index(selected_p, df_dj, d_type)
  *     plot_sp_dj(p1_df, p2_df, year_l, name_str + "_all_pandemics")
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_get_index); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 889, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_get_index); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 894, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_1 = NULL;
   __pyx_t_4 = 0;
@@ -11312,7 +11302,7 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[4] = {__pyx_t_1, __pyx_v_selected_p, __pyx_v_df_sp, __pyx_v_d_type};
-    __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 889, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 894, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_GOTREF(__pyx_t_2);
   } else
@@ -11320,13 +11310,13 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[4] = {__pyx_t_1, __pyx_v_selected_p, __pyx_v_df_sp, __pyx_v_d_type};
-    __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 889, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 894, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_GOTREF(__pyx_t_2);
   } else
   #endif
   {
-    __pyx_t_5 = PyTuple_New(3+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 889, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(3+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 894, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     if (__pyx_t_1) {
       __Pyx_GIVEREF(__pyx_t_1); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_1); __pyx_t_1 = NULL;
@@ -11340,7 +11330,7 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
     __Pyx_INCREF(__pyx_v_d_type);
     __Pyx_GIVEREF(__pyx_v_d_type);
     PyTuple_SET_ITEM(__pyx_t_5, 2+__pyx_t_4, __pyx_v_d_type);
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 889, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 894, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
@@ -11348,14 +11338,14 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   __pyx_v_p1_df = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":890
+  /* "final_project_cython_functions.pyx":895
  *     selected_p = df_e.loc[df_e["Type"] == "Pandemics"]
  *     p1_df = get_index(selected_p, df_sp, d_type)
  *     p2_df = get_index(selected_p, df_dj, d_type)             # <<<<<<<<<<<<<<
  *     plot_sp_dj(p1_df, p2_df, year_l, name_str + "_all_pandemics")
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_get_index); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 890, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_get_index); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 895, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_5 = NULL;
   __pyx_t_4 = 0;
@@ -11372,7 +11362,7 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[4] = {__pyx_t_5, __pyx_v_selected_p, __pyx_v_df_dj, __pyx_v_d_type};
-    __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 890, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 895, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_GOTREF(__pyx_t_2);
   } else
@@ -11380,13 +11370,13 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[4] = {__pyx_t_5, __pyx_v_selected_p, __pyx_v_df_dj, __pyx_v_d_type};
-    __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 890, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 895, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_GOTREF(__pyx_t_2);
   } else
   #endif
   {
-    __pyx_t_1 = PyTuple_New(3+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 890, __pyx_L1_error)
+    __pyx_t_1 = PyTuple_New(3+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 895, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     if (__pyx_t_5) {
       __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_5); __pyx_t_5 = NULL;
@@ -11400,7 +11390,7 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
     __Pyx_INCREF(__pyx_v_d_type);
     __Pyx_GIVEREF(__pyx_v_d_type);
     PyTuple_SET_ITEM(__pyx_t_1, 2+__pyx_t_4, __pyx_v_d_type);
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 890, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 895, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
@@ -11408,16 +11398,16 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   __pyx_v_p2_df = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":891
+  /* "final_project_cython_functions.pyx":896
  *     p1_df = get_index(selected_p, df_sp, d_type)
  *     p2_df = get_index(selected_p, df_dj, d_type)
  *     plot_sp_dj(p1_df, p2_df, year_l, name_str + "_all_pandemics")             # <<<<<<<<<<<<<<
  * 
  *     print("The evolution of {} SP500 and Dow Jones {} years before and after all the Wars:".format(d_type, year_l))
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_plot_sp_dj); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 891, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_plot_sp_dj); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 896, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = PyNumber_Add(__pyx_v_name_str, __pyx_n_s_all_pandemics); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 891, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Add(__pyx_v_name_str, __pyx_n_s_all_pandemics); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 896, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_5 = NULL;
   __pyx_t_4 = 0;
@@ -11434,7 +11424,7 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[5] = {__pyx_t_5, __pyx_v_p1_df, __pyx_v_p2_df, __pyx_v_year_l, __pyx_t_1};
-    __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 4+__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 891, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 4+__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 896, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -11443,14 +11433,14 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[5] = {__pyx_t_5, __pyx_v_p1_df, __pyx_v_p2_df, __pyx_v_year_l, __pyx_t_1};
-    __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 4+__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 891, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 4+__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 896, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   } else
   #endif
   {
-    __pyx_t_6 = PyTuple_New(4+__pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 891, __pyx_L1_error)
+    __pyx_t_6 = PyTuple_New(4+__pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 896, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     if (__pyx_t_5) {
       __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_5); __pyx_t_5 = NULL;
@@ -11467,21 +11457,21 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
     __Pyx_GIVEREF(__pyx_t_1);
     PyTuple_SET_ITEM(__pyx_t_6, 3+__pyx_t_4, __pyx_t_1);
     __pyx_t_1 = 0;
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_6, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 891, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_6, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 896, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":893
+  /* "final_project_cython_functions.pyx":898
  *     plot_sp_dj(p1_df, p2_df, year_l, name_str + "_all_pandemics")
  * 
  *     print("The evolution of {} SP500 and Dow Jones {} years before and after all the Wars:".format(d_type, year_l))             # <<<<<<<<<<<<<<
  *     selected_w = df_e.loc[df_e["Type"] == "War"]
  *     w1_df = get_index(selected_w, df_sp, d_type)
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_The_evolution_of_SP500_and_Dow_J_2, __pyx_n_s_format); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 893, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_The_evolution_of_SP500_and_Dow_J_2, __pyx_n_s_format); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 898, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_6 = NULL;
   __pyx_t_4 = 0;
@@ -11498,7 +11488,7 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_v_d_type, __pyx_v_year_l};
-    __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 893, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 898, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_GOTREF(__pyx_t_2);
   } else
@@ -11506,13 +11496,13 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_v_d_type, __pyx_v_year_l};
-    __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 893, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 898, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_GOTREF(__pyx_t_2);
   } else
   #endif
   {
-    __pyx_t_1 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 893, __pyx_L1_error)
+    __pyx_t_1 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 898, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     if (__pyx_t_6) {
       __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_6); __pyx_t_6 = NULL;
@@ -11523,42 +11513,42 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
     __Pyx_INCREF(__pyx_v_year_l);
     __Pyx_GIVEREF(__pyx_v_year_l);
     PyTuple_SET_ITEM(__pyx_t_1, 1+__pyx_t_4, __pyx_v_year_l);
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 893, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 898, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (__Pyx_PrintOne(0, __pyx_t_2) < 0) __PYX_ERR(0, 893, __pyx_L1_error)
+  if (__Pyx_PrintOne(0, __pyx_t_2) < 0) __PYX_ERR(0, 898, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":894
+  /* "final_project_cython_functions.pyx":899
  * 
  *     print("The evolution of {} SP500 and Dow Jones {} years before and after all the Wars:".format(d_type, year_l))
  *     selected_w = df_e.loc[df_e["Type"] == "War"]             # <<<<<<<<<<<<<<
  *     w1_df = get_index(selected_w, df_sp, d_type)
  *     w2_df = get_index(selected_w, df_dj, d_type)
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_df_e, __pyx_n_s_loc); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 894, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_df_e, __pyx_n_s_loc); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 899, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df_e, __pyx_n_s_Type); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 894, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df_e, __pyx_n_s_Type); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 899, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = PyObject_RichCompare(__pyx_t_3, __pyx_n_s_War, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 894, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_t_3, __pyx_n_s_War, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 899, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 894, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 899, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_selected_w = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "final_project_cython_functions.pyx":895
+  /* "final_project_cython_functions.pyx":900
  *     print("The evolution of {} SP500 and Dow Jones {} years before and after all the Wars:".format(d_type, year_l))
  *     selected_w = df_e.loc[df_e["Type"] == "War"]
  *     w1_df = get_index(selected_w, df_sp, d_type)             # <<<<<<<<<<<<<<
  *     w2_df = get_index(selected_w, df_dj, d_type)
  *     plot_sp_dj(w1_df, w2_df, year_l, name_str + "_all_wars")
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_get_index); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 895, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_get_index); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 900, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_2 = NULL;
   __pyx_t_4 = 0;
@@ -11575,7 +11565,7 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_1)) {
     PyObject *__pyx_temp[4] = {__pyx_t_2, __pyx_v_selected_w, __pyx_v_df_sp, __pyx_v_d_type};
-    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 895, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 900, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_3);
   } else
@@ -11583,13 +11573,13 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_1)) {
     PyObject *__pyx_temp[4] = {__pyx_t_2, __pyx_v_selected_w, __pyx_v_df_sp, __pyx_v_d_type};
-    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 895, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 900, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_3);
   } else
   #endif
   {
-    __pyx_t_6 = PyTuple_New(3+__pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 895, __pyx_L1_error)
+    __pyx_t_6 = PyTuple_New(3+__pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 900, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     if (__pyx_t_2) {
       __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_2); __pyx_t_2 = NULL;
@@ -11603,7 +11593,7 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
     __Pyx_INCREF(__pyx_v_d_type);
     __Pyx_GIVEREF(__pyx_v_d_type);
     PyTuple_SET_ITEM(__pyx_t_6, 2+__pyx_t_4, __pyx_v_d_type);
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_6, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 895, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_6, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 900, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   }
@@ -11611,14 +11601,14 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   __pyx_v_w1_df = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "final_project_cython_functions.pyx":896
+  /* "final_project_cython_functions.pyx":901
  *     selected_w = df_e.loc[df_e["Type"] == "War"]
  *     w1_df = get_index(selected_w, df_sp, d_type)
  *     w2_df = get_index(selected_w, df_dj, d_type)             # <<<<<<<<<<<<<<
  *     plot_sp_dj(w1_df, w2_df, year_l, name_str + "_all_wars")
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_get_index); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 896, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_get_index); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 901, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_6 = NULL;
   __pyx_t_4 = 0;
@@ -11635,7 +11625,7 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_1)) {
     PyObject *__pyx_temp[4] = {__pyx_t_6, __pyx_v_selected_w, __pyx_v_df_dj, __pyx_v_d_type};
-    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 896, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 901, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_GOTREF(__pyx_t_3);
   } else
@@ -11643,13 +11633,13 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_1)) {
     PyObject *__pyx_temp[4] = {__pyx_t_6, __pyx_v_selected_w, __pyx_v_df_dj, __pyx_v_d_type};
-    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 896, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 901, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_GOTREF(__pyx_t_3);
   } else
   #endif
   {
-    __pyx_t_2 = PyTuple_New(3+__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 896, __pyx_L1_error)
+    __pyx_t_2 = PyTuple_New(3+__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 901, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     if (__pyx_t_6) {
       __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_6); __pyx_t_6 = NULL;
@@ -11663,7 +11653,7 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
     __Pyx_INCREF(__pyx_v_d_type);
     __Pyx_GIVEREF(__pyx_v_d_type);
     PyTuple_SET_ITEM(__pyx_t_2, 2+__pyx_t_4, __pyx_v_d_type);
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 896, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 901, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
@@ -11671,16 +11661,16 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   __pyx_v_w2_df = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "final_project_cython_functions.pyx":897
+  /* "final_project_cython_functions.pyx":902
  *     w1_df = get_index(selected_w, df_sp, d_type)
  *     w2_df = get_index(selected_w, df_dj, d_type)
  *     plot_sp_dj(w1_df, w2_df, year_l, name_str + "_all_wars")             # <<<<<<<<<<<<<<
  * 
  *     print("The evolution of {} SP500 and Dow Jones {} years before and after Pandemics with over 1m fatalities:"
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_plot_sp_dj); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 897, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_plot_sp_dj); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 902, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyNumber_Add(__pyx_v_name_str, __pyx_n_s_all_wars); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 897, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Add(__pyx_v_name_str, __pyx_n_s_all_wars); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 902, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_6 = NULL;
   __pyx_t_4 = 0;
@@ -11697,7 +11687,7 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_1)) {
     PyObject *__pyx_temp[5] = {__pyx_t_6, __pyx_v_w1_df, __pyx_v_w2_df, __pyx_v_year_l, __pyx_t_2};
-    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_4, 4+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 897, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_4, 4+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 902, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -11706,14 +11696,14 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_1)) {
     PyObject *__pyx_temp[5] = {__pyx_t_6, __pyx_v_w1_df, __pyx_v_w2_df, __pyx_v_year_l, __pyx_t_2};
-    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_4, 4+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 897, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_4, 4+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 902, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   } else
   #endif
   {
-    __pyx_t_5 = PyTuple_New(4+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 897, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(4+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 902, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     if (__pyx_t_6) {
       __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_6); __pyx_t_6 = NULL;
@@ -11730,21 +11720,21 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
     __Pyx_GIVEREF(__pyx_t_2);
     PyTuple_SET_ITEM(__pyx_t_5, 3+__pyx_t_4, __pyx_t_2);
     __pyx_t_2 = 0;
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_5, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 897, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_5, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 902, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "final_project_cython_functions.pyx":900
+  /* "final_project_cython_functions.pyx":905
  * 
  *     print("The evolution of {} SP500 and Dow Jones {} years before and after Pandemics with over 1m fatalities:"
  *           .format(d_type, year_l))             # <<<<<<<<<<<<<<
  *     selected_1m = df_e.loc[df_e.Fatalities.isin(["1-10m", "10-100m", ">100m"])]
  *     selected_1m_p = selected_1m.loc[selected_1m["Type"] == "Pandemics"]
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_The_evolution_of_SP500_and_Dow_J_3, __pyx_n_s_format); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 900, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_The_evolution_of_SP500_and_Dow_J_3, __pyx_n_s_format); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 905, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_5 = NULL;
   __pyx_t_4 = 0;
@@ -11761,7 +11751,7 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_1)) {
     PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_v_d_type, __pyx_v_year_l};
-    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 900, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 905, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_GOTREF(__pyx_t_3);
   } else
@@ -11769,13 +11759,13 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_1)) {
     PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_v_d_type, __pyx_v_year_l};
-    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 900, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 905, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_GOTREF(__pyx_t_3);
   } else
   #endif
   {
-    __pyx_t_2 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 900, __pyx_L1_error)
+    __pyx_t_2 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 905, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     if (__pyx_t_5) {
       __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_5); __pyx_t_5 = NULL;
@@ -11786,29 +11776,29 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
     __Pyx_INCREF(__pyx_v_year_l);
     __Pyx_GIVEREF(__pyx_v_year_l);
     PyTuple_SET_ITEM(__pyx_t_2, 1+__pyx_t_4, __pyx_v_year_l);
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 900, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 905, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (__Pyx_PrintOne(0, __pyx_t_3) < 0) __PYX_ERR(0, 899, __pyx_L1_error)
+  if (__Pyx_PrintOne(0, __pyx_t_3) < 0) __PYX_ERR(0, 904, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "final_project_cython_functions.pyx":901
+  /* "final_project_cython_functions.pyx":906
  *     print("The evolution of {} SP500 and Dow Jones {} years before and after Pandemics with over 1m fatalities:"
  *           .format(d_type, year_l))
  *     selected_1m = df_e.loc[df_e.Fatalities.isin(["1-10m", "10-100m", ">100m"])]             # <<<<<<<<<<<<<<
  *     selected_1m_p = selected_1m.loc[selected_1m["Type"] == "Pandemics"]
  *     p1_df_1 = get_index(selected_1m_p, df_sp, d_type)
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_df_e, __pyx_n_s_loc); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 901, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_df_e, __pyx_n_s_loc); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 906, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_df_e, __pyx_n_s_Fatalities); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 901, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_df_e, __pyx_n_s_Fatalities); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 906, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_isin); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 901, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_isin); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 906, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyList_New(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 901, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 906, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_kp_s_1_10m);
   __Pyx_GIVEREF(__pyx_kp_s_1_10m);
@@ -11832,44 +11822,44 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   __pyx_t_1 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_6, __pyx_t_2) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_2);
   __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 901, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 906, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_GetItem(__pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 901, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetItem(__pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 906, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_selected_1m = __pyx_t_5;
   __pyx_t_5 = 0;
 
-  /* "final_project_cython_functions.pyx":902
+  /* "final_project_cython_functions.pyx":907
  *           .format(d_type, year_l))
  *     selected_1m = df_e.loc[df_e.Fatalities.isin(["1-10m", "10-100m", ">100m"])]
  *     selected_1m_p = selected_1m.loc[selected_1m["Type"] == "Pandemics"]             # <<<<<<<<<<<<<<
  *     p1_df_1 = get_index(selected_1m_p, df_sp, d_type)
  *     p2_df_1 = get_index(selected_1m_p, df_dj, d_type)
  */
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_selected_1m, __pyx_n_s_loc); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 902, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_selected_1m, __pyx_n_s_loc); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 907, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_selected_1m, __pyx_n_s_Type); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 902, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_selected_1m, __pyx_n_s_Type); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 907, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_n_s_Pandemics, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 902, __pyx_L1_error)
+  __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_n_s_Pandemics, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 907, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetItem(__pyx_t_5, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 902, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetItem(__pyx_t_5, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 907, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_selected_1m_p = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":903
+  /* "final_project_cython_functions.pyx":908
  *     selected_1m = df_e.loc[df_e.Fatalities.isin(["1-10m", "10-100m", ">100m"])]
  *     selected_1m_p = selected_1m.loc[selected_1m["Type"] == "Pandemics"]
  *     p1_df_1 = get_index(selected_1m_p, df_sp, d_type)             # <<<<<<<<<<<<<<
  *     p2_df_1 = get_index(selected_1m_p, df_dj, d_type)
  *     plot_sp_dj(p1_df_1, p2_df_1, year_l, name_str + "_pandemics_over_1m_fatalities")
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_get_index); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 903, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_get_index); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 908, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_5 = NULL;
   __pyx_t_4 = 0;
@@ -11886,7 +11876,7 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[4] = {__pyx_t_5, __pyx_v_selected_1m_p, __pyx_v_df_sp, __pyx_v_d_type};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 903, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 908, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
@@ -11894,13 +11884,13 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[4] = {__pyx_t_5, __pyx_v_selected_1m_p, __pyx_v_df_sp, __pyx_v_d_type};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 903, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 908, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
   #endif
   {
-    __pyx_t_2 = PyTuple_New(3+__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 903, __pyx_L1_error)
+    __pyx_t_2 = PyTuple_New(3+__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 908, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     if (__pyx_t_5) {
       __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_5); __pyx_t_5 = NULL;
@@ -11914,7 +11904,7 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
     __Pyx_INCREF(__pyx_v_d_type);
     __Pyx_GIVEREF(__pyx_v_d_type);
     PyTuple_SET_ITEM(__pyx_t_2, 2+__pyx_t_4, __pyx_v_d_type);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 903, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 908, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
@@ -11922,14 +11912,14 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   __pyx_v_p1_df_1 = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":904
+  /* "final_project_cython_functions.pyx":909
  *     selected_1m_p = selected_1m.loc[selected_1m["Type"] == "Pandemics"]
  *     p1_df_1 = get_index(selected_1m_p, df_sp, d_type)
  *     p2_df_1 = get_index(selected_1m_p, df_dj, d_type)             # <<<<<<<<<<<<<<
  *     plot_sp_dj(p1_df_1, p2_df_1, year_l, name_str + "_pandemics_over_1m_fatalities")
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_get_index); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 904, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_get_index); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 909, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_2 = NULL;
   __pyx_t_4 = 0;
@@ -11946,7 +11936,7 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[4] = {__pyx_t_2, __pyx_v_selected_1m_p, __pyx_v_df_dj, __pyx_v_d_type};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 904, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 909, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
@@ -11954,13 +11944,13 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[4] = {__pyx_t_2, __pyx_v_selected_1m_p, __pyx_v_df_dj, __pyx_v_d_type};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 904, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 909, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
   #endif
   {
-    __pyx_t_5 = PyTuple_New(3+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 904, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(3+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 909, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     if (__pyx_t_2) {
       __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_2); __pyx_t_2 = NULL;
@@ -11974,7 +11964,7 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
     __Pyx_INCREF(__pyx_v_d_type);
     __Pyx_GIVEREF(__pyx_v_d_type);
     PyTuple_SET_ITEM(__pyx_t_5, 2+__pyx_t_4, __pyx_v_d_type);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 904, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 909, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
@@ -11982,16 +11972,16 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   __pyx_v_p2_df_1 = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":905
+  /* "final_project_cython_functions.pyx":910
  *     p1_df_1 = get_index(selected_1m_p, df_sp, d_type)
  *     p2_df_1 = get_index(selected_1m_p, df_dj, d_type)
  *     plot_sp_dj(p1_df_1, p2_df_1, year_l, name_str + "_pandemics_over_1m_fatalities")             # <<<<<<<<<<<<<<
  * 
  *     print("The evolution of {} SP500 and Dow Jones {} years before and after Wars with over 1m fatalities:"
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_plot_sp_dj); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 905, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_plot_sp_dj); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 910, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = PyNumber_Add(__pyx_v_name_str, __pyx_n_s_pandemics_over_1m_fatalities); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 905, __pyx_L1_error)
+  __pyx_t_5 = PyNumber_Add(__pyx_v_name_str, __pyx_n_s_pandemics_over_1m_fatalities); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 910, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_2 = NULL;
   __pyx_t_4 = 0;
@@ -12008,7 +11998,7 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[5] = {__pyx_t_2, __pyx_v_p1_df_1, __pyx_v_p2_df_1, __pyx_v_year_l, __pyx_t_5};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 4+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 905, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 4+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 910, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -12017,14 +12007,14 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[5] = {__pyx_t_2, __pyx_v_p1_df_1, __pyx_v_p2_df_1, __pyx_v_year_l, __pyx_t_5};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 4+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 905, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 4+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 910, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   } else
   #endif
   {
-    __pyx_t_6 = PyTuple_New(4+__pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 905, __pyx_L1_error)
+    __pyx_t_6 = PyTuple_New(4+__pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 910, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     if (__pyx_t_2) {
       __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_2); __pyx_t_2 = NULL;
@@ -12041,21 +12031,21 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
     __Pyx_GIVEREF(__pyx_t_5);
     PyTuple_SET_ITEM(__pyx_t_6, 3+__pyx_t_4, __pyx_t_5);
     __pyx_t_5 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 905, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 910, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":908
+  /* "final_project_cython_functions.pyx":913
  * 
  *     print("The evolution of {} SP500 and Dow Jones {} years before and after Wars with over 1m fatalities:"
  *           .format(d_type, year_l))             # <<<<<<<<<<<<<<
  *     selected_1m_w = selected_1m.loc[selected_1m["Type"] == "War"]
  *     w1_df_1 = get_index(selected_1m_w, df_sp, d_type)
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_The_evolution_of_SP500_and_Dow_J_4, __pyx_n_s_format); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 908, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_The_evolution_of_SP500_and_Dow_J_4, __pyx_n_s_format); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 913, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_6 = NULL;
   __pyx_t_4 = 0;
@@ -12072,7 +12062,7 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_v_d_type, __pyx_v_year_l};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 908, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 913, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
@@ -12080,13 +12070,13 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_v_d_type, __pyx_v_year_l};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 908, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 913, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
   #endif
   {
-    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 908, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 913, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     if (__pyx_t_6) {
       __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_6); __pyx_t_6 = NULL;
@@ -12097,42 +12087,42 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
     __Pyx_INCREF(__pyx_v_year_l);
     __Pyx_GIVEREF(__pyx_v_year_l);
     PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_4, __pyx_v_year_l);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 908, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 913, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (__Pyx_PrintOne(0, __pyx_t_1) < 0) __PYX_ERR(0, 907, __pyx_L1_error)
+  if (__Pyx_PrintOne(0, __pyx_t_1) < 0) __PYX_ERR(0, 912, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":909
+  /* "final_project_cython_functions.pyx":914
  *     print("The evolution of {} SP500 and Dow Jones {} years before and after Wars with over 1m fatalities:"
  *           .format(d_type, year_l))
  *     selected_1m_w = selected_1m.loc[selected_1m["Type"] == "War"]             # <<<<<<<<<<<<<<
  *     w1_df_1 = get_index(selected_1m_w, df_sp, d_type)
  *     w2_df_1 = get_index(selected_1m_w, df_dj, d_type)
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_selected_1m, __pyx_n_s_loc); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 909, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_selected_1m, __pyx_n_s_loc); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 914, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_v_selected_1m, __pyx_n_s_Type); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 909, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_v_selected_1m, __pyx_n_s_Type); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 914, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = PyObject_RichCompare(__pyx_t_3, __pyx_n_s_War, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 909, __pyx_L1_error)
+  __pyx_t_5 = PyObject_RichCompare(__pyx_t_3, __pyx_n_s_War, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 914, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_t_1, __pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 909, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_t_1, __pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 914, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_v_selected_1m_w = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "final_project_cython_functions.pyx":910
+  /* "final_project_cython_functions.pyx":915
  *           .format(d_type, year_l))
  *     selected_1m_w = selected_1m.loc[selected_1m["Type"] == "War"]
  *     w1_df_1 = get_index(selected_1m_w, df_sp, d_type)             # <<<<<<<<<<<<<<
  *     w2_df_1 = get_index(selected_1m_w, df_dj, d_type)
  *     plot_sp_dj(w1_df_1, w2_df_1, year_l, name_str + "_wars_over_1m_fatalities")
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_get_index); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 910, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_get_index); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 915, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_1 = NULL;
   __pyx_t_4 = 0;
@@ -12149,7 +12139,7 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_5)) {
     PyObject *__pyx_temp[4] = {__pyx_t_1, __pyx_v_selected_1m_w, __pyx_v_df_sp, __pyx_v_d_type};
-    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 910, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 915, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_GOTREF(__pyx_t_3);
   } else
@@ -12157,13 +12147,13 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
     PyObject *__pyx_temp[4] = {__pyx_t_1, __pyx_v_selected_1m_w, __pyx_v_df_sp, __pyx_v_d_type};
-    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 910, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 915, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_GOTREF(__pyx_t_3);
   } else
   #endif
   {
-    __pyx_t_6 = PyTuple_New(3+__pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 910, __pyx_L1_error)
+    __pyx_t_6 = PyTuple_New(3+__pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 915, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     if (__pyx_t_1) {
       __Pyx_GIVEREF(__pyx_t_1); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_1); __pyx_t_1 = NULL;
@@ -12177,7 +12167,7 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
     __Pyx_INCREF(__pyx_v_d_type);
     __Pyx_GIVEREF(__pyx_v_d_type);
     PyTuple_SET_ITEM(__pyx_t_6, 2+__pyx_t_4, __pyx_v_d_type);
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_6, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 910, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_6, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 915, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   }
@@ -12185,14 +12175,14 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   __pyx_v_w1_df_1 = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "final_project_cython_functions.pyx":911
+  /* "final_project_cython_functions.pyx":916
  *     selected_1m_w = selected_1m.loc[selected_1m["Type"] == "War"]
  *     w1_df_1 = get_index(selected_1m_w, df_sp, d_type)
  *     w2_df_1 = get_index(selected_1m_w, df_dj, d_type)             # <<<<<<<<<<<<<<
  *     plot_sp_dj(w1_df_1, w2_df_1, year_l, name_str + "_wars_over_1m_fatalities")
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_get_index); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 911, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_get_index); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 916, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_6 = NULL;
   __pyx_t_4 = 0;
@@ -12209,7 +12199,7 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_5)) {
     PyObject *__pyx_temp[4] = {__pyx_t_6, __pyx_v_selected_1m_w, __pyx_v_df_dj, __pyx_v_d_type};
-    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 911, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 916, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_GOTREF(__pyx_t_3);
   } else
@@ -12217,13 +12207,13 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
     PyObject *__pyx_temp[4] = {__pyx_t_6, __pyx_v_selected_1m_w, __pyx_v_df_dj, __pyx_v_d_type};
-    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 911, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 916, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_GOTREF(__pyx_t_3);
   } else
   #endif
   {
-    __pyx_t_1 = PyTuple_New(3+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 911, __pyx_L1_error)
+    __pyx_t_1 = PyTuple_New(3+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 916, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     if (__pyx_t_6) {
       __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_6); __pyx_t_6 = NULL;
@@ -12237,7 +12227,7 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
     __Pyx_INCREF(__pyx_v_d_type);
     __Pyx_GIVEREF(__pyx_v_d_type);
     PyTuple_SET_ITEM(__pyx_t_1, 2+__pyx_t_4, __pyx_v_d_type);
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_1, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 911, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_1, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 916, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
@@ -12245,16 +12235,16 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   __pyx_v_w2_df_1 = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "final_project_cython_functions.pyx":912
+  /* "final_project_cython_functions.pyx":917
  *     w1_df_1 = get_index(selected_1m_w, df_sp, d_type)
  *     w2_df_1 = get_index(selected_1m_w, df_dj, d_type)
  *     plot_sp_dj(w1_df_1, w2_df_1, year_l, name_str + "_wars_over_1m_fatalities")             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_plot_sp_dj); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 912, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_plot_sp_dj); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 917, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_1 = PyNumber_Add(__pyx_v_name_str, __pyx_n_s_wars_over_1m_fatalities); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 912, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Add(__pyx_v_name_str, __pyx_n_s_wars_over_1m_fatalities); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 917, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_6 = NULL;
   __pyx_t_4 = 0;
@@ -12271,7 +12261,7 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_5)) {
     PyObject *__pyx_temp[5] = {__pyx_t_6, __pyx_v_w1_df_1, __pyx_v_w2_df_1, __pyx_v_year_l, __pyx_t_1};
-    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_4, 4+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 912, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_4, 4+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 917, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -12280,14 +12270,14 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
     PyObject *__pyx_temp[5] = {__pyx_t_6, __pyx_v_w1_df_1, __pyx_v_w2_df_1, __pyx_v_year_l, __pyx_t_1};
-    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_4, 4+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 912, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_4, 4+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 917, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   } else
   #endif
   {
-    __pyx_t_2 = PyTuple_New(4+__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 912, __pyx_L1_error)
+    __pyx_t_2 = PyTuple_New(4+__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 917, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     if (__pyx_t_6) {
       __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_6); __pyx_t_6 = NULL;
@@ -12304,14 +12294,14 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
     __Pyx_GIVEREF(__pyx_t_1);
     PyTuple_SET_ITEM(__pyx_t_2, 3+__pyx_t_4, __pyx_t_1);
     __pyx_t_1 = 0;
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 912, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 917, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "final_project_cython_functions.pyx":871
+  /* "final_project_cython_functions.pyx":876
  * 
  * 
  * def output_sp_dj(df_e: pd.DataFrame, df_sp: pd.DataFrame, df_dj: pd.DataFrame, zero_point: str, year_l: int,             # <<<<<<<<<<<<<<
@@ -12351,7 +12341,7 @@ static PyObject *__pyx_pf_20final_project_cython_26output_sp_dj(CYTHON_UNUSED Py
   return __pyx_r;
 }
 
-/* "final_project_cython_functions.pyx":915
+/* "final_project_cython_functions.pyx":920
  * 
  * 
  * def plot_cpi(df: pd.DataFrame, plot_name: str, title: str, x_label: str, y_label: str, plot_quartiles: bool = False,             # <<<<<<<<<<<<<<
@@ -12382,7 +12372,7 @@ static PyObject *__pyx_pw_20final_project_cython_29plot_cpi(PyObject *__pyx_self
     PyObject* values[7] = {0,0,0,0,0,0,0};
     values[5] = ((PyObject *)Py_False);
 
-    /* "final_project_cython_functions.pyx":916
+    /* "final_project_cython_functions.pyx":921
  * 
  * def plot_cpi(df: pd.DataFrame, plot_name: str, title: str, x_label: str, y_label: str, plot_quartiles: bool = False,
  *              plot_mean: bool = False) -> None:             # <<<<<<<<<<<<<<
@@ -12420,25 +12410,25 @@ static PyObject *__pyx_pw_20final_project_cython_29plot_cpi(PyObject *__pyx_self
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_plot_name)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("plot_cpi", 0, 5, 7, 1); __PYX_ERR(0, 915, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("plot_cpi", 0, 5, 7, 1); __PYX_ERR(0, 920, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_title)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("plot_cpi", 0, 5, 7, 2); __PYX_ERR(0, 915, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("plot_cpi", 0, 5, 7, 2); __PYX_ERR(0, 920, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_x_label)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("plot_cpi", 0, 5, 7, 3); __PYX_ERR(0, 915, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("plot_cpi", 0, 5, 7, 3); __PYX_ERR(0, 920, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_y_label)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("plot_cpi", 0, 5, 7, 4); __PYX_ERR(0, 915, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("plot_cpi", 0, 5, 7, 4); __PYX_ERR(0, 920, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
@@ -12454,7 +12444,7 @@ static PyObject *__pyx_pw_20final_project_cython_29plot_cpi(PyObject *__pyx_self
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "plot_cpi") < 0)) __PYX_ERR(0, 915, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "plot_cpi") < 0)) __PYX_ERR(0, 920, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -12481,19 +12471,19 @@ static PyObject *__pyx_pw_20final_project_cython_29plot_cpi(PyObject *__pyx_self
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("plot_cpi", 0, 5, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 915, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("plot_cpi", 0, 5, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 920, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("final_project_cython.plot_cpi", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_plot_name), (&PyString_Type), 1, "plot_name", 1))) __PYX_ERR(0, 915, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_title), (&PyString_Type), 1, "title", 1))) __PYX_ERR(0, 915, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_x_label), (&PyString_Type), 1, "x_label", 1))) __PYX_ERR(0, 915, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_y_label), (&PyString_Type), 1, "y_label", 1))) __PYX_ERR(0, 915, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_plot_name), (&PyString_Type), 1, "plot_name", 1))) __PYX_ERR(0, 920, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_title), (&PyString_Type), 1, "title", 1))) __PYX_ERR(0, 920, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_x_label), (&PyString_Type), 1, "x_label", 1))) __PYX_ERR(0, 920, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_y_label), (&PyString_Type), 1, "y_label", 1))) __PYX_ERR(0, 920, __pyx_L1_error)
   __pyx_r = __pyx_pf_20final_project_cython_28plot_cpi(__pyx_self, __pyx_v_df, __pyx_v_plot_name, __pyx_v_title, __pyx_v_x_label, __pyx_v_y_label, __pyx_v_plot_quartiles, __pyx_v_plot_mean);
 
-  /* "final_project_cython_functions.pyx":915
+  /* "final_project_cython_functions.pyx":920
  * 
  * 
  * def plot_cpi(df: pd.DataFrame, plot_name: str, title: str, x_label: str, y_label: str, plot_quartiles: bool = False,             # <<<<<<<<<<<<<<
@@ -12528,22 +12518,22 @@ static PyObject *__pyx_pf_20final_project_cython_28plot_cpi(CYTHON_UNUSED PyObje
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("plot_cpi", 0);
 
-  /* "final_project_cython_functions.pyx":931
+  /* "final_project_cython_functions.pyx":936
  * 
  *     # Create an empty graph and axes
  *     figure, axes = plt.subplots(figsize=(15, 10))             # <<<<<<<<<<<<<<
  * 
  *     # Either regular values can be plotted, or the quartiles and/or mean
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_plt); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 931, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_plt); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 936, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_subplots); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 931, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_subplots); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 936, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 931, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 936, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_figsize, __pyx_tuple__12) < 0) __PYX_ERR(0, 931, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 931, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_figsize, __pyx_tuple__12) < 0) __PYX_ERR(0, 936, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 936, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -12553,7 +12543,7 @@ static PyObject *__pyx_pf_20final_project_cython_28plot_cpi(CYTHON_UNUSED PyObje
     if (unlikely(size != 2)) {
       if (size > 2) __Pyx_RaiseTooManyValuesError(2);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 931, __pyx_L1_error)
+      __PYX_ERR(0, 936, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     if (likely(PyTuple_CheckExact(sequence))) {
@@ -12566,15 +12556,15 @@ static PyObject *__pyx_pf_20final_project_cython_28plot_cpi(CYTHON_UNUSED PyObje
     __Pyx_INCREF(__pyx_t_1);
     __Pyx_INCREF(__pyx_t_2);
     #else
-    __pyx_t_1 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 931, __pyx_L1_error)
+    __pyx_t_1 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 936, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 931, __pyx_L1_error)
+    __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 936, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     #endif
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
     Py_ssize_t index = -1;
-    __pyx_t_4 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 931, __pyx_L1_error)
+    __pyx_t_4 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 936, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_5 = Py_TYPE(__pyx_t_4)->tp_iternext;
@@ -12582,7 +12572,7 @@ static PyObject *__pyx_pf_20final_project_cython_28plot_cpi(CYTHON_UNUSED PyObje
     __Pyx_GOTREF(__pyx_t_1);
     index = 1; __pyx_t_2 = __pyx_t_5(__pyx_t_4); if (unlikely(!__pyx_t_2)) goto __pyx_L3_unpacking_failed;
     __Pyx_GOTREF(__pyx_t_2);
-    if (__Pyx_IternextUnpackEndCheck(__pyx_t_5(__pyx_t_4), 2) < 0) __PYX_ERR(0, 931, __pyx_L1_error)
+    if (__Pyx_IternextUnpackEndCheck(__pyx_t_5(__pyx_t_4), 2) < 0) __PYX_ERR(0, 936, __pyx_L1_error)
     __pyx_t_5 = NULL;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     goto __pyx_L4_unpacking_done;
@@ -12590,7 +12580,7 @@ static PyObject *__pyx_pf_20final_project_cython_28plot_cpi(CYTHON_UNUSED PyObje
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_5 = NULL;
     if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-    __PYX_ERR(0, 931, __pyx_L1_error)
+    __PYX_ERR(0, 936, __pyx_L1_error)
     __pyx_L4_unpacking_done:;
   }
   __pyx_v_figure = __pyx_t_1;
@@ -12598,48 +12588,48 @@ static PyObject *__pyx_pf_20final_project_cython_28plot_cpi(CYTHON_UNUSED PyObje
   __pyx_v_axes = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":934
+  /* "final_project_cython_functions.pyx":939
  * 
  *     # Either regular values can be plotted, or the quartiles and/or mean
  *     if plot_quartiles or plot_mean:             # <<<<<<<<<<<<<<
  *         if plot_quartiles:
  *             axes.plot(df.index, df['75pct'], color='black', label='75% percentile', linewidth=1)
  */
-  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_v_plot_quartiles); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 934, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_v_plot_quartiles); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 939, __pyx_L1_error)
   if (!__pyx_t_7) {
   } else {
     __pyx_t_6 = __pyx_t_7;
     goto __pyx_L6_bool_binop_done;
   }
-  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_v_plot_mean); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 934, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_v_plot_mean); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 939, __pyx_L1_error)
   __pyx_t_6 = __pyx_t_7;
   __pyx_L6_bool_binop_done:;
   if (__pyx_t_6) {
 
-    /* "final_project_cython_functions.pyx":935
+    /* "final_project_cython_functions.pyx":940
  *     # Either regular values can be plotted, or the quartiles and/or mean
  *     if plot_quartiles or plot_mean:
  *         if plot_quartiles:             # <<<<<<<<<<<<<<
  *             axes.plot(df.index, df['75pct'], color='black', label='75% percentile', linewidth=1)
  *             axes.plot(df.index, df['25pct'], color='black', label='25% percentile', linewidth=1)
  */
-    __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_v_plot_quartiles); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 935, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_v_plot_quartiles); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 940, __pyx_L1_error)
     if (__pyx_t_6) {
 
-      /* "final_project_cython_functions.pyx":936
+      /* "final_project_cython_functions.pyx":941
  *     if plot_quartiles or plot_mean:
  *         if plot_quartiles:
  *             axes.plot(df.index, df['75pct'], color='black', label='75% percentile', linewidth=1)             # <<<<<<<<<<<<<<
  *             axes.plot(df.index, df['25pct'], color='black', label='25% percentile', linewidth=1)
  *             axes.plot(df.index, df['median'],  color='darkgreen', label='median', linewidth=1)
  */
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_axes, __pyx_n_s_plot); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 936, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_axes, __pyx_n_s_plot); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 941, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_df, __pyx_n_s_index); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 936, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_df, __pyx_n_s_index); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 941, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df, __pyx_kp_s_75pct); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 936, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df, __pyx_kp_s_75pct); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 941, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 936, __pyx_L1_error)
+      __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 941, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_GIVEREF(__pyx_t_2);
       PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_2);
@@ -12647,32 +12637,32 @@ static PyObject *__pyx_pf_20final_project_cython_28plot_cpi(CYTHON_UNUSED PyObje
       PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_1);
       __pyx_t_2 = 0;
       __pyx_t_1 = 0;
-      __pyx_t_1 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 936, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 941, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_color, __pyx_n_s_black) < 0) __PYX_ERR(0, 936, __pyx_L1_error)
-      if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_label, __pyx_kp_s_75_percentile) < 0) __PYX_ERR(0, 936, __pyx_L1_error)
-      if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_linewidth, __pyx_int_1) < 0) __PYX_ERR(0, 936, __pyx_L1_error)
-      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_4, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 936, __pyx_L1_error)
+      if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_color, __pyx_n_s_black) < 0) __PYX_ERR(0, 941, __pyx_L1_error)
+      if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_label, __pyx_kp_s_75_percentile) < 0) __PYX_ERR(0, 941, __pyx_L1_error)
+      if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_linewidth, __pyx_int_1) < 0) __PYX_ERR(0, 941, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_4, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 941, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-      /* "final_project_cython_functions.pyx":937
+      /* "final_project_cython_functions.pyx":942
  *         if plot_quartiles:
  *             axes.plot(df.index, df['75pct'], color='black', label='75% percentile', linewidth=1)
  *             axes.plot(df.index, df['25pct'], color='black', label='25% percentile', linewidth=1)             # <<<<<<<<<<<<<<
  *             axes.plot(df.index, df['median'],  color='darkgreen', label='median', linewidth=1)
  *             axes.fill_between(df.index, df['75pct'], df['25pct'], facecolor='lightgreen')
  */
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_axes, __pyx_n_s_plot); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 937, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_axes, __pyx_n_s_plot); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 942, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_df, __pyx_n_s_index); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 937, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_df, __pyx_n_s_index); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 942, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_4 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df, __pyx_kp_s_25pct); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 937, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df, __pyx_kp_s_25pct); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 942, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 937, __pyx_L1_error)
+      __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 942, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_GIVEREF(__pyx_t_1);
       PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
@@ -12680,32 +12670,32 @@ static PyObject *__pyx_pf_20final_project_cython_28plot_cpi(CYTHON_UNUSED PyObje
       PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_4);
       __pyx_t_1 = 0;
       __pyx_t_4 = 0;
-      __pyx_t_4 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 937, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 942, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_color, __pyx_n_s_black) < 0) __PYX_ERR(0, 937, __pyx_L1_error)
-      if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_label, __pyx_kp_s_25_percentile) < 0) __PYX_ERR(0, 937, __pyx_L1_error)
-      if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_linewidth, __pyx_int_1) < 0) __PYX_ERR(0, 937, __pyx_L1_error)
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 937, __pyx_L1_error)
+      if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_color, __pyx_n_s_black) < 0) __PYX_ERR(0, 942, __pyx_L1_error)
+      if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_label, __pyx_kp_s_25_percentile) < 0) __PYX_ERR(0, 942, __pyx_L1_error)
+      if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_linewidth, __pyx_int_1) < 0) __PYX_ERR(0, 942, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 942, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "final_project_cython_functions.pyx":938
+      /* "final_project_cython_functions.pyx":943
  *             axes.plot(df.index, df['75pct'], color='black', label='75% percentile', linewidth=1)
  *             axes.plot(df.index, df['25pct'], color='black', label='25% percentile', linewidth=1)
  *             axes.plot(df.index, df['median'],  color='darkgreen', label='median', linewidth=1)             # <<<<<<<<<<<<<<
  *             axes.fill_between(df.index, df['75pct'], df['25pct'], facecolor='lightgreen')
  *         if plot_mean:
  */
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_axes, __pyx_n_s_plot); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 938, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_axes, __pyx_n_s_plot); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 943, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_df, __pyx_n_s_index); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 938, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_df, __pyx_n_s_index); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 943, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df, __pyx_n_s_median); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 938, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df, __pyx_n_s_median); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 943, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 938, __pyx_L1_error)
+      __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 943, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_GIVEREF(__pyx_t_4);
       PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_4);
@@ -12713,34 +12703,34 @@ static PyObject *__pyx_pf_20final_project_cython_28plot_cpi(CYTHON_UNUSED PyObje
       PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_3);
       __pyx_t_4 = 0;
       __pyx_t_3 = 0;
-      __pyx_t_3 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 938, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 943, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_color, __pyx_n_s_darkgreen) < 0) __PYX_ERR(0, 938, __pyx_L1_error)
-      if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_label, __pyx_n_s_median) < 0) __PYX_ERR(0, 938, __pyx_L1_error)
-      if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_linewidth, __pyx_int_1) < 0) __PYX_ERR(0, 938, __pyx_L1_error)
-      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 938, __pyx_L1_error)
+      if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_color, __pyx_n_s_darkgreen) < 0) __PYX_ERR(0, 943, __pyx_L1_error)
+      if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_label, __pyx_n_s_median) < 0) __PYX_ERR(0, 943, __pyx_L1_error)
+      if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_linewidth, __pyx_int_1) < 0) __PYX_ERR(0, 943, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 943, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "final_project_cython_functions.pyx":939
+      /* "final_project_cython_functions.pyx":944
  *             axes.plot(df.index, df['25pct'], color='black', label='25% percentile', linewidth=1)
  *             axes.plot(df.index, df['median'],  color='darkgreen', label='median', linewidth=1)
  *             axes.fill_between(df.index, df['75pct'], df['25pct'], facecolor='lightgreen')             # <<<<<<<<<<<<<<
  *         if plot_mean:
  *             axes.plot(df.index, df['mean'], '-.', color='purple', label='mean', linewidth=1)
  */
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_axes, __pyx_n_s_fill_between); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 939, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_axes, __pyx_n_s_fill_between); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 944, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_df, __pyx_n_s_index); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 939, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_df, __pyx_n_s_index); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 944, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df, __pyx_kp_s_75pct); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 939, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df, __pyx_kp_s_75pct); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 944, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df, __pyx_kp_s_25pct); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 939, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df, __pyx_kp_s_25pct); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 944, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_8 = PyTuple_New(3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 939, __pyx_L1_error)
+      __pyx_t_8 = PyTuple_New(3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 944, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_GIVEREF(__pyx_t_3);
       PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_3);
@@ -12751,17 +12741,17 @@ static PyObject *__pyx_pf_20final_project_cython_28plot_cpi(CYTHON_UNUSED PyObje
       __pyx_t_3 = 0;
       __pyx_t_2 = 0;
       __pyx_t_1 = 0;
-      __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 939, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 944, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_facecolor, __pyx_n_s_lightgreen) < 0) __PYX_ERR(0, 939, __pyx_L1_error)
-      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_8, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 939, __pyx_L1_error)
+      if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_facecolor, __pyx_n_s_lightgreen) < 0) __PYX_ERR(0, 944, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_8, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 944, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-      /* "final_project_cython_functions.pyx":935
+      /* "final_project_cython_functions.pyx":940
  *     # Either regular values can be plotted, or the quartiles and/or mean
  *     if plot_quartiles or plot_mean:
  *         if plot_quartiles:             # <<<<<<<<<<<<<<
@@ -12770,30 +12760,30 @@ static PyObject *__pyx_pf_20final_project_cython_28plot_cpi(CYTHON_UNUSED PyObje
  */
     }
 
-    /* "final_project_cython_functions.pyx":940
+    /* "final_project_cython_functions.pyx":945
  *             axes.plot(df.index, df['median'],  color='darkgreen', label='median', linewidth=1)
  *             axes.fill_between(df.index, df['75pct'], df['25pct'], facecolor='lightgreen')
  *         if plot_mean:             # <<<<<<<<<<<<<<
  *             axes.plot(df.index, df['mean'], '-.', color='purple', label='mean', linewidth=1)
  *         axes.set_xlabel(x_label)
  */
-    __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_v_plot_mean); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 940, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_v_plot_mean); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 945, __pyx_L1_error)
     if (__pyx_t_6) {
 
-      /* "final_project_cython_functions.pyx":941
+      /* "final_project_cython_functions.pyx":946
  *             axes.fill_between(df.index, df['75pct'], df['25pct'], facecolor='lightgreen')
  *         if plot_mean:
  *             axes.plot(df.index, df['mean'], '-.', color='purple', label='mean', linewidth=1)             # <<<<<<<<<<<<<<
  *         axes.set_xlabel(x_label)
  *         axes.set_ylabel(y_label)
  */
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_axes, __pyx_n_s_plot); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 941, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_axes, __pyx_n_s_plot); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 946, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_df, __pyx_n_s_index); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 941, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_df, __pyx_n_s_index); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 946, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_8 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df, __pyx_n_s_mean); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 941, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyObject_Dict_GetItem(__pyx_v_df, __pyx_n_s_mean); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 946, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 941, __pyx_L1_error)
+      __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 946, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_GIVEREF(__pyx_t_1);
       PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_1);
@@ -12804,19 +12794,19 @@ static PyObject *__pyx_pf_20final_project_cython_28plot_cpi(CYTHON_UNUSED PyObje
       PyTuple_SET_ITEM(__pyx_t_4, 2, __pyx_kp_s__22);
       __pyx_t_1 = 0;
       __pyx_t_8 = 0;
-      __pyx_t_8 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 941, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 946, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
-      if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_color, __pyx_n_s_purple) < 0) __PYX_ERR(0, 941, __pyx_L1_error)
-      if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_label, __pyx_n_s_mean) < 0) __PYX_ERR(0, 941, __pyx_L1_error)
-      if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_linewidth, __pyx_int_1) < 0) __PYX_ERR(0, 941, __pyx_L1_error)
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, __pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 941, __pyx_L1_error)
+      if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_color, __pyx_n_s_purple) < 0) __PYX_ERR(0, 946, __pyx_L1_error)
+      if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_label, __pyx_n_s_mean) < 0) __PYX_ERR(0, 946, __pyx_L1_error)
+      if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_linewidth, __pyx_int_1) < 0) __PYX_ERR(0, 946, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, __pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 946, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "final_project_cython_functions.pyx":940
+      /* "final_project_cython_functions.pyx":945
  *             axes.plot(df.index, df['median'],  color='darkgreen', label='median', linewidth=1)
  *             axes.fill_between(df.index, df['75pct'], df['25pct'], facecolor='lightgreen')
  *         if plot_mean:             # <<<<<<<<<<<<<<
@@ -12825,14 +12815,14 @@ static PyObject *__pyx_pf_20final_project_cython_28plot_cpi(CYTHON_UNUSED PyObje
  */
     }
 
-    /* "final_project_cython_functions.pyx":942
+    /* "final_project_cython_functions.pyx":947
  *         if plot_mean:
  *             axes.plot(df.index, df['mean'], '-.', color='purple', label='mean', linewidth=1)
  *         axes.set_xlabel(x_label)             # <<<<<<<<<<<<<<
  *         axes.set_ylabel(y_label)
  *         axes.set_title(title)
  */
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_axes, __pyx_n_s_set_xlabel); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 942, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_axes, __pyx_n_s_set_xlabel); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 947, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __pyx_t_4 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_8))) {
@@ -12846,19 +12836,19 @@ static PyObject *__pyx_pf_20final_project_cython_28plot_cpi(CYTHON_UNUSED PyObje
     }
     __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_8, __pyx_t_4, __pyx_v_x_label) : __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_v_x_label);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 942, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 947, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "final_project_cython_functions.pyx":943
+    /* "final_project_cython_functions.pyx":948
  *             axes.plot(df.index, df['mean'], '-.', color='purple', label='mean', linewidth=1)
  *         axes.set_xlabel(x_label)
  *         axes.set_ylabel(y_label)             # <<<<<<<<<<<<<<
  *         axes.set_title(title)
  *         axes.set_xticks(df.index.to_list())
  */
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_axes, __pyx_n_s_set_ylabel); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 943, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_axes, __pyx_n_s_set_ylabel); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 948, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __pyx_t_4 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_8))) {
@@ -12872,19 +12862,19 @@ static PyObject *__pyx_pf_20final_project_cython_28plot_cpi(CYTHON_UNUSED PyObje
     }
     __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_8, __pyx_t_4, __pyx_v_y_label) : __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_v_y_label);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 943, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 948, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "final_project_cython_functions.pyx":944
+    /* "final_project_cython_functions.pyx":949
  *         axes.set_xlabel(x_label)
  *         axes.set_ylabel(y_label)
  *         axes.set_title(title)             # <<<<<<<<<<<<<<
  *         axes.set_xticks(df.index.to_list())
  *         axes.legend()
  */
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_axes, __pyx_n_s_set_title); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 944, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_axes, __pyx_n_s_set_title); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 949, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __pyx_t_4 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_8))) {
@@ -12898,23 +12888,23 @@ static PyObject *__pyx_pf_20final_project_cython_28plot_cpi(CYTHON_UNUSED PyObje
     }
     __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_8, __pyx_t_4, __pyx_v_title) : __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_v_title);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 944, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 949, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "final_project_cython_functions.pyx":945
+    /* "final_project_cython_functions.pyx":950
  *         axes.set_ylabel(y_label)
  *         axes.set_title(title)
  *         axes.set_xticks(df.index.to_list())             # <<<<<<<<<<<<<<
  *         axes.legend()
  *     else:
  */
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_axes, __pyx_n_s_set_xticks); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 945, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_axes, __pyx_n_s_set_xticks); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 950, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_df, __pyx_n_s_index); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 945, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_df, __pyx_n_s_index); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 950, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_to_list); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 945, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_to_list); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 950, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_2 = NULL;
@@ -12929,7 +12919,7 @@ static PyObject *__pyx_pf_20final_project_cython_28plot_cpi(CYTHON_UNUSED PyObje
     }
     __pyx_t_4 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 945, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 950, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_3 = NULL;
@@ -12945,19 +12935,19 @@ static PyObject *__pyx_pf_20final_project_cython_28plot_cpi(CYTHON_UNUSED PyObje
     __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_8, __pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_t_4);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 945, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 950, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "final_project_cython_functions.pyx":946
+    /* "final_project_cython_functions.pyx":951
  *         axes.set_title(title)
  *         axes.set_xticks(df.index.to_list())
  *         axes.legend()             # <<<<<<<<<<<<<<
  *     else:
  *         # Plotting normal values
  */
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_axes, __pyx_n_s_legend); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 946, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_axes, __pyx_n_s_legend); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 951, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __pyx_t_4 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_8))) {
@@ -12971,12 +12961,12 @@ static PyObject *__pyx_pf_20final_project_cython_28plot_cpi(CYTHON_UNUSED PyObje
     }
     __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_8);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 946, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 951, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "final_project_cython_functions.pyx":934
+    /* "final_project_cython_functions.pyx":939
  * 
  *     # Either regular values can be plotted, or the quartiles and/or mean
  *     if plot_quartiles or plot_mean:             # <<<<<<<<<<<<<<
@@ -12986,7 +12976,7 @@ static PyObject *__pyx_pf_20final_project_cython_28plot_cpi(CYTHON_UNUSED PyObje
     goto __pyx_L5;
   }
 
-  /* "final_project_cython_functions.pyx":949
+  /* "final_project_cython_functions.pyx":954
  *     else:
  *         # Plotting normal values
  *         df.plot(ax=axes, xlabel=x_label, ylabel=y_label, title=title, xticks=df.index.to_list())             # <<<<<<<<<<<<<<
@@ -12994,17 +12984,17 @@ static PyObject *__pyx_pf_20final_project_cython_28plot_cpi(CYTHON_UNUSED PyObje
  *     # Save to disk
  */
   /*else*/ {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_df, __pyx_n_s_plot); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 949, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_df, __pyx_n_s_plot); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 954, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_8 = __Pyx_PyDict_NewPresized(5); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 949, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyDict_NewPresized(5); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 954, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_ax, __pyx_v_axes) < 0) __PYX_ERR(0, 949, __pyx_L1_error)
-    if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_xlabel, __pyx_v_x_label) < 0) __PYX_ERR(0, 949, __pyx_L1_error)
-    if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_ylabel, __pyx_v_y_label) < 0) __PYX_ERR(0, 949, __pyx_L1_error)
-    if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_title, __pyx_v_title) < 0) __PYX_ERR(0, 949, __pyx_L1_error)
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_df, __pyx_n_s_index); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 949, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_ax, __pyx_v_axes) < 0) __PYX_ERR(0, 954, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_xlabel, __pyx_v_x_label) < 0) __PYX_ERR(0, 954, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_ylabel, __pyx_v_y_label) < 0) __PYX_ERR(0, 954, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_title, __pyx_v_title) < 0) __PYX_ERR(0, 954, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_df, __pyx_n_s_index); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 954, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_to_list); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 949, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_to_list); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 954, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_3 = NULL;
@@ -13019,12 +13009,12 @@ static PyObject *__pyx_pf_20final_project_cython_28plot_cpi(CYTHON_UNUSED PyObje
     }
     __pyx_t_4 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 949, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 954, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_xticks, __pyx_t_4) < 0) __PYX_ERR(0, 949, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_xticks, __pyx_t_4) < 0) __PYX_ERR(0, 954, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_t_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 949, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_t_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 954, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -13032,31 +13022,31 @@ static PyObject *__pyx_pf_20final_project_cython_28plot_cpi(CYTHON_UNUSED PyObje
   }
   __pyx_L5:;
 
-  /* "final_project_cython_functions.pyx":952
+  /* "final_project_cython_functions.pyx":957
  * 
  *     # Save to disk
  *     figure.savefig(plot_name, dpi=200)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_figure, __pyx_n_s_savefig); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 952, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_figure, __pyx_n_s_savefig); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 957, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_8 = PyTuple_New(1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 952, __pyx_L1_error)
+  __pyx_t_8 = PyTuple_New(1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 957, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_INCREF(__pyx_v_plot_name);
   __Pyx_GIVEREF(__pyx_v_plot_name);
   PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_v_plot_name);
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 952, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 957, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dpi, __pyx_int_200) < 0) __PYX_ERR(0, 952, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_8, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 952, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dpi, __pyx_int_200) < 0) __PYX_ERR(0, 957, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_8, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 957, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":915
+  /* "final_project_cython_functions.pyx":920
  * 
  * 
  * def plot_cpi(df: pd.DataFrame, plot_name: str, title: str, x_label: str, y_label: str, plot_quartiles: bool = False,             # <<<<<<<<<<<<<<
@@ -13083,7 +13073,7 @@ static PyObject *__pyx_pf_20final_project_cython_28plot_cpi(CYTHON_UNUSED PyObje
   return __pyx_r;
 }
 
-/* "final_project_cython_functions.pyx":955
+/* "final_project_cython_functions.pyx":960
  * 
  * 
  * def plot_all_cpi_graphs(pandemics_cpi_df, wars_cpi_df):             # <<<<<<<<<<<<<<
@@ -13127,11 +13117,11 @@ static PyObject *__pyx_pw_20final_project_cython_31plot_all_cpi_graphs(PyObject 
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_wars_cpi_df)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("plot_all_cpi_graphs", 1, 2, 2, 1); __PYX_ERR(0, 955, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("plot_all_cpi_graphs", 1, 2, 2, 1); __PYX_ERR(0, 960, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "plot_all_cpi_graphs") < 0)) __PYX_ERR(0, 955, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "plot_all_cpi_graphs") < 0)) __PYX_ERR(0, 960, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -13144,7 +13134,7 @@ static PyObject *__pyx_pw_20final_project_cython_31plot_all_cpi_graphs(PyObject 
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("plot_all_cpi_graphs", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 955, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("plot_all_cpi_graphs", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 960, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("final_project_cython.plot_all_cpi_graphs", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -13171,16 +13161,16 @@ static PyObject *__pyx_pf_20final_project_cython_30plot_all_cpi_graphs(CYTHON_UN
   __Pyx_INCREF(__pyx_v_pandemics_cpi_df);
   __Pyx_INCREF(__pyx_v_wars_cpi_df);
 
-  /* "final_project_cython_functions.pyx":964
+  /* "final_project_cython_functions.pyx":969
  *     """
  *     # Plot individual events as lines
  *     plot_cpi(pandemics_cpi_df, 'Plots/CPI/all_pandemics.png', title='Individual Pandemics vs CPI Change',             # <<<<<<<<<<<<<<
  *              x_label='Years +/- End of Pandemic', y_label='Year on Year CPI % Change')
  *     plot_cpi(wars_cpi_df, 'Plots/CPI/all_wars.png', title='Individual Wars vs CPI Change',
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_plot_cpi); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 964, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_plot_cpi); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 969, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 964, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 969, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_v_pandemics_cpi_df);
   __Pyx_GIVEREF(__pyx_v_pandemics_cpi_df);
@@ -13188,28 +13178,28 @@ static PyObject *__pyx_pf_20final_project_cython_30plot_all_cpi_graphs(CYTHON_UN
   __Pyx_INCREF(__pyx_kp_s_Plots_CPI_all_pandemics_png);
   __Pyx_GIVEREF(__pyx_kp_s_Plots_CPI_all_pandemics_png);
   PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_kp_s_Plots_CPI_all_pandemics_png);
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 964, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 969, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_title, __pyx_kp_s_Individual_Pandemics_vs_CPI_Chan) < 0) __PYX_ERR(0, 964, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_x_label, __pyx_kp_s_Years_End_of_Pandemic) < 0) __PYX_ERR(0, 964, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_y_label, __pyx_kp_s_Year_on_Year_CPI_Change) < 0) __PYX_ERR(0, 964, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 964, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_title, __pyx_kp_s_Individual_Pandemics_vs_CPI_Chan) < 0) __PYX_ERR(0, 969, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_x_label, __pyx_kp_s_Years_End_of_Pandemic) < 0) __PYX_ERR(0, 969, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_y_label, __pyx_kp_s_Year_on_Year_CPI_Change) < 0) __PYX_ERR(0, 969, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 969, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "final_project_cython_functions.pyx":966
+  /* "final_project_cython_functions.pyx":971
  *     plot_cpi(pandemics_cpi_df, 'Plots/CPI/all_pandemics.png', title='Individual Pandemics vs CPI Change',
  *              x_label='Years +/- End of Pandemic', y_label='Year on Year CPI % Change')
  *     plot_cpi(wars_cpi_df, 'Plots/CPI/all_wars.png', title='Individual Wars vs CPI Change',             # <<<<<<<<<<<<<<
  *              x_label='Years +/- End of War', y_label='Year on Year CPI % Change')
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_plot_cpi); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 966, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_plot_cpi); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 971, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 966, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 971, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(__pyx_v_wars_cpi_df);
   __Pyx_GIVEREF(__pyx_v_wars_cpi_df);
@@ -13217,26 +13207,26 @@ static PyObject *__pyx_pf_20final_project_cython_30plot_all_cpi_graphs(CYTHON_UN
   __Pyx_INCREF(__pyx_kp_s_Plots_CPI_all_wars_png);
   __Pyx_GIVEREF(__pyx_kp_s_Plots_CPI_all_wars_png);
   PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_kp_s_Plots_CPI_all_wars_png);
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 966, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 971, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_title, __pyx_kp_s_Individual_Wars_vs_CPI_Change) < 0) __PYX_ERR(0, 966, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_x_label, __pyx_kp_s_Years_End_of_War) < 0) __PYX_ERR(0, 966, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_y_label, __pyx_kp_s_Year_on_Year_CPI_Change) < 0) __PYX_ERR(0, 966, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 966, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_title, __pyx_kp_s_Individual_Wars_vs_CPI_Change) < 0) __PYX_ERR(0, 971, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_x_label, __pyx_kp_s_Years_End_of_War) < 0) __PYX_ERR(0, 971, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_y_label, __pyx_kp_s_Year_on_Year_CPI_Change) < 0) __PYX_ERR(0, 971, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 971, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":970
+  /* "final_project_cython_functions.pyx":975
  * 
  *     # Calculate quartiles so these can be plotted
  *     pandemics_cpi_df = add_mean_and_quartiles(pandemics_cpi_df)             # <<<<<<<<<<<<<<
  *     wars_cpi_df = add_mean_and_quartiles(wars_cpi_df)
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_add_mean_and_quartiles); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 970, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_add_mean_and_quartiles); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 975, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -13250,20 +13240,20 @@ static PyObject *__pyx_pf_20final_project_cython_30plot_all_cpi_graphs(CYTHON_UN
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_pandemics_cpi_df) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_pandemics_cpi_df);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 970, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 975, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF_SET(__pyx_v_pandemics_cpi_df, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":971
+  /* "final_project_cython_functions.pyx":976
  *     # Calculate quartiles so these can be plotted
  *     pandemics_cpi_df = add_mean_and_quartiles(pandemics_cpi_df)
  *     wars_cpi_df = add_mean_and_quartiles(wars_cpi_df)             # <<<<<<<<<<<<<<
  * 
  *     # Plot averages for pandemics (quartiles and mean)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_add_mean_and_quartiles); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 971, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_add_mean_and_quartiles); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 976, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -13277,22 +13267,22 @@ static PyObject *__pyx_pf_20final_project_cython_30plot_all_cpi_graphs(CYTHON_UN
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_wars_cpi_df) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_wars_cpi_df);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 971, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 976, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF_SET(__pyx_v_wars_cpi_df, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":974
+  /* "final_project_cython_functions.pyx":979
  * 
  *     # Plot averages for pandemics (quartiles and mean)
  *     plot_cpi(pandemics_cpi_df, 'Plots/CPI/pandemics_quartiles_mean.png', title='Averaged Pandemics vs CPI Change '             # <<<<<<<<<<<<<<
  *                                                                                'Quartiles and Mean',
  *              x_label='Years +/- End of Pandemic',
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_plot_cpi); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 974, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_plot_cpi); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 979, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 974, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 979, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_v_pandemics_cpi_df);
   __Pyx_GIVEREF(__pyx_v_pandemics_cpi_df);
@@ -13300,46 +13290,46 @@ static PyObject *__pyx_pf_20final_project_cython_30plot_all_cpi_graphs(CYTHON_UN
   __Pyx_INCREF(__pyx_kp_s_Plots_CPI_pandemics_quartiles_me);
   __Pyx_GIVEREF(__pyx_kp_s_Plots_CPI_pandemics_quartiles_me);
   PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_kp_s_Plots_CPI_pandemics_quartiles_me);
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 974, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 979, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_title, __pyx_kp_s_Averaged_Pandemics_vs_CPI_Change) < 0) __PYX_ERR(0, 974, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_x_label, __pyx_kp_s_Years_End_of_Pandemic) < 0) __PYX_ERR(0, 974, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_y_label, __pyx_kp_s_Year_on_Year_CPI_Change) < 0) __PYX_ERR(0, 974, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_title, __pyx_kp_s_Averaged_Pandemics_vs_CPI_Change) < 0) __PYX_ERR(0, 979, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_x_label, __pyx_kp_s_Years_End_of_Pandemic) < 0) __PYX_ERR(0, 979, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_y_label, __pyx_kp_s_Year_on_Year_CPI_Change) < 0) __PYX_ERR(0, 979, __pyx_L1_error)
 
-  /* "final_project_cython_functions.pyx":977
+  /* "final_project_cython_functions.pyx":982
  *                                                                                'Quartiles and Mean',
  *              x_label='Years +/- End of Pandemic',
  *              y_label='Year on Year CPI % Change', plot_quartiles=True, plot_mean=True)             # <<<<<<<<<<<<<<
  * 
  *     # Plot averages for wars (quartiles and mean)
  */
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_plot_quartiles, Py_True) < 0) __PYX_ERR(0, 974, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_plot_mean, Py_True) < 0) __PYX_ERR(0, 974, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_plot_quartiles, Py_True) < 0) __PYX_ERR(0, 979, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_plot_mean, Py_True) < 0) __PYX_ERR(0, 979, __pyx_L1_error)
 
-  /* "final_project_cython_functions.pyx":974
+  /* "final_project_cython_functions.pyx":979
  * 
  *     # Plot averages for pandemics (quartiles and mean)
  *     plot_cpi(pandemics_cpi_df, 'Plots/CPI/pandemics_quartiles_mean.png', title='Averaged Pandemics vs CPI Change '             # <<<<<<<<<<<<<<
  *                                                                                'Quartiles and Mean',
  *              x_label='Years +/- End of Pandemic',
  */
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 974, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 979, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "final_project_cython_functions.pyx":980
+  /* "final_project_cython_functions.pyx":985
  * 
  *     # Plot averages for wars (quartiles and mean)
  *     plot_cpi(wars_cpi_df, 'Plots/CPI/wars_quartiles_mean.png', title='Averaged Wars vs CPI Change Quartiles and Mean',             # <<<<<<<<<<<<<<
  *              x_label='Years +/- End of War',
  *              y_label='Year on Year CPI % Change', plot_quartiles=True, plot_mean=True)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_plot_cpi); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 980, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_plot_cpi); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 985, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 980, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 985, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(__pyx_v_wars_cpi_df);
   __Pyx_GIVEREF(__pyx_v_wars_cpi_df);
@@ -13347,37 +13337,37 @@ static PyObject *__pyx_pf_20final_project_cython_30plot_all_cpi_graphs(CYTHON_UN
   __Pyx_INCREF(__pyx_kp_s_Plots_CPI_wars_quartiles_mean_pn);
   __Pyx_GIVEREF(__pyx_kp_s_Plots_CPI_wars_quartiles_mean_pn);
   PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_kp_s_Plots_CPI_wars_quartiles_mean_pn);
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 980, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 985, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_title, __pyx_kp_s_Averaged_Wars_vs_CPI_Change_Quar) < 0) __PYX_ERR(0, 980, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_x_label, __pyx_kp_s_Years_End_of_War) < 0) __PYX_ERR(0, 980, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_y_label, __pyx_kp_s_Year_on_Year_CPI_Change) < 0) __PYX_ERR(0, 980, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_title, __pyx_kp_s_Averaged_Wars_vs_CPI_Change_Quar) < 0) __PYX_ERR(0, 985, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_x_label, __pyx_kp_s_Years_End_of_War) < 0) __PYX_ERR(0, 985, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_y_label, __pyx_kp_s_Year_on_Year_CPI_Change) < 0) __PYX_ERR(0, 985, __pyx_L1_error)
 
-  /* "final_project_cython_functions.pyx":982
+  /* "final_project_cython_functions.pyx":987
  *     plot_cpi(wars_cpi_df, 'Plots/CPI/wars_quartiles_mean.png', title='Averaged Wars vs CPI Change Quartiles and Mean',
  *              x_label='Years +/- End of War',
  *              y_label='Year on Year CPI % Change', plot_quartiles=True, plot_mean=True)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_plot_quartiles, Py_True) < 0) __PYX_ERR(0, 980, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_plot_mean, Py_True) < 0) __PYX_ERR(0, 980, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_plot_quartiles, Py_True) < 0) __PYX_ERR(0, 985, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_plot_mean, Py_True) < 0) __PYX_ERR(0, 985, __pyx_L1_error)
 
-  /* "final_project_cython_functions.pyx":980
+  /* "final_project_cython_functions.pyx":985
  * 
  *     # Plot averages for wars (quartiles and mean)
  *     plot_cpi(wars_cpi_df, 'Plots/CPI/wars_quartiles_mean.png', title='Averaged Wars vs CPI Change Quartiles and Mean',             # <<<<<<<<<<<<<<
  *              x_label='Years +/- End of War',
  *              y_label='Year on Year CPI % Change', plot_quartiles=True, plot_mean=True)
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 980, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 985, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":955
+  /* "final_project_cython_functions.pyx":960
  * 
  * 
  * def plot_all_cpi_graphs(pandemics_cpi_df, wars_cpi_df):             # <<<<<<<<<<<<<<
@@ -13403,7 +13393,7 @@ static PyObject *__pyx_pf_20final_project_cython_30plot_all_cpi_graphs(CYTHON_UN
   return __pyx_r;
 }
 
-/* "final_project_cython_functions.pyx":985
+/* "final_project_cython_functions.pyx":990
  * 
  * 
  * def analyze_gdp(gdp_file: str, events_file: str) -> None:             # <<<<<<<<<<<<<<
@@ -13447,11 +13437,11 @@ static PyObject *__pyx_pw_20final_project_cython_33analyze_gdp(PyObject *__pyx_s
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_events_file)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("analyze_gdp", 1, 2, 2, 1); __PYX_ERR(0, 985, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("analyze_gdp", 1, 2, 2, 1); __PYX_ERR(0, 990, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "analyze_gdp") < 0)) __PYX_ERR(0, 985, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "analyze_gdp") < 0)) __PYX_ERR(0, 990, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -13464,14 +13454,14 @@ static PyObject *__pyx_pw_20final_project_cython_33analyze_gdp(PyObject *__pyx_s
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("analyze_gdp", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 985, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("analyze_gdp", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 990, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("final_project_cython.analyze_gdp", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_gdp_file), (&PyString_Type), 1, "gdp_file", 1))) __PYX_ERR(0, 985, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_events_file), (&PyString_Type), 1, "events_file", 1))) __PYX_ERR(0, 985, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_gdp_file), (&PyString_Type), 1, "gdp_file", 1))) __PYX_ERR(0, 990, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_events_file), (&PyString_Type), 1, "events_file", 1))) __PYX_ERR(0, 990, __pyx_L1_error)
   __pyx_r = __pyx_pf_20final_project_cython_32analyze_gdp(__pyx_self, __pyx_v_gdp_file, __pyx_v_events_file);
 
   /* function exit code */
@@ -13499,27 +13489,27 @@ static PyObject *__pyx_pf_20final_project_cython_32analyze_gdp(CYTHON_UNUSED PyO
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("analyze_gdp", 0);
 
-  /* "final_project_cython_functions.pyx":993
+  /* "final_project_cython_functions.pyx":998
  *     """
  *     # read in us gdp file
  *     us_gdp_df = pd.read_csv(gdp_file, header=0)             # <<<<<<<<<<<<<<
  * 
  *     # separate pandemics and wars gdp dataframe
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_pd); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 993, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_pd); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 998, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_read_csv); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 993, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_read_csv); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 998, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 993, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 998, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_v_gdp_file);
   __Pyx_GIVEREF(__pyx_v_gdp_file);
   PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_v_gdp_file);
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 993, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 998, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_header, __pyx_int_0) < 0) __PYX_ERR(0, 993, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 993, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_header, __pyx_int_0) < 0) __PYX_ERR(0, 998, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 998, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -13527,24 +13517,24 @@ static PyObject *__pyx_pf_20final_project_cython_32analyze_gdp(CYTHON_UNUSED PyO
   __pyx_v_us_gdp_df = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "final_project_cython_functions.pyx":996
+  /* "final_project_cython_functions.pyx":1001
  * 
  *     # separate pandemics and wars gdp dataframe
  *     pandemics_gdp = read_event_facts(events_file, types='Pandemics')             # <<<<<<<<<<<<<<
  *     wars_gdp = read_event_facts(events_file, types='War')
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_read_event_facts); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 996, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_read_event_facts); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1001, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 996, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1001, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(__pyx_v_events_file);
   __Pyx_GIVEREF(__pyx_v_events_file);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_v_events_file);
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 996, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1001, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_types, __pyx_n_s_Pandemics) < 0) __PYX_ERR(0, 996, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 996, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_types, __pyx_n_s_Pandemics) < 0) __PYX_ERR(0, 1001, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1001, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -13552,24 +13542,24 @@ static PyObject *__pyx_pf_20final_project_cython_32analyze_gdp(CYTHON_UNUSED PyO
   __pyx_v_pandemics_gdp = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":997
+  /* "final_project_cython_functions.pyx":1002
  *     # separate pandemics and wars gdp dataframe
  *     pandemics_gdp = read_event_facts(events_file, types='Pandemics')
  *     wars_gdp = read_event_facts(events_file, types='War')             # <<<<<<<<<<<<<<
  * 
  *     # get gdp_info for each pandemic/war events
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_read_event_facts); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 997, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_read_event_facts); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1002, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 997, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1002, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_v_events_file);
   __Pyx_GIVEREF(__pyx_v_events_file);
   PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_v_events_file);
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 997, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1002, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_types, __pyx_n_s_War) < 0) __PYX_ERR(0, 997, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 997, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_types, __pyx_n_s_War) < 0) __PYX_ERR(0, 1002, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1002, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -13577,14 +13567,14 @@ static PyObject *__pyx_pf_20final_project_cython_32analyze_gdp(CYTHON_UNUSED PyO
   __pyx_v_wars_gdp = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "final_project_cython_functions.pyx":1000
+  /* "final_project_cython_functions.pyx":1005
  * 
  *     # get gdp_info for each pandemic/war events
  *     get_gdp_info(us_gdp_df, pandemics_gdp)             # <<<<<<<<<<<<<<
  *     get_gdp_info(us_gdp_df, wars_gdp)
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_get_gdp_info); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1000, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_get_gdp_info); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1005, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_1 = NULL;
   __pyx_t_5 = 0;
@@ -13601,7 +13591,7 @@ static PyObject *__pyx_pf_20final_project_cython_32analyze_gdp(CYTHON_UNUSED PyO
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_1, __pyx_v_us_gdp_df, __pyx_v_pandemics_gdp};
-    __pyx_t_4 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1000, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1005, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_GOTREF(__pyx_t_4);
   } else
@@ -13609,13 +13599,13 @@ static PyObject *__pyx_pf_20final_project_cython_32analyze_gdp(CYTHON_UNUSED PyO
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_1, __pyx_v_us_gdp_df, __pyx_v_pandemics_gdp};
-    __pyx_t_4 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1000, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1005, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_GOTREF(__pyx_t_4);
   } else
   #endif
   {
-    __pyx_t_2 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1000, __pyx_L1_error)
+    __pyx_t_2 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1005, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     if (__pyx_t_1) {
       __Pyx_GIVEREF(__pyx_t_1); PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1); __pyx_t_1 = NULL;
@@ -13626,21 +13616,21 @@ static PyObject *__pyx_pf_20final_project_cython_32analyze_gdp(CYTHON_UNUSED PyO
     __Pyx_INCREF(__pyx_v_pandemics_gdp);
     __Pyx_GIVEREF(__pyx_v_pandemics_gdp);
     PyTuple_SET_ITEM(__pyx_t_2, 1+__pyx_t_5, __pyx_v_pandemics_gdp);
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_2, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1000, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_2, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1005, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "final_project_cython_functions.pyx":1001
+  /* "final_project_cython_functions.pyx":1006
  *     # get gdp_info for each pandemic/war events
  *     get_gdp_info(us_gdp_df, pandemics_gdp)
  *     get_gdp_info(us_gdp_df, wars_gdp)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_get_gdp_info); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1001, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_get_gdp_info); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1006, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_2 = NULL;
   __pyx_t_5 = 0;
@@ -13657,7 +13647,7 @@ static PyObject *__pyx_pf_20final_project_cython_32analyze_gdp(CYTHON_UNUSED PyO
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_v_us_gdp_df, __pyx_v_wars_gdp};
-    __pyx_t_4 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1001, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1006, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_4);
   } else
@@ -13665,13 +13655,13 @@ static PyObject *__pyx_pf_20final_project_cython_32analyze_gdp(CYTHON_UNUSED PyO
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_v_us_gdp_df, __pyx_v_wars_gdp};
-    __pyx_t_4 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1001, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1006, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_4);
   } else
   #endif
   {
-    __pyx_t_1 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1001, __pyx_L1_error)
+    __pyx_t_1 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1006, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     if (__pyx_t_2) {
       __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_2); __pyx_t_2 = NULL;
@@ -13682,14 +13672,14 @@ static PyObject *__pyx_pf_20final_project_cython_32analyze_gdp(CYTHON_UNUSED PyO
     __Pyx_INCREF(__pyx_v_wars_gdp);
     __Pyx_GIVEREF(__pyx_v_wars_gdp);
     PyTuple_SET_ITEM(__pyx_t_1, 1+__pyx_t_5, __pyx_v_wars_gdp);
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_1, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1001, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_1, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1006, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "final_project_cython_functions.pyx":985
+  /* "final_project_cython_functions.pyx":990
  * 
  * 
  * def analyze_gdp(gdp_file: str, events_file: str) -> None:             # <<<<<<<<<<<<<<
@@ -13716,7 +13706,7 @@ static PyObject *__pyx_pf_20final_project_cython_32analyze_gdp(CYTHON_UNUSED PyO
   return __pyx_r;
 }
 
-/* "final_project_cython_functions.pyx":1004
+/* "final_project_cython_functions.pyx":1009
  * 
  * 
  * def analyze_cpi(us_cpi_file: str, events_file: str, year_boundaries: int,             # <<<<<<<<<<<<<<
@@ -13766,23 +13756,23 @@ static PyObject *__pyx_pw_20final_project_cython_35analyze_cpi(PyObject *__pyx_s
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_events_file)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("analyze_cpi", 1, 4, 4, 1); __PYX_ERR(0, 1004, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("analyze_cpi", 1, 4, 4, 1); __PYX_ERR(0, 1009, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_year_boundaries)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("analyze_cpi", 1, 4, 4, 2); __PYX_ERR(0, 1004, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("analyze_cpi", 1, 4, 4, 2); __PYX_ERR(0, 1009, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_graph_type)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("analyze_cpi", 1, 4, 4, 3); __PYX_ERR(0, 1004, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("analyze_cpi", 1, 4, 4, 3); __PYX_ERR(0, 1009, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "analyze_cpi") < 0)) __PYX_ERR(0, 1004, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "analyze_cpi") < 0)) __PYX_ERR(0, 1009, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
       goto __pyx_L5_argtuple_error;
@@ -13799,14 +13789,14 @@ static PyObject *__pyx_pw_20final_project_cython_35analyze_cpi(PyObject *__pyx_s
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("analyze_cpi", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1004, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("analyze_cpi", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1009, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("final_project_cython.analyze_cpi", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_us_cpi_file), (&PyString_Type), 1, "us_cpi_file", 1))) __PYX_ERR(0, 1004, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_events_file), (&PyString_Type), 1, "events_file", 1))) __PYX_ERR(0, 1004, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_us_cpi_file), (&PyString_Type), 1, "us_cpi_file", 1))) __PYX_ERR(0, 1009, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_events_file), (&PyString_Type), 1, "events_file", 1))) __PYX_ERR(0, 1009, __pyx_L1_error)
   __pyx_r = __pyx_pf_20final_project_cython_34analyze_cpi(__pyx_self, __pyx_v_us_cpi_file, __pyx_v_events_file, __pyx_v_year_boundaries, __pyx_v_graph_type);
 
   /* function exit code */
@@ -13837,14 +13827,14 @@ static PyObject *__pyx_pf_20final_project_cython_34analyze_cpi(CYTHON_UNUSED PyO
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("analyze_cpi", 0);
 
-  /* "final_project_cython_functions.pyx":1036
+  /* "final_project_cython_functions.pyx":1041
  *     [5 rows x 9 columns]
  *     """
  *     us_cpi_df = read_us_cpi(us_cpi_file)             # <<<<<<<<<<<<<<
  *     min_cpi_year = us_cpi_df['Year'].min()
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_read_us_cpi); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1036, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_read_us_cpi); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1041, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -13858,22 +13848,22 @@ static PyObject *__pyx_pf_20final_project_cython_34analyze_cpi(CYTHON_UNUSED PyO
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_us_cpi_file) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_us_cpi_file);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1036, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1041, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_us_cpi_df = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":1037
+  /* "final_project_cython_functions.pyx":1042
  *     """
  *     us_cpi_df = read_us_cpi(us_cpi_file)
  *     min_cpi_year = us_cpi_df['Year'].min()             # <<<<<<<<<<<<<<
  * 
- *
+ *     pandemics_df = read_event_facts(events_file, types='Pandemics', min_start_year=min_cpi_year,
  */
-  __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_v_us_cpi_df, __pyx_n_s_Year); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1037, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_v_us_cpi_df, __pyx_n_s_Year); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1042, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_min); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1037, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_min); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1042, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -13888,48 +13878,48 @@ static PyObject *__pyx_pf_20final_project_cython_34analyze_cpi(CYTHON_UNUSED PyO
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1037, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1042, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_min_cpi_year = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":1040
+  /* "final_project_cython_functions.pyx":1044
+ *     min_cpi_year = us_cpi_df['Year'].min()
  * 
- *
  *     pandemics_df = read_event_facts(events_file, types='Pandemics', min_start_year=min_cpi_year,             # <<<<<<<<<<<<<<
  *                                     min_end_year=min_cpi_year)
  *     wars_df = read_event_facts(events_file, types='War', min_start_year=min_cpi_year, min_end_year=min_cpi_year)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_read_event_facts); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1040, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_read_event_facts); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1044, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1040, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1044, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(__pyx_v_events_file);
   __Pyx_GIVEREF(__pyx_v_events_file);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_v_events_file);
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1040, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1044, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_types, __pyx_n_s_Pandemics) < 0) __PYX_ERR(0, 1040, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_min_start_year, __pyx_v_min_cpi_year) < 0) __PYX_ERR(0, 1040, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_types, __pyx_n_s_Pandemics) < 0) __PYX_ERR(0, 1044, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_min_start_year, __pyx_v_min_cpi_year) < 0) __PYX_ERR(0, 1044, __pyx_L1_error)
 
-  /* "final_project_cython_functions.pyx":1041
- *
+  /* "final_project_cython_functions.pyx":1045
+ * 
  *     pandemics_df = read_event_facts(events_file, types='Pandemics', min_start_year=min_cpi_year,
  *                                     min_end_year=min_cpi_year)             # <<<<<<<<<<<<<<
  *     wars_df = read_event_facts(events_file, types='War', min_start_year=min_cpi_year, min_end_year=min_cpi_year)
  * 
  */
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_min_end_year, __pyx_v_min_cpi_year) < 0) __PYX_ERR(0, 1040, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_min_end_year, __pyx_v_min_cpi_year) < 0) __PYX_ERR(0, 1044, __pyx_L1_error)
 
-  /* "final_project_cython_functions.pyx":1040
+  /* "final_project_cython_functions.pyx":1044
+ *     min_cpi_year = us_cpi_df['Year'].min()
  * 
- *
  *     pandemics_df = read_event_facts(events_file, types='Pandemics', min_start_year=min_cpi_year,             # <<<<<<<<<<<<<<
  *                                     min_end_year=min_cpi_year)
  *     wars_df = read_event_facts(events_file, types='War', min_start_year=min_cpi_year, min_end_year=min_cpi_year)
  */
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1040, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1044, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -13937,26 +13927,26 @@ static PyObject *__pyx_pf_20final_project_cython_34analyze_cpi(CYTHON_UNUSED PyO
   __pyx_v_pandemics_df = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "final_project_cython_functions.pyx":1042
+  /* "final_project_cython_functions.pyx":1046
  *     pandemics_df = read_event_facts(events_file, types='Pandemics', min_start_year=min_cpi_year,
  *                                     min_end_year=min_cpi_year)
  *     wars_df = read_event_facts(events_file, types='War', min_start_year=min_cpi_year, min_end_year=min_cpi_year)             # <<<<<<<<<<<<<<
  * 
  *     # Add the start and end years for plotting
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_read_event_facts); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1042, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_read_event_facts); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1046, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1042, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1046, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_v_events_file);
   __Pyx_GIVEREF(__pyx_v_events_file);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_events_file);
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1042, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1046, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_types, __pyx_n_s_War) < 0) __PYX_ERR(0, 1042, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_min_start_year, __pyx_v_min_cpi_year) < 0) __PYX_ERR(0, 1042, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_min_end_year, __pyx_v_min_cpi_year) < 0) __PYX_ERR(0, 1042, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1042, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_types, __pyx_n_s_War) < 0) __PYX_ERR(0, 1046, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_min_start_year, __pyx_v_min_cpi_year) < 0) __PYX_ERR(0, 1046, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_min_end_year, __pyx_v_min_cpi_year) < 0) __PYX_ERR(0, 1046, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1046, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -13964,16 +13954,16 @@ static PyObject *__pyx_pf_20final_project_cython_34analyze_cpi(CYTHON_UNUSED PyO
   __pyx_v_wars_df = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":1045
+  /* "final_project_cython_functions.pyx":1049
  * 
  *     # Add the start and end years for plotting
  *     pandemics_df = add_time_range(pandemics_df, graph_type, year_boundaries, add_extra_yr_before=True)             # <<<<<<<<<<<<<<
  *     wars_df = add_time_range(wars_df, graph_type, year_boundaries, add_extra_yr_before=True)
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_add_time_range); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1045, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_add_time_range); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1049, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1045, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1049, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(__pyx_v_pandemics_df);
   __Pyx_GIVEREF(__pyx_v_pandemics_df);
@@ -13984,10 +13974,10 @@ static PyObject *__pyx_pf_20final_project_cython_34analyze_cpi(CYTHON_UNUSED PyO
   __Pyx_INCREF(__pyx_v_year_boundaries);
   __Pyx_GIVEREF(__pyx_v_year_boundaries);
   PyTuple_SET_ITEM(__pyx_t_3, 2, __pyx_v_year_boundaries);
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1045, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1049, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_add_extra_yr_before, Py_True) < 0) __PYX_ERR(0, 1045, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1045, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_add_extra_yr_before, Py_True) < 0) __PYX_ERR(0, 1049, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1049, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -13995,16 +13985,16 @@ static PyObject *__pyx_pf_20final_project_cython_34analyze_cpi(CYTHON_UNUSED PyO
   __Pyx_DECREF_SET(__pyx_v_pandemics_df, __pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "final_project_cython_functions.pyx":1046
+  /* "final_project_cython_functions.pyx":1050
  *     # Add the start and end years for plotting
  *     pandemics_df = add_time_range(pandemics_df, graph_type, year_boundaries, add_extra_yr_before=True)
  *     wars_df = add_time_range(wars_df, graph_type, year_boundaries, add_extra_yr_before=True)             # <<<<<<<<<<<<<<
  * 
  *     # Add the individual values for those years
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_add_time_range); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1046, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_add_time_range); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1050, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_2 = PyTuple_New(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1046, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1050, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_v_wars_df);
   __Pyx_GIVEREF(__pyx_v_wars_df);
@@ -14015,10 +14005,10 @@ static PyObject *__pyx_pf_20final_project_cython_34analyze_cpi(CYTHON_UNUSED PyO
   __Pyx_INCREF(__pyx_v_year_boundaries);
   __Pyx_GIVEREF(__pyx_v_year_boundaries);
   PyTuple_SET_ITEM(__pyx_t_2, 2, __pyx_v_year_boundaries);
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1046, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1050, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_add_extra_yr_before, Py_True) < 0) __PYX_ERR(0, 1046, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1046, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_add_extra_yr_before, Py_True) < 0) __PYX_ERR(0, 1050, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1050, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -14026,14 +14016,14 @@ static PyObject *__pyx_pf_20final_project_cython_34analyze_cpi(CYTHON_UNUSED PyO
   __Pyx_DECREF_SET(__pyx_v_wars_df, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":1049
+  /* "final_project_cython_functions.pyx":1053
  * 
  *     # Add the individual values for those years
  *     pandemics_cpi_df = add_cpi_values(pandemics_df, us_cpi_df)             # <<<<<<<<<<<<<<
  *     wars_cpi_df = add_cpi_values(wars_df, us_cpi_df)
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_add_cpi_values); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1049, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_add_cpi_values); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1053, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_2 = NULL;
   __pyx_t_5 = 0;
@@ -14050,7 +14040,7 @@ static PyObject *__pyx_pf_20final_project_cython_34analyze_cpi(CYTHON_UNUSED PyO
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_v_pandemics_df, __pyx_v_us_cpi_df};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1049, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1053, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
@@ -14058,13 +14048,13 @@ static PyObject *__pyx_pf_20final_project_cython_34analyze_cpi(CYTHON_UNUSED PyO
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_v_pandemics_df, __pyx_v_us_cpi_df};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1049, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1053, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
   #endif
   {
-    __pyx_t_4 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1049, __pyx_L1_error)
+    __pyx_t_4 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1053, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     if (__pyx_t_2) {
       __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_2); __pyx_t_2 = NULL;
@@ -14075,7 +14065,7 @@ static PyObject *__pyx_pf_20final_project_cython_34analyze_cpi(CYTHON_UNUSED PyO
     __Pyx_INCREF(__pyx_v_us_cpi_df);
     __Pyx_GIVEREF(__pyx_v_us_cpi_df);
     PyTuple_SET_ITEM(__pyx_t_4, 1+__pyx_t_5, __pyx_v_us_cpi_df);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1049, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1053, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
@@ -14083,14 +14073,14 @@ static PyObject *__pyx_pf_20final_project_cython_34analyze_cpi(CYTHON_UNUSED PyO
   __pyx_v_pandemics_cpi_df = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":1050
+  /* "final_project_cython_functions.pyx":1054
  *     # Add the individual values for those years
  *     pandemics_cpi_df = add_cpi_values(pandemics_df, us_cpi_df)
  *     wars_cpi_df = add_cpi_values(wars_df, us_cpi_df)             # <<<<<<<<<<<<<<
  * 
  *     # Update the index so that it goes from negative years from zero, to zero, to years past zero
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_add_cpi_values); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1050, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_add_cpi_values); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1054, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   __pyx_t_5 = 0;
@@ -14107,7 +14097,7 @@ static PyObject *__pyx_pf_20final_project_cython_34analyze_cpi(CYTHON_UNUSED PyO
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_v_wars_df, __pyx_v_us_cpi_df};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1050, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1054, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
@@ -14115,13 +14105,13 @@ static PyObject *__pyx_pf_20final_project_cython_34analyze_cpi(CYTHON_UNUSED PyO
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_v_wars_df, __pyx_v_us_cpi_df};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1050, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1054, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
   #endif
   {
-    __pyx_t_2 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1050, __pyx_L1_error)
+    __pyx_t_2 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1054, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     if (__pyx_t_4) {
       __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_4); __pyx_t_4 = NULL;
@@ -14132,7 +14122,7 @@ static PyObject *__pyx_pf_20final_project_cython_34analyze_cpi(CYTHON_UNUSED PyO
     __Pyx_INCREF(__pyx_v_us_cpi_df);
     __Pyx_GIVEREF(__pyx_v_us_cpi_df);
     PyTuple_SET_ITEM(__pyx_t_2, 1+__pyx_t_5, __pyx_v_us_cpi_df);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1050, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1054, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
@@ -14140,14 +14130,14 @@ static PyObject *__pyx_pf_20final_project_cython_34analyze_cpi(CYTHON_UNUSED PyO
   __pyx_v_wars_cpi_df = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":1053
+  /* "final_project_cython_functions.pyx":1057
  * 
  *     # Update the index so that it goes from negative years from zero, to zero, to years past zero
  *     adjust_index(pandemics_cpi_df)             # <<<<<<<<<<<<<<
  *     adjust_index(wars_cpi_df)
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_adjust_index); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1053, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_adjust_index); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1057, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_2 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
@@ -14161,19 +14151,19 @@ static PyObject *__pyx_pf_20final_project_cython_34analyze_cpi(CYTHON_UNUSED PyO
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_2, __pyx_v_pandemics_cpi_df) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_pandemics_cpi_df);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1053, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1057, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":1054
+  /* "final_project_cython_functions.pyx":1058
  *     # Update the index so that it goes from negative years from zero, to zero, to years past zero
  *     adjust_index(pandemics_cpi_df)
  *     adjust_index(wars_cpi_df)             # <<<<<<<<<<<<<<
  * 
  *     return pandemics_cpi_df, wars_cpi_df
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_adjust_index); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1054, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_adjust_index); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1058, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_2 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
@@ -14187,12 +14177,12 @@ static PyObject *__pyx_pf_20final_project_cython_34analyze_cpi(CYTHON_UNUSED PyO
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_2, __pyx_v_wars_cpi_df) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_wars_cpi_df);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1054, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1058, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":1056
+  /* "final_project_cython_functions.pyx":1060
  *     adjust_index(wars_cpi_df)
  * 
  *     return pandemics_cpi_df, wars_cpi_df             # <<<<<<<<<<<<<<
@@ -14200,7 +14190,7 @@ static PyObject *__pyx_pf_20final_project_cython_34analyze_cpi(CYTHON_UNUSED PyO
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1056, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1060, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_v_pandemics_cpi_df);
   __Pyx_GIVEREF(__pyx_v_pandemics_cpi_df);
@@ -14212,7 +14202,7 @@ static PyObject *__pyx_pf_20final_project_cython_34analyze_cpi(CYTHON_UNUSED PyO
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "final_project_cython_functions.pyx":1004
+  /* "final_project_cython_functions.pyx":1009
  * 
  * 
  * def analyze_cpi(us_cpi_file: str, events_file: str, year_boundaries: int,             # <<<<<<<<<<<<<<
@@ -14240,7 +14230,7 @@ static PyObject *__pyx_pf_20final_project_cython_34analyze_cpi(CYTHON_UNUSED PyO
   return __pyx_r;
 }
 
-/* "final_project_cython_functions.pyx":1059
+/* "final_project_cython_functions.pyx":1063
  * 
  * 
  * def analyze_index(sp500_file: str, dowjones_file: str, events_file: str):             # <<<<<<<<<<<<<<
@@ -14287,17 +14277,17 @@ static PyObject *__pyx_pw_20final_project_cython_37analyze_index(PyObject *__pyx
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_dowjones_file)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("analyze_index", 1, 3, 3, 1); __PYX_ERR(0, 1059, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("analyze_index", 1, 3, 3, 1); __PYX_ERR(0, 1063, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_events_file)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("analyze_index", 1, 3, 3, 2); __PYX_ERR(0, 1059, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("analyze_index", 1, 3, 3, 2); __PYX_ERR(0, 1063, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "analyze_index") < 0)) __PYX_ERR(0, 1059, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "analyze_index") < 0)) __PYX_ERR(0, 1063, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -14312,15 +14302,15 @@ static PyObject *__pyx_pw_20final_project_cython_37analyze_index(PyObject *__pyx
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("analyze_index", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1059, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("analyze_index", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1063, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("final_project_cython.analyze_index", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_sp500_file), (&PyString_Type), 1, "sp500_file", 1))) __PYX_ERR(0, 1059, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dowjones_file), (&PyString_Type), 1, "dowjones_file", 1))) __PYX_ERR(0, 1059, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_events_file), (&PyString_Type), 1, "events_file", 1))) __PYX_ERR(0, 1059, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_sp500_file), (&PyString_Type), 1, "sp500_file", 1))) __PYX_ERR(0, 1063, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dowjones_file), (&PyString_Type), 1, "dowjones_file", 1))) __PYX_ERR(0, 1063, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_events_file), (&PyString_Type), 1, "events_file", 1))) __PYX_ERR(0, 1063, __pyx_L1_error)
   __pyx_r = __pyx_pf_20final_project_cython_36analyze_index(__pyx_self, __pyx_v_sp500_file, __pyx_v_dowjones_file, __pyx_v_events_file);
 
   /* function exit code */
@@ -14348,14 +14338,14 @@ static PyObject *__pyx_pf_20final_project_cython_36analyze_index(CYTHON_UNUSED P
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("analyze_index", 0);
 
-  /* "final_project_cython_functions.pyx":1099
+  /* "final_project_cython_functions.pyx":1103
  *     ['Korean War', 'Vietnam War', 'World War II', 'War in Somalia']
  *     """
  *     event_df = read_event_facts(events_file)             # <<<<<<<<<<<<<<
  *     sp_df = pd.read_csv(sp500_file)
  *     dj_df = pd.read_csv(dowjones_file)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_read_event_facts); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1099, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_read_event_facts); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1103, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -14369,22 +14359,22 @@ static PyObject *__pyx_pf_20final_project_cython_36analyze_index(CYTHON_UNUSED P
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_events_file) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_events_file);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1099, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1103, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_event_df = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":1100
+  /* "final_project_cython_functions.pyx":1104
  *     """
  *     event_df = read_event_facts(events_file)
  *     sp_df = pd.read_csv(sp500_file)             # <<<<<<<<<<<<<<
  *     dj_df = pd.read_csv(dowjones_file)
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_pd); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1100, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_pd); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1104, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_read_csv); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1100, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_read_csv); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1104, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -14399,22 +14389,22 @@ static PyObject *__pyx_pf_20final_project_cython_36analyze_index(CYTHON_UNUSED P
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_2, __pyx_v_sp500_file) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_sp500_file);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1100, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1104, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_sp_df = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":1101
+  /* "final_project_cython_functions.pyx":1105
  *     event_df = read_event_facts(events_file)
  *     sp_df = pd.read_csv(sp500_file)
  *     dj_df = pd.read_csv(dowjones_file)             # <<<<<<<<<<<<<<
  * 
  *     # Create a dataframe with information on both Dow Jones and SP500 by year
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_pd); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1101, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_pd); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1105, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_read_csv); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1101, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_read_csv); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1105, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -14429,125 +14419,125 @@ static PyObject *__pyx_pf_20final_project_cython_36analyze_index(CYTHON_UNUSED P
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_dowjones_file) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_dowjones_file);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1101, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1105, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_dj_df = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "final_project_cython_functions.pyx":1104
+  /* "final_project_cython_functions.pyx":1108
  * 
  *     # Create a dataframe with information on both Dow Jones and SP500 by year
  *     sp_df["date"] = pd.to_datetime(sp_df["date"], format='%Y-%m-%d')             # <<<<<<<<<<<<<<
  *     sp_df["year"] = sp_df["date"].dt.year
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_pd); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1104, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_pd); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1108, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_to_datetime); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1104, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_to_datetime); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1108, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_sp_df, __pyx_n_s_date); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1104, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_sp_df, __pyx_n_s_date); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1108, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1104, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1108, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1104, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1108, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_format, __pyx_kp_s_Y_m_d) < 0) __PYX_ERR(0, 1104, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1104, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_format, __pyx_kp_s_Y_m_d) < 0) __PYX_ERR(0, 1108, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1108, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (unlikely(PyObject_SetItem(__pyx_v_sp_df, __pyx_n_s_date, __pyx_t_4) < 0)) __PYX_ERR(0, 1104, __pyx_L1_error)
+  if (unlikely(PyObject_SetItem(__pyx_v_sp_df, __pyx_n_s_date, __pyx_t_4) < 0)) __PYX_ERR(0, 1108, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "final_project_cython_functions.pyx":1105
+  /* "final_project_cython_functions.pyx":1109
  *     # Create a dataframe with information on both Dow Jones and SP500 by year
  *     sp_df["date"] = pd.to_datetime(sp_df["date"], format='%Y-%m-%d')
  *     sp_df["year"] = sp_df["date"].dt.year             # <<<<<<<<<<<<<<
  * 
  *     dj_df["date"] = pd.to_datetime(dj_df["date"], format='%Y-%m-%d')
  */
-  __pyx_t_4 = __Pyx_PyObject_Dict_GetItem(__pyx_v_sp_df, __pyx_n_s_date); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1105, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Dict_GetItem(__pyx_v_sp_df, __pyx_n_s_date); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1109, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_dt); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1105, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_dt); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1109, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_year); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1105, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_year); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1109, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (unlikely(PyObject_SetItem(__pyx_v_sp_df, __pyx_n_s_year, __pyx_t_4) < 0)) __PYX_ERR(0, 1105, __pyx_L1_error)
+  if (unlikely(PyObject_SetItem(__pyx_v_sp_df, __pyx_n_s_year, __pyx_t_4) < 0)) __PYX_ERR(0, 1109, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "final_project_cython_functions.pyx":1107
+  /* "final_project_cython_functions.pyx":1111
  *     sp_df["year"] = sp_df["date"].dt.year
  * 
  *     dj_df["date"] = pd.to_datetime(dj_df["date"], format='%Y-%m-%d')             # <<<<<<<<<<<<<<
  *     dj_df["year"] = dj_df["date"].dt.year
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_pd); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1107, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_pd); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_to_datetime); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1107, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_to_datetime); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_Dict_GetItem(__pyx_v_dj_df, __pyx_n_s_date); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1107, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Dict_GetItem(__pyx_v_dj_df, __pyx_n_s_date); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1107, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4);
   __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1107, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_format, __pyx_kp_s_Y_m_d) < 0) __PYX_ERR(0, 1107, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1107, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_format, __pyx_kp_s_Y_m_d) < 0) __PYX_ERR(0, 1111, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(PyObject_SetItem(__pyx_v_dj_df, __pyx_n_s_date, __pyx_t_2) < 0)) __PYX_ERR(0, 1107, __pyx_L1_error)
+  if (unlikely(PyObject_SetItem(__pyx_v_dj_df, __pyx_n_s_date, __pyx_t_2) < 0)) __PYX_ERR(0, 1111, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":1108
+  /* "final_project_cython_functions.pyx":1112
  * 
  *     dj_df["date"] = pd.to_datetime(dj_df["date"], format='%Y-%m-%d')
  *     dj_df["year"] = dj_df["date"].dt.year             # <<<<<<<<<<<<<<
  * 
  *     print("1. If we use the year before the event end year as zero point, and select the inflation adjusted SP500 and "
  */
-  __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_v_dj_df, __pyx_n_s_date); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1108, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_v_dj_df, __pyx_n_s_date); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1112, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_dt); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1108, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_dt); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1112, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_year); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1108, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_year); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1112, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(PyObject_SetItem(__pyx_v_dj_df, __pyx_n_s_year, __pyx_t_2) < 0)) __PYX_ERR(0, 1108, __pyx_L1_error)
+  if (unlikely(PyObject_SetItem(__pyx_v_dj_df, __pyx_n_s_year, __pyx_t_2) < 0)) __PYX_ERR(0, 1112, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":1110
+  /* "final_project_cython_functions.pyx":1114
  *     dj_df["year"] = dj_df["date"].dt.year
  * 
  *     print("1. If we use the year before the event end year as zero point, and select the inflation adjusted SP500 and "             # <<<<<<<<<<<<<<
  *           "Dow Jones historical data 10 years before and after the zero point year, plots would be")
  *     output_sp_dj(event_df, sp_df, dj_df, "year_before_end_year", 10, "real")
  */
-  if (__Pyx_PrintOne(0, __pyx_kp_s_1_If_we_use_the_year_before_the) < 0) __PYX_ERR(0, 1110, __pyx_L1_error)
+  if (__Pyx_PrintOne(0, __pyx_kp_s_1_If_we_use_the_year_before_the) < 0) __PYX_ERR(0, 1114, __pyx_L1_error)
 
-  /* "final_project_cython_functions.pyx":1112
+  /* "final_project_cython_functions.pyx":1116
  *     print("1. If we use the year before the event end year as zero point, and select the inflation adjusted SP500 and "
  *           "Dow Jones historical data 10 years before and after the zero point year, plots would be")
  *     output_sp_dj(event_df, sp_df, dj_df, "year_before_end_year", 10, "real")             # <<<<<<<<<<<<<<
  *     # print("2. If we use the year before the event end year as zero point, and select the nominal SP500 and "
  *     #       "Dow Jones historical data 10 years before and after the zero point year, plots would be")
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_output_sp_dj); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1112, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_output_sp_dj); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1116, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_3 = NULL;
   __pyx_t_5 = 0;
@@ -14564,7 +14554,7 @@ static PyObject *__pyx_pf_20final_project_cython_36analyze_index(CYTHON_UNUSED P
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_4)) {
     PyObject *__pyx_temp[7] = {__pyx_t_3, __pyx_v_event_df, __pyx_v_sp_df, __pyx_v_dj_df, __pyx_n_s_year_before_end_year, __pyx_int_10, __pyx_n_s_real};
-    __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_5, 6+__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1112, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_5, 6+__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1116, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_2);
   } else
@@ -14572,13 +14562,13 @@ static PyObject *__pyx_pf_20final_project_cython_36analyze_index(CYTHON_UNUSED P
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
     PyObject *__pyx_temp[7] = {__pyx_t_3, __pyx_v_event_df, __pyx_v_sp_df, __pyx_v_dj_df, __pyx_n_s_year_before_end_year, __pyx_int_10, __pyx_n_s_real};
-    __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_5, 6+__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1112, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_5, 6+__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1116, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_2);
   } else
   #endif
   {
-    __pyx_t_1 = PyTuple_New(6+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1112, __pyx_L1_error)
+    __pyx_t_1 = PyTuple_New(6+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1116, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     if (__pyx_t_3) {
       __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -14601,30 +14591,30 @@ static PyObject *__pyx_pf_20final_project_cython_36analyze_index(CYTHON_UNUSED P
     __Pyx_INCREF(__pyx_n_s_real);
     __Pyx_GIVEREF(__pyx_n_s_real);
     PyTuple_SET_ITEM(__pyx_t_1, 5+__pyx_t_5, __pyx_n_s_real);
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1112, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1116, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":1116
+  /* "final_project_cython_functions.pyx":1120
  *     #       "Dow Jones historical data 10 years before and after the zero point year, plots would be")
  *     # output_sp_dj(event_df, sp_df, dj_df, "year_before_end_year", 10, "nominal")
  *     print("3. If we use the event start year as zero point, and select the real SP500 and "             # <<<<<<<<<<<<<<
  *           "Dow Jones historical data 5 years before and after the zero point year, plots would be")
  *     output_sp_dj(event_df, sp_df, dj_df, "start_year", 5, "real")
  */
-  if (__Pyx_PrintOne(0, __pyx_kp_s_3_If_we_use_the_event_start_year) < 0) __PYX_ERR(0, 1116, __pyx_L1_error)
+  if (__Pyx_PrintOne(0, __pyx_kp_s_3_If_we_use_the_event_start_year) < 0) __PYX_ERR(0, 1120, __pyx_L1_error)
 
-  /* "final_project_cython_functions.pyx":1118
+  /* "final_project_cython_functions.pyx":1122
  *     print("3. If we use the event start year as zero point, and select the real SP500 and "
  *           "Dow Jones historical data 5 years before and after the zero point year, plots would be")
  *     output_sp_dj(event_df, sp_df, dj_df, "start_year", 5, "real")             # <<<<<<<<<<<<<<
  *     # print("4. If we use the year before the event end year as zero point, and select the inflation adjusted SP500 and "
  *     #       "Dow Jones historical data 5 years before and after the zero point year, plots would be")
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_output_sp_dj); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1118, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_output_sp_dj); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1122, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_1 = NULL;
   __pyx_t_5 = 0;
@@ -14641,7 +14631,7 @@ static PyObject *__pyx_pf_20final_project_cython_36analyze_index(CYTHON_UNUSED P
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_4)) {
     PyObject *__pyx_temp[7] = {__pyx_t_1, __pyx_v_event_df, __pyx_v_sp_df, __pyx_v_dj_df, __pyx_n_s_start_year, __pyx_int_5, __pyx_n_s_real};
-    __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_5, 6+__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1118, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_5, 6+__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1122, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_GOTREF(__pyx_t_2);
   } else
@@ -14649,13 +14639,13 @@ static PyObject *__pyx_pf_20final_project_cython_36analyze_index(CYTHON_UNUSED P
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
     PyObject *__pyx_temp[7] = {__pyx_t_1, __pyx_v_event_df, __pyx_v_sp_df, __pyx_v_dj_df, __pyx_n_s_start_year, __pyx_int_5, __pyx_n_s_real};
-    __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_5, 6+__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1118, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_5, 6+__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1122, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_GOTREF(__pyx_t_2);
   } else
   #endif
   {
-    __pyx_t_3 = PyTuple_New(6+__pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1118, __pyx_L1_error)
+    __pyx_t_3 = PyTuple_New(6+__pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1122, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     if (__pyx_t_1) {
       __Pyx_GIVEREF(__pyx_t_1); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1); __pyx_t_1 = NULL;
@@ -14678,14 +14668,14 @@ static PyObject *__pyx_pf_20final_project_cython_36analyze_index(CYTHON_UNUSED P
     __Pyx_INCREF(__pyx_n_s_real);
     __Pyx_GIVEREF(__pyx_n_s_real);
     PyTuple_SET_ITEM(__pyx_t_3, 5+__pyx_t_5, __pyx_n_s_real);
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1118, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1122, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":1059
+  /* "final_project_cython_functions.pyx":1063
  * 
  * 
  * def analyze_index(sp500_file: str, dowjones_file: str, events_file: str):             # <<<<<<<<<<<<<<
@@ -14859,7 +14849,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_s__7, __pyx_k__7, sizeof(__pyx_k__7), 0, 0, 1, 0},
   {&__pyx_kp_s__8, __pyx_k__8, sizeof(__pyx_k__8), 0, 0, 1, 0},
   {&__pyx_n_s_add_cpi_values, __pyx_k_add_cpi_values, sizeof(__pyx_k_add_cpi_values), 0, 0, 1, 1},
-  {&__pyx_kp_u_add_cpi_values_line_685, __pyx_k_add_cpi_values_line_685, sizeof(__pyx_k_add_cpi_values_line_685), 0, 1, 0, 0},
+  {&__pyx_kp_u_add_cpi_values_line_690, __pyx_k_add_cpi_values_line_690, sizeof(__pyx_k_add_cpi_values_line_690), 0, 1, 0, 0},
   {&__pyx_n_s_add_extra_yr_before, __pyx_k_add_extra_yr_before, sizeof(__pyx_k_add_extra_yr_before), 0, 0, 1, 1},
   {&__pyx_n_s_add_mean_and_quartiles, __pyx_k_add_mean_and_quartiles, sizeof(__pyx_k_add_mean_and_quartiles), 0, 0, 1, 1},
   {&__pyx_kp_u_add_mean_and_quartiles_line_381, __pyx_k_add_mean_and_quartiles_line_381, sizeof(__pyx_k_add_mean_and_quartiles_line_381), 0, 1, 0, 0},
@@ -14871,10 +14861,10 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_all_pandemics, __pyx_k_all_pandemics, sizeof(__pyx_k_all_pandemics), 0, 0, 1, 1},
   {&__pyx_n_s_all_wars, __pyx_k_all_wars, sizeof(__pyx_k_all_wars), 0, 0, 1, 1},
   {&__pyx_n_s_analyze_cpi, __pyx_k_analyze_cpi, sizeof(__pyx_k_analyze_cpi), 0, 0, 1, 1},
-  {&__pyx_kp_u_analyze_cpi_line_1004, __pyx_k_analyze_cpi_line_1004, sizeof(__pyx_k_analyze_cpi_line_1004), 0, 1, 0, 0},
+  {&__pyx_kp_u_analyze_cpi_line_1009, __pyx_k_analyze_cpi_line_1009, sizeof(__pyx_k_analyze_cpi_line_1009), 0, 1, 0, 0},
   {&__pyx_n_s_analyze_gdp, __pyx_k_analyze_gdp, sizeof(__pyx_k_analyze_gdp), 0, 0, 1, 1},
   {&__pyx_n_s_analyze_index, __pyx_k_analyze_index, sizeof(__pyx_k_analyze_index), 0, 0, 1, 1},
-  {&__pyx_kp_u_analyze_index_line_1059, __pyx_k_analyze_index_line_1059, sizeof(__pyx_k_analyze_index_line_1059), 0, 1, 0, 0},
+  {&__pyx_kp_u_analyze_index_line_1063, __pyx_k_analyze_index_line_1063, sizeof(__pyx_k_analyze_index_line_1063), 0, 1, 0, 0},
   {&__pyx_n_s_annotate, __pyx_k_annotate, sizeof(__pyx_k_annotate), 0, 0, 1, 1},
   {&__pyx_n_s_apply, __pyx_k_apply, sizeof(__pyx_k_apply), 0, 0, 1, 1},
   {&__pyx_n_s_astype, __pyx_k_astype, sizeof(__pyx_k_astype), 0, 0, 1, 1},
@@ -14957,7 +14947,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_get_gdp_info, __pyx_k_get_gdp_info, sizeof(__pyx_k_get_gdp_info), 0, 0, 1, 1},
   {&__pyx_kp_u_get_gdp_info_line_538, __pyx_k_get_gdp_info_line_538, sizeof(__pyx_k_get_gdp_info_line_538), 0, 1, 0, 0},
   {&__pyx_n_s_get_index, __pyx_k_get_index, sizeof(__pyx_k_get_index), 0, 0, 1, 1},
-  {&__pyx_kp_u_get_index_line_750, __pyx_k_get_index_line_750, sizeof(__pyx_k_get_index_line_750), 0, 1, 0, 0},
+  {&__pyx_kp_u_get_index_line_755, __pyx_k_get_index_line_755, sizeof(__pyx_k_get_index_line_755), 0, 1, 0, 0},
   {&__pyx_n_s_get_loc, __pyx_k_get_loc, sizeof(__pyx_k_get_loc), 0, 0, 1, 1},
   {&__pyx_n_s_get_xlim, __pyx_k_get_xlim, sizeof(__pyx_k_get_xlim), 0, 0, 1, 1},
   {&__pyx_n_s_get_ylim, __pyx_k_get_ylim, sizeof(__pyx_k_get_ylim), 0, 0, 1, 1},
@@ -15042,7 +15032,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_plot_cpi, __pyx_k_plot_cpi, sizeof(__pyx_k_plot_cpi), 0, 0, 1, 1},
   {&__pyx_n_s_plot_end_year, __pyx_k_plot_end_year, sizeof(__pyx_k_plot_end_year), 0, 0, 1, 1},
   {&__pyx_n_s_plot_gdp, __pyx_k_plot_gdp, sizeof(__pyx_k_plot_gdp), 0, 0, 1, 1},
-  {&__pyx_kp_u_plot_gdp_line_580, __pyx_k_plot_gdp_line_580, sizeof(__pyx_k_plot_gdp_line_580), 0, 1, 0, 0},
+  {&__pyx_kp_u_plot_gdp_line_585, __pyx_k_plot_gdp_line_585, sizeof(__pyx_k_plot_gdp_line_585), 0, 1, 0, 0},
   {&__pyx_n_s_plot_mean, __pyx_k_plot_mean, sizeof(__pyx_k_plot_mean), 0, 0, 1, 1},
   {&__pyx_n_s_plot_name, __pyx_k_plot_name, sizeof(__pyx_k_plot_name), 0, 0, 1, 1},
   {&__pyx_n_s_plot_quartiles, __pyx_k_plot_quartiles, sizeof(__pyx_k_plot_quartiles), 0, 0, 1, 1},
@@ -15060,7 +15050,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_read_event_facts, __pyx_k_read_event_facts, sizeof(__pyx_k_read_event_facts), 0, 0, 1, 1},
   {&__pyx_kp_u_read_event_facts_line_67, __pyx_k_read_event_facts_line_67, sizeof(__pyx_k_read_event_facts_line_67), 0, 1, 0, 0},
   {&__pyx_n_s_read_us_cpi, __pyx_k_read_us_cpi, sizeof(__pyx_k_read_us_cpi), 0, 0, 1, 1},
-  {&__pyx_kp_u_read_us_cpi_line_620, __pyx_k_read_us_cpi_line_620, sizeof(__pyx_k_read_us_cpi_line_620), 0, 1, 0, 0},
+  {&__pyx_kp_u_read_us_cpi_line_625, __pyx_k_read_us_cpi_line_625, sizeof(__pyx_k_read_us_cpi_line_625), 0, 1, 0, 0},
   {&__pyx_n_s_read_worlddb_gdp, __pyx_k_read_worlddb_gdp, sizeof(__pyx_k_read_worlddb_gdp), 0, 0, 1, 1},
   {&__pyx_kp_u_read_worlddb_gdp_line_439, __pyx_k_read_worlddb_gdp_line_439, sizeof(__pyx_k_read_worlddb_gdp_line_439), 0, 1, 0, 0},
   {&__pyx_n_s_real, __pyx_k_real, sizeof(__pyx_k_real), 0, 0, 1, 1},
@@ -15250,75 +15240,75 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__11);
   __Pyx_GIVEREF(__pyx_tuple__11);
 
-  /* "final_project_cython_functions.pyx":599
+  /* "final_project_cython_functions.pyx":604
  *     """
  * 
  *     fig, ax = plt.subplots(figsize=(15, 10))             # <<<<<<<<<<<<<<
  *     ax.plot(gdp_df)
  * 
  */
-  __pyx_tuple__12 = PyTuple_Pack(2, __pyx_int_15, __pyx_int_10); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(0, 599, __pyx_L1_error)
+  __pyx_tuple__12 = PyTuple_Pack(2, __pyx_int_15, __pyx_int_10); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(0, 604, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__12);
   __Pyx_GIVEREF(__pyx_tuple__12);
 
-  /* "final_project_cython_functions.pyx":744
+  /* "final_project_cython_functions.pyx":749
  *         results_df = pd.DataFrame.from_dict(results)
  *     except ValueError:
  *         raise ValueError('All events must have the same number of years between their start and end years.')             # <<<<<<<<<<<<<<
  * 
  *     results_df = results_df.iloc[1:, :]  # drop first row in the dataframe since the values are NA
  */
-  __pyx_tuple__13 = PyTuple_Pack(1, __pyx_kp_s_All_events_must_have_the_same_nu); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(0, 744, __pyx_L1_error)
+  __pyx_tuple__13 = PyTuple_Pack(1, __pyx_kp_s_All_events_must_have_the_same_nu); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(0, 749, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__13);
   __Pyx_GIVEREF(__pyx_tuple__13);
 
-  /* "final_project_cython_functions.pyx":746
+  /* "final_project_cython_functions.pyx":751
  *         raise ValueError('All events must have the same number of years between their start and end years.')
  * 
  *     results_df = results_df.iloc[1:, :]  # drop first row in the dataframe since the values are NA             # <<<<<<<<<<<<<<
  *     return results_df
  * 
  */
-  __pyx_slice__14 = PySlice_New(__pyx_int_1, Py_None, Py_None); if (unlikely(!__pyx_slice__14)) __PYX_ERR(0, 746, __pyx_L1_error)
+  __pyx_slice__14 = PySlice_New(__pyx_int_1, Py_None, Py_None); if (unlikely(!__pyx_slice__14)) __PYX_ERR(0, 751, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_slice__14);
   __Pyx_GIVEREF(__pyx_slice__14);
-  __pyx_tuple__15 = PyTuple_Pack(2, __pyx_slice__14, __pyx_slice__9); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(0, 746, __pyx_L1_error)
+  __pyx_tuple__15 = PyTuple_Pack(2, __pyx_slice__14, __pyx_slice__9); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(0, 751, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__15);
   __Pyx_GIVEREF(__pyx_tuple__15);
 
-  /* "final_project_cython_functions.pyx":842
+  /* "final_project_cython_functions.pyx":847
  *     df2 = add_mean_and_quartiles(df2)
  * 
  *     fig, (ax3, ax4) = plt.subplots(2, sharex=True, figsize=(10, 5))             # <<<<<<<<<<<<<<
  *     fig.suptitle('Change of Stock Market Indexes')
  *     # ax1.plot(df1, linewidth=0.5)
  */
-  __pyx_tuple__16 = PyTuple_Pack(1, __pyx_int_2); if (unlikely(!__pyx_tuple__16)) __PYX_ERR(0, 842, __pyx_L1_error)
+  __pyx_tuple__16 = PyTuple_Pack(1, __pyx_int_2); if (unlikely(!__pyx_tuple__16)) __PYX_ERR(0, 847, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__16);
   __Pyx_GIVEREF(__pyx_tuple__16);
-  __pyx_tuple__17 = PyTuple_Pack(2, __pyx_int_10, __pyx_int_5); if (unlikely(!__pyx_tuple__17)) __PYX_ERR(0, 842, __pyx_L1_error)
+  __pyx_tuple__17 = PyTuple_Pack(2, __pyx_int_10, __pyx_int_5); if (unlikely(!__pyx_tuple__17)) __PYX_ERR(0, 847, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__17);
   __Pyx_GIVEREF(__pyx_tuple__17);
 
-  /* "final_project_cython_functions.pyx":855
+  /* "final_project_cython_functions.pyx":860
  *     ax3.vlines(x=11, ymin=-0.1, ymax=0.1, linestyles='dashed', linewidth=2, color='r')
  *     ax3.fill_between(df1.index, df1["75pct"], df1["25pct"], facecolor='lightgreen')
  *     ax3.set_ylabel("Range of SP500", fontsize='x-small')             # <<<<<<<<<<<<<<
  * 
  *     ax4.plot(df2.index, df2["75pct"], color='black', label='75% percentile', linewidth=0.5)
  */
-  __pyx_tuple__19 = PyTuple_Pack(1, __pyx_kp_s_Range_of_SP500); if (unlikely(!__pyx_tuple__19)) __PYX_ERR(0, 855, __pyx_L1_error)
+  __pyx_tuple__19 = PyTuple_Pack(1, __pyx_kp_s_Range_of_SP500); if (unlikely(!__pyx_tuple__19)) __PYX_ERR(0, 860, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__19);
   __Pyx_GIVEREF(__pyx_tuple__19);
 
-  /* "final_project_cython_functions.pyx":866
+  /* "final_project_cython_functions.pyx":871
  *     ax4.set_xlim(-12 * year_num + 1, 12 * (year_num + 1))
  *     ax4.set_xlabel(str(year_num) + " Year Before and After Events (month)")
  *     ax4.set_ylabel("Range of Dow Jones", fontsize='x-small')             # <<<<<<<<<<<<<<
  * 
  *     plt.savefig('Plots/StockIndex/' + plot_name + '.png', dpi=200)
  */
-  __pyx_tuple__20 = PyTuple_Pack(1, __pyx_kp_s_Range_of_Dow_Jones); if (unlikely(!__pyx_tuple__20)) __PYX_ERR(0, 866, __pyx_L1_error)
+  __pyx_tuple__20 = PyTuple_Pack(1, __pyx_kp_s_Range_of_Dow_Jones); if (unlikely(!__pyx_tuple__20)) __PYX_ERR(0, 871, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__20);
   __Pyx_GIVEREF(__pyx_tuple__20);
 
@@ -15413,142 +15403,142 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *     """
  *     Get GDP info from US GDP data for each event in df.
  */
-  __pyx_tuple__38 = PyTuple_Pack(12, __pyx_n_s_us_gdp, __pyx_n_s_df, __pyx_n_s_index, __pyx_n_s_row, __pyx_n_s_event_name, __pyx_n_s_start_year, __pyx_n_s_before_event, __pyx_n_s_end_year, __pyx_n_s_after_event, __pyx_n_s_event_gdp, __pyx_n_s_end_interval, __pyx_n_s_start_interval); if (unlikely(!__pyx_tuple__38)) __PYX_ERR(0, 538, __pyx_L1_error)
+  __pyx_tuple__38 = PyTuple_Pack(12, __pyx_n_s_us_gdp, __pyx_n_s_df, __pyx_n_s_start_year, __pyx_n_s_before_event, __pyx_n_s_end_year, __pyx_n_s_after_event, __pyx_n_s_index, __pyx_n_s_row, __pyx_n_s_event_name, __pyx_n_s_event_gdp, __pyx_n_s_end_interval, __pyx_n_s_start_interval); if (unlikely(!__pyx_tuple__38)) __PYX_ERR(0, 538, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__38);
   __Pyx_GIVEREF(__pyx_tuple__38);
   __pyx_codeobj__39 = (PyObject*)__Pyx_PyCode_New(2, 0, 12, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__38, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_final_project_cython_functions_p, __pyx_n_s_get_gdp_info, 538, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__39)) __PYX_ERR(0, 538, __pyx_L1_error)
 
-  /* "final_project_cython_functions.pyx":580
+  /* "final_project_cython_functions.pyx":585
  * 
  * 
  * def plot_gdp(gdp_df: pd.DataFrame, event_name: str, end_interval: int, start_interval: int):             # <<<<<<<<<<<<<<
  *     """
  *     Plot gdp trend for given events.
  */
-  __pyx_tuple__40 = PyTuple_Pack(8, __pyx_n_s_gdp_df, __pyx_n_s_event_name, __pyx_n_s_end_interval, __pyx_n_s_start_interval, __pyx_n_s_fig, __pyx_n_s_ax, __pyx_n_s_x_bounds, __pyx_n_s_y_bounds); if (unlikely(!__pyx_tuple__40)) __PYX_ERR(0, 580, __pyx_L1_error)
+  __pyx_tuple__40 = PyTuple_Pack(8, __pyx_n_s_gdp_df, __pyx_n_s_event_name, __pyx_n_s_end_interval, __pyx_n_s_start_interval, __pyx_n_s_fig, __pyx_n_s_ax, __pyx_n_s_x_bounds, __pyx_n_s_y_bounds); if (unlikely(!__pyx_tuple__40)) __PYX_ERR(0, 585, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__40);
   __Pyx_GIVEREF(__pyx_tuple__40);
-  __pyx_codeobj__41 = (PyObject*)__Pyx_PyCode_New(4, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__40, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_final_project_cython_functions_p, __pyx_n_s_plot_gdp, 580, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__41)) __PYX_ERR(0, 580, __pyx_L1_error)
+  __pyx_codeobj__41 = (PyObject*)__Pyx_PyCode_New(4, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__40, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_final_project_cython_functions_p, __pyx_n_s_plot_gdp, 585, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__41)) __PYX_ERR(0, 585, __pyx_L1_error)
 
-  /* "final_project_cython_functions.pyx":620
+  /* "final_project_cython_functions.pyx":625
  * 
  * 
  * def read_us_cpi(filename: str, min_year: Union[int, None] = None, max_year: Union[int, None] = None) -> pd.DataFrame:             # <<<<<<<<<<<<<<
  *     """ Loads a CVS file with CPI information from the US Bureau of Labor Statistics into a Pandas dataframe.  Also
  *     averages all the month values for each year in order to only return one value for each year.
  */
-  __pyx_tuple__42 = PyTuple_Pack(4, __pyx_n_s_filename, __pyx_n_s_min_year, __pyx_n_s_max_year, __pyx_n_s_df); if (unlikely(!__pyx_tuple__42)) __PYX_ERR(0, 620, __pyx_L1_error)
+  __pyx_tuple__42 = PyTuple_Pack(4, __pyx_n_s_filename, __pyx_n_s_min_year, __pyx_n_s_max_year, __pyx_n_s_df); if (unlikely(!__pyx_tuple__42)) __PYX_ERR(0, 625, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__42);
   __Pyx_GIVEREF(__pyx_tuple__42);
-  __pyx_codeobj__43 = (PyObject*)__Pyx_PyCode_New(3, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__42, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_final_project_cython_functions_p, __pyx_n_s_read_us_cpi, 620, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__43)) __PYX_ERR(0, 620, __pyx_L1_error)
+  __pyx_codeobj__43 = (PyObject*)__Pyx_PyCode_New(3, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__42, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_final_project_cython_functions_p, __pyx_n_s_read_us_cpi, 625, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__43)) __PYX_ERR(0, 625, __pyx_L1_error)
 
-  /* "final_project_cython_functions.pyx":685
+  /* "final_project_cython_functions.pyx":690
  * 
  * 
  * def add_cpi_values(event_df: pd.DataFrame, cpi_df: pd.DataFrame) -> pd.DataFrame:             # <<<<<<<<<<<<<<
  *     """ Takes a dataframe with an Event, End_Year, y_start, and y_end columns, and a dataframe with 'Year' and 'Value'
  *     column with CPI data, and returns a dataframe with the percentage change for each of those years for each event.
  */
-  __pyx_tuple__44 = PyTuple_Pack(13, __pyx_n_s_event_df, __pyx_n_s_cpi_df, __pyx_n_s_results, __pyx_n_s__21, __pyx_n_s_row, __pyx_n_s_event, __pyx_n_s_plot_start_year, __pyx_n_s_plot_end_year, __pyx_n_s_event_end_year, __pyx_n_s_cpi_df_selected, __pyx_n_s_nan_value_positions, __pyx_n_s_percent_change_df, __pyx_n_s_results_df); if (unlikely(!__pyx_tuple__44)) __PYX_ERR(0, 685, __pyx_L1_error)
+  __pyx_tuple__44 = PyTuple_Pack(13, __pyx_n_s_event_df, __pyx_n_s_cpi_df, __pyx_n_s_results, __pyx_n_s__21, __pyx_n_s_row, __pyx_n_s_event, __pyx_n_s_plot_start_year, __pyx_n_s_plot_end_year, __pyx_n_s_event_end_year, __pyx_n_s_cpi_df_selected, __pyx_n_s_nan_value_positions, __pyx_n_s_percent_change_df, __pyx_n_s_results_df); if (unlikely(!__pyx_tuple__44)) __PYX_ERR(0, 690, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__44);
   __Pyx_GIVEREF(__pyx_tuple__44);
-  __pyx_codeobj__45 = (PyObject*)__Pyx_PyCode_New(2, 0, 13, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__44, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_final_project_cython_functions_p, __pyx_n_s_add_cpi_values, 685, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__45)) __PYX_ERR(0, 685, __pyx_L1_error)
+  __pyx_codeobj__45 = (PyObject*)__Pyx_PyCode_New(2, 0, 13, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__44, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_final_project_cython_functions_p, __pyx_n_s_add_cpi_values, 690, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__45)) __PYX_ERR(0, 690, __pyx_L1_error)
 
-  /* "final_project_cython_functions.pyx":750
+  /* "final_project_cython_functions.pyx":755
  * 
  * 
  * def get_index(df_selected: pd.DataFrame, df_index: pd.DataFrame, data_type: str) -> pd.DataFrame:             # <<<<<<<<<<<<<<
  *     """
  *     Get the selected type ("nominal" or "real") of the market index monthly data for the selected events.
  */
-  __pyx_tuple__46 = PyTuple_Pack(12, __pyx_n_s_df_selected, __pyx_n_s_df_index, __pyx_n_s_data_type, __pyx_n_s_index_dict, __pyx_n_s_event_list, __pyx_n_s_event, __pyx_n_s_row, __pyx_n_s_start, __pyx_n_s_end, __pyx_n_s_index_selected, __pyx_n_s_pct_change, __pyx_n_s_final_df); if (unlikely(!__pyx_tuple__46)) __PYX_ERR(0, 750, __pyx_L1_error)
+  __pyx_tuple__46 = PyTuple_Pack(12, __pyx_n_s_df_selected, __pyx_n_s_df_index, __pyx_n_s_data_type, __pyx_n_s_index_dict, __pyx_n_s_event_list, __pyx_n_s_event, __pyx_n_s_row, __pyx_n_s_start, __pyx_n_s_end, __pyx_n_s_index_selected, __pyx_n_s_pct_change, __pyx_n_s_final_df); if (unlikely(!__pyx_tuple__46)) __PYX_ERR(0, 755, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__46);
   __Pyx_GIVEREF(__pyx_tuple__46);
-  __pyx_codeobj__47 = (PyObject*)__Pyx_PyCode_New(3, 0, 12, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__46, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_final_project_cython_functions_p, __pyx_n_s_get_index, 750, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__47)) __PYX_ERR(0, 750, __pyx_L1_error)
+  __pyx_codeobj__47 = (PyObject*)__Pyx_PyCode_New(3, 0, 12, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__46, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_final_project_cython_functions_p, __pyx_n_s_get_index, 755, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__47)) __PYX_ERR(0, 755, __pyx_L1_error)
 
-  /* "final_project_cython_functions.pyx":825
+  /* "final_project_cython_functions.pyx":830
  * 
  * 
  * def plot_sp_dj(df1: pd.DataFrame, df2: pd.DataFrame, year_num: int, plot_name: str):             # <<<<<<<<<<<<<<
  *     """
  *     Plot the given sp500 and dow jones for selected events dataframe.
  */
-  __pyx_tuple__48 = PyTuple_Pack(7, __pyx_n_s_df1, __pyx_n_s_df2, __pyx_n_s_year_num, __pyx_n_s_plot_name, __pyx_n_s_fig, __pyx_n_s_ax3, __pyx_n_s_ax4); if (unlikely(!__pyx_tuple__48)) __PYX_ERR(0, 825, __pyx_L1_error)
+  __pyx_tuple__48 = PyTuple_Pack(7, __pyx_n_s_df1, __pyx_n_s_df2, __pyx_n_s_year_num, __pyx_n_s_plot_name, __pyx_n_s_fig, __pyx_n_s_ax3, __pyx_n_s_ax4); if (unlikely(!__pyx_tuple__48)) __PYX_ERR(0, 830, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__48);
   __Pyx_GIVEREF(__pyx_tuple__48);
-  __pyx_codeobj__49 = (PyObject*)__Pyx_PyCode_New(4, 0, 7, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__48, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_final_project_cython_functions_p, __pyx_n_s_plot_sp_dj, 825, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__49)) __PYX_ERR(0, 825, __pyx_L1_error)
+  __pyx_codeobj__49 = (PyObject*)__Pyx_PyCode_New(4, 0, 7, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__48, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_final_project_cython_functions_p, __pyx_n_s_plot_sp_dj, 830, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__49)) __PYX_ERR(0, 830, __pyx_L1_error)
 
-  /* "final_project_cython_functions.pyx":871
+  /* "final_project_cython_functions.pyx":876
  * 
  * 
  * def output_sp_dj(df_e: pd.DataFrame, df_sp: pd.DataFrame, df_dj: pd.DataFrame, zero_point: str, year_l: int,             # <<<<<<<<<<<<<<
  *                  d_type: str):
  *     """
  */
-  __pyx_tuple__50 = PyTuple_Pack(20, __pyx_n_s_df_e, __pyx_n_s_df_sp, __pyx_n_s_df_dj, __pyx_n_s_zero_point, __pyx_n_s_year_l, __pyx_n_s_d_type, __pyx_n_s_name_str, __pyx_n_s_selected_p, __pyx_n_s_p1_df, __pyx_n_s_p2_df, __pyx_n_s_selected_w, __pyx_n_s_w1_df, __pyx_n_s_w2_df, __pyx_n_s_selected_1m, __pyx_n_s_selected_1m_p, __pyx_n_s_p1_df_1, __pyx_n_s_p2_df_1, __pyx_n_s_selected_1m_w, __pyx_n_s_w1_df_1, __pyx_n_s_w2_df_1); if (unlikely(!__pyx_tuple__50)) __PYX_ERR(0, 871, __pyx_L1_error)
+  __pyx_tuple__50 = PyTuple_Pack(20, __pyx_n_s_df_e, __pyx_n_s_df_sp, __pyx_n_s_df_dj, __pyx_n_s_zero_point, __pyx_n_s_year_l, __pyx_n_s_d_type, __pyx_n_s_name_str, __pyx_n_s_selected_p, __pyx_n_s_p1_df, __pyx_n_s_p2_df, __pyx_n_s_selected_w, __pyx_n_s_w1_df, __pyx_n_s_w2_df, __pyx_n_s_selected_1m, __pyx_n_s_selected_1m_p, __pyx_n_s_p1_df_1, __pyx_n_s_p2_df_1, __pyx_n_s_selected_1m_w, __pyx_n_s_w1_df_1, __pyx_n_s_w2_df_1); if (unlikely(!__pyx_tuple__50)) __PYX_ERR(0, 876, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__50);
   __Pyx_GIVEREF(__pyx_tuple__50);
-  __pyx_codeobj__51 = (PyObject*)__Pyx_PyCode_New(6, 0, 20, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__50, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_final_project_cython_functions_p, __pyx_n_s_output_sp_dj, 871, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__51)) __PYX_ERR(0, 871, __pyx_L1_error)
+  __pyx_codeobj__51 = (PyObject*)__Pyx_PyCode_New(6, 0, 20, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__50, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_final_project_cython_functions_p, __pyx_n_s_output_sp_dj, 876, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__51)) __PYX_ERR(0, 876, __pyx_L1_error)
 
-  /* "final_project_cython_functions.pyx":915
+  /* "final_project_cython_functions.pyx":920
  * 
  * 
  * def plot_cpi(df: pd.DataFrame, plot_name: str, title: str, x_label: str, y_label: str, plot_quartiles: bool = False,             # <<<<<<<<<<<<<<
  *              plot_mean: bool = False) -> None:
  *     """
  */
-  __pyx_tuple__52 = PyTuple_Pack(9, __pyx_n_s_df, __pyx_n_s_plot_name, __pyx_n_s_title, __pyx_n_s_x_label, __pyx_n_s_y_label, __pyx_n_s_plot_quartiles, __pyx_n_s_plot_mean, __pyx_n_s_figure, __pyx_n_s_axes); if (unlikely(!__pyx_tuple__52)) __PYX_ERR(0, 915, __pyx_L1_error)
+  __pyx_tuple__52 = PyTuple_Pack(9, __pyx_n_s_df, __pyx_n_s_plot_name, __pyx_n_s_title, __pyx_n_s_x_label, __pyx_n_s_y_label, __pyx_n_s_plot_quartiles, __pyx_n_s_plot_mean, __pyx_n_s_figure, __pyx_n_s_axes); if (unlikely(!__pyx_tuple__52)) __PYX_ERR(0, 920, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__52);
   __Pyx_GIVEREF(__pyx_tuple__52);
-  __pyx_codeobj__53 = (PyObject*)__Pyx_PyCode_New(7, 0, 9, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__52, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_final_project_cython_functions_p, __pyx_n_s_plot_cpi, 915, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__53)) __PYX_ERR(0, 915, __pyx_L1_error)
+  __pyx_codeobj__53 = (PyObject*)__Pyx_PyCode_New(7, 0, 9, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__52, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_final_project_cython_functions_p, __pyx_n_s_plot_cpi, 920, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__53)) __PYX_ERR(0, 920, __pyx_L1_error)
 
-  /* "final_project_cython_functions.pyx":955
+  /* "final_project_cython_functions.pyx":960
  * 
  * 
  * def plot_all_cpi_graphs(pandemics_cpi_df, wars_cpi_df):             # <<<<<<<<<<<<<<
  *     """ Takes dataframes with CPI information as well as pandemics and wars and is responsible for configuring
  *     all of the plots for these.
  */
-  __pyx_tuple__54 = PyTuple_Pack(2, __pyx_n_s_pandemics_cpi_df, __pyx_n_s_wars_cpi_df); if (unlikely(!__pyx_tuple__54)) __PYX_ERR(0, 955, __pyx_L1_error)
+  __pyx_tuple__54 = PyTuple_Pack(2, __pyx_n_s_pandemics_cpi_df, __pyx_n_s_wars_cpi_df); if (unlikely(!__pyx_tuple__54)) __PYX_ERR(0, 960, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__54);
   __Pyx_GIVEREF(__pyx_tuple__54);
-  __pyx_codeobj__55 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__54, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_final_project_cython_functions_p, __pyx_n_s_plot_all_cpi_graphs, 955, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__55)) __PYX_ERR(0, 955, __pyx_L1_error)
+  __pyx_codeobj__55 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__54, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_final_project_cython_functions_p, __pyx_n_s_plot_all_cpi_graphs, 960, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__55)) __PYX_ERR(0, 960, __pyx_L1_error)
 
-  /* "final_project_cython_functions.pyx":985
+  /* "final_project_cython_functions.pyx":990
  * 
  * 
  * def analyze_gdp(gdp_file: str, events_file: str) -> None:             # <<<<<<<<<<<<<<
  *     """
  *     For each event, select gdp data 10 year before and after, and pass the df to plot_gdp().
  */
-  __pyx_tuple__56 = PyTuple_Pack(5, __pyx_n_s_gdp_file, __pyx_n_s_events_file, __pyx_n_s_us_gdp_df, __pyx_n_s_pandemics_gdp, __pyx_n_s_wars_gdp); if (unlikely(!__pyx_tuple__56)) __PYX_ERR(0, 985, __pyx_L1_error)
+  __pyx_tuple__56 = PyTuple_Pack(5, __pyx_n_s_gdp_file, __pyx_n_s_events_file, __pyx_n_s_us_gdp_df, __pyx_n_s_pandemics_gdp, __pyx_n_s_wars_gdp); if (unlikely(!__pyx_tuple__56)) __PYX_ERR(0, 990, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__56);
   __Pyx_GIVEREF(__pyx_tuple__56);
-  __pyx_codeobj__57 = (PyObject*)__Pyx_PyCode_New(2, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__56, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_final_project_cython_functions_p, __pyx_n_s_analyze_gdp, 985, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__57)) __PYX_ERR(0, 985, __pyx_L1_error)
+  __pyx_codeobj__57 = (PyObject*)__Pyx_PyCode_New(2, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__56, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_final_project_cython_functions_p, __pyx_n_s_analyze_gdp, 990, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__57)) __PYX_ERR(0, 990, __pyx_L1_error)
 
-  /* "final_project_cython_functions.pyx":1004
+  /* "final_project_cython_functions.pyx":1009
  * 
  * 
  * def analyze_cpi(us_cpi_file: str, events_file: str, year_boundaries: int,             # <<<<<<<<<<<<<<
  *                 graph_type: Literal['start_year', 'end_year', 'year_before_end_year', 'year_after_start_year']) -> tuple:
  *     """ This takes an events file and file with CPI information and prepares two dataframes for plotting, one for wars
  */
-  __pyx_tuple__58 = PyTuple_Pack(10, __pyx_n_s_us_cpi_file, __pyx_n_s_events_file, __pyx_n_s_year_boundaries, __pyx_n_s_graph_type, __pyx_n_s_us_cpi_df, __pyx_n_s_min_cpi_year, __pyx_n_s_pandemics_df, __pyx_n_s_wars_df, __pyx_n_s_pandemics_cpi_df, __pyx_n_s_wars_cpi_df); if (unlikely(!__pyx_tuple__58)) __PYX_ERR(0, 1004, __pyx_L1_error)
+  __pyx_tuple__58 = PyTuple_Pack(10, __pyx_n_s_us_cpi_file, __pyx_n_s_events_file, __pyx_n_s_year_boundaries, __pyx_n_s_graph_type, __pyx_n_s_us_cpi_df, __pyx_n_s_min_cpi_year, __pyx_n_s_pandemics_df, __pyx_n_s_wars_df, __pyx_n_s_pandemics_cpi_df, __pyx_n_s_wars_cpi_df); if (unlikely(!__pyx_tuple__58)) __PYX_ERR(0, 1009, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__58);
   __Pyx_GIVEREF(__pyx_tuple__58);
-  __pyx_codeobj__59 = (PyObject*)__Pyx_PyCode_New(4, 0, 10, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__58, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_final_project_cython_functions_p, __pyx_n_s_analyze_cpi, 1004, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__59)) __PYX_ERR(0, 1004, __pyx_L1_error)
+  __pyx_codeobj__59 = (PyObject*)__Pyx_PyCode_New(4, 0, 10, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__58, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_final_project_cython_functions_p, __pyx_n_s_analyze_cpi, 1009, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__59)) __PYX_ERR(0, 1009, __pyx_L1_error)
 
-  /* "final_project_cython_functions.pyx":1059
+  /* "final_project_cython_functions.pyx":1063
  * 
  * 
  * def analyze_index(sp500_file: str, dowjones_file: str, events_file: str):             # <<<<<<<<<<<<<<
  *     """
  *     manage the outputs of stock index analysis by passing different parameters of interest to the previous functions and
  */
-  __pyx_tuple__60 = PyTuple_Pack(6, __pyx_n_s_sp500_file, __pyx_n_s_dowjones_file, __pyx_n_s_events_file, __pyx_n_s_event_df, __pyx_n_s_sp_df, __pyx_n_s_dj_df); if (unlikely(!__pyx_tuple__60)) __PYX_ERR(0, 1059, __pyx_L1_error)
+  __pyx_tuple__60 = PyTuple_Pack(6, __pyx_n_s_sp500_file, __pyx_n_s_dowjones_file, __pyx_n_s_events_file, __pyx_n_s_event_df, __pyx_n_s_sp_df, __pyx_n_s_dj_df); if (unlikely(!__pyx_tuple__60)) __PYX_ERR(0, 1063, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__60);
   __Pyx_GIVEREF(__pyx_tuple__60);
-  __pyx_codeobj__61 = (PyObject*)__Pyx_PyCode_New(3, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__60, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_final_project_cython_functions_p, __pyx_n_s_analyze_index, 1059, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__61)) __PYX_ERR(0, 1059, __pyx_L1_error)
+  __pyx_codeobj__61 = (PyObject*)__Pyx_PyCode_New(3, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__60, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_final_project_cython_functions_p, __pyx_n_s_analyze_index, 1063, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__61)) __PYX_ERR(0, 1063, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -15580,9 +15570,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitGlobals(void) {
   __pyx_int_152 = PyInt_FromLong(152); if (unlikely(!__pyx_int_152)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_200 = PyInt_FromLong(200); if (unlikely(!__pyx_int_200)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_1928 = PyInt_FromLong(1928); if (unlikely(!__pyx_int_1928)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __pyx_int_1929 = PyInt_FromLong(1929); if (unlikely(!__pyx_int_1929)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_1960 = PyInt_FromLong(1960); if (unlikely(!__pyx_int_1960)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __pyx_int_2020 = PyInt_FromLong(2020); if (unlikely(!__pyx_int_2020)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_2021 = PyInt_FromLong(2021); if (unlikely(!__pyx_int_2021)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_neg_1 = PyInt_FromLong(-1); if (unlikely(!__pyx_int_neg_1)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_neg_12 = PyInt_FromLong(-12); if (unlikely(!__pyx_int_neg_12)) __PYX_ERR(0, 1, __pyx_L1_error)
@@ -16043,136 +16031,136 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_gdp_info, __pyx_t_2) < 0) __PYX_ERR(0, 538, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":580
+  /* "final_project_cython_functions.pyx":585
  * 
  * 
  * def plot_gdp(gdp_df: pd.DataFrame, event_name: str, end_interval: int, start_interval: int):             # <<<<<<<<<<<<<<
  *     """
  *     Plot gdp trend for given events.
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_20final_project_cython_17plot_gdp, NULL, __pyx_n_s_final_project_cython); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 580, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_20final_project_cython_17plot_gdp, NULL, __pyx_n_s_final_project_cython); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 585, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_plot_gdp, __pyx_t_2) < 0) __PYX_ERR(0, 580, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_plot_gdp, __pyx_t_2) < 0) __PYX_ERR(0, 585, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":620
+  /* "final_project_cython_functions.pyx":625
  * 
  * 
  * def read_us_cpi(filename: str, min_year: Union[int, None] = None, max_year: Union[int, None] = None) -> pd.DataFrame:             # <<<<<<<<<<<<<<
  *     """ Loads a CVS file with CPI information from the US Bureau of Labor Statistics into a Pandas dataframe.  Also
  *     averages all the month values for each year in order to only return one value for each year.
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_20final_project_cython_19read_us_cpi, NULL, __pyx_n_s_final_project_cython); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 620, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_20final_project_cython_19read_us_cpi, NULL, __pyx_n_s_final_project_cython); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 625, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_read_us_cpi, __pyx_t_2) < 0) __PYX_ERR(0, 620, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_read_us_cpi, __pyx_t_2) < 0) __PYX_ERR(0, 625, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":685
+  /* "final_project_cython_functions.pyx":690
  * 
  * 
  * def add_cpi_values(event_df: pd.DataFrame, cpi_df: pd.DataFrame) -> pd.DataFrame:             # <<<<<<<<<<<<<<
  *     """ Takes a dataframe with an Event, End_Year, y_start, and y_end columns, and a dataframe with 'Year' and 'Value'
  *     column with CPI data, and returns a dataframe with the percentage change for each of those years for each event.
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_20final_project_cython_21add_cpi_values, NULL, __pyx_n_s_final_project_cython); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 685, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_20final_project_cython_21add_cpi_values, NULL, __pyx_n_s_final_project_cython); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 690, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_add_cpi_values, __pyx_t_2) < 0) __PYX_ERR(0, 685, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_add_cpi_values, __pyx_t_2) < 0) __PYX_ERR(0, 690, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":750
+  /* "final_project_cython_functions.pyx":755
  * 
  * 
  * def get_index(df_selected: pd.DataFrame, df_index: pd.DataFrame, data_type: str) -> pd.DataFrame:             # <<<<<<<<<<<<<<
  *     """
  *     Get the selected type ("nominal" or "real") of the market index monthly data for the selected events.
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_20final_project_cython_23get_index, NULL, __pyx_n_s_final_project_cython); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 750, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_20final_project_cython_23get_index, NULL, __pyx_n_s_final_project_cython); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 755, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_index, __pyx_t_2) < 0) __PYX_ERR(0, 750, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_index, __pyx_t_2) < 0) __PYX_ERR(0, 755, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":825
+  /* "final_project_cython_functions.pyx":830
  * 
  * 
  * def plot_sp_dj(df1: pd.DataFrame, df2: pd.DataFrame, year_num: int, plot_name: str):             # <<<<<<<<<<<<<<
  *     """
  *     Plot the given sp500 and dow jones for selected events dataframe.
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_20final_project_cython_25plot_sp_dj, NULL, __pyx_n_s_final_project_cython); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 825, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_20final_project_cython_25plot_sp_dj, NULL, __pyx_n_s_final_project_cython); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 830, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_plot_sp_dj, __pyx_t_2) < 0) __PYX_ERR(0, 825, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_plot_sp_dj, __pyx_t_2) < 0) __PYX_ERR(0, 830, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":871
+  /* "final_project_cython_functions.pyx":876
  * 
  * 
  * def output_sp_dj(df_e: pd.DataFrame, df_sp: pd.DataFrame, df_dj: pd.DataFrame, zero_point: str, year_l: int,             # <<<<<<<<<<<<<<
  *                  d_type: str):
  *     """
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_20final_project_cython_27output_sp_dj, NULL, __pyx_n_s_final_project_cython); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 871, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_20final_project_cython_27output_sp_dj, NULL, __pyx_n_s_final_project_cython); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 876, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_output_sp_dj, __pyx_t_2) < 0) __PYX_ERR(0, 871, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_output_sp_dj, __pyx_t_2) < 0) __PYX_ERR(0, 876, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":915
+  /* "final_project_cython_functions.pyx":920
  * 
  * 
  * def plot_cpi(df: pd.DataFrame, plot_name: str, title: str, x_label: str, y_label: str, plot_quartiles: bool = False,             # <<<<<<<<<<<<<<
  *              plot_mean: bool = False) -> None:
  *     """
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_20final_project_cython_29plot_cpi, NULL, __pyx_n_s_final_project_cython); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 915, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_20final_project_cython_29plot_cpi, NULL, __pyx_n_s_final_project_cython); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 920, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_plot_cpi, __pyx_t_2) < 0) __PYX_ERR(0, 915, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_plot_cpi, __pyx_t_2) < 0) __PYX_ERR(0, 920, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":955
+  /* "final_project_cython_functions.pyx":960
  * 
  * 
  * def plot_all_cpi_graphs(pandemics_cpi_df, wars_cpi_df):             # <<<<<<<<<<<<<<
  *     """ Takes dataframes with CPI information as well as pandemics and wars and is responsible for configuring
  *     all of the plots for these.
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_20final_project_cython_31plot_all_cpi_graphs, NULL, __pyx_n_s_final_project_cython); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 955, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_20final_project_cython_31plot_all_cpi_graphs, NULL, __pyx_n_s_final_project_cython); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 960, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_plot_all_cpi_graphs, __pyx_t_2) < 0) __PYX_ERR(0, 955, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_plot_all_cpi_graphs, __pyx_t_2) < 0) __PYX_ERR(0, 960, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":985
+  /* "final_project_cython_functions.pyx":990
  * 
  * 
  * def analyze_gdp(gdp_file: str, events_file: str) -> None:             # <<<<<<<<<<<<<<
  *     """
  *     For each event, select gdp data 10 year before and after, and pass the df to plot_gdp().
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_20final_project_cython_33analyze_gdp, NULL, __pyx_n_s_final_project_cython); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 985, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_20final_project_cython_33analyze_gdp, NULL, __pyx_n_s_final_project_cython); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 990, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_analyze_gdp, __pyx_t_2) < 0) __PYX_ERR(0, 985, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_analyze_gdp, __pyx_t_2) < 0) __PYX_ERR(0, 990, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":1004
+  /* "final_project_cython_functions.pyx":1009
  * 
  * 
  * def analyze_cpi(us_cpi_file: str, events_file: str, year_boundaries: int,             # <<<<<<<<<<<<<<
  *                 graph_type: Literal['start_year', 'end_year', 'year_before_end_year', 'year_after_start_year']) -> tuple:
  *     """ This takes an events file and file with CPI information and prepares two dataframes for plotting, one for wars
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_20final_project_cython_35analyze_cpi, NULL, __pyx_n_s_final_project_cython); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1004, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_20final_project_cython_35analyze_cpi, NULL, __pyx_n_s_final_project_cython); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1009, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_analyze_cpi, __pyx_t_2) < 0) __PYX_ERR(0, 1004, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_analyze_cpi, __pyx_t_2) < 0) __PYX_ERR(0, 1009, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "final_project_cython_functions.pyx":1059
+  /* "final_project_cython_functions.pyx":1063
  * 
  * 
  * def analyze_index(sp500_file: str, dowjones_file: str, events_file: str):             # <<<<<<<<<<<<<<
  *     """
  *     manage the outputs of stock index analysis by passing different parameters of interest to the previous functions and
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_20final_project_cython_37analyze_index, NULL, __pyx_n_s_final_project_cython); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1059, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_20final_project_cython_37analyze_index, NULL, __pyx_n_s_final_project_cython); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1063, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_analyze_index, __pyx_t_2) < 0) __PYX_ERR(0, 1059, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_analyze_index, __pyx_t_2) < 0) __PYX_ERR(0, 1063, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "final_project_cython_functions.pyx":1
@@ -16190,12 +16178,12 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_t_2, __pyx_kp_u_adjust_index_line_407, __pyx_kp_u_Takes_a_dataframe_with_regular) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_2, __pyx_kp_u_read_worlddb_gdp_line_439, __pyx_kp_u_Takes_a_csv_file_from_the_World) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_2, __pyx_kp_u_get_gdp_info_line_538, __pyx_kp_u_Get_GDP_info_from_US_GDP_data_f) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_kp_u_plot_gdp_line_580, __pyx_kp_u_Plot_gdp_trend_for_given_events) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_kp_u_read_us_cpi_line_620, __pyx_kp_u_Loads_a_CVS_file_with_CPI_infor) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_kp_u_add_cpi_values_line_685, __pyx_kp_u_Takes_a_dataframe_with_an_Event) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_kp_u_get_index_line_750, __pyx_kp_u_Get_the_selected_type_nominal_o) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_kp_u_analyze_cpi_line_1004, __pyx_kp_u_This_takes_an_events_file_and_f) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_kp_u_analyze_index_line_1059, __pyx_kp_u_manage_the_outputs_of_stock_ind) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_kp_u_plot_gdp_line_585, __pyx_kp_u_Plot_gdp_trend_for_given_events) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_kp_u_read_us_cpi_line_625, __pyx_kp_u_Loads_a_CVS_file_with_CPI_infor) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_kp_u_add_cpi_values_line_690, __pyx_kp_u_Takes_a_dataframe_with_an_Event) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_kp_u_get_index_line_755, __pyx_kp_u_Get_the_selected_type_nominal_o) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_kp_u_analyze_cpi_line_1009, __pyx_kp_u_This_takes_an_events_file_and_f) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_kp_u_analyze_index_line_1063, __pyx_kp_u_manage_the_outputs_of_stock_ind) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_2) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
@@ -18230,6 +18218,28 @@ bad:
     Py_XDECREF(py_frame);
 }
 
+/* CIntFromPyVerify */
+    #define __PYX_VERIFY_RETURN_INT(target_type, func_type, func_value)\
+    __PYX__VERIFY_RETURN_INT(target_type, func_type, func_value, 0)
+#define __PYX_VERIFY_RETURN_INT_EXC(target_type, func_type, func_value)\
+    __PYX__VERIFY_RETURN_INT(target_type, func_type, func_value, 1)
+#define __PYX__VERIFY_RETURN_INT(target_type, func_type, func_value, exc)\
+    {\
+        func_type value = func_value;\
+        if (sizeof(target_type) < sizeof(func_type)) {\
+            if (unlikely(value != (func_type) (target_type) value)) {\
+                func_type zero = 0;\
+                if (exc && unlikely(value == (func_type)-1 && PyErr_Occurred()))\
+                    return (target_type) -1;\
+                if (is_unsigned && unlikely(value < zero))\
+                    goto raise_neg_overflow;\
+                else\
+                    goto raise_overflow;\
+            }\
+        }\
+        return (target_type) value;\
+    }
+
 /* Print */
     #if !CYTHON_COMPILING_IN_PYPY && PY_MAJOR_VERSION < 3
 static PyObject *__Pyx_GetStdout(void) {
@@ -18372,261 +18382,6 @@ bad:
         return _PyLong_FromByteArray(bytes, sizeof(long),
                                      little, !is_unsigned);
     }
-}
-
-/* PrintOne */
-    #if !CYTHON_COMPILING_IN_PYPY && PY_MAJOR_VERSION < 3
-static int __Pyx_PrintOne(PyObject* f, PyObject *o) {
-    if (!f) {
-        if (!(f = __Pyx_GetStdout()))
-            return -1;
-    }
-    Py_INCREF(f);
-    if (PyFile_SoftSpace(f, 0)) {
-        if (PyFile_WriteString(" ", f) < 0)
-            goto error;
-    }
-    if (PyFile_WriteObject(o, f, Py_PRINT_RAW) < 0)
-        goto error;
-    if (PyFile_WriteString("\n", f) < 0)
-        goto error;
-    Py_DECREF(f);
-    return 0;
-error:
-    Py_DECREF(f);
-    return -1;
-    /* the line below is just to avoid C compiler
-     * warnings about unused functions */
-    return __Pyx_Print(f, NULL, 0);
-}
-#else
-static int __Pyx_PrintOne(PyObject* stream, PyObject *o) {
-    int res;
-    PyObject* arg_tuple = PyTuple_Pack(1, o);
-    if (unlikely(!arg_tuple))
-        return -1;
-    res = __Pyx_Print(stream, arg_tuple, 1);
-    Py_DECREF(arg_tuple);
-    return res;
-}
-#endif
-
-/* CIntFromPyVerify */
-    #define __PYX_VERIFY_RETURN_INT(target_type, func_type, func_value)\
-    __PYX__VERIFY_RETURN_INT(target_type, func_type, func_value, 0)
-#define __PYX_VERIFY_RETURN_INT_EXC(target_type, func_type, func_value)\
-    __PYX__VERIFY_RETURN_INT(target_type, func_type, func_value, 1)
-#define __PYX__VERIFY_RETURN_INT(target_type, func_type, func_value, exc)\
-    {\
-        func_type value = func_value;\
-        if (sizeof(target_type) < sizeof(func_type)) {\
-            if (unlikely(value != (func_type) (target_type) value)) {\
-                func_type zero = 0;\
-                if (exc && unlikely(value == (func_type)-1 && PyErr_Occurred()))\
-                    return (target_type) -1;\
-                if (is_unsigned && unlikely(value < zero))\
-                    goto raise_neg_overflow;\
-                else\
-                    goto raise_overflow;\
-            }\
-        }\
-        return (target_type) value;\
-    }
-
-/* CIntFromPy */
-    static CYTHON_INLINE long __Pyx_PyInt_As_long(PyObject *x) {
-#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wconversion"
-#endif
-    const long neg_one = (long) -1, const_zero = (long) 0;
-#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
-#pragma GCC diagnostic pop
-#endif
-    const int is_unsigned = neg_one > const_zero;
-#if PY_MAJOR_VERSION < 3
-    if (likely(PyInt_Check(x))) {
-        if (sizeof(long) < sizeof(long)) {
-            __PYX_VERIFY_RETURN_INT(long, long, PyInt_AS_LONG(x))
-        } else {
-            long val = PyInt_AS_LONG(x);
-            if (is_unsigned && unlikely(val < 0)) {
-                goto raise_neg_overflow;
-            }
-            return (long) val;
-        }
-    } else
-#endif
-    if (likely(PyLong_Check(x))) {
-        if (is_unsigned) {
-#if CYTHON_USE_PYLONG_INTERNALS
-            const digit* digits = ((PyLongObject*)x)->ob_digit;
-            switch (Py_SIZE(x)) {
-                case  0: return (long) 0;
-                case  1: __PYX_VERIFY_RETURN_INT(long, digit, digits[0])
-                case 2:
-                    if (8 * sizeof(long) > 1 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) >= 2 * PyLong_SHIFT) {
-                            return (long) (((((long)digits[1]) << PyLong_SHIFT) | (long)digits[0]));
-                        }
-                    }
-                    break;
-                case 3:
-                    if (8 * sizeof(long) > 2 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) >= 3 * PyLong_SHIFT) {
-                            return (long) (((((((long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0]));
-                        }
-                    }
-                    break;
-                case 4:
-                    if (8 * sizeof(long) > 3 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) >= 4 * PyLong_SHIFT) {
-                            return (long) (((((((((long)digits[3]) << PyLong_SHIFT) | (long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0]));
-                        }
-                    }
-                    break;
-            }
-#endif
-#if CYTHON_COMPILING_IN_CPYTHON
-            if (unlikely(Py_SIZE(x) < 0)) {
-                goto raise_neg_overflow;
-            }
-#else
-            {
-                int result = PyObject_RichCompareBool(x, Py_False, Py_LT);
-                if (unlikely(result < 0))
-                    return (long) -1;
-                if (unlikely(result == 1))
-                    goto raise_neg_overflow;
-            }
-#endif
-            if (sizeof(long) <= sizeof(unsigned long)) {
-                __PYX_VERIFY_RETURN_INT_EXC(long, unsigned long, PyLong_AsUnsignedLong(x))
-#ifdef HAVE_LONG_LONG
-            } else if (sizeof(long) <= sizeof(unsigned PY_LONG_LONG)) {
-                __PYX_VERIFY_RETURN_INT_EXC(long, unsigned PY_LONG_LONG, PyLong_AsUnsignedLongLong(x))
-#endif
-            }
-        } else {
-#if CYTHON_USE_PYLONG_INTERNALS
-            const digit* digits = ((PyLongObject*)x)->ob_digit;
-            switch (Py_SIZE(x)) {
-                case  0: return (long) 0;
-                case -1: __PYX_VERIFY_RETURN_INT(long, sdigit, (sdigit) (-(sdigit)digits[0]))
-                case  1: __PYX_VERIFY_RETURN_INT(long,  digit, +digits[0])
-                case -2:
-                    if (8 * sizeof(long) - 1 > 1 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, long, -(long) (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
-                            return (long) (((long)-1)*(((((long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
-                        }
-                    }
-                    break;
-                case 2:
-                    if (8 * sizeof(long) > 1 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
-                            return (long) ((((((long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
-                        }
-                    }
-                    break;
-                case -3:
-                    if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, long, -(long) (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
-                            return (long) (((long)-1)*(((((((long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
-                        }
-                    }
-                    break;
-                case 3:
-                    if (8 * sizeof(long) > 2 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
-                            return (long) ((((((((long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
-                        }
-                    }
-                    break;
-                case -4:
-                    if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, long, -(long) (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) - 1 > 4 * PyLong_SHIFT) {
-                            return (long) (((long)-1)*(((((((((long)digits[3]) << PyLong_SHIFT) | (long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
-                        }
-                    }
-                    break;
-                case 4:
-                    if (8 * sizeof(long) > 3 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) - 1 > 4 * PyLong_SHIFT) {
-                            return (long) ((((((((((long)digits[3]) << PyLong_SHIFT) | (long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
-                        }
-                    }
-                    break;
-            }
-#endif
-            if (sizeof(long) <= sizeof(long)) {
-                __PYX_VERIFY_RETURN_INT_EXC(long, long, PyLong_AsLong(x))
-#ifdef HAVE_LONG_LONG
-            } else if (sizeof(long) <= sizeof(PY_LONG_LONG)) {
-                __PYX_VERIFY_RETURN_INT_EXC(long, PY_LONG_LONG, PyLong_AsLongLong(x))
-#endif
-            }
-        }
-        {
-#if CYTHON_COMPILING_IN_PYPY && !defined(_PyLong_AsByteArray)
-            PyErr_SetString(PyExc_RuntimeError,
-                            "_PyLong_AsByteArray() not available in PyPy, cannot convert large numbers");
-#else
-            long val;
-            PyObject *v = __Pyx_PyNumber_IntOrLong(x);
- #if PY_MAJOR_VERSION < 3
-            if (likely(v) && !PyLong_Check(v)) {
-                PyObject *tmp = v;
-                v = PyNumber_Long(tmp);
-                Py_DECREF(tmp);
-            }
- #endif
-            if (likely(v)) {
-                int one = 1; int is_little = (int)*(unsigned char *)&one;
-                unsigned char *bytes = (unsigned char *)&val;
-                int ret = _PyLong_AsByteArray((PyLongObject *)v,
-                                              bytes, sizeof(val),
-                                              is_little, !is_unsigned);
-                Py_DECREF(v);
-                if (likely(!ret))
-                    return val;
-            }
-#endif
-            return (long) -1;
-        }
-    } else {
-        long val;
-        PyObject *tmp = __Pyx_PyNumber_IntOrLong(x);
-        if (!tmp) return (long) -1;
-        val = __Pyx_PyInt_As_long(tmp);
-        Py_DECREF(tmp);
-        return val;
-    }
-raise_overflow:
-    PyErr_SetString(PyExc_OverflowError,
-        "value too large to convert to long");
-    return (long) -1;
-raise_neg_overflow:
-    PyErr_SetString(PyExc_OverflowError,
-        "can't convert negative value to long");
-    return (long) -1;
 }
 
 /* CIntFromPy */
@@ -18823,6 +18578,277 @@ raise_neg_overflow:
     PyErr_SetString(PyExc_OverflowError,
         "can't convert negative value to int");
     return (int) -1;
+}
+
+/* CIntToPy */
+    static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value) {
+#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wconversion"
+#endif
+    const int neg_one = (int) -1, const_zero = (int) 0;
+#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
+#pragma GCC diagnostic pop
+#endif
+    const int is_unsigned = neg_one > const_zero;
+    if (is_unsigned) {
+        if (sizeof(int) < sizeof(long)) {
+            return PyInt_FromLong((long) value);
+        } else if (sizeof(int) <= sizeof(unsigned long)) {
+            return PyLong_FromUnsignedLong((unsigned long) value);
+#ifdef HAVE_LONG_LONG
+        } else if (sizeof(int) <= sizeof(unsigned PY_LONG_LONG)) {
+            return PyLong_FromUnsignedLongLong((unsigned PY_LONG_LONG) value);
+#endif
+        }
+    } else {
+        if (sizeof(int) <= sizeof(long)) {
+            return PyInt_FromLong((long) value);
+#ifdef HAVE_LONG_LONG
+        } else if (sizeof(int) <= sizeof(PY_LONG_LONG)) {
+            return PyLong_FromLongLong((PY_LONG_LONG) value);
+#endif
+        }
+    }
+    {
+        int one = 1; int little = (int)*(unsigned char *)&one;
+        unsigned char *bytes = (unsigned char *)&value;
+        return _PyLong_FromByteArray(bytes, sizeof(int),
+                                     little, !is_unsigned);
+    }
+}
+
+/* PrintOne */
+    #if !CYTHON_COMPILING_IN_PYPY && PY_MAJOR_VERSION < 3
+static int __Pyx_PrintOne(PyObject* f, PyObject *o) {
+    if (!f) {
+        if (!(f = __Pyx_GetStdout()))
+            return -1;
+    }
+    Py_INCREF(f);
+    if (PyFile_SoftSpace(f, 0)) {
+        if (PyFile_WriteString(" ", f) < 0)
+            goto error;
+    }
+    if (PyFile_WriteObject(o, f, Py_PRINT_RAW) < 0)
+        goto error;
+    if (PyFile_WriteString("\n", f) < 0)
+        goto error;
+    Py_DECREF(f);
+    return 0;
+error:
+    Py_DECREF(f);
+    return -1;
+    /* the line below is just to avoid C compiler
+     * warnings about unused functions */
+    return __Pyx_Print(f, NULL, 0);
+}
+#else
+static int __Pyx_PrintOne(PyObject* stream, PyObject *o) {
+    int res;
+    PyObject* arg_tuple = PyTuple_Pack(1, o);
+    if (unlikely(!arg_tuple))
+        return -1;
+    res = __Pyx_Print(stream, arg_tuple, 1);
+    Py_DECREF(arg_tuple);
+    return res;
+}
+#endif
+
+/* CIntFromPy */
+    static CYTHON_INLINE long __Pyx_PyInt_As_long(PyObject *x) {
+#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wconversion"
+#endif
+    const long neg_one = (long) -1, const_zero = (long) 0;
+#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
+#pragma GCC diagnostic pop
+#endif
+    const int is_unsigned = neg_one > const_zero;
+#if PY_MAJOR_VERSION < 3
+    if (likely(PyInt_Check(x))) {
+        if (sizeof(long) < sizeof(long)) {
+            __PYX_VERIFY_RETURN_INT(long, long, PyInt_AS_LONG(x))
+        } else {
+            long val = PyInt_AS_LONG(x);
+            if (is_unsigned && unlikely(val < 0)) {
+                goto raise_neg_overflow;
+            }
+            return (long) val;
+        }
+    } else
+#endif
+    if (likely(PyLong_Check(x))) {
+        if (is_unsigned) {
+#if CYTHON_USE_PYLONG_INTERNALS
+            const digit* digits = ((PyLongObject*)x)->ob_digit;
+            switch (Py_SIZE(x)) {
+                case  0: return (long) 0;
+                case  1: __PYX_VERIFY_RETURN_INT(long, digit, digits[0])
+                case 2:
+                    if (8 * sizeof(long) > 1 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) >= 2 * PyLong_SHIFT) {
+                            return (long) (((((long)digits[1]) << PyLong_SHIFT) | (long)digits[0]));
+                        }
+                    }
+                    break;
+                case 3:
+                    if (8 * sizeof(long) > 2 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) >= 3 * PyLong_SHIFT) {
+                            return (long) (((((((long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0]));
+                        }
+                    }
+                    break;
+                case 4:
+                    if (8 * sizeof(long) > 3 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) >= 4 * PyLong_SHIFT) {
+                            return (long) (((((((((long)digits[3]) << PyLong_SHIFT) | (long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0]));
+                        }
+                    }
+                    break;
+            }
+#endif
+#if CYTHON_COMPILING_IN_CPYTHON
+            if (unlikely(Py_SIZE(x) < 0)) {
+                goto raise_neg_overflow;
+            }
+#else
+            {
+                int result = PyObject_RichCompareBool(x, Py_False, Py_LT);
+                if (unlikely(result < 0))
+                    return (long) -1;
+                if (unlikely(result == 1))
+                    goto raise_neg_overflow;
+            }
+#endif
+            if (sizeof(long) <= sizeof(unsigned long)) {
+                __PYX_VERIFY_RETURN_INT_EXC(long, unsigned long, PyLong_AsUnsignedLong(x))
+#ifdef HAVE_LONG_LONG
+            } else if (sizeof(long) <= sizeof(unsigned PY_LONG_LONG)) {
+                __PYX_VERIFY_RETURN_INT_EXC(long, unsigned PY_LONG_LONG, PyLong_AsUnsignedLongLong(x))
+#endif
+            }
+        } else {
+#if CYTHON_USE_PYLONG_INTERNALS
+            const digit* digits = ((PyLongObject*)x)->ob_digit;
+            switch (Py_SIZE(x)) {
+                case  0: return (long) 0;
+                case -1: __PYX_VERIFY_RETURN_INT(long, sdigit, (sdigit) (-(sdigit)digits[0]))
+                case  1: __PYX_VERIFY_RETURN_INT(long,  digit, +digits[0])
+                case -2:
+                    if (8 * sizeof(long) - 1 > 1 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, long, -(long) (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
+                            return (long) (((long)-1)*(((((long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
+                        }
+                    }
+                    break;
+                case 2:
+                    if (8 * sizeof(long) > 1 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
+                            return (long) ((((((long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
+                        }
+                    }
+                    break;
+                case -3:
+                    if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, long, -(long) (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
+                            return (long) (((long)-1)*(((((((long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
+                        }
+                    }
+                    break;
+                case 3:
+                    if (8 * sizeof(long) > 2 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
+                            return (long) ((((((((long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
+                        }
+                    }
+                    break;
+                case -4:
+                    if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, long, -(long) (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) - 1 > 4 * PyLong_SHIFT) {
+                            return (long) (((long)-1)*(((((((((long)digits[3]) << PyLong_SHIFT) | (long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
+                        }
+                    }
+                    break;
+                case 4:
+                    if (8 * sizeof(long) > 3 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) - 1 > 4 * PyLong_SHIFT) {
+                            return (long) ((((((((((long)digits[3]) << PyLong_SHIFT) | (long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
+                        }
+                    }
+                    break;
+            }
+#endif
+            if (sizeof(long) <= sizeof(long)) {
+                __PYX_VERIFY_RETURN_INT_EXC(long, long, PyLong_AsLong(x))
+#ifdef HAVE_LONG_LONG
+            } else if (sizeof(long) <= sizeof(PY_LONG_LONG)) {
+                __PYX_VERIFY_RETURN_INT_EXC(long, PY_LONG_LONG, PyLong_AsLongLong(x))
+#endif
+            }
+        }
+        {
+#if CYTHON_COMPILING_IN_PYPY && !defined(_PyLong_AsByteArray)
+            PyErr_SetString(PyExc_RuntimeError,
+                            "_PyLong_AsByteArray() not available in PyPy, cannot convert large numbers");
+#else
+            long val;
+            PyObject *v = __Pyx_PyNumber_IntOrLong(x);
+ #if PY_MAJOR_VERSION < 3
+            if (likely(v) && !PyLong_Check(v)) {
+                PyObject *tmp = v;
+                v = PyNumber_Long(tmp);
+                Py_DECREF(tmp);
+            }
+ #endif
+            if (likely(v)) {
+                int one = 1; int is_little = (int)*(unsigned char *)&one;
+                unsigned char *bytes = (unsigned char *)&val;
+                int ret = _PyLong_AsByteArray((PyLongObject *)v,
+                                              bytes, sizeof(val),
+                                              is_little, !is_unsigned);
+                Py_DECREF(v);
+                if (likely(!ret))
+                    return val;
+            }
+#endif
+            return (long) -1;
+        }
+    } else {
+        long val;
+        PyObject *tmp = __Pyx_PyNumber_IntOrLong(x);
+        if (!tmp) return (long) -1;
+        val = __Pyx_PyInt_As_long(tmp);
+        Py_DECREF(tmp);
+        return val;
+    }
+raise_overflow:
+    PyErr_SetString(PyExc_OverflowError,
+        "value too large to convert to long");
+    return (long) -1;
+raise_neg_overflow:
+    PyErr_SetString(PyExc_OverflowError,
+        "can't convert negative value to long");
+    return (long) -1;
 }
 
 /* FastTypeChecks */
