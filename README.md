@@ -99,22 +99,27 @@ pandemics.  However, as we've seen, this is far from guaranteed.
 
 ### Gross Domestic Product (GDP) before and after Wars and Pandemics
 
-1. Overall GDP and subcategories (Personal consumption expenditures, Gross private domestic investment and Government consumption expenditures and gross investment)
+**1. Overall GDP and subcategories (Personal consumption expenditures, Gross private domestic investment and Government consumption expenditures and gross investment)**
 ![alt text](Plots/GDP/HIV%20AIDS%20pandemic.png)
 
-2. Pandemics Vs. Wars
-* GDP fluctuations for SARS outbreak, Ebola virus epidemic and COVID-19 pandemic:
-![GDP SARS outbreak](Plots/GDP/SARS%20outbreak.png)
-![GDP Ebola outbreak](Plots/GDP/Western%20African%20Ebola%20virus%20epidemic.png)
-![GDP Covid-9 outbreak](Plots/GDP/COVID-19%20pandemic.png)
+Take the ongoing HIV pandemic as an example, all indexes exhibit a gradually increasing pattern throughout the years. Personal consumption expenditure takes up the majority of proportion of GDP, 
+while Gross private domestic investment and government consumption stays more stable and with less proportion.  
 
-**Most Pandemics have negligible influences on GDP, except for that during COVID-19.**
+**2. Pandemics Vs. Wars**
+* GDP fluctuations for SARS outbreak, Hong Kong Flu and COVID-19 pandemic:
+![GDP SARS outbreak](Plots/GDP/SARS%20outbreak.png)
+![GDP Hong Kong outbreak](Plots/GDP/Hong%20Kong%20Flu.png)
+Pandemics appear to cause negligible effects on GDP and its sub-categories. With an exception to COVID-19 pandemic where
+ Personal consumption index decrease led to a noticable drop in overall GDP. 
+![GDP Covid-19 outbreak](Plots/GDP/COVID-19%20pandemic.png)
 
 * GDP fluctuations for Korean War and World War II:
 ![GDP Korean War](Plots/GDP/Korean%20War.png)
+GDP trends fluctuate more around war-time period compare to those for pandemics. Government consumption index increases
+significantly for wars, and it leads to increases of overall GDP. For Korean War, government consumption reaches a peak before
+war period and a drastic increase in the later part of World War II. 
 ![GDP World War II](Plots/GDP/World%20War%20II.png)
 
-**GDP during wars is fluctuating and government consumption contributes the most and leads to increase in GDP.**
 
 ### S&P500 and Dow Jones before and after Wars and Pandemics
 
