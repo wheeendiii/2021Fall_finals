@@ -1118,24 +1118,3 @@ def analyze_index(sp500_file: str, dowjones_file: str, events_file: str):
     # print("4. If we use the year before the event end year as zero point, and select the inflation adjusted SP500 and "
     #       "Dow Jones historical data 5 years before and after the zero point year, plots would be")
     # output_sp_dj(event_df, sp_df, dj_df, "year_before_end_year", 5, "real")
-
-
-def main():
-    """
-    Main function for starting all data processing and plotting
-    :return: None
-    """
-    us_cpi_data = 'data/bls_us_cpi.csv'
-    events_data = 'data/event_facts.csv'
-    sp500_data = 'data/sp500_monthly.csv'
-    dowjones_data = 'data/dow_jone_monthly.csv'
-    us_gdp_data = 'data/gdp_usafacts.csv'
-
-    analyze_index(sp500_data, dowjones_data, events_data)
-    analyze_gdp(us_gdp_data, events_data)
-    pandemics_cpi_df, wars_cpi_df = analyze_cpi(us_cpi_data, events_data, 10, 'end_year')
-    plot_all_cpi_graphs(pandemics_cpi_df, wars_cpi_df)
-
-
-if __name__ == '__main__':
-    main()
