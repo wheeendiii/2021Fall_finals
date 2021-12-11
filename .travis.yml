@@ -8,6 +8,7 @@ matrix:
     - python: 3.9
 
 install:
+  - export PYTHONPATH=$PYTHONPATH:$(pwd)
   - pip install -r requirements.txt
 
 # command to run tests
