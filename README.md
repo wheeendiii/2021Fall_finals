@@ -143,6 +143,9 @@ war period and a drastic increase in the later part of World War II.
 ['Korean War', 'Vietnam War', 'World War II', 'War in Somalia']
 ![SP500 DJ High Falality Wars](Plots/StockIndex/10y_year_before_end_year_real_wars_over_1m_fatalities.png)
 
+In the above plots, I used the year before the formal end of wars and pandemics as the year 0, which is the segment within the dashed lines. The 0 in the x-axis is the January of Year 0. Then, we plotted the percentage change of indexes 10 years before and after the year 0 to see whether these indexes would be impacted by the occurrence of wars/pandemics.
+From the plots, we can see (1) during the years after the formal end of severe pandemics with over 1 million fatalities, the volatility of S&P 500 and Dow Jones increases; (2) After the end of wars, there was usually a dip of these indexes; (3) The percentage change of S&P 500 and Dow Jones are closely related to each other; (4) In a long term, the inflation adjusted indexes was NOT significantly impacted by wars and pandemics.
+
 2. If we use the event start year as zero point, and select the real SP500 and Dow Jones historical data 5 years before and after the zero point year, plots would be
 
 * The evolution of real SP500 and Dow Jones 5 years before and after all the Pandemics:
@@ -156,6 +159,11 @@ war period and a drastic increase in the later part of World War II.
 
 * The evolution of real SP500 and Dow Jones 5 years before and after Wars with over 1m fatalities:
 ![SP500 DJ High Fatality Wars](Plots/StockIndex/5y_start_year_real_wars_over_1m_fatalities.png)
+
+In the above plots, I used the start year of wars and pandemics as year 0 and plotted the historical percentage change of indexes 5 years before and after the year 0 to explore the volatility of these indexes after the start of wars and pandemics.
+We can see there was no significant change happened after the start of wars and pandemics.
+
+**Therefore, I would reject our original hypotheses.**
 
 ## Selective Compilation (Numba and Cython)
 
